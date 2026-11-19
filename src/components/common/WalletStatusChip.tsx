@@ -33,7 +33,7 @@ export function WalletStatusChip({ className = '' }: { className?: string }) {
 		return (
 			<Link
 				to="/connect"
-				className={`inline-flex items-center rounded-full bg-white/10 px-3 py-1.5 font-jakarta text-sm text-white transition-colors hover:bg-white/20 ${className}`}
+				className={`inline-flex items-center rounded-full bg-foreground/10 px-3 py-1.5 font-jakarta text-sm text-foreground transition-colors hover:bg-foreground/20 ${className}`}
 			>
 				Connect Wallet
 			</Link>
@@ -62,9 +62,9 @@ export function WalletStatusChip({ className = '' }: { className?: string }) {
 				<button
 					type="button"
 					aria-label={`Wallet ${shortenAddress(address)} on ${network.label}. Open wallet menu.`}
-					className={`inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 transition-colors hover:bg-white/20 ${className}`}
+					className={`inline-flex items-center gap-2 rounded-full bg-foreground/10 px-3 py-1.5 transition-colors hover:bg-foreground/20 ${className}`}
 				>
-					<span className="font-mono text-xs text-white">{shortenAddress(address)}</span>
+					<span className="font-mono text-xs text-foreground">{shortenAddress(address)}</span>
 					<span
 						// aria-hidden: the network is already stated in the button's
 						// accessible name, so announcing the badge repeats it.

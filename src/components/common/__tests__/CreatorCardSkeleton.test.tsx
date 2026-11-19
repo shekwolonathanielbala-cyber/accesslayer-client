@@ -32,7 +32,7 @@ describe('CreatorCardSkeleton', () => {
 
 		expect(container.querySelectorAll('.skeleton-shimmer')).toHaveLength(0);
 		expect(
-			container.querySelectorAll('.ring-white\\/15').length
+			container.querySelectorAll('.ring-foreground\\/15').length
 		).toBeGreaterThanOrEqual(10);
 	});
 
@@ -77,7 +77,7 @@ describe('CreatorCardGridSkeleton', () => {
 		expect(getAllByTestId('creator-card-skeleton')).toHaveLength(2);
 		expect(container.querySelectorAll('.skeleton-shimmer')).toHaveLength(0);
 		expect(
-			container.querySelectorAll('.ring-white\\/15').length
+			container.querySelectorAll('.ring-foreground\\/15').length
 		).toBeGreaterThanOrEqual(20);
 	});
 

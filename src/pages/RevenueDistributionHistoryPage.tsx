@@ -16,14 +16,14 @@ export default function RevenueDistributionHistoryPage() {
 
 	if (!address) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex items-center gap-2 mb-6">
-						<Coins className="size-5 text-amber-300" aria-hidden="true" />
+						<Coins className="size-5 text-amber-700 dark:text-amber-300" aria-hidden="true" />
 						<h1 className="text-2xl font-black">Revenue Distribution History</h1>
 					</div>
-					<div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 text-center">
-						<p className="text-white/60">Please connect your wallet to view your revenue distribution history.</p>
+					<div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-8 text-center">
+						<p className="text-foreground/60">Please connect your wallet to view your revenue distribution history.</p>
 					</div>
 				</div>
 			</main>
@@ -31,10 +31,10 @@ export default function RevenueDistributionHistoryPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-7xl">
 				<div className="mb-6 flex items-center gap-2">
-					<Coins className="size-5 text-amber-300" aria-hidden="true" />
+					<Coins className="size-5 text-amber-700 dark:text-amber-300" aria-hidden="true" />
 					<h1 className="text-2xl font-black">Revenue Distribution History</h1>
 				</div>
 				<ProtocolRevenueDistributionTable walletAddress={address} />

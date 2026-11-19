@@ -15,7 +15,7 @@ import { sumReferralRewards } from '@/utils/referral.utils';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 /**
  * Referral programme dashboard (#963).
@@ -55,13 +55,13 @@ export default function ReferralDashboardPage() {
 	const listedRewards = sumReferralRewards(referredWallets);
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-5xl space-y-8">
 				<div>
 					<h1 className="font-grotesque text-3xl font-black tracking-tight">
 						Referral programme
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						Share your link, track the wallets you referred, and withdraw
 						the fees their first trades earned you.
 					</p>
@@ -69,7 +69,7 @@ export default function ReferralDashboardPage() {
 
 				{!isConnected && (
 					<section className={CARD_CLASS} data-testid="referral-connect-prompt">
-						<p className="text-sm text-white/60">
+						<p className="text-sm text-foreground/60">
 							Connect your wallet to generate your referral link and see
 							your earnings.
 						</p>
@@ -92,7 +92,7 @@ export default function ReferralDashboardPage() {
 					/>
 					{isSummaryLoading === false && referredWallets.length > 0 && (
 						<p
-							className="mt-3 text-xs text-white/45"
+							className="mt-3 text-xs text-foreground/45"
 							data-testid="referral-rewards-from-rows"
 						>
 							{listedRewards.toFixed(4)} XLM across {referredWallets.length}{' '}
@@ -118,11 +118,11 @@ export default function ReferralDashboardPage() {
 					<ReferralProgrammeTerms rewardBps={earnings.rewardBps} />
 				</section>
 
-				<p className="text-sm text-white/50">
+				<p className="text-sm text-foreground/50">
 					Looking for your key holdings?{' '}
 					<Link
 						to="/profile"
-						className="font-semibold text-amber-300 hover:text-amber-200"
+						className="font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200"
 					>
 						Open your portfolio
 					</Link>

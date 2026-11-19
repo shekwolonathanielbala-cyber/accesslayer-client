@@ -62,21 +62,21 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 	return (
 		<div
 			className={cn(
-				'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
+				'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
 				className
 			)}
 			data-testid="key-simulation-tool"
 		>
-			<h2 className="font-grotesque text-xl font-black tracking-tight text-white mb-2">
+			<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground mb-2">
 				Simulate a buy
 			</h2>
-			<p className="text-sm text-white/55 mb-6">
+			<p className="text-sm text-foreground/55 mb-6">
 				Model a hypothetical purchase to see the projected price impact and
 				cost before you buy for real.
 			</p>
 
 			<div className="space-y-2">
-				<label htmlFor="key-simulation-amount" className="text-sm text-white/70">
+				<label htmlFor="key-simulation-amount" className="text-sm text-foreground/70">
 					Quantity
 				</label>
 				<input
@@ -85,8 +85,8 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 					value={amountText}
 					onChange={event => setAmountText(event.target.value)}
 					className={cn(
-						'w-full max-w-[10rem] rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-						'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15',
+						'w-full max-w-[10rem] rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+						'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15',
 						validationError ? 'border-red-500/60' : ''
 					)}
 					aria-label="Simulated buy quantity"
@@ -98,7 +98,7 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 					<p
 						id="key-simulation-error"
 						role="alert"
-						className="text-xs text-red-300"
+						className="text-xs text-red-700 dark:text-red-300"
 						data-testid="key-simulation-error"
 					>
 						{validationError}
@@ -108,35 +108,35 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 
 			{result && (
 				<div
-					className="mt-6 space-y-2 rounded-lg border border-white/10 bg-white/[0.02] p-4"
+					className="mt-6 space-y-2 rounded-lg border border-foreground/10 bg-foreground/[0.02] p-4"
 					data-testid="key-simulation-result"
 				>
 					<div className="flex justify-between items-center text-xs">
-						<span className="text-white/70">Current price</span>
+						<span className="text-foreground/70">Current price</span>
 						<span
-							className="font-mono text-white/90"
+							className="font-mono text-foreground/90"
 							data-testid="key-simulation-start-price"
 						>
 							{formatDisplayKeyPrice(result.startPriceStroops)}
 						</span>
 					</div>
 					<div className="flex justify-between items-center text-xs">
-						<span className="text-white/70">Projected price after buy</span>
+						<span className="text-foreground/70">Projected price after buy</span>
 						<span
-							className="font-mono text-white/90"
+							className="font-mono text-foreground/90"
 							data-testid="key-simulation-end-price"
 						>
 							{formatDisplayKeyPrice(result.endPriceStroops)}
 						</span>
 					</div>
 					<div className="flex justify-between items-center text-xs">
-						<span className="text-white/70">Price impact</span>
+						<span className="text-foreground/70">Price impact</span>
 						<span
 							className={cn(
 								'font-mono',
 								result.priceImpactPercent > 0
-									? 'text-amber-300/90'
-									: 'text-white/90'
+									? 'text-amber-700/90 dark:text-amber-300/90'
+									: 'text-foreground/90'
 							)}
 							data-testid="key-simulation-price-impact"
 						>
@@ -147,9 +147,9 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 						</span>
 					</div>
 					<div className="flex justify-between items-center text-xs">
-						<span className="text-white/70">Average price paid</span>
+						<span className="text-foreground/70">Average price paid</span>
 						<span
-							className="font-mono text-white/90"
+							className="font-mono text-foreground/90"
 							data-testid="key-simulation-average-price"
 						>
 							{formatDisplayKeyPrice(result.averagePriceStroops)}
@@ -157,24 +157,24 @@ const KeySimulationTool: React.FC<KeySimulationToolProps> = ({
 					</div>
 					{result.protocolFeeBps > 0 && (
 						<div className="flex justify-between items-center text-xs">
-							<span className="text-white/70">Simulated protocol fee</span>
-							<span className="font-mono text-white/90">
+							<span className="text-foreground/70">Simulated protocol fee</span>
+							<span className="font-mono text-foreground/90">
 								{formatDisplayKeyPrice(result.protocolFeeStroops)}
 							</span>
 						</div>
 					)}
 					{result.creatorFeeBps > 0 && (
 						<div className="flex justify-between items-center text-xs">
-							<span className="text-white/70">Simulated creator fee</span>
-							<span className="font-mono text-white/90">
+							<span className="text-foreground/70">Simulated creator fee</span>
+							<span className="font-mono text-foreground/90">
 								{formatDisplayKeyPrice(result.creatorFeeStroops)}
 							</span>
 						</div>
 					)}
-					<div className="flex justify-between items-center text-xs pt-2 border-t border-white/10">
-						<span className="font-semibold text-white">Total cost</span>
+					<div className="flex justify-between items-center text-xs pt-2 border-t border-foreground/10">
+						<span className="font-semibold text-foreground">Total cost</span>
 						<span
-							className="font-mono font-semibold text-amber-300/90"
+							className="font-mono font-semibold text-amber-700/90 dark:text-amber-300/90"
 							data-testid="key-simulation-total-cost"
 						>
 							{formatDisplayKeyPrice(result.totalCostStroops)}

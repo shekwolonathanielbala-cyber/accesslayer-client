@@ -53,7 +53,7 @@ const QuorumIndicator: React.FC<QuorumIndicatorProps> = ({
 			}
 		>
 			{/* Progress bar track */}
-			<div className="relative h-2 w-full overflow-hidden rounded-full bg-white/[0.08]">
+			<div className="relative h-2 w-full overflow-hidden rounded-full bg-foreground/[0.08]">
 				{/* Filled portion — participation */}
 				<div
 					className={cn(
@@ -77,25 +77,25 @@ const QuorumIndicator: React.FC<QuorumIndicatorProps> = ({
 				<div className="flex items-center gap-1">
 					{quorumReached ? (
 						<CheckCircle
-							className="size-3.5 text-emerald-400"
+							className="size-3.5 text-emerald-600 dark:text-emerald-400"
 							aria-hidden="true"
 						/>
 					) : (
 						<AlertCircle
-							className="size-3.5 text-amber-400"
+							className="size-3.5 text-amber-600 dark:text-amber-400"
 							aria-hidden="true"
 						/>
 					)}
 					<span
 						className={cn(
 							'font-semibold',
-							quorumReached ? 'text-emerald-400' : 'text-amber-400'
+							quorumReached ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
 						)}
 					>
 						{quorumReached ? 'Quorum reached' : 'Quorum not yet reached'}
 					</span>
 				</div>
-				<span className="tabular-nums text-white/50">
+				<span className="tabular-nums text-foreground/50">
 					{participationPct.toFixed(1)}% / {quorumPct.toFixed(0)}%
 				</span>
 			</div>

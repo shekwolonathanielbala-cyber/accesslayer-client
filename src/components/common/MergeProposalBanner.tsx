@@ -39,17 +39,17 @@ const OUTCOME_COPY: Record<
 	passed: {
 		label: 'Merge proposal passed',
 		icon: CheckCircle2,
-		classes: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
+		classes: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
 	},
 	pending_execution: {
 		label: 'Merge proposal passed — pending execution',
 		icon: Clock4,
-		classes: 'border-blue-500/30 bg-blue-500/10 text-blue-300',
+		classes: 'border-blue-500/30 bg-blue-500/10 text-blue-700 dark:text-blue-300',
 	},
 	failed: {
 		label: 'Merge proposal failed',
 		icon: XCircle,
-		classes: 'border-red-500/30 bg-red-500/10 text-red-300',
+		classes: 'border-red-500/30 bg-red-500/10 text-red-700 dark:text-red-300',
 	},
 };
 
@@ -101,7 +101,7 @@ export default function MergeProposalBanner({
 	return (
 		<section
 			className={cn(
-				'rounded-2xl border border-amber-500/25 bg-white/[0.03] p-5 md:p-6',
+				'rounded-2xl border border-amber-500/25 bg-foreground/[0.03] p-5 md:p-6',
 				className
 			)}
 			data-testid="merge-proposal-banner"
@@ -110,7 +110,7 @@ export default function MergeProposalBanner({
 			<div className="flex flex-wrap items-start justify-between gap-3">
 				<div className="min-w-0 max-w-2xl">
 					<div className="flex flex-wrap items-center gap-2.5">
-						<span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/20 px-2.5 py-0.5 text-xs font-semibold text-amber-300">
+						<span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/20 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300">
 							<GitMerge className="size-3.5" aria-hidden="true" />
 							Merge proposal
 						</span>
@@ -120,10 +120,10 @@ export default function MergeProposalBanner({
 							/>
 						)}
 					</div>
-					<h3 className="mt-2.5 font-jakarta text-base font-bold text-white">
+					<h3 className="mt-2.5 font-jakarta text-base font-bold text-foreground">
 						{proposal.title}
 					</h3>
-					<p className="mt-1 text-sm leading-relaxed text-white/60">
+					<p className="mt-1 text-sm leading-relaxed text-foreground/60">
 						{proposal.description}
 					</p>
 				</div>
@@ -148,7 +148,7 @@ export default function MergeProposalBanner({
 
 			{/* Live vote tally */}
 			<div className="mt-5 space-y-1.5" data-testid="merge-proposal-tally">
-				<div className="relative h-2 w-full overflow-hidden rounded-full bg-white/[0.08]">
+				<div className="relative h-2 w-full overflow-hidden rounded-full bg-foreground/[0.08]">
 					<div
 						className={cn(
 							'absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out',
@@ -163,23 +163,23 @@ export default function MergeProposalBanner({
 						aria-hidden="true"
 					/>
 				</div>
-				<div className="flex flex-wrap items-center justify-between gap-2 text-xs text-white/50">
+				<div className="flex flex-wrap items-center justify-between gap-2 text-xs text-foreground/50">
 					<span className="tabular-nums">
-						<span className="font-semibold text-white/80">
+						<span className="font-semibold text-foreground/80">
 							{approvalPct.toFixed(1)}%
 						</span>{' '}
 						approval · {requiredPct.toFixed(0)}% required
 					</span>
 					<span className="flex items-center gap-3 tabular-nums">
-						<span className="inline-flex items-center gap-1 text-emerald-400">
+						<span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
 							<ThumbsUp className="size-3" aria-hidden="true" />
 							{formatCompactNumber(proposal.approveWeight)}
 						</span>
-						<span className="inline-flex items-center gap-1 text-red-400">
+						<span className="inline-flex items-center gap-1 text-red-600 dark:text-red-400">
 							<ThumbsDown className="size-3" aria-hidden="true" />
 							{formatCompactNumber(proposal.rejectWeight)}
 						</span>
-						<span className="text-white/35">
+						<span className="text-foreground/35">
 							{formatCompactNumber(totalVotes)} votes cast
 						</span>
 					</span>
@@ -188,7 +188,7 @@ export default function MergeProposalBanner({
 
 			{/* Vote actions — qualifying holders only, while voting is open */}
 			{votingOpen && (
-				<div className="mt-5 flex flex-wrap items-center gap-3 border-t border-white/10 pt-4">
+				<div className="mt-5 flex flex-wrap items-center gap-3 border-t border-foreground/10 pt-4">
 					{canVote ? (
 						<>
 							<Button
@@ -210,7 +210,7 @@ export default function MergeProposalBanner({
 								variant="outline"
 								onClick={() => handleVote('reject')}
 								disabled={castVote.isPending}
-								className="rounded-xl border-red-500/30 bg-red-500/10 font-bold text-red-300 hover:border-red-500/50 hover:bg-red-500/20"
+								className="rounded-xl border-red-500/30 bg-red-500/10 font-bold text-red-700 dark:text-red-300 hover:border-red-500/50 hover:bg-red-500/20"
 								data-testid="merge-vote-reject"
 							>
 								{castVote.isPending && pendingDirection === 'reject' ? (
@@ -222,7 +222,7 @@ export default function MergeProposalBanner({
 							</Button>
 						</>
 					) : (
-						<p className="text-xs text-white/40" data-testid="merge-vote-gate">
+						<p className="text-xs text-foreground/40" data-testid="merge-vote-gate">
 							{proposal.userVote
 								? `You voted to ${proposal.userVote} this proposal.`
 								: !isConnected

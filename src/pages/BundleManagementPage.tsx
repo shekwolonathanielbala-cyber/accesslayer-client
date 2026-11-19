@@ -16,7 +16,7 @@ import ExpiredBundlesArchive from '@/components/common/ExpiredBundlesArchive';
 import { partitionBundlesByStatus } from '@/utils/bundle.utils';
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 /**
  * Creator bundle management page.
@@ -65,7 +65,7 @@ export default function BundleManagementPage() {
 
 	if (isLoading) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-5xl">
 					<CreatorDashboardSkeleton />
 				</div>
@@ -75,11 +75,11 @@ export default function BundleManagementPage() {
 
 	if (isError || !creator) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-5xl">
 					<h1 className="font-grotesque text-3xl font-black">Key bundles</h1>
 					<p
-						className="mt-4 text-white/60"
+						className="mt-4 text-foreground/60"
 						data-testid="bundle-management-error"
 					>
 						We couldn&apos;t load this creator&apos;s bundles. Try again
@@ -91,13 +91,13 @@ export default function BundleManagementPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-5xl space-y-8">
 				<div>
 					<h1 className="font-grotesque text-3xl font-black tracking-tight">
 						{creator.title} · Key bundles
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						Bundle your keys at a discounted price, set an expiry, and track
 						how each bundle sells.
 					</p>
@@ -107,14 +107,14 @@ export default function BundleManagementPage() {
 					<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 						Create a bundle
 					</h2>
-					<p className="mb-6 text-sm text-white/50">
+					<p className="mb-6 text-sm text-foreground/50">
 						Pick the keys and quantities to include, then set a discounted
 						bundle price and how long it stays available.
 					</p>
 
 					{keyOptions.length === 0 ? (
 						<p
-							className="text-sm text-white/55"
+							className="text-sm text-foreground/55"
 							data-testid="bundle-create-no-keys"
 						>
 							You need at least one of your own keys with a published price

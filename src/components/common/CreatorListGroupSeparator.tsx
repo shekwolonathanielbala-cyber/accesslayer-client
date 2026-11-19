@@ -23,14 +23,14 @@ const CreatorListGroupSeparator: React.FC<CreatorListGroupSeparatorProps> = ({
 			)}
 		>
 			<div
-				className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
+				className="h-px flex-1 bg-gradient-to-r from-transparent via-foreground/[0.08] to-transparent"
 				aria-hidden="true"
 			/>
-			<span className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/55 md:text-xs">
+			<span className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground/55 md:text-xs">
 				{label}
 			</span>
 			<div
-				className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
+				className="h-px flex-1 bg-gradient-to-r from-transparent via-foreground/[0.08] to-transparent"
 				aria-hidden="true"
 			/>
 		</div>

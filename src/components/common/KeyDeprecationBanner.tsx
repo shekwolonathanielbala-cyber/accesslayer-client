@@ -73,22 +73,22 @@ export default function KeyDeprecationBanner({
 				{/* Left: Deprecation Notice & Reason */}
 				<div className="space-y-2 max-w-2xl">
 					<div className="flex flex-wrap items-center gap-2.5">
-						<span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/20 px-2.5 py-0.5 text-xs font-semibold text-amber-300">
+						<span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/20 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-300">
 							<AlertTriangle className="size-3.5" aria-hidden="true" />
 							<span>Key Deprecated</span>
 						</span>
-						<span className="text-xs font-medium text-amber-200/70">
+						<span className="text-xs font-medium text-amber-700/70 dark:text-amber-200/70">
 							Guaranteed Contract Buyback Active
 						</span>
 					</div>
 
-					<p className="text-sm text-white/80 leading-relaxed font-jakarta">
+					<p className="text-sm text-foreground/80 leading-relaxed font-jakarta">
 						{creator.deprecationReason ??
 							'This creator key has been deprecated. Trading on the open market has ceased. Existing holders can exit their positions at the guaranteed contract buyback price.'}
 					</p>
 
 					{recentSettlement && (
-						<div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-lg w-fit">
+						<div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-lg w-fit">
 							<CheckCircle2 className="size-3.5" />
 							<span>
 								Settlement confirmed! Redeemed{' '}
@@ -109,20 +109,20 @@ export default function KeyDeprecationBanner({
 				{/* Middle: Prominent Price & Expiry Badges */}
 				<div className="flex flex-wrap items-stretch gap-3">
 					{/* Buyback Price Card */}
-					<div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 min-w-[140px]">
-						<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-400">
+					<div className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 min-w-[140px]">
+						<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
 							<Coins className="size-5" />
 						</div>
 						<div>
-							<div className="text-[0.7rem] uppercase tracking-wider text-white/50 font-medium">
+							<div className="text-[0.7rem] uppercase tracking-wider text-foreground/50 font-medium">
 								Buyback Price
 							</div>
 							<div
-								className="text-base font-bold text-amber-300 tabular-nums"
+								className="text-base font-bold text-amber-700 dark:text-amber-300 tabular-nums"
 								data-testid="buyback-price"
 							>
 								{isBuybackLoading && !buybackInfo ? (
-									<Skeleton className="h-5 w-20 bg-white/10" />
+									<Skeleton className="h-5 w-20 bg-foreground/10" />
 								) : (
 									formatDisplayKeyPrice(buybackPriceStroops)
 								)}
@@ -131,20 +131,20 @@ export default function KeyDeprecationBanner({
 					</div>
 
 					{/* Expiry Date Card */}
-					<div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 min-w-[140px]">
-						<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-white/70">
+					<div className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 min-w-[140px]">
+						<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-foreground/5 text-foreground/70">
 							<Clock className="size-5" />
 						</div>
 						<div>
-							<div className="text-[0.7rem] uppercase tracking-wider text-white/50 font-medium">
+							<div className="text-[0.7rem] uppercase tracking-wider text-foreground/50 font-medium">
 								Expiry Date
 							</div>
 							<div
-								className="text-sm font-semibold text-white/90 tabular-nums"
+								className="text-sm font-semibold text-foreground/90 tabular-nums"
 								data-testid="buyback-expiry"
 							>
 								{isBuybackLoading && !buybackInfo ? (
-									<Skeleton className="h-5 w-24 bg-white/10" />
+									<Skeleton className="h-5 w-24 bg-foreground/10" />
 								) : (
 									formattedExpiry
 								)}
@@ -166,7 +166,7 @@ export default function KeyDeprecationBanner({
 								<span>Initiate Buyback</span>
 								<ArrowRight className="size-4" />
 							</Button>
-							<span className="text-xs text-amber-300/80 font-medium">
+							<span className="text-xs text-amber-700/80 dark:text-amber-300/80 font-medium">
 								Holding {formatNumber(holdingsCount)}{' '}
 								{holdingsCount === 1 ? 'key' : 'keys'} (≈{' '}
 								{formatNumber(estimatedValueXlm, {
@@ -182,12 +182,12 @@ export default function KeyDeprecationBanner({
 								type="button"
 								disabled
 								variant="outline"
-								className="border-white/10 text-white/40 bg-white/[0.02] cursor-not-allowed font-medium"
+								className="border-foreground/10 text-foreground/40 bg-foreground/[0.02] cursor-not-allowed font-medium"
 								data-testid="initiate-buyback-button"
 							>
 								{userAddress ? 'No Keys Held' : 'Connect to Buyback'}
 							</Button>
-							<span className="text-xs text-white/40">
+							<span className="text-xs text-foreground/40">
 								{userAddress
 									? recentSettlement
 										? 'Position cleared'

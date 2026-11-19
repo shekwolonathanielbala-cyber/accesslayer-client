@@ -11,7 +11,7 @@ export interface ProtocolRevenueDistributionTableProps {
 }
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 function formatDistributionDate(dateInput: string | number): string {
 	const date = new Date(dateInput);
@@ -26,7 +26,7 @@ function formatDistributionDate(dateInput: string | number): string {
 function SkeletonRow() {
 	return (
 		<div
-			className="flex items-center gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+			className="flex items-center gap-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4"
 			aria-hidden="true"
 			data-testid="protocol-revenue-skeleton-row"
 		>
@@ -153,10 +153,10 @@ const ProtocolRevenueDistributionTable: React.FC<
 			aria-label="Protocol revenue distribution history"
 		>
 			<div className="mb-6">
-				<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+				<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 					Protocol Revenue Distributions
 				</h2>
-				<p className="mt-1 text-sm text-white/60">
+				<p className="mt-1 text-sm text-foreground/60">
 					A history of past protocol revenue distributions and your
 					received share
 				</p>
@@ -165,22 +165,22 @@ const ProtocolRevenueDistributionTable: React.FC<
 			{/* Summary totals */}
 			<div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
 				<div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
-					<p className="text-[10px] font-bold uppercase tracking-widest text-emerald-400/60">
+					<p className="text-[10px] font-bold uppercase tracking-widest text-emerald-600/60 dark:text-emerald-400/60">
 						Total Claimed
 					</p>
 					<p
-						className="mt-1 font-mono text-lg font-semibold text-emerald-400"
+						className="mt-1 font-mono text-lg font-semibold text-emerald-600 dark:text-emerald-400"
 						data-testid="total-claimed"
 					>
 						{formatXlmPrice(summaryTotals.totalClaimed)}
 					</p>
 				</div>
 				<div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
-					<p className="text-[10px] font-bold uppercase tracking-widest text-amber-400/60">
+					<p className="text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-400/60">
 						Total Pending
 					</p>
 					<p
-						className="mt-1 font-mono text-lg font-semibold text-amber-400"
+						className="mt-1 font-mono text-lg font-semibold text-amber-600 dark:text-amber-400"
 						data-testid="total-pending"
 					>
 						{formatXlmPrice(summaryTotals.totalPending)}
@@ -189,7 +189,7 @@ const ProtocolRevenueDistributionTable: React.FC<
 			</div>
 
 			{/* Table column headers for desktop */}
-			<div className="mb-2 hidden items-center justify-between px-5 text-[10px] font-bold uppercase tracking-widest text-white/30 sm:flex">
+			<div className="mb-2 hidden items-center justify-between px-5 text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:flex">
 				<span className="w-1/4">Distribution Date</span>
 				<div className="flex items-center gap-6">
 					<span className="w-28 text-right">Total Distributed</span>
@@ -205,15 +205,15 @@ const ProtocolRevenueDistributionTable: React.FC<
 					<div
 						key={dist.id || `dist-${idx}`}
 						data-testid="protocol-revenue-row"
-						className="flex flex-col gap-3 rounded-xl border border-l-4 border-l-amber-400 border-white/10 bg-white/[0.02] p-4 pl-5 transition-colors hover:border-white/20 hover:bg-white/[0.04] sm:flex-row sm:items-center sm:justify-between"
+						className="flex flex-col gap-3 rounded-xl border border-l-4 border-l-amber-400 border-foreground/10 bg-foreground/[0.02] p-4 pl-5 transition-colors hover:border-foreground/20 hover:bg-foreground/[0.04] sm:flex-row sm:items-center sm:justify-between"
 					>
 						{/* Distribution Date */}
 						<div className="flex flex-col">
-							<span className="text-[10px] font-bold uppercase tracking-widest text-white/30 sm:hidden">
+							<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:hidden">
 								Distribution Date
 							</span>
 							<span
-								className="text-sm font-semibold text-white"
+								className="text-sm font-semibold text-foreground"
 								data-testid="distribution-date"
 							>
 								{formatDistributionDate(dist.distributionDate)}
@@ -221,13 +221,13 @@ const ProtocolRevenueDistributionTable: React.FC<
 						</div>
 
 						{/* Numeric stats */}
-						<div className="flex items-center gap-4 text-xs text-white/60 sm:gap-6">
+						<div className="flex items-center gap-4 text-xs text-foreground/60 sm:gap-6">
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 									Total Distributed
 								</span>
 								<span
-									className="font-mono text-white/80"
+									className="font-mono text-foreground/80"
 									data-testid="total-distributed"
 								>
 									{dist.totalDistributed.toLocaleString()} XLM
@@ -235,11 +235,11 @@ const ProtocolRevenueDistributionTable: React.FC<
 							</div>
 
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 									Stakers
 								</span>
 								<span
-									className="font-mono text-white/80"
+									className="font-mono text-foreground/80"
 									data-testid="staker-count"
 								>
 									{dist.stakerCount.toLocaleString()}
@@ -247,11 +247,11 @@ const ProtocolRevenueDistributionTable: React.FC<
 							</div>
 
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 									Amount Received
 								</span>
 								<span
-									className="font-mono font-semibold text-emerald-400"
+									className="font-mono font-semibold text-emerald-600 dark:text-emerald-400"
 									data-testid="amount-received"
 								>
 									+{dist.amountReceived.toFixed(4)} XLM
@@ -260,7 +260,7 @@ const ProtocolRevenueDistributionTable: React.FC<
 
 							{/* Status and Action */}
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 									Status
 								</span>
 								{dist.claimed ? (
@@ -268,7 +268,7 @@ const ProtocolRevenueDistributionTable: React.FC<
 										href={`${STELLAR_EXPLORER_URL}/${dist.transactionHash}`}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="font-mono text-xs text-emerald-400 hover:text-emerald-300 hover:underline"
+										className="font-mono text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:underline"
 										data-testid="transaction-link"
 									>
 										Claimed →
@@ -280,7 +280,7 @@ const ProtocolRevenueDistributionTable: React.FC<
 										onClick={() => handleClaim(dist)}
 										disabled={claimMutation.isPending}
 										data-testid="claim-button"
-										className="h-7 rounded-lg border-amber-500/30 bg-amber-500/10 px-3 text-xs text-amber-400 hover:bg-amber-500/20 hover:text-amber-300"
+										className="h-7 rounded-lg border-amber-500/30 bg-amber-500/10 px-3 text-xs text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 hover:text-amber-700 dark:hover:text-amber-300"
 									>
 										{claimMutation.isPending ? 'Claiming…' : 'Claim'}
 									</Button>
@@ -299,7 +299,7 @@ const ProtocolRevenueDistributionTable: React.FC<
 						onClick={() => void fetchNextPage()}
 						disabled={isFetchingNextPage}
 						data-testid="protocol-revenue-load-more"
-						className="rounded-xl border-white/15 bg-white/5 px-8 text-white/80 hover:bg-white/10 hover:text-white"
+						className="rounded-xl border-foreground/15 bg-foreground/5 px-8 text-foreground/80 hover:bg-foreground/10 hover:text-foreground"
 					>
 						{isFetchingNextPage ? 'Loading…' : 'Load More'}
 					</Button>

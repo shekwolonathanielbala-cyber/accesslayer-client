@@ -11,7 +11,7 @@ export function highlightMatchingSubstring(
 
 	return parts.map((part, i) =>
 		regex.test(part) ? (
-			<b key={i} className="font-bold text-amber-400">
+			<b key={i} className="font-bold text-amber-600 dark:text-amber-400">
 				{part}
 			</b>
 		) : (

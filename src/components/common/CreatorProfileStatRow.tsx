@@ -34,7 +34,7 @@ const CreatorProfileStatRowSkeleton: React.FC<{
         <div
           key={i}
           className={cn(
-            'relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 backdrop-blur-md',
+            'relative overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-4 backdrop-blur-md',
             itemClassName
           )}
         >

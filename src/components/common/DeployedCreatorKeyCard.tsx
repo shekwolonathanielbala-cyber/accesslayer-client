@@ -16,9 +16,9 @@ const STATUS_LABELS: Record<CreatorKeyStatus, string> = {
 };
 
 const STATUS_STYLES: Record<CreatorKeyStatus, string> = {
-	live: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300',
-	scheduled: 'border-sky-400/30 bg-sky-400/10 text-sky-300',
-	deprecated: 'border-rose-400/30 bg-rose-400/10 text-rose-300',
+	live: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-700 dark:text-emerald-300',
+	scheduled: 'border-sky-400/30 bg-sky-400/10 text-sky-700 dark:text-sky-300',
+	deprecated: 'border-rose-400/30 bg-rose-400/10 text-rose-700 dark:text-rose-300',
 };
 
 interface DeployedCreatorKeyCardProps {
@@ -65,14 +65,14 @@ const DeployedCreatorKeyCard: React.FC<DeployedCreatorKeyCardProps> = ({
 		<article
 			data-testid="deployed-key-card"
 			className={cn(
-				'group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/[0.06]',
+				'group flex flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-foreground/[0.06]',
 				className
 			)}
 		>
 			<div>
 				<div className="flex items-start justify-between gap-3">
 					<div className="flex min-w-0 items-center gap-3">
-						<div className="size-11 shrink-0 overflow-hidden rounded-xl border border-white/10">
+						<div className="size-11 shrink-0 overflow-hidden rounded-xl border border-foreground/10">
 							<CreatorInitialsAvatar
 								name={title}
 								creatorId={id}
@@ -81,11 +81,11 @@ const DeployedCreatorKeyCard: React.FC<DeployedCreatorKeyCardProps> = ({
 							/>
 						</div>
 						<div className="min-w-0">
-							<h3 className="truncate font-jakarta text-sm font-bold text-white transition-colors group-hover:text-amber-300">
+							<h3 className="truncate font-jakarta text-sm font-bold text-foreground transition-colors group-hover:text-amber-700 dark:group-hover:text-amber-300">
 								<Link to={`/creator/${id}`}>{title}</Link>
 							</h3>
 							{handle && (
-								<p className="truncate font-mono text-[0.7rem] text-white/45">
+								<p className="truncate font-mono text-[0.7rem] text-foreground/45">
 									{handle}
 								</p>
 							)}
@@ -105,32 +105,32 @@ const DeployedCreatorKeyCard: React.FC<DeployedCreatorKeyCardProps> = ({
 				</div>
 
 				{category && (
-					<p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/40">
+					<p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/40">
 						{category}
 					</p>
 				)}
 
 				<div className="mt-4 flex items-baseline gap-2">
-					<Coins className="size-4 text-amber-400" aria-hidden="true" />
+					<Coins className="size-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
 					<span
 						data-testid="deployed-key-price"
-						className="font-jakarta text-lg font-extrabold text-white"
+						className="font-jakarta text-lg font-extrabold text-foreground"
 					>
 						{formatDisplayKeyPrice(priceStroops)}
 					</span>
-					<span className="text-[0.7rem] font-semibold uppercase tracking-wider text-white/40">
+					<span className="text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/40">
 						per key
 					</span>
 				</div>
 
-				<dl className="mt-4 grid grid-cols-3 gap-2 border-t border-white/10 pt-4">
+				<dl className="mt-4 grid grid-cols-3 gap-2 border-t border-foreground/10 pt-4">
 					{metrics.map(({ id: metricId, icon: Icon, label, value }) => (
 						<div key={metricId} className="min-w-0">
-							<dt className="flex items-center gap-1 text-[0.62rem] font-semibold uppercase tracking-wider text-white/40">
+							<dt className="flex items-center gap-1 text-[0.62rem] font-semibold uppercase tracking-wider text-foreground/40">
 								<Icon className="size-3" aria-hidden="true" />
 								<span className="truncate">{label}</span>
 							</dt>
-							<dd className="mt-1 truncate font-jakarta text-xs font-bold text-white/85">
+							<dd className="mt-1 truncate font-jakarta text-xs font-bold text-foreground/85">
 								{value}
 							</dd>
 						</div>

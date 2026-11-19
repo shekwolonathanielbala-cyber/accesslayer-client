@@ -73,9 +73,9 @@ const ConnectWalletCtaBanner: React.FC<ConnectWalletCtaBannerProps> = ({
 			<div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-3">
 				<div className="flex items-center gap-3">
 					<div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-600/15">
-						<Wallet className="size-4 text-blue-400" />
+						<Wallet className="size-4 text-blue-600 dark:text-blue-400" />
 					</div>
-					<p className="font-jakarta text-sm font-medium text-gray-200">
+					<p className="font-jakarta text-sm font-medium text-gray-700 dark:text-gray-200">
 						Connect your Stellar wallet to buy creator keys and start
 						earning
 					</p>
@@ -95,7 +95,7 @@ const ConnectWalletCtaBanner: React.FC<ConnectWalletCtaBannerProps> = ({
 						type="button"
 						onClick={handleDismiss}
 						aria-label="Dismiss banner"
-						className="flex size-8 shrink-0 items-center justify-center rounded-md text-gray-400 transition-colors hover:bg-white/10 hover:text-gray-200"
+						className="flex size-8 shrink-0 items-center justify-center rounded-md text-gray-500 transition-colors hover:bg-foreground/10 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
 					>
 						<X className="size-4" />
 					</button>

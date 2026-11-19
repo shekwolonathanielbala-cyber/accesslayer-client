@@ -126,22 +126,22 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 	const getTransactionIcon = (type: Transaction['type']) => {
 		switch (type) {
 			case 'buy':
-				return <ArrowUpRight className="size-4 text-emerald-400" />;
+				return <ArrowUpRight className="size-4 text-emerald-600 dark:text-emerald-400" />;
 			case 'sell':
-				return <ArrowDownRight className="size-4 text-rose-400" />;
+				return <ArrowDownRight className="size-4 text-rose-600 dark:text-rose-400" />;
 			default:
-				return <Minus className="size-4 text-white/40" />;
+				return <Minus className="size-4 text-foreground/40" />;
 		}
 	};
 
 	return (
-		<section className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+		<section className="rounded-2xl border border-foreground/10 bg-foreground/5 p-6 md:p-8">
 			<div className="mb-6 flex items-center justify-between">
 				<div>
-					<h3 className="font-grotesque text-2xl font-bold text-white">
+					<h3 className="font-grotesque text-2xl font-bold text-foreground">
 						Transaction History
 					</h3>
-					<p className="mt-1 text-sm text-white/65">
+					<p className="mt-1 text-sm text-foreground/65">
 						Your recent buy and sell activity
 					</p>
 				</div>
@@ -149,7 +149,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 					variant="outline"
 					size="sm"
 					onClick={toggleCompact}
-					className="rounded-xl border-white/15 bg-white/5 text-white/90 hover:bg-white/10"
+					className="rounded-xl border-foreground/15 bg-foreground/5 text-foreground/90 hover:bg-foreground/10"
 				>
 					{isCompact ? 'Expand View' : 'Compact View'}
 				</Button>
@@ -164,13 +164,13 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 							key={tx.id}
 							data-testid={`activity-item-${tx.type}`}
 							className={cn(
-								'group rounded-xl border border-white/10 bg-white/[0.02] transition-all duration-200 hover:border-white/20 hover:bg-white/[0.04]',
+								'group rounded-xl border border-foreground/10 bg-foreground/[0.02] transition-all duration-200 hover:border-foreground/20 hover:bg-foreground/[0.04]',
 								isCompact && !isExpanded && 'py-2',
 								(!isCompact || isExpanded) && 'p-4'
 							)}
 						>
 							<div className="flex items-center gap-4">
-								<div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/5">
+								<div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-foreground/5">
 									{getTransactionIcon(tx.type)}
 								</div>
 								
@@ -178,20 +178,20 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 									<div className="min-w-0 flex-1">
 										<div className="flex items-center gap-2">
 											<TransactionTypeBadge type={tx.type} />
-											<span className="text-white/40">•</span>
+											<span className="text-foreground/40">•</span>
 											<span
-												className="text-white/90"
+												className="text-foreground/90"
 												data-testid={`activity-creator-handle-${tx.id}`}
 											>
 												{displayHandle}
 											</span>
 										</div>
 										{(!isCompact || isExpanded) && (
-											<div className="mt-1 flex items-center gap-3 text-xs text-white/50">
+											<div className="mt-1 flex items-center gap-3 text-xs text-foreground/50">
 												<span>{tx.amount} keys</span>
-												<span className="text-white/30">•</span>
+												<span className="text-foreground/30">•</span>
 												<span>{tx.price} XLM</span>
-												<span className="text-white/30">•</span>
+												<span className="text-foreground/30">•</span>
 												<span>{formatRelativeTime(tx.timestamp)}</span>
 											</div>
 										)}
@@ -201,19 +201,19 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 										<div className="hidden shrink-0 items-center gap-4 text-right sm:flex">
 											<div className="text-sm">
 												<div
-													className="font-semibold text-white"
+													className="font-semibold text-foreground"
 													data-testid={`tx-amount-${tx.id}`}
 												>
 													{tx.type === 'buy' ? '-' : '+'}
 													{(tx.amount * tx.price).toFixed(4)} XLM
 												</div>
-												<div className="text-xs text-white/50">
+												<div className="text-xs text-foreground/50">
 													{tx.txHash}
 												</div>
 											</div>
 											<div className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1">
 												<div className="size-1.5 rounded-full bg-emerald-400" />
-												<span className="text-xs font-semibold text-emerald-400">
+												<span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
 													{tx.status}
 												</span>
 											</div>
@@ -224,7 +224,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 										<div className="flex shrink-0 items-center gap-3">
 											<div className="text-right">
 												<div
-													className="text-sm font-semibold text-white"
+													className="text-sm font-semibold text-foreground"
 													data-testid={`tx-amount-${tx.id}`}
 												>
 													{tx.type === 'buy' ? '-' : '+'}
@@ -235,7 +235,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 												variant="ghost"
 												size="sm"
 												onClick={() => toggleRowExpansion(tx.id)}
-												className="h-8 w-8 rounded-lg p-0 text-white/50 hover:bg-white/10 hover:text-white"
+												className="h-8 w-8 rounded-lg p-0 text-foreground/50 hover:bg-foreground/10 hover:text-foreground"
 											>
 												<ChevronDown className="size-4" />
 											</Button>
@@ -247,7 +247,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 											variant="ghost"
 											size="sm"
 											onClick={() => toggleRowExpansion(tx.id)}
-											className="h-8 w-8 rounded-lg p-0 text-white/50 hover:bg-white/10 hover:text-white"
+											className="h-8 w-8 rounded-lg p-0 text-foreground/50 hover:bg-foreground/10 hover:text-foreground"
 										>
 											<ChevronUp className="size-4" />
 										</Button>
@@ -256,19 +256,19 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 							</div>
 
 							{isCompact && isExpanded && (
-								<div className="mt-3 flex items-center justify-between border-t border-white/10 pt-3 text-xs">
-									<div className="flex items-center gap-3 text-white/50">
+								<div className="mt-3 flex items-center justify-between border-t border-foreground/10 pt-3 text-xs">
+									<div className="flex items-center gap-3 text-foreground/50">
 										<span>{tx.amount} keys</span>
-										<span className="text-white/30">•</span>
+										<span className="text-foreground/30">•</span>
 										<span>{tx.price} XLM</span>
-										<span className="text-white/30">•</span>
+										<span className="text-foreground/30">•</span>
 										<span>{formatRelativeTime(tx.timestamp)}</span>
-										<span className="text-white/30">•</span>
+										<span className="text-foreground/30">•</span>
 										<span>{tx.txHash}</span>
 									</div>
 									<div className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1">
 										<div className="size-1.5 rounded-full bg-emerald-400" />
-										<span className="text-xs font-semibold text-emerald-400">
+										<span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
 											{tx.status}
 										</span>
 									</div>

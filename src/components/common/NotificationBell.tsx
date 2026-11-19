@@ -31,7 +31,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'trade_completed':
 			return (
 				<ArrowRightLeft
-					className="size-4 shrink-0 text-emerald-400"
+					className="size-4 shrink-0 text-emerald-600 dark:text-emerald-400"
 					data-testid="icon-trade_completed"
 					aria-hidden="true"
 				/>
@@ -39,7 +39,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'lockup_expiring':
 			return (
 				<Clock
-					className="size-4 shrink-0 text-amber-400"
+					className="size-4 shrink-0 text-amber-600 dark:text-amber-400"
 					data-testid="icon-lockup_expiring"
 					aria-hidden="true"
 				/>
@@ -47,7 +47,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'price_moved':
 			return (
 				<TrendingUp
-					className="size-4 shrink-0 text-cyan-400"
+					className="size-4 shrink-0 text-cyan-600 dark:text-cyan-400"
 					data-testid="icon-price_moved"
 					aria-hidden="true"
 				/>
@@ -55,7 +55,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'new_follower':
 			return (
 				<UserPlus
-					className="size-4 shrink-0 text-purple-400"
+					className="size-4 shrink-0 text-purple-600 dark:text-purple-400"
 					data-testid="icon-new_follower"
 					aria-hidden="true"
 				/>
@@ -63,7 +63,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'key_purchase':
 			return (
 				<Key
-					className="size-4 shrink-0 text-blue-400"
+					className="size-4 shrink-0 text-blue-600 dark:text-blue-400"
 					data-testid="icon-key_purchase"
 					aria-hidden="true"
 				/>
@@ -71,7 +71,7 @@ function renderNotificationIcon(type: NotificationType) {
 		case 'price_alert':
 			return (
 				<Bell
-					className="size-4 shrink-0 text-emerald-400"
+					className="size-4 shrink-0 text-emerald-600 dark:text-emerald-400"
 					data-testid="icon-price_alert"
 					aria-hidden="true"
 				/>
@@ -80,7 +80,7 @@ function renderNotificationIcon(type: NotificationType) {
 		default:
 			return (
 				<Bell
-					className="size-4 shrink-0 text-amber-400"
+					className="size-4 shrink-0 text-amber-600 dark:text-amber-400"
 					data-testid="icon-default"
 					aria-hidden="true"
 				/>
@@ -126,7 +126,7 @@ export function NotificationBell({
 					}
 					className={cn(
 						'relative inline-flex items-center justify-center rounded-full p-2 transition-colors',
-						'text-white/70 hover:bg-white/10 hover:text-white',
+						'text-foreground/70 hover:bg-foreground/10 hover:text-foreground',
 						className
 					)}
 				>
@@ -135,7 +135,7 @@ export function NotificationBell({
 						<span
 							data-testid="notification-unread-badge"
 							aria-hidden="true"
-							className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 font-mono text-[10px] font-bold leading-none text-white"
+							className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 font-mono text-[10px] font-bold leading-none text-foreground"
 						>
 							{unreadCount > 99 ? '99+' : unreadCount}
 						</span>
@@ -145,26 +145,26 @@ export function NotificationBell({
 
 			<DropdownMenuContent
 				align="end"
-				className="w-80 border-white/10 bg-[#0b1728] text-white shadow-2xl"
+				className="w-80 border-foreground/10 bg-surface-raised text-foreground shadow-2xl"
 				data-testid="notification-dropdown"
 			>
-				<DropdownMenuLabel className="flex items-center justify-between font-grotesque font-bold text-white">
+				<DropdownMenuLabel className="flex items-center justify-between font-grotesque font-bold text-foreground">
 					<span>Notifications</span>
 					{unreadCount > 0 && (
-						<span className="ml-2 rounded-full bg-red-500/15 px-2 py-0.5 text-xs font-semibold text-red-400">
+						<span className="ml-2 rounded-full bg-red-500/15 px-2 py-0.5 text-xs font-semibold text-red-600 dark:text-red-400">
 							{unreadCount} unread
 						</span>
 					)}
 				</DropdownMenuLabel>
 
-				<DropdownMenuSeparator className="bg-white/10" />
+				<DropdownMenuSeparator className="bg-foreground/10" />
 
 				{isLoading && (
 					<div data-testid="notification-loading" className="space-y-2 p-2">
 						{Array.from({ length: 3 }).map((_, i) => (
 							<div
 								key={i}
-								className="h-12 w-full animate-pulse rounded-md bg-white/10"
+								className="h-12 w-full animate-pulse rounded-md bg-foreground/10"
 							/>
 						))}
 					</div>
@@ -173,7 +173,7 @@ export function NotificationBell({
 				{!isLoading && recent.length === 0 && (
 					<p
 						data-testid="notification-empty-state"
-						className="px-3 py-6 text-center text-sm text-white/50"
+						className="px-3 py-6 text-center text-sm text-foreground/50"
 					>
 						No notifications yet
 					</p>
@@ -185,8 +185,8 @@ export function NotificationBell({
 							key={notification.id}
 							data-testid={`notification-item-${notification.id}`}
 							className={cn(
-								'flex cursor-pointer flex-col items-start gap-1 px-3 py-2.5 hover:bg-white/10 focus:bg-white/10',
-								!notification.read && 'bg-white/[0.05]'
+								'flex cursor-pointer flex-col items-start gap-1 px-3 py-2.5 hover:bg-foreground/10 focus:bg-foreground/10',
+								!notification.read && 'bg-foreground/[0.05]'
 							)}
 							onSelect={() =>
 								handleNotificationClick(
@@ -201,24 +201,24 @@ export function NotificationBell({
 									className={cn(
 										'flex-1 text-sm leading-snug',
 										notification.read
-											? 'text-white/60'
-											: 'font-medium text-white'
+											? 'text-foreground/60'
+											: 'font-medium text-foreground'
 									)}
 								>
 									{notification.message}
 								</span>
 							</div>
-							<span className="pl-6 text-xs text-white/40">
+							<span className="pl-6 text-xs text-foreground/40">
 								{formatRelativeTime(notification.createdAt)}
 							</span>
 						</DropdownMenuItem>
 					))}
 
-				<DropdownMenuSeparator className="bg-white/10" />
+				<DropdownMenuSeparator className="bg-foreground/10" />
 
 				<DropdownMenuItem
 					data-testid="notification-view-all"
-					className="justify-center text-sm font-semibold text-amber-400 hover:text-amber-300 focus:text-amber-300"
+					className="justify-center text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 focus:text-amber-700 dark:focus:text-amber-300"
 					onSelect={() => void navigate('/notifications')}
 				>
 					View all

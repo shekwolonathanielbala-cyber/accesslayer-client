@@ -34,9 +34,9 @@ const BuyActionHelperText: React.FC<BuyActionHelperTextProps> = ({
 					bg: 'bg-amber-500/10',
 					border: 'border-amber-500/30',
 					accent: 'bg-amber-500',
-					text: 'text-amber-200/90',
+					text: 'text-amber-700/90 dark:text-amber-200/90',
 					icon: (
-						<Loader2 className="size-3.5 animate-spin text-amber-400" />
+						<Loader2 className="size-3.5 animate-spin text-amber-600 dark:text-amber-400" />
 					),
 				};
 			case 'failed':
@@ -44,24 +44,24 @@ const BuyActionHelperText: React.FC<BuyActionHelperTextProps> = ({
 					bg: 'bg-red-500/10',
 					border: 'border-red-500/30',
 					accent: 'bg-red-500',
-					text: 'text-red-300/90',
-					icon: <AlertCircle className="size-3.5 text-red-400" />,
+					text: 'text-red-700/90 dark:text-red-300/90',
+					icon: <AlertCircle className="size-3.5 text-red-600 dark:text-red-400" />,
 				};
 			case 'success':
 				return {
 					bg: 'bg-emerald-500/10',
 					border: 'border-emerald-500/30',
 					accent: 'bg-emerald-500',
-					text: 'text-emerald-200/90',
-					icon: <CheckCircle2 className="size-3.5 text-emerald-400" />,
+					text: 'text-emerald-700/90 dark:text-emerald-200/90',
+					icon: <CheckCircle2 className="size-3.5 text-emerald-600 dark:text-emerald-400" />,
 				};
 			default:
 				return {
-					bg: 'bg-white/[0.03]',
-					border: 'border-white/10',
-					accent: 'bg-white/20',
-					text: 'text-white/45',
-					icon: <Info className="size-3.5 text-white/30" />,
+					bg: 'bg-foreground/[0.03]',
+					border: 'border-foreground/10',
+					accent: 'bg-foreground/20',
+					text: 'text-foreground/45',
+					icon: <Info className="size-3.5 text-foreground/30" />,
 				};
 		}
 	};
@@ -107,7 +107,7 @@ const BuyActionHelperText: React.FC<BuyActionHelperTextProps> = ({
 							animate={{ opacity: 1, height: 'auto' }}
 							exit={{ opacity: 0, height: 0 }}
 							transition={{ duration: 0.2 }}
-							className="text-[0.72rem] font-medium leading-relaxed text-white/40"
+							className="text-[0.72rem] font-medium leading-relaxed text-foreground/40"
 						>
 							{disabledReason}
 						</motion.p>

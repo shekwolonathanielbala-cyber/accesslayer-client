@@ -41,7 +41,7 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 		return (
 			<div
 				className={cn(
-					'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 space-y-4',
+					'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 space-y-4',
 					className
 				)}
 				data-testid="graduated-curve-skeleton"
@@ -49,8 +49,8 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 				aria-label="Loading graduated curve chart"
 			>
 				<span className="sr-only">Loading graduated curve chart</span>
-				<div className="h-6 w-48 rounded-md bg-white/12 skeleton-shimmer" />
-				<div className="h-[280px] w-full rounded-xl bg-white/12 skeleton-shimmer" />
+				<div className="h-6 w-48 rounded-md bg-foreground/12 skeleton-shimmer" />
+				<div className="h-[280px] w-full rounded-xl bg-foreground/12 skeleton-shimmer" />
 			</div>
 		);
 	}
@@ -61,13 +61,13 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 		return (
 			<div
 				className={cn(
-					'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 flex flex-col items-center justify-center text-center min-h-[220px]',
+					'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 flex flex-col items-center justify-center text-center min-h-[220px]',
 					className
 				)}
 				data-testid="no-graduated-curve"
 			>
 				<p
-					className="text-sm font-medium text-white/70"
+					className="text-sm font-medium text-foreground/70"
 					data-testid="no-graduated-curve-message"
 				>
 					No graduated curve configured — using default exponent
@@ -114,34 +114,34 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 	return (
 		<div
 			className={cn(
-				'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
+				'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
 				className
 			)}
 			data-testid="graduated-curve-chart-container"
 		>
 			<div className="mb-6 flex flex-wrap items-center justify-between gap-4">
 				<div>
-					<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+					<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 						Graduated Curve Price Milestones
 					</h2>
-					<p className="mt-1 text-xs text-white/50">
+					<p className="mt-1 text-xs text-foreground/50">
 						Simulated key prices at each configured supply milestone
 					</p>
 				</div>
 				{config?.defaultExponent !== undefined && (
-					<div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+					<div className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs text-foreground/70">
 						Default Exponent:{' '}
-						<span className="font-semibold text-emerald-400">
+						<span className="font-semibold text-emerald-600 dark:text-emerald-400">
 							{config.defaultExponent}
 						</span>
 					</div>
 				)}
 			</div>
-			<div className="mb-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4" data-testid="milestone-progress-panel">
+			<div className="mb-6 rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4" data-testid="milestone-progress-panel">
 				<div className="flex items-start justify-between gap-4 text-sm">
 					<div>
-						<p className="font-semibold text-white">Graduation progress</p>
-						<p className="mt-1 text-xs text-white/55">
+						<p className="font-semibold text-foreground">Graduation progress</p>
+						<p className="mt-1 text-xs text-foreground/55">
 							{currentSupply === undefined
 								? 'Connect live supply data to see your position.'
 								: nextMilestone
@@ -149,12 +149,12 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 									: 'Final milestone reached — the key is graduated.'}
 						</p>
 					</div>
-					<span className="font-semibold text-emerald-400" data-testid="milestone-progress-value">
+					<span className="font-semibold text-emerald-600 dark:text-emerald-400" data-testid="milestone-progress-value">
 						{Math.round(progressPercent)}%
 					</span>
 				</div>
 				<div
-					className="mt-3 h-2 overflow-hidden rounded-full bg-white/10"
+					className="mt-3 h-2 overflow-hidden rounded-full bg-foreground/10"
 					role="progressbar"
 					aria-label="Graduated curve progress"
 					aria-valuemin={0}
@@ -163,7 +163,7 @@ export const GraduatedCurveMilestoneChart: React.FC<GraduatedCurveMilestoneChart
 				>
 					<div className="h-full rounded-full bg-emerald-400 transition-[width]" style={{ width: `${progressPercent}%` }} />
 				</div>
-				<div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-white/50">
+				<div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-foreground/50">
 					{normalizedMilestones.map(milestone => (
 						<span key={milestone.supplyThreshold}>
 							{milestone.supplyThreshold.toLocaleString()} keys · {milestone.simulatedPrice} XLM

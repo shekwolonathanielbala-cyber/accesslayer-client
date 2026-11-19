@@ -25,13 +25,13 @@ const CardMetaRow: React.FC<CardMetaRowProps> = ({
 				className
 			)}
 		>
-			<span className="shrink-0 uppercase tracking-wider text-white/40">
+			<span className="shrink-0 uppercase tracking-wider text-foreground/40">
 				{label}
 			</span>
 			<span
 				title={valueTitle}
 				className={cn(
-					'font-medium text-white/75',
+					'font-medium text-foreground/75',
 					truncateValue && 'truncate text-right',
 					valueClassName
 				)}

@@ -35,7 +35,7 @@ export default function DiscoveryPage() {
 	const hasError = Boolean(error && trendingKeys.length === 0 && newListings.length === 0);
 
 	return (
-		<div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(160deg,#08111f_0%,#10213b_45%,#f0b14d_160%)] px-6 pt-12 pb-28 md:px-12 md:pb-16">
+		<div className="relative min-h-screen overflow-x-hidden bg-[image:var(--page-gradient)] px-6 pt-12 pb-28 md:px-12 md:pb-16">
 			{/* Ambient background glows */}
 			<div className="absolute left-[-4rem] top-[10%] size-72 rounded-full bg-amber-300/20 blur-[100px]" />
 			<div className="absolute bottom-[8%] right-[-3rem] size-72 rounded-full bg-emerald-300/15 blur-[100px]" />
@@ -45,17 +45,17 @@ export default function DiscoveryPage() {
 				{/* Page Header */}
 				<MarketplaceSection as="header" spacing="major" className="text-center">
 					<img
-						className="mx-auto mb-8 size-10"
+						className="mx-auto mb-8 size-10 brightness-0 dark:brightness-100"
 						src="/icons/logo.svg"
 						alt="Access Layer logo"
 					/>
-					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-400/80">
+					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600/80 dark:text-amber-400/80">
 						Key Discovery
 					</p>
-					<h1 className="mb-4 font-grotesque text-[clamp(2.5rem,8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-white">
+					<h1 className="mb-4 font-grotesque text-[clamp(2.5rem,8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-foreground">
 						Find active opportunities
 					</h1>
-					<p className="mx-auto mb-6 max-w-2xl font-jakarta text-sm leading-relaxed text-white/60">
+					<p className="mx-auto mb-6 max-w-2xl font-jakarta text-sm leading-relaxed text-foreground/60">
 						Explore top creator keys trending by 24-hour trading volume and the freshest
 						listings on Access Layer, updated live every 60 seconds without page reloads.
 					</p>
@@ -67,11 +67,11 @@ export default function DiscoveryPage() {
 							aria-live="polite"
 							aria-busy={isRefreshing || undefined}
 							data-testid="discovery-poll-status"
-							className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/70"
+							className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-foreground/70"
 						>
 							{isRefreshing ? (
 								<RefreshCw
-									className="size-3.5 animate-spin text-amber-400 motion-reduce:animate-none"
+									className="size-3.5 animate-spin text-amber-600 dark:text-amber-400 motion-reduce:animate-none"
 									aria-hidden="true"
 								/>
 							) : (
@@ -103,7 +103,7 @@ export default function DiscoveryPage() {
 							>
 								<div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 									<div>
-										<div className="flex items-center gap-2 text-amber-400">
+										<div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
 											<Flame className="size-5" aria-hidden="true" />
 											<span className="font-mono text-xs font-bold uppercase tracking-wider">
 												Top by 24h Volume
@@ -111,11 +111,11 @@ export default function DiscoveryPage() {
 										</div>
 										<h2
 											id="trending-section-title"
-											className="mt-1 font-grotesque text-2xl font-bold tracking-tight text-white sm:text-3xl"
+											className="mt-1 font-grotesque text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
 										>
 											Trending Keys
 										</h2>
-										<p className="mt-1 font-jakarta text-xs text-white/50">
+										<p className="mt-1 font-jakarta text-xs text-foreground/50">
 											Top 5 keys by 24h trading volume
 										</p>
 									</div>
@@ -123,7 +123,7 @@ export default function DiscoveryPage() {
 									<Link
 										to="/marketplace?sort=volume_desc"
 										data-testid="view-all-trending"
-										className="inline-flex items-center gap-1.5 font-jakarta text-xs font-semibold text-amber-400 transition-colors hover:text-amber-300"
+										className="inline-flex items-center gap-1.5 font-jakarta text-xs font-semibold text-amber-600 dark:text-amber-400 transition-colors hover:text-amber-700 dark:hover:text-amber-300"
 									>
 										View all trending keys
 										<ArrowRight className="size-3.5" aria-hidden="true" />
@@ -135,8 +135,8 @@ export default function DiscoveryPage() {
 										<DiscoveryCardGridSkeleton count={5} />
 									</div>
 								) : trendingKeys.length === 0 ? (
-									<div className="rounded-2xl border border-white/10 bg-slate-900/40 p-8 text-center backdrop-blur-md">
-										<p className="font-jakarta text-sm text-white/50">
+									<div className="rounded-2xl border border-foreground/10 bg-surface-raised p-8 text-center backdrop-blur-md">
+										<p className="font-jakarta text-sm text-foreground/50">
 											No trending keys found right now.
 										</p>
 									</div>
@@ -166,7 +166,7 @@ export default function DiscoveryPage() {
 							>
 								<div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 									<div>
-										<div className="flex items-center gap-2 text-emerald-400">
+										<div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
 											<Sparkles className="size-5" aria-hidden="true" />
 											<span className="font-mono text-xs font-bold uppercase tracking-wider">
 												Fresh Arrivals
@@ -174,11 +174,11 @@ export default function DiscoveryPage() {
 										</div>
 										<h2
 											id="new-listings-section-title"
-											className="mt-1 font-grotesque text-2xl font-bold tracking-tight text-white sm:text-3xl"
+											className="mt-1 font-grotesque text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
 										>
 											New Listings
 										</h2>
-										<p className="mt-1 font-jakarta text-xs text-white/50">
+										<p className="mt-1 font-jakarta text-xs text-foreground/50">
 											Latest 10 keys ordered by creation date
 										</p>
 									</div>
@@ -186,7 +186,7 @@ export default function DiscoveryPage() {
 									<Link
 										to="/marketplace?sort=newest"
 										data-testid="view-all-newest"
-										className="inline-flex items-center gap-1.5 font-jakarta text-xs font-semibold text-emerald-400 transition-colors hover:text-emerald-300"
+										className="inline-flex items-center gap-1.5 font-jakarta text-xs font-semibold text-emerald-600 dark:text-emerald-400 transition-colors hover:text-emerald-700 dark:hover:text-emerald-300"
 									>
 										View all new listings
 										<ArrowRight className="size-3.5" aria-hidden="true" />
@@ -198,8 +198,8 @@ export default function DiscoveryPage() {
 										<DiscoveryCardGridSkeleton count={10} />
 									</div>
 								) : newListings.length === 0 ? (
-									<div className="rounded-2xl border border-white/10 bg-slate-900/40 p-8 text-center backdrop-blur-md">
-										<p className="font-jakarta text-sm text-white/50">
+									<div className="rounded-2xl border border-foreground/10 bg-surface-raised p-8 text-center backdrop-blur-md">
+										<p className="font-jakarta text-sm text-foreground/50">
 											No new listings available right now.
 										</p>
 									</div>

@@ -103,7 +103,7 @@ export default function CreatorMarketplaceInfiniteList({
 			{trimmedQuery && filteredCreators.length === 0 ? (
 				<p
 					data-testid="creator-marketplace-search-empty-state"
-					className="py-12 text-center text-sm text-white/50"
+					className="py-12 text-center text-sm text-foreground/50"
 				>
 					No results for &quot;{debouncedQuery.trim()}&quot;
 				</p>

@@ -7,9 +7,9 @@ interface CreatorSkeletonProps {
 }
 
 const skeletonBlockClass =
-	'rounded-md bg-white/12 skeleton-shimmer motion-reduce:bg-white/18 motion-reduce:ring-1 motion-reduce:ring-white/15';
+	'rounded-md bg-foreground/12 skeleton-shimmer motion-reduce:bg-foreground/18 motion-reduce:ring-1 motion-reduce:ring-foreground/15';
 const skeletonStaticBlockClass =
-	'rounded-md bg-white/16 ring-1 ring-white/15';
+	'rounded-md bg-foreground/16 ring-1 ring-foreground/15';
 
 const CreatorSkeleton: React.FC<CreatorSkeletonProps> = ({
 	className,
@@ -20,7 +20,7 @@ const CreatorSkeleton: React.FC<CreatorSkeletonProps> = ({
 	return (
 		<div
 			className={cn(
-				'rounded-2xl border border-white/10 bg-white/5 p-4',
+				'rounded-2xl border border-foreground/10 bg-foreground/5 p-4',
 				className
 			)}
 		>
@@ -103,7 +103,7 @@ export const CreatorProfileHeaderSkeleton: React.FC<{
 				*/}
 				<div
 					className={cn(
-						'size-24 shrink-0 rounded-2xl border-4 border-white/10 md:size-32',
+						'size-24 shrink-0 rounded-2xl border-4 border-foreground/10 md:size-32',
 						blockClass
 					)}
 				/>
@@ -139,7 +139,7 @@ export const CreatorHoldingsSkeleton: React.FC<{
 		<div
 			{...rest}
 			className={cn(
-				'rounded-2xl border border-white/10 bg-white/[0.03] p-4',
+				'rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4',
 				className
 			)}
 		>
@@ -214,7 +214,7 @@ export const CreatorDashboardSkeleton: React.FC<{
 				{Array.from({ length: 4 }).map((_, i) => (
 					<div
 						key={i}
-						className="relative space-y-2 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 backdrop-blur-md"
+						className="relative space-y-2 overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-4 backdrop-blur-md"
 						data-testid="creator-stat-card-skeleton"
 					>
 						<div className={cn('h-3 w-20', blockClass)} />
@@ -225,7 +225,7 @@ export const CreatorDashboardSkeleton: React.FC<{
 
 			{/* Price Chart Skeleton (300px height matching price chart) */}
 			<div
-				className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+				className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 				data-testid="creator-chart-skeleton-container"
 			>
 				<div className={cn('mb-4 h-6 w-32', blockClass)} />
@@ -237,12 +237,12 @@ export const CreatorDashboardSkeleton: React.FC<{
 
 			{/* Key Holders Table Skeleton (5 rows) */}
 			<div
-				className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+				className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 				data-testid="creator-holders-skeleton-container"
 			>
 				<div className={cn('mb-4 h-6 w-40', blockClass)} />
 				<div
-					className="divide-y divide-white/5"
+					className="divide-y divide-foreground/5"
 					data-testid="creator-holders-skeleton"
 				>
 					{Array.from({ length: 5 }).map((_, i) => (

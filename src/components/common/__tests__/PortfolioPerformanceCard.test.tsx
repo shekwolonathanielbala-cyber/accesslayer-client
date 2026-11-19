@@ -128,7 +128,7 @@ describe('PortfolioPerformanceCard (#881)', () => {
 
 		const pnlElement = screen.getByTestId('performance-card-unrealised-pnl');
 		expect(pnlElement).toHaveTextContent('+21.00 XLM');
-		expect(pnlElement).toHaveClass('text-emerald-400');
+		expect(pnlElement).toHaveClass('text-emerald-600 dark:text-emerald-400');
 
 		const pctElement = screen.getByTestId('performance-card-pnl-percentage');
 		expect(pctElement).toHaveTextContent('+35.0% return');
@@ -154,7 +154,7 @@ describe('PortfolioPerformanceCard (#881)', () => {
 
 		const pnlElement = screen.getByTestId('performance-card-unrealised-pnl');
 		expect(pnlElement).toHaveTextContent('-15.00 XLM');
-		expect(pnlElement).toHaveClass('text-red-400');
+		expect(pnlElement).toHaveClass('text-red-600 dark:text-red-400');
 
 		const pctElement = screen.getByTestId('performance-card-pnl-percentage');
 		expect(pctElement).toHaveTextContent('-30.0% return');

@@ -103,18 +103,18 @@ const EmptyTransactionTimelineState: React.FC<
 	const groupedEntries = groupEntriesByDate(data);
 
 	return (
-		<section className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+		<section className="rounded-2xl border border-foreground/10 bg-foreground/5 p-6 md:p-8">
 			<div className="mx-auto max-w-4xl">
 				<div className="mb-5 flex items-start justify-between gap-3">
 					<div>
-						<h3 className="font-grotesque text-2xl font-bold text-white">
+						<h3 className="font-grotesque text-2xl font-bold text-foreground">
 							Transaction timeline
 						</h3>
-						<p className="mt-2 text-sm text-white/65">
+						<p className="mt-2 text-sm text-foreground/65">
 							Recent trade events with quick copy access for tx hashes.
 						</p>
 					</div>
-					<div className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-amber-300">
+					<div className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-foreground/15 bg-foreground/10 text-amber-700 dark:text-amber-300">
 						<Clock3 className="size-5" />
 					</div>
 				</div>
@@ -123,7 +123,7 @@ const EmptyTransactionTimelineState: React.FC<
 					{groupedEntries.map(group => (
 						<div key={group.date.toDateString()}>
 							<h4
-								className="mb-2 font-grotesque text-sm font-semibold text-white/70"
+								className="mb-2 font-grotesque text-sm font-semibold text-foreground/70"
 								role="heading"
 								aria-level={4}
 							>
@@ -136,24 +136,24 @@ const EmptyTransactionTimelineState: React.FC<
 									const isError = copyState === 'error';
 									const statusClass =
 										entry.status === 'confirmed'
-											? 'text-emerald-300'
+											? 'text-emerald-700 dark:text-emerald-300'
 											: entry.status === 'pending'
-												? 'text-amber-300'
-												: 'text-rose-300';
+												? 'text-amber-700 dark:text-amber-300'
+												: 'text-rose-700 dark:text-rose-300';
 
 									return (
 										<div
 											key={entry.id}
-											className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-white/5 bg-white/[0.04] px-3 py-2 text-xs md:text-sm"
+											className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-foreground/5 bg-foreground/[0.04] px-3 py-2 text-xs md:text-sm"
 										>
-											<span className="text-white/80">{entry.action}</span>
-											<span className="font-semibold text-white">
+											<span className="text-foreground/80">{entry.action}</span>
+											<span className="font-semibold text-foreground">
 												{entry.amount}
 											</span>
 											<div className="min-w-0">
 												<div className="flex items-center gap-2">
 													<span
-														className="truncate font-mono text-white/70"
+														className="truncate font-mono text-foreground/70"
 														title={entry.txHash}
 													>
 														{shortenTxHash(entry.txHash)}
@@ -163,7 +163,7 @@ const EmptyTransactionTimelineState: React.FC<
 														onClick={() =>
 															copyTxHash(entry.id, entry.txHash)
 														}
-														className="inline-flex size-6 shrink-0 items-center justify-center rounded-md bg-white/5 text-white/55 transition-colors hover:bg-white/10 hover:text-white"
+														className="inline-flex size-6 shrink-0 items-center justify-center rounded-md bg-foreground/5 text-foreground/55 transition-colors hover:bg-foreground/10 hover:text-foreground"
 														aria-label={
 															isSuccess
 																? 'Transaction hash copied'
@@ -173,9 +173,9 @@ const EmptyTransactionTimelineState: React.FC<
 														}
 													>
 														{isSuccess ? (
-															<Check className="size-3 text-emerald-400" />
+															<Check className="size-3 text-emerald-600 dark:text-emerald-400" />
 														) : isError ? (
-															<XCircle className="size-3 text-rose-400" />
+															<XCircle className="size-3 text-rose-600 dark:text-rose-400" />
 														) : (
 															<Copy className="size-3" />
 														)}
@@ -192,7 +192,7 @@ const EmptyTransactionTimelineState: React.FC<
 											</div>
 											<div className="text-right">
 												<p className={statusClass}>{entry.status}</p>
-												<p className="text-[10px] text-white/40">
+												<p className="text-[10px] text-foreground/40">
 													{formatRecentActivityCompactTimestamp(
 														entry.compactTimestamp
 													)}

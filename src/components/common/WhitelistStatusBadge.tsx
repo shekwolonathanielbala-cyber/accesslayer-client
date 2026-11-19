@@ -18,12 +18,12 @@ export const WhitelistStatusBadge: React.FC<WhitelistStatusBadgeProps> = ({
 		<span
 			data-testid="whitelist-status-badge"
 			className={cn(
-				'inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs font-semibold text-amber-300 backdrop-blur-sm',
+				'inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300 backdrop-blur-sm',
 				className
 			)}
 			title="This key is currently in early access and only accessible to whitelisted wallets"
 		>
-			<Lock className="size-3 text-amber-400 shrink-0" aria-hidden="true" />
+			<Lock className="size-3 text-amber-600 dark:text-amber-400 shrink-0" aria-hidden="true" />
 			<span>{label}</span>
 		</span>
 	);

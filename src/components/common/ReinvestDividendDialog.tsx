@@ -97,22 +97,22 @@ const ReinvestDividendDialog: React.FC<ReinvestDividendDialogProps> = ({
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className="space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm">
+				<div className="space-y-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 text-sm">
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Unclaimed dividends</span>
-						<span className="font-semibold text-white tabular-nums">
+						<span className="text-foreground/60">Unclaimed dividends</span>
+						<span className="font-semibold text-foreground tabular-nums">
 							{formatDisplayKeyPrice(estimate?.unclaimedStroops)}
 						</span>
 					</div>
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Per-key price</span>
-						<span className="font-semibold text-white tabular-nums">
+						<span className="text-foreground/60">Per-key price</span>
+						<span className="font-semibold text-foreground tabular-nums">
 							{formatDisplayKeyPrice(keyPriceStroops)}
 						</span>
 					</div>
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Estimated keys</span>
-						<span className="font-semibold text-amber-300/90 tabular-nums">
+						<span className="text-foreground/60">Estimated keys</span>
+						<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 							{estimate
 								? `${formatNumber(estimate.wholeKeys)} key${
 										estimate.wholeKeys === 1 ? '' : 's'
@@ -121,8 +121,8 @@ const ReinvestDividendDialog: React.FC<ReinvestDividendDialogProps> = ({
 						</span>
 					</div>
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">XLM remainder</span>
-						<span className="font-semibold text-white tabular-nums">
+						<span className="text-foreground/60">XLM remainder</span>
+						<span className="font-semibold text-foreground tabular-nums">
 							{estimate
 								? formatDisplayKeyPrice(estimate.remainderStroops)
 								: '—'}

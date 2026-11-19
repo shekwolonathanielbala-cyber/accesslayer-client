@@ -21,7 +21,7 @@ export interface CreatorMetadataFormProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 function CharacterCounter({
 	length,
@@ -39,7 +39,7 @@ function CharacterCounter({
 			aria-live="polite"
 			className={cn(
 				'text-xs font-medium tabular-nums',
-				over ? 'text-red-400' : length > max - 20 ? 'text-amber-400' : 'text-white/40'
+				over ? 'text-red-600 dark:text-red-400' : length > max - 20 ? 'text-amber-600 dark:text-amber-400' : 'text-foreground/40'
 			)}
 		>
 			{length} / {max}
@@ -100,7 +100,7 @@ const CreatorMetadataForm: React.FC<CreatorMetadataFormProps> = ({
 				<div className="flex items-center justify-between gap-2">
 					<label
 						htmlFor="creator-metadata-name"
-						className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+						className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 					>
 						Display name
 					</label>
@@ -120,7 +120,7 @@ const CreatorMetadataForm: React.FC<CreatorMetadataFormProps> = ({
 					aria-describedby={nameError ? 'metadata-name-error' : undefined}
 				/>
 				{nameError && (
-					<p id="metadata-name-error" role="alert" data-testid="metadata-name-error" className="text-xs text-red-400">
+					<p id="metadata-name-error" role="alert" data-testid="metadata-name-error" className="text-xs text-red-600 dark:text-red-400">
 						{nameError}
 					</p>
 				)}
@@ -130,7 +130,7 @@ const CreatorMetadataForm: React.FC<CreatorMetadataFormProps> = ({
 				<div className="flex items-center justify-between gap-2">
 					<label
 						htmlFor="creator-metadata-bio"
-						className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+						className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 					>
 						Bio
 					</label>
@@ -150,7 +150,7 @@ const CreatorMetadataForm: React.FC<CreatorMetadataFormProps> = ({
 					aria-describedby={bioError ? 'metadata-bio-error' : undefined}
 				/>
 				{bioError && (
-					<p id="metadata-bio-error" role="alert" data-testid="metadata-bio-error" className="text-xs text-red-400">
+					<p id="metadata-bio-error" role="alert" data-testid="metadata-bio-error" className="text-xs text-red-600 dark:text-red-400">
 						{bioError}
 					</p>
 				)}
@@ -159,7 +159,7 @@ const CreatorMetadataForm: React.FC<CreatorMetadataFormProps> = ({
 			<div className="space-y-1.5">
 				<label
 					htmlFor="creator-metadata-avatar"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Avatar URI
 				</label>

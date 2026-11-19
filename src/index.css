@@ -16,6 +16,8 @@
 	--radius-xl: calc(var(--radius) + 4px);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-surface: var(--surface);
+	--color-surface-raised: var(--surface-raised);
 	--color-card: var(--card);
 	--color-card-foreground: var(--card-foreground);
 	--color-popover: var(--popover);
@@ -90,11 +92,27 @@
 	--sidebar-accent-foreground: oklch(0.21 0.006 285.885);
 	--sidebar-border: oklch(0.92 0.004 286.32);
 	--sidebar-ring: oklch(0.705 0.015 286.067);
-	--marketplace-card-bg: rgba(255, 255, 255, 0.05);
-	--marketplace-card-bg-hover: rgba(255, 255, 255, 0.08);
-	--marketplace-card-border: rgba(255, 255, 255, 0.1);
-	--marketplace-label-muted: rgba(255, 255, 255, 0.6);
-	--marketplace-label-strong: rgba(255, 255, 255, 0.85);
+	--marketplace-card-bg: rgba(0, 0, 0, 0.04);
+	--marketplace-card-bg-hover: rgba(0, 0, 0, 0.07);
+	--marketplace-card-border: rgba(0, 0, 0, 0.1);
+	--marketplace-label-muted: rgba(0, 0, 0, 0.6);
+	--marketplace-label-strong: rgba(0, 0, 0, 0.85);
+	/* Page and raised surfaces used by the marketplace, discovery and
+	 * governance screens. Dark values match the original hard-coded hexes so
+	 * the dark theme is unchanged. */
+	--surface: #ffffff;
+	--surface-raised: #f4f5f7;
+	--page-gradient: linear-gradient(
+		160deg,
+		#f8fafc 0%,
+		#eef3fa 45%,
+		#ffe7c2 160%
+	);
+	--page-scrim: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.98),
+		rgba(240, 245, 252, 0.95)
+	);
 }
 
 .dark {
@@ -134,6 +152,19 @@
 	--marketplace-card-border: rgba(255, 255, 255, 0.1);
 	--marketplace-label-muted: rgba(255, 255, 255, 0.6);
 	--marketplace-label-strong: rgba(255, 255, 255, 0.85);
+	--surface: #06111f;
+	--surface-raised: #0b1728;
+	--page-gradient: linear-gradient(
+		160deg,
+		#08111f 0%,
+		#10213b 45%,
+		#f0b14d 160%
+	);
+	--page-scrim: linear-gradient(
+		135deg,
+		rgba(6, 17, 31, 0.98),
+		rgba(12, 33, 58, 0.95)
+	);
 }
 
 @media (prefers-contrast: more) {

@@ -65,7 +65,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 	if (isError) {
 		return (
 			<section className={className} data-testid="expired-bundles-error">
-				<p role="alert" className="text-sm text-amber-300">
+				<p role="alert" className="text-sm text-amber-700 dark:text-amber-300">
 					We couldn&apos;t load your archived bundles. Please refresh and try
 					again.
 				</p>
@@ -76,10 +76,10 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 	if (bundles.length === 0) {
 		return (
 			<section className={className} data-testid="expired-bundles-empty">
-				<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+				<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 					Expired bundles
 				</h2>
-				<p className="mt-2 text-sm text-white/55">
+				<p className="mt-2 text-sm text-foreground/55">
 					Expired or cancelled bundles will appear here automatically.
 				</p>
 			</section>
@@ -88,7 +88,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 
 	return (
 		<section className={className} data-testid="expired-bundles-archive">
-			<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+			<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 				Expired bundles
 			</h2>
 
@@ -98,7 +98,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 			>
 				<table className="w-full min-w-[44rem] text-left text-sm">
 					<thead>
-						<tr className="border-b border-white/10 text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
+						<tr className="border-b border-foreground/10 text-[0.65rem] uppercase tracking-[0.18em] text-foreground/40">
 							<th scope="col" className="py-2 pr-4 font-bold">
 								Bundle
 							</th>
@@ -126,7 +126,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 						{bundles.map(bundle => (
 							<tr
 								key={bundle.id}
-								className="border-b border-white/5"
+								className="border-b border-foreground/5"
 								data-testid="expired-bundle-row"
 							>
 								<td className="py-2 pr-4">
@@ -134,7 +134,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 										href={buildBundleDetailUrl(bundle.creatorId, bundle.id)}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="inline-flex items-center gap-1 text-xs text-white/70 hover:text-white"
+										className="inline-flex items-center gap-1 text-xs text-foreground/70 hover:text-foreground"
 										data-testid="expired-bundle-id"
 									>
 										{bundle.id}
@@ -142,31 +142,31 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 									</a>
 								</td>
 								<td
-									className="py-2 pr-4 text-xs text-white/60"
+									className="py-2 pr-4 text-xs text-foreground/60"
 									data-testid="expired-bundle-keys"
 								>
 									{getBundleQuantityTotal(bundle.items)}
 								</td>
 								<td
-									className="py-2 pr-4 font-mono text-xs text-white/60"
+									className="py-2 pr-4 font-mono text-xs text-foreground/60"
 									data-testid="expired-bundle-list-price"
 								>
 									{formatXlmPrice(bundle.listPriceXlm)}
 								</td>
 								<td
-									className="py-2 pr-4 font-mono text-xs text-white/60"
+									className="py-2 pr-4 font-mono text-xs text-foreground/60"
 									data-testid="expired-bundle-discount-price"
 								>
 									{formatXlmPrice(bundle.discountPriceXlm)}
 								</td>
 								<td
-									className="py-2 pr-4 text-xs text-white/60"
+									className="py-2 pr-4 text-xs text-foreground/60"
 									data-testid="expired-bundle-purchases"
 								>
 									{bundle.purchaseCount}
 								</td>
 								<td
-									className="py-2 pr-4 text-xs text-white/60"
+									className="py-2 pr-4 text-xs text-foreground/60"
 									title={formatAbsoluteDateTime(bundle.expiresAt) ?? undefined}
 									data-testid="expired-bundle-ended"
 								>
@@ -174,7 +174,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 								</td>
 								<td className="py-2">
 									<span
-										className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.06] px-2 py-0.5 text-xs font-medium text-white/70"
+										className="inline-flex items-center rounded-full border border-foreground/10 bg-foreground/[0.06] px-2 py-0.5 text-xs font-medium text-foreground/70"
 										data-testid="expired-bundle-end-reason"
 									>
 										{describeBundleEndReason(bundle, nowMs)}
@@ -192,7 +192,7 @@ export const ExpiredBundlesArchive: React.FC<ExpiredBundlesArchiveProps> = ({
 					variant="ghost"
 					onClick={onLoadMore}
 					disabled={isFetchingNextPage}
-					className="mt-4 text-sm font-semibold text-amber-300 hover:text-amber-200 disabled:opacity-50"
+					className="mt-4 text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 disabled:opacity-50"
 					data-testid="expired-bundles-load-more"
 				>
 					{isFetchingNextPage ? 'Loading…' : 'Load more'}

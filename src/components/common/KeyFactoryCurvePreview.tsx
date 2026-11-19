@@ -39,13 +39,13 @@ export const KeyFactoryCurvePreview: React.FC<KeyFactoryCurvePreviewProps> = ({
 			data-curve-valid={isValid ? 'true' : 'false'}
 		>
 			<div className="flex flex-wrap items-baseline justify-between gap-3">
-				<h3 className="font-grotesque text-lg font-bold text-white">
+				<h3 className="font-grotesque text-lg font-bold text-foreground">
 					Curve preview
 				</h3>
-				<p className="text-sm text-white/60">
+				<p className="text-sm text-foreground/60">
 					Initial price{' '}
 					<span
-						className="font-mono font-semibold text-white"
+						className="font-mono font-semibold text-foreground"
 						data-testid="key-factory-initial-price"
 					>
 						{formatXlmPrice(initialPriceXlm)}
@@ -56,7 +56,7 @@ export const KeyFactoryCurvePreview: React.FC<KeyFactoryCurvePreviewProps> = ({
 			{!isValid && (
 				<p
 					role="status"
-					className="mt-2 text-xs text-amber-300"
+					className="mt-2 text-xs text-amber-700 dark:text-amber-300"
 					data-testid="key-factory-curve-preview-invalid"
 				>
 					Enter a valid base price, growth factor and max supply to
@@ -69,7 +69,7 @@ export const KeyFactoryCurvePreview: React.FC<KeyFactoryCurvePreviewProps> = ({
 			</div>
 
 			<p
-				className="mt-2 text-xs text-white/50"
+				className="mt-2 text-xs text-foreground/50"
 				data-testid="key-factory-curve-endpoint"
 			>
 				Price at max supply: {formatXlmPrice(finalPriceXlm)}

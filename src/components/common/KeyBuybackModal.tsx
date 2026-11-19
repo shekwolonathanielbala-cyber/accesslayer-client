@@ -121,7 +121,7 @@ export default function KeyBuybackModal({
 			}}
 		>
 			<DialogContent
-				className="max-w-md border-white/10 bg-[#0a1526]/95 text-white backdrop-blur-xl"
+				className="max-w-md border-foreground/10 bg-surface-raised/95 text-foreground backdrop-blur-xl"
 				showCloseButton={!isSubmitting}
 				showEscapeHint={!isSubmitting}
 				data-testid="key-buyback-modal"
@@ -140,18 +140,18 @@ export default function KeyBuybackModal({
 					/* Settled Post-Buyback State */
 					<div className="space-y-5 py-2">
 						<div className="flex flex-col items-center text-center">
-							<div className="flex size-14 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3 shadow-lg shadow-emerald-500/10">
+							<div className="flex size-14 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 mb-3 shadow-lg shadow-emerald-500/10">
 								<CheckCircle2 className="size-8" />
 							</div>
 							<DialogTitle
-								className="text-xl font-bold font-grotesque text-white tracking-tight"
+								className="text-xl font-bold font-grotesque text-foreground tracking-tight"
 								data-testid="buyback-settlement-confirmed"
 							>
 								Buyback Settlement Confirmed
 							</DialogTitle>
-							<DialogDescription className="text-sm text-white/70 mt-1">
+							<DialogDescription className="text-sm text-foreground/70 mt-1">
 								Your position in{' '}
-								<span className="font-semibold text-white">
+								<span className="font-semibold text-foreground">
 									{creatorTitle}
 								</span>{' '}
 								has been successfully settled at the guaranteed buyback price.
@@ -163,30 +163,30 @@ export default function KeyBuybackModal({
 							className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-4 space-y-3 text-sm"
 							data-testid="buyback-settlement-receipt"
 						>
-							<div className="flex items-center justify-between pb-2 border-b border-white/10">
-								<span className="text-white/60">Settlement Status</span>
-								<span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-400">
+							<div className="flex items-center justify-between pb-2 border-b border-foreground/10">
+								<span className="text-foreground/60">Settlement Status</span>
+								<span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
 									<Check className="size-3" /> Settled
 								</span>
 							</div>
 
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Keys Redeemed</span>
-								<span className="font-semibold text-white tabular-nums">
+								<span className="text-foreground/60">Keys Redeemed</span>
+								<span className="font-semibold text-foreground tabular-nums">
 									{formatNumber(receipt.quantity)}
 								</span>
 							</div>
 
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Settlement Price</span>
-								<span className="font-semibold text-white tabular-nums">
+								<span className="text-foreground/60">Settlement Price</span>
+								<span className="font-semibold text-foreground tabular-nums">
 									{formatDisplayKeyPrice(receipt.buybackPriceStroops)}
 								</span>
 							</div>
 
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Total XLM Payout</span>
-								<span className="font-bold text-emerald-400 tabular-nums text-base">
+								<span className="text-foreground/60">Total XLM Payout</span>
+								<span className="font-bold text-emerald-600 dark:text-emerald-400 tabular-nums text-base">
 									{formatNumber(
 										receipt.totalPayoutStroops / STROOPS_PER_XLM,
 										{
@@ -199,26 +199,26 @@ export default function KeyBuybackModal({
 							</div>
 
 							<div className="flex items-center justify-between pt-1">
-								<span className="text-white/60">Settled At</span>
-								<span className="text-xs text-white/80 tabular-nums">
+								<span className="text-foreground/60">Settled At</span>
+								<span className="text-xs text-foreground/80 tabular-nums">
 									{formatAbsoluteDateTime(receipt.settledAt) ??
 										receipt.settledAt}
 								</span>
 							</div>
 
-							<div className="pt-2 border-t border-white/10">
-								<div className="flex items-center justify-between text-xs text-white/60 mb-1">
+							<div className="pt-2 border-t border-foreground/10">
+								<div className="flex items-center justify-between text-xs text-foreground/60 mb-1">
 									<span>Transaction Hash</span>
 									<button
 										type="button"
 										onClick={() => handleCopyTx(receipt.txHash)}
-										className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 font-medium transition-colors"
+										className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium transition-colors"
 										title="Copy transaction hash"
 									>
 										{copiedTx ? (
 											<>
-												<Check className="size-3 text-emerald-400" />
-												<span className="text-emerald-400">Copied</span>
+												<Check className="size-3 text-emerald-600 dark:text-emerald-400" />
+												<span className="text-emerald-600 dark:text-emerald-400">Copied</span>
 											</>
 										) : (
 											<>
@@ -228,12 +228,12 @@ export default function KeyBuybackModal({
 										)}
 									</button>
 								</div>
-								<p className="font-mono text-xs text-white/80 break-all select-all bg-black/30 p-2 rounded border border-white/5">
+								<p className="font-mono text-xs text-foreground/80 break-all select-all bg-black/30 p-2 rounded border border-foreground/5">
 									{receipt.txHash}
 								</p>
 							</div>
 
-							<p className="text-xs text-white/50 text-center pt-1 italic">
+							<p className="text-xs text-foreground/50 text-center pt-1 italic">
 								Position cleared. 0 keys remaining in your wallet.
 							</p>
 						</div>
@@ -253,12 +253,12 @@ export default function KeyBuybackModal({
 					/* Review Terms & Confirmation State */
 					<div className="space-y-5 py-1">
 						<DialogHeader>
-							<DialogTitle className="text-xl font-bold font-grotesque text-white tracking-tight">
+							<DialogTitle className="text-xl font-bold font-grotesque text-foreground tracking-tight">
 								Confirm Key Buyback
 							</DialogTitle>
-							<DialogDescription className="text-sm text-white/70">
+							<DialogDescription className="text-sm text-foreground/70">
 								Exit your position in{' '}
-								<span className="font-semibold text-white">
+								<span className="font-semibold text-foreground">
 									{creatorTitle}
 								</span>{' '}
 								at the guaranteed contract buyback price.
@@ -266,35 +266,35 @@ export default function KeyBuybackModal({
 						</DialogHeader>
 
 						{/* Breakdown Card */}
-						<div className="space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm">
+						<div className="space-y-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 text-sm">
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Keys held to redeem</span>
-								<span className="font-semibold text-white tabular-nums">
+								<span className="text-foreground/60">Keys held to redeem</span>
+								<span className="font-semibold text-foreground tabular-nums">
 									{formatNumber(holdingsCount)}
 								</span>
 							</div>
 
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Guaranteed buyback price</span>
-								<span className="font-semibold text-white tabular-nums">
+								<span className="text-foreground/60">Guaranteed buyback price</span>
+								<span className="font-semibold text-foreground tabular-nums">
 									{formatDisplayKeyPrice(buybackPriceStroops)}
 								</span>
 							</div>
 
 							<div className="flex items-center justify-between">
-								<span className="text-white/60">Buyback expiry</span>
-								<span className="font-medium text-white/80 tabular-nums text-xs">
+								<span className="text-foreground/60">Buyback expiry</span>
+								<span className="font-medium text-foreground/80 tabular-nums text-xs">
 									{formattedExpiry}
 								</span>
 							</div>
 
-							<div className="h-px bg-white/10 my-1" />
+							<div className="h-px bg-foreground/10 my-1" />
 
 							<div className="flex items-center justify-between">
-								<span className="font-medium text-white/80">
+								<span className="font-medium text-foreground/80">
 									Total XLM Payout
 								</span>
-								<span className="text-base font-bold text-amber-300 tabular-nums">
+								<span className="text-base font-bold text-amber-700 dark:text-amber-300 tabular-nums">
 									{formatNumber(totalPayoutXlm, {
 										minimumFractionDigits: 2,
 										maximumFractionDigits: 4,
@@ -309,11 +309,11 @@ export default function KeyBuybackModal({
 							className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3.5 space-y-1.5"
 							data-testid="buyback-terms"
 						>
-							<div className="flex items-center gap-1.5 text-xs font-semibold text-amber-300 uppercase tracking-wider">
-								<ShieldCheck className="size-4 text-amber-400" />
+							<div className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-300 uppercase tracking-wider">
+								<ShieldCheck className="size-4 text-amber-600 dark:text-amber-400" />
 								<span>Contract Settlement Terms</span>
 							</div>
-							<p className="text-xs text-white/75 leading-relaxed">
+							<p className="text-xs text-foreground/75 leading-relaxed">
 								{terms || DEFAULT_BUYBACK_TERMS}
 							</p>
 						</div>
@@ -324,7 +324,7 @@ export default function KeyBuybackModal({
 								variant="ghost"
 								onClick={handleClose}
 								disabled={isSubmitting}
-								className="text-white/70 hover:text-white"
+								className="text-foreground/70 hover:text-foreground"
 								data-testid="cancel-buyback-button"
 							>
 								Cancel

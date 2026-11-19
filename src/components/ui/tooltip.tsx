@@ -28,7 +28,7 @@ export function Tooltip({ content, children }: TooltipProps) {
       <div
         id={tooltipId}
         role="tooltip"
-        className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden -translate-x-1/2 whitespace-normal rounded-md bg-black px-2 py-1 text-xs text-white shadow-md group-hover:block group-focus-within:block"
+        className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden -translate-x-1/2 whitespace-normal rounded-md bg-surface px-2 py-1 text-xs text-foreground shadow-md group-hover:block group-focus-within:block"
       >
         {content}
       </div>

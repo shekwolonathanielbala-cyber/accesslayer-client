@@ -239,7 +239,7 @@ function CreatorDetailPageContent() {
 
 	if (isLoading) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-7xl">
 					<CreatorDashboardSkeleton />
 				</div>
@@ -252,14 +252,14 @@ function CreatorDetailPageContent() {
 			!creator || (error instanceof ApiError && error.status === 404);
 		if (is404) {
 			return (
-				<main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#06111f] px-6 py-16 text-center text-white">
+				<main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-surface px-6 py-16 text-center text-foreground">
 					<h1 className="font-grotesque text-3xl font-black">
 						Creator not found
 					</h1>
-					<p className="text-white/70 font-jakarta">
+					<p className="text-foreground/70 font-jakarta">
 						We couldn't find a creator with that ID.
 					</p>
-					<Link to="/creators" className="text-amber-400 hover:underline">
+					<Link to="/creators" className="text-amber-600 dark:text-amber-400 hover:underline">
 						Back to creators
 					</Link>
 				</main>
@@ -336,7 +336,7 @@ function CreatorDetailPageContent() {
 			};
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-7xl space-y-8">
 				<CreatorBreadcrumb
 					parentLabel="Marketplace"
@@ -427,15 +427,15 @@ function CreatorDetailPageContent() {
 				 * buy action stays reachable and full-width with a 44px tap target;
 				 * desktop keeps the horizontal layout.
 				 */}
-				<div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+				<div className="flex flex-col gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
 					<div className="min-w-0">
 						<div className="flex items-center gap-2">
-							<p className="text-xs font-semibold uppercase tracking-wider text-white/55">
+							<p className="text-xs font-semibold uppercase tracking-wider text-foreground/55">
 								Key Purchase
 							</p>
 							{isLockedOut && <WhitelistStatusBadge />}
 						</div>
-						<p className="mt-0.5 text-sm text-white/80">
+						<p className="mt-0.5 text-sm text-foreground/80">
 							{isKeyDeprecated(creator)
 								? 'Key is deprecated. New buys are disabled.'
 								: isLockedOut
@@ -501,7 +501,7 @@ function CreatorDetailPageContent() {
 				</div>
 				{isTwapLoading ? (
 					<div
-						className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4"
+						className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-5 py-4"
 						data-testid="twap-price"
 					>
 						<div aria-label="Loading 24 hour TWAP" role="status">
@@ -511,18 +511,18 @@ function CreatorDetailPageContent() {
 					</div>
 				) : twapPrice != null ? (
 					<div
-						className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4"
+						className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-5 py-4"
 						data-testid="twap-price"
 					>
 						<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
 							<div>
-								<div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/55">
+								<div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-foreground/55">
 									<span
 										className={
 											twapDelta != null
 												? twapDelta < 0
-													? 'text-emerald-400'
-													: 'text-rose-400'
+													? 'text-emerald-600 dark:text-emerald-400'
+													: 'text-rose-600 dark:text-rose-400'
 												: ''
 										}
 									>
@@ -532,13 +532,13 @@ function CreatorDetailPageContent() {
 										<button
 											type="button"
 											aria-label="What is 24 hour TWAP?"
-											className="-m-1 p-1 text-white/50"
+											className="-m-1 p-1 text-foreground/50"
 										>
 											ⓘ
 										</button>
 									</Tooltip>
 								</div>
-								<div className="mt-1 text-xl font-bold text-white">
+								<div className="mt-1 text-xl font-bold text-foreground">
 									{formatDisplayKeyPrice(twapPrice)}
 								</div>
 							</div>
@@ -546,8 +546,8 @@ function CreatorDetailPageContent() {
 								<span
 									className={
 										twapDelta < 0
-											? 'text-sm font-semibold tabular-nums text-emerald-400'
-											: 'text-sm font-semibold tabular-nums text-rose-400'
+											? 'text-sm font-semibold tabular-nums text-emerald-600 dark:text-emerald-400'
+											: 'text-sm font-semibold tabular-nums text-rose-600 dark:text-rose-400'
 									}
 								>
 									{twapDelta < 0 ? '▼' : '▲'}{' '}
@@ -562,10 +562,10 @@ function CreatorDetailPageContent() {
 
 				{/* Price Curve Chart */}
 				<div
-					className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+					className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 					data-testid="creator-chart-container"
 				>
-					<h2 className="font-grotesque text-xl font-black tracking-tight text-white mb-6">
+					<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground mb-6">
 						Price Curve
 					</h2>
 				<BondingCurveChart
@@ -586,10 +586,10 @@ function CreatorDetailPageContent() {
 				/>
 				{/* Holder Concentration */}
 				<div
-					className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+					className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 					data-testid="holder-concentration-container"
 				>
-					<h2 className="font-grotesque text-xl font-black tracking-tight text-white mb-6">
+					<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground mb-6">
 						Holder Concentration
 					</h2>
 					<HolderConcentrationChart
@@ -598,9 +598,9 @@ function CreatorDetailPageContent() {
 					/>
 				</div>
 				{/* Fee Structure */}
-				<div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+				<div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
 					<div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-						<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+						<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 							Fee Structure
 						</h2>
 						<CreatorProfileStaleIndicator
@@ -622,15 +622,15 @@ function CreatorDetailPageContent() {
 				{/* Key Holders */}
 				<div
 					data-testid="creator-holders-container"
-					className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+					className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 				>
 					<div className="flex items-center justify-between gap-4 mb-6">
-						<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+						<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 							Key Holders
 						</h2>
 						<Link
 							to={`/creator/${id}/leaderboard`}
-							className="text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
+							className="text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 transition-colors"
 							data-testid="view-leaderboard-link"
 						>
 							View Leaderboard →
@@ -645,8 +645,8 @@ function CreatorDetailPageContent() {
 						}}
 					/>
 				</div>
-				<div className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
-					<h2 className="font-grotesque text-xl font-black tracking-tight text-white mb-6">
+				<div className="mt-8 rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+					<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground mb-6">
 						Activity
 					</h2>
 					<CreatorActivityFeed creatorId={creator.id} />

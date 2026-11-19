@@ -42,7 +42,7 @@ function LockStatus({ position }: { position: StakingPosition }) {
 		return (
 			<span
 				data-testid={`staking-lock-status-${position.id}`}
-				className="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300"
+				className="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300"
 			>
 				<TrendingUp className="size-3" aria-hidden="true" />
 				Unlocked
@@ -53,7 +53,7 @@ function LockStatus({ position }: { position: StakingPosition }) {
 	return (
 		<span
 			data-testid={`staking-lock-status-${position.id}`}
-			className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-300"
+			className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:text-amber-300"
 		>
 			<Lock className="size-3" aria-hidden="true" />
 			Unlocks in{' '}
@@ -68,15 +68,15 @@ function StakingRowSkeleton() {
 	return (
 		<div
 			aria-hidden="true"
-			className="flex items-center justify-between gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+			className="flex items-center justify-between gap-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4"
 		>
 			<div className="space-y-2">
-				<div className="h-4 w-36 animate-pulse rounded bg-white/10" />
-				<div className="h-3 w-24 animate-pulse rounded bg-white/10" />
+				<div className="h-4 w-36 animate-pulse rounded bg-foreground/10" />
+				<div className="h-3 w-24 animate-pulse rounded bg-foreground/10" />
 			</div>
 			<div className="flex items-center gap-3">
-				<div className="h-4 w-20 animate-pulse rounded bg-white/10" />
-				<div className="h-8 w-24 animate-pulse rounded bg-white/10" />
+				<div className="h-4 w-20 animate-pulse rounded bg-foreground/10" />
+				<div className="h-8 w-24 animate-pulse rounded bg-foreground/10" />
 			</div>
 		</div>
 	);
@@ -148,7 +148,7 @@ const StakingPositionsList: React.FC<StakingPositionsListProps> = ({
 			className={cn('space-y-2', className)}
 			data-testid="staking-positions-list"
 		>
-			<div className="mb-2 hidden items-center justify-between px-5 text-[10px] font-bold uppercase tracking-widest text-white/30 sm:flex">
+			<div className="mb-2 hidden items-center justify-between px-5 text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:flex">
 				<span className="flex-1">Key</span>
 				<div className="flex items-center gap-6">
 					<span className="w-24 text-right">Staked</span>
@@ -173,44 +173,44 @@ const StakingPositionsList: React.FC<StakingPositionsListProps> = ({
 					<div
 						key={position.id}
 						data-testid={`staking-position-${position.id}`}
-						className="flex flex-col gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-colors hover:border-white/20 sm:flex-row sm:items-center sm:justify-between"
+						className="flex flex-col gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 transition-colors hover:border-foreground/20 sm:flex-row sm:items-center sm:justify-between"
 					>
 						<div className="min-w-0 flex-1">
 							<Link
 								to={`/creator/${position.keyId}`}
-								className="block truncate text-sm font-semibold text-white transition-colors hover:text-amber-300"
+								className="block truncate text-sm font-semibold text-foreground transition-colors hover:text-amber-700 dark:hover:text-amber-300"
 							>
 								{position.keyName}
 							</Link>
 						</div>
 
-						<div className="flex items-center gap-6 text-xs text-white/60 sm:gap-6">
+						<div className="flex items-center gap-6 text-xs text-foreground/60 sm:gap-6">
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30 sm:hidden">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:hidden">
 									Staked
 								</span>
 								<span
 									data-testid={`staking-quantity-${position.id}`}
-									className="font-mono text-white/80"
+									className="font-mono text-foreground/80"
 								>
 									{formatStakedQuantity(position.stakedQuantity)}
 								</span>
 							</div>
 
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30 sm:hidden">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:hidden">
 									Value
 								</span>
 								<span
 									data-testid={`staking-value-${position.id}`}
-									className="font-mono font-semibold text-white"
+									className="font-mono font-semibold text-foreground"
 								>
 									{formatDisplayKeyPrice(valueStroops)}
 								</span>
 							</div>
 
 							<div className="flex flex-col items-end">
-								<span className="text-[10px] font-bold uppercase tracking-widest text-white/30 sm:hidden">
+								<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:hidden">
 									Lock
 								</span>
 								<LockStatus position={position} />
@@ -218,12 +218,12 @@ const StakingPositionsList: React.FC<StakingPositionsListProps> = ({
 
 							{isOwnProfile && (
 								<div className="flex flex-col items-end gap-2">
-									<span className="text-[10px] font-bold uppercase tracking-widest text-white/30 sm:hidden">
+									<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:hidden">
 										Rewards
 									</span>
 									<span
 										data-testid={`staking-claimable-${position.id}`}
-										className="font-mono text-sm font-bold text-emerald-300"
+										className="font-mono text-sm font-bold text-emerald-700 dark:text-emerald-300"
 									>
 										{formatClaimableReward(claimable)}
 									</span>

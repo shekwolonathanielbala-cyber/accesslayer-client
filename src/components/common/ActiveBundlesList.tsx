@@ -71,7 +71,7 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 	if (isError) {
 		return (
 			<section className={className} data-testid="active-bundles-error">
-				<p role="alert" className="text-sm text-amber-300">
+				<p role="alert" className="text-sm text-amber-700 dark:text-amber-300">
 					We couldn&apos;t load your bundles. Please refresh and try again.
 				</p>
 			</section>
@@ -80,13 +80,13 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 
 	return (
 		<section className={className} data-testid="active-bundles-list">
-			<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+			<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 				Active bundles
 			</h2>
 
 			{bundles.length === 0 ? (
 				<p
-					className="mt-2 text-sm text-white/55"
+					className="mt-2 text-sm text-foreground/55"
 					data-testid="active-bundles-empty"
 				>
 					No active bundles yet. Create one below to offer a discounted bundle.
@@ -99,7 +99,7 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 					>
 						<table className="w-full min-w-[48rem] text-left text-sm">
 							<thead>
-								<tr className="border-b border-white/10 text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
+								<tr className="border-b border-foreground/10 text-[0.65rem] uppercase tracking-[0.18em] text-foreground/40">
 									<th scope="col" className="py-2 pr-4 font-bold">
 										Bundle
 									</th>
@@ -132,7 +132,7 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 									return (
 										<tr
 											key={bundle.id}
-											className="border-b border-white/5"
+											className="border-b border-foreground/5"
 											data-testid="active-bundle-row"
 										>
 											<td className="py-2 pr-4">
@@ -143,7 +143,7 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 													)}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="inline-flex items-center gap-1 text-xs text-white/80 hover:text-white"
+													className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-foreground"
 													data-testid="active-bundle-id"
 												>
 													{bundle.id}
@@ -154,31 +154,31 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 												</a>
 											</td>
 											<td
-												className="py-2 pr-4 text-xs text-white/70"
+												className="py-2 pr-4 text-xs text-foreground/70"
 												data-testid="active-bundle-keys"
 											>
 												{getBundleQuantityTotal(bundle.items)}
 											</td>
 											<td
-												className="py-2 pr-4 font-mono text-xs text-white/60"
+												className="py-2 pr-4 font-mono text-xs text-foreground/60"
 												data-testid="active-bundle-list-price"
 											>
 												{formatXlmPrice(bundle.listPriceXlm)}
 											</td>
 											<td
-												className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-400"
+												className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400"
 												data-testid="active-bundle-discount-price"
 											>
 												{formatXlmPrice(bundle.discountPriceXlm)}
 											</td>
 											<td
-												className="py-2 pr-4 text-xs text-white/70"
+												className="py-2 pr-4 text-xs text-foreground/70"
 												data-testid="active-bundle-purchases"
 											>
 												{bundle.purchaseCount}
 											</td>
 											<td
-												className="py-2 pr-4 text-xs text-white/60"
+												className="py-2 pr-4 text-xs text-foreground/60"
 												title={
 													formatAbsoluteDateTime(bundle.expiresAt) ??
 													undefined
@@ -223,7 +223,7 @@ export const ActiveBundlesList: React.FC<ActiveBundlesListProps> = ({
 							variant="ghost"
 							onClick={onLoadMore}
 							disabled={isFetchingNextPage}
-							className="mt-4 text-sm font-semibold text-amber-300 hover:text-amber-200 disabled:opacity-50"
+							className="mt-4 text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 disabled:opacity-50"
 							data-testid="active-bundles-load-more"
 						>
 							{isFetchingNextPage ? 'Loading…' : 'Load more'}

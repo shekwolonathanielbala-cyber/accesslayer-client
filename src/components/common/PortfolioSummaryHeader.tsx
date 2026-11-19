@@ -69,19 +69,19 @@ const PortfolioSummaryHeader: React.FC<PortfolioSummaryHeaderProps> = ({
 		<section
 			aria-label="Portfolio summary"
 			className={cn(
-				'transition-all duration-300 rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
+				'transition-all duration-300 rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
 				className
 			)}
 		>
 			<div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
 				<div>
-					<p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-300/80">
+					<p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-700/80 dark:text-amber-300/80">
 						Portfolio overview
 					</p>
-					<h2 className="font-grotesque text-2xl font-black tracking-tight text-white">
+					<h2 className="font-grotesque text-2xl font-black tracking-tight text-foreground">
 						Total portfolio value
 					</h2>
-					<p className="mt-2 max-w-2xl font-jakarta text-sm leading-relaxed text-white/60">
+					<p className="mt-2 max-w-2xl font-jakarta text-sm leading-relaxed text-foreground/60">
 						Sums the current value of every creator key you hold and every
 						key you have staked using the latest bond-curve prices.
 					</p>
@@ -92,12 +92,12 @@ const PortfolioSummaryHeader: React.FC<PortfolioSummaryHeaderProps> = ({
 					aria-live="polite"
 					aria-busy={isPriceLoading || undefined}
 					data-testid="portfolio-summary-total"
-					className="rounded-2xl border border-white/10 bg-slate-950/45 px-5 py-4 text-left md:min-w-64"
+					className="rounded-2xl border border-foreground/10 bg-surface-raised px-5 py-4 text-left md:min-w-64"
 				>
-					<div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/45">
+					<div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-foreground/45">
 						Portfolio total
 					</div>
-					<div className="mt-1 flex items-center gap-2 font-grotesque text-3xl font-black text-white">
+					<div className="mt-1 flex items-center gap-2 font-grotesque text-3xl font-black text-foreground">
 						{isPriceLoading && (
 							<span
 								className="size-4 animate-spin rounded-full border-2 border-amber-400/25 border-t-amber-400"
@@ -110,41 +110,41 @@ const PortfolioSummaryHeader: React.FC<PortfolioSummaryHeaderProps> = ({
 			</div>
 
 			<div className="mt-6 grid gap-3 sm:grid-cols-2">
-				<div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-slate-950/30 px-4 py-3">
+				<div className="flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-surface-raised px-4 py-3">
 					<div className="flex items-center gap-2">
-						<span className="text-sm font-semibold text-white/70">
+						<span className="text-sm font-semibold text-foreground/70">
 							Held keys
 						</span>
 						<span
 							data-testid="portfolio-summary-held-count"
-							className="rounded-full bg-amber-400/15 px-2 py-0.5 text-xs font-bold text-amber-300"
+							className="rounded-full bg-amber-400/15 px-2 py-0.5 text-xs font-bold text-amber-700 dark:text-amber-300"
 						>
 							{heldPositionCount}
 						</span>
 					</div>
 					<span
 						data-testid="portfolio-summary-held-value"
-						className="font-mono text-sm font-bold text-white"
+						className="font-mono text-sm font-bold text-foreground"
 					>
 						{formatDisplayKeyPrice(heldValueStroops)}
 					</span>
 				</div>
 
-				<div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-slate-950/30 px-4 py-3">
+				<div className="flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-surface-raised px-4 py-3">
 					<div className="flex items-center gap-2">
-						<span className="text-sm font-semibold text-white/70">
+						<span className="text-sm font-semibold text-foreground/70">
 							Staked
 						</span>
 						<span
 							data-testid="portfolio-summary-staked-count"
-							className="rounded-full bg-emerald-400/15 px-2 py-0.5 text-xs font-bold text-emerald-300"
+							className="rounded-full bg-emerald-400/15 px-2 py-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-300"
 						>
 							{stakedPositionCount}
 						</span>
 					</div>
 					<span
 						data-testid="portfolio-summary-staked-value"
-						className="font-mono text-sm font-bold text-white"
+						className="font-mono text-sm font-bold text-foreground"
 					>
 						{formatDisplayKeyPrice(stakedValueStroops)}
 					</span>
@@ -154,21 +154,21 @@ const PortfolioSummaryHeader: React.FC<PortfolioSummaryHeaderProps> = ({
 			{showPnL && (
 				<div
 					data-testid="portfolio-summary-pnl"
-					className="mt-4 flex flex-col gap-3 rounded-xl border border-white/10 bg-slate-950/30 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+					className="mt-4 flex flex-col gap-3 rounded-xl border border-foreground/10 bg-surface-raised px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
 				>
 					<div className="flex flex-wrap items-center gap-6 text-sm">
 						<div>
-							<span className="text-white/45">Unrealised PnL</span>
-							<span className="ml-2 font-grotesque font-bold text-white">
+							<span className="text-foreground/45">Unrealised PnL</span>
+							<span className="ml-2 font-grotesque font-bold text-foreground">
 								{formatPnLDisplay(pnl.unrealisedPnL)}
 							</span>
 						</div>
 						<div>
-							<span className="text-white/45">Change</span>
+							<span className="text-foreground/45">Change</span>
 							<span
 								className={cn(
 									'ml-2 font-grotesque font-bold',
-									isPnlPositive ? 'text-emerald-400' : 'text-rose-400'
+									isPnlPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
 								)}
 							>
 								{formatPnLPercentage(pnl.pnlPercentage)}
@@ -186,11 +186,11 @@ const PortfolioSummaryHeader: React.FC<PortfolioSummaryHeaderProps> = ({
 						onClick={onShareProfile}
 						aria-label={isShareCopied ? 'Copied!' : 'Share profile'}
 						data-testid="share-profile-button"
-						className="w-full rounded-xl border-white/10 bg-white/5 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10 sm:w-auto"
+						className="w-full rounded-xl border-foreground/10 bg-foreground/5 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10 sm:w-auto"
 					>
 						{isShareCopied ? (
 							<Check
-								className="size-4 text-emerald-400"
+								className="size-4 text-emerald-600 dark:text-emerald-400"
 								aria-hidden="true"
 							/>
 						) : (

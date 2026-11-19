@@ -86,7 +86,7 @@ function DialogContent({
 				{showEscapeHint && (
 					<p
 						aria-hidden="true"
-						className="pointer-events-none absolute right-4 bottom-3 select-none text-[11px] text-white/45"
+						className="pointer-events-none absolute right-4 bottom-3 select-none text-[11px] text-foreground/45"
 					>
 						Esc to close
 					</p>

@@ -20,11 +20,11 @@ interface GlobalSearchProps {
 }
 
 const proposalStatusClasses: Record<string, string> = {
-	active: 'border-amber-500/30 bg-amber-500/10 text-amber-400',
-	passed: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
-	rejected: 'border-red-500/30 bg-red-500/10 text-red-400',
-	executed: 'border-blue-500/30 bg-blue-500/10 text-blue-400',
-	cancelled: 'border-white/10 bg-white/[0.04] text-white/40',
+	active: 'border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400',
+	passed: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+	rejected: 'border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400',
+	executed: 'border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400',
+	cancelled: 'border-foreground/10 bg-foreground/[0.04] text-foreground/40',
 };
 
 const GlobalSearch: React.FC<GlobalSearchProps> = ({
@@ -157,7 +157,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 	return (
 		<div ref={containerRef} className={cn('relative w-full max-w-xs', className)}>
 			<div className="relative flex items-center">
-				<Search className="pointer-events-none absolute left-3 size-4 text-white/40" />
+				<Search className="pointer-events-none absolute left-3 size-4 text-foreground/40" />
 				<input
 					ref={inputRef}
 					type="text"
@@ -172,7 +172,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 					}}
 					onBlur={() => setIsFocused(false)}
 					placeholder={placeholder}
-					className="w-full rounded-xl border border-white/10 bg-white/5 py-1.5 pl-9 pr-14 text-xs text-white placeholder:text-white/40 focus:border-amber-500/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-amber-500/20"
+					className="w-full rounded-xl border border-foreground/10 bg-foreground/5 py-1.5 pl-9 pr-14 text-xs text-foreground placeholder:text-foreground/40 focus:border-amber-500/50 focus:bg-foreground/10 focus:outline-none focus:ring-1 focus:ring-amber-500/20"
 					data-testid="global-search-input"
 					aria-label="Global search keys, creators, and governance proposals"
 					role="combobox"
@@ -184,14 +184,14 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 				<div className="absolute right-2 flex items-center gap-1.5 pointer-events-auto">
 					{isLoading ? (
 						<Loader2
-							className="size-3.5 animate-spin text-amber-400"
+							className="size-3.5 animate-spin text-amber-600 dark:text-amber-400"
 							data-testid="global-search-spinner"
 						/>
 					) : query ? (
 						<button
 							type="button"
 							onClick={handleClear}
-							className="text-xs text-white/50 hover:text-white transition-colors"
+							className="text-xs text-foreground/50 hover:text-foreground transition-colors"
 							aria-label="Clear search query"
 							data-testid="global-search-clear"
 						>
@@ -200,7 +200,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 					) : !isFocused ? (
 						<Kbd
 							data-testid="global-search-shortcut"
-							className="hidden sm:inline-flex h-4 border border-white/15 bg-white/5 px-1 font-mono text-[9px] text-white/40"
+							className="hidden sm:inline-flex h-4 border border-foreground/15 bg-foreground/5 px-1 font-mono text-[9px] text-foreground/40"
 						>
 							⌘K
 						</Kbd>
@@ -211,7 +211,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 			{/* Dropdown list */}
 			{isOpen && hasQuery && (
 				<div
-					className="absolute left-0 right-0 top-full z-50 mt-1.5 max-h-96 overflow-y-auto rounded-xl border border-white/10 bg-[#0d1b2a] p-2 shadow-2xl backdrop-blur-lg divide-y divide-white/5"
+					className="absolute left-0 right-0 top-full z-50 mt-1.5 max-h-96 overflow-y-auto rounded-xl border border-foreground/10 bg-surface-raised p-2 shadow-2xl backdrop-blur-lg divide-y divide-foreground/5"
 					data-testid="global-search-dropdown"
 					role="listbox"
 				>
@@ -224,29 +224,29 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 							aria-label="Searching..."
 						>
 							<div className="space-y-2">
-								<div className="h-2.5 w-14 rounded bg-white/10 animate-pulse" />
-								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-white/[0.03] animate-pulse">
-									<div className="size-6 rounded-full bg-white/10" />
+								<div className="h-2.5 w-14 rounded bg-foreground/10 animate-pulse" />
+								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-foreground/[0.03] animate-pulse">
+									<div className="size-6 rounded-full bg-foreground/10" />
 									<div className="flex-1 space-y-1.5">
-										<div className="h-3 w-24 rounded bg-white/10" />
-										<div className="h-2 w-16 rounded bg-white/10" />
+										<div className="h-3 w-24 rounded bg-foreground/10" />
+										<div className="h-2 w-16 rounded bg-foreground/10" />
 									</div>
 								</div>
-								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-white/[0.03] animate-pulse">
-									<div className="size-6 rounded-full bg-white/10" />
+								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-foreground/[0.03] animate-pulse">
+									<div className="size-6 rounded-full bg-foreground/10" />
 									<div className="flex-1 space-y-1.5">
-										<div className="h-3 w-28 rounded bg-white/10" />
-										<div className="h-2 w-12 rounded bg-white/10" />
+										<div className="h-3 w-28 rounded bg-foreground/10" />
+										<div className="h-2 w-12 rounded bg-foreground/10" />
 									</div>
 								</div>
 							</div>
-							<div className="space-y-2 pt-2 border-t border-white/5">
-								<div className="h-2.5 w-16 rounded bg-white/10 animate-pulse" />
-								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-white/[0.03] animate-pulse">
-									<div className="size-6 rounded bg-white/10" />
+							<div className="space-y-2 pt-2 border-t border-foreground/5">
+								<div className="h-2.5 w-16 rounded bg-foreground/10 animate-pulse" />
+								<div className="flex items-center gap-2.5 rounded-lg p-2 bg-foreground/[0.03] animate-pulse">
+									<div className="size-6 rounded bg-foreground/10" />
 									<div className="flex-1 space-y-1.5">
-										<div className="h-3 w-32 rounded bg-white/10" />
-										<div className="h-2 w-20 rounded bg-white/10" />
+										<div className="h-3 w-32 rounded bg-foreground/10" />
+										<div className="h-2 w-20 rounded bg-foreground/10" />
 									</div>
 								</div>
 							</div>
@@ -256,10 +256,10 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 							{/* Keys group */}
 							{results.keys.length > 0 && (
 								<div data-testid="global-search-group-keys">
-									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400/80">
+									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600/80 dark:text-amber-400/80">
 										<Key className="size-3" aria-hidden="true" />
 										<span>Keys</span>
-										<span className="ml-auto text-[9px] text-white/40">
+										<span className="ml-auto text-[9px] text-foreground/40">
 											{results.keys.length}
 										</span>
 									</div>
@@ -273,32 +273,32 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 													<button
 														type="button"
 														onClick={() => handleSelectKey(key)}
-														className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-white hover:bg-white/10 transition-colors"
+														className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-foreground hover:bg-foreground/10 transition-colors"
 														data-testid="global-search-item-key"
 													>
 														{key.thumbnail ? (
 															<img
 																src={key.thumbnail}
 																alt={key.title}
-																className="size-6 rounded-md object-cover shrink-0 border border-white/10"
+																className="size-6 rounded-md object-cover shrink-0 border border-foreground/10"
 															/>
 														) : (
-															<div className="size-6 rounded-md bg-amber-400/10 border border-amber-400/20 flex items-center justify-center shrink-0 text-amber-400">
+															<div className="size-6 rounded-md bg-amber-400/10 border border-amber-400/20 flex items-center justify-center shrink-0 text-amber-600 dark:text-amber-400">
 																<Key className="size-3" />
 															</div>
 														)}
 														<div className="flex-1 min-w-0">
-															<div className="truncate font-medium text-white">
+															<div className="truncate font-medium text-foreground">
 																{highlightMatchingSubstring(key.title, query)}
 															</div>
 															{key.category && (
-																<div className="text-[10px] text-white/40 truncate">
+																<div className="text-[10px] text-foreground/40 truncate">
 																	{key.category}
 																</div>
 															)}
 														</div>
 														<div className="shrink-0 text-right">
-															<div className="text-[11px] font-mono text-amber-300">
+															<div className="text-[11px] font-mono text-amber-700 dark:text-amber-300">
 																{priceDisplay !== '—' ? priceDisplay : ''}
 															</div>
 															{key.change24h != null && (
@@ -306,8 +306,8 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 																	className={cn(
 																		'text-[9px] font-mono',
 																		key.change24h >= 0
-																			? 'text-emerald-400'
-																			: 'text-red-400'
+																			? 'text-emerald-600 dark:text-emerald-400'
+																			: 'text-red-600 dark:text-red-400'
 																	)}
 																>
 																	{key.change24h >= 0 ? '+' : ''}
@@ -326,10 +326,10 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 							{/* Creators group */}
 							{results.creators.length > 0 && (
 								<div data-testid="global-search-group-creators" className="pt-2">
-									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400/80">
+									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600/80 dark:text-amber-400/80">
 										<User className="size-3" aria-hidden="true" />
 										<span>Creators</span>
-										<span className="ml-auto text-[9px] text-white/40">
+										<span className="ml-auto text-[9px] text-foreground/40">
 											{results.creators.length}
 										</span>
 									</div>
@@ -342,23 +342,23 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 													<button
 														type="button"
 														onClick={() => handleSelectCreator(creator)}
-														className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-white hover:bg-white/10 transition-colors"
+														className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-foreground hover:bg-foreground/10 transition-colors"
 														data-testid="global-search-item-creator"
 													>
 														{imageUri ? (
 															<img
 																src={imageUri}
 																alt={displayName}
-																className="size-6 rounded-full object-cover shrink-0 border border-white/10"
+																className="size-6 rounded-full object-cover shrink-0 border border-foreground/10"
 															/>
 														) : (
-															<div className="size-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 text-blue-400">
+															<div className="size-6 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400">
 																<User className="size-3" />
 															</div>
 														)}
 														<div className="flex-1 min-w-0">
 															<div className="flex items-center gap-1.5">
-																<span className="truncate font-medium text-white">
+																<span className="truncate font-medium text-foreground">
 																	{highlightMatchingSubstring(displayName, query)}
 																</span>
 																{creator.isVerified && (
@@ -369,7 +369,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 																)}
 															</div>
 															{creator.socialHandle && (
-																<div className="text-[10px] text-white/40 truncate font-mono">
+																<div className="text-[10px] text-foreground/40 truncate font-mono">
 																	@{highlightMatchingSubstring(creator.socialHandle, query)}
 																</div>
 															)}
@@ -385,10 +385,10 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 							{/* Proposals group */}
 							{results.proposals.length > 0 && (
 								<div data-testid="global-search-group-proposals" className="pt-2">
-									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-400/80">
+									<div className="flex items-center gap-1.5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600/80 dark:text-amber-400/80">
 										<FileText className="size-3" aria-hidden="true" />
 										<span>Proposals</span>
-										<span className="ml-auto text-[9px] text-white/40">
+										<span className="ml-auto text-[9px] text-foreground/40">
 											{results.proposals.length}
 										</span>
 									</div>
@@ -396,21 +396,21 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 										{results.proposals.map(proposal => {
 											const statusStyle =
 												proposalStatusClasses[proposal.status] ||
-												'border-white/10 bg-white/5 text-white/50';
+												'border-foreground/10 bg-foreground/5 text-foreground/50';
 											return (
 												<li key={proposal.id}>
 													<button
 														type="button"
 														onClick={() => handleSelectProposal(proposal)}
-														className="flex w-full items-start gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-white hover:bg-white/10 transition-colors"
+														className="flex w-full items-start gap-2.5 rounded-lg px-3 py-2 text-left text-xs text-foreground hover:bg-foreground/10 transition-colors"
 														data-testid="global-search-item-proposal"
 													>
-														<div className="size-6 rounded bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 text-purple-400 mt-0.5">
+														<div className="size-6 rounded bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 text-purple-600 dark:text-purple-400 mt-0.5">
 															<FileText className="size-3" />
 														</div>
 														<div className="flex-1 min-w-0">
 															<div className="flex items-center justify-between gap-2">
-																<div className="truncate font-medium text-white">
+																<div className="truncate font-medium text-foreground">
 																	{highlightMatchingSubstring(proposal.title, query)}
 																</div>
 																<span
@@ -423,7 +423,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 																</span>
 															</div>
 															{proposal.description && (
-																<div className="text-[10px] text-white/40 line-clamp-1 mt-0.5">
+																<div className="text-[10px] text-foreground/40 line-clamp-1 mt-0.5">
 																	{proposal.description}
 																</div>
 															)}
@@ -438,11 +438,11 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({
 						</div>
 					) : (
 						<div
-							className="p-6 text-center text-xs text-white/50"
+							className="p-6 text-center text-xs text-foreground/50"
 							data-testid="global-search-empty"
 						>
-							<p className="font-medium text-white/70">No results found</p>
-							<p className="mt-1 text-white/40">
+							<p className="font-medium text-foreground/70">No results found</p>
+							<p className="mt-1 text-foreground/40">
 								No keys, creators, or proposals matching &ldquo;{debouncedQuery}&rdquo;
 							</p>
 						</div>

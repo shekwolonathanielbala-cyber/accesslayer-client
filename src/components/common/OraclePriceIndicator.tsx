@@ -75,7 +75,7 @@ export const OraclePriceIndicator: React.FC<OraclePriceIndicatorProps> = ({
 			data-testid="oracle-price-indicator"
 		>
 			<div
-				className="flex items-center justify-between gap-2 text-white/60"
+				className="flex items-center justify-between gap-2 text-foreground/60"
 				data-testid="oracle-price-row"
 			>
 				<span className="flex items-center gap-1">
@@ -84,20 +84,20 @@ export const OraclePriceIndicator: React.FC<OraclePriceIndicatorProps> = ({
 						<button
 							type="button"
 							aria-label="What is the oracle price?"
-							className="text-white/50 transition-colors hover:text-white/80"
+							className="text-foreground/50 transition-colors hover:text-foreground/80"
 							data-testid="oracle-price-tooltip-trigger"
 						>
 							<HelpCircle className="size-3.5" aria-hidden="true" />
 						</button>
 					</Tooltip>
 				</span>
-				<span className="font-mono font-semibold text-white/90">
+				<span className="font-mono font-semibold text-foreground/90">
 					<span data-testid="oracle-price-value">
 						{formatDisplayKeyPrice(comparison.oraclePriceStroops)}
 					</span>
 					{comparison.deviationPercent != null && (
 						<span
-							className="ml-1 font-normal text-white/50"
+							className="ml-1 font-normal text-foreground/50"
 							data-testid="oracle-price-deviation"
 						>
 							({formatPercent(comparison.deviationPercent, {
@@ -111,7 +111,7 @@ export const OraclePriceIndicator: React.FC<OraclePriceIndicatorProps> = ({
 			{isStale && (
 				<p
 					role="status"
-					className="flex items-center gap-1.5 text-amber-300/90"
+					className="flex items-center gap-1.5 text-amber-700/90 dark:text-amber-300/90"
 					data-testid="oracle-price-stale-indicator"
 				>
 					<AlertTriangle className="size-3.5 shrink-0" aria-hidden="true" />
@@ -122,7 +122,7 @@ export const OraclePriceIndicator: React.FC<OraclePriceIndicatorProps> = ({
 			{isWarning && (
 				<p
 					role="alert"
-					className="flex items-center gap-1.5 font-medium text-rose-300"
+					className="flex items-center gap-1.5 font-medium text-rose-700 dark:text-rose-300"
 					data-testid="oracle-price-deviation-warning"
 				>
 					<AlertTriangle className="size-3.5 shrink-0" aria-hidden="true" />

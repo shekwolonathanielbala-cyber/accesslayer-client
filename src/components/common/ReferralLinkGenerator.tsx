@@ -86,10 +86,10 @@ export const ReferralLinkGenerator: React.FC<ReferralLinkGeneratorProps> = ({
 	return (
 		<div className={cn('space-y-3', className)} data-testid="referral-link-generator">
 			<div>
-				<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+				<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 					Your referral link
 				</h2>
-				<p className="mt-1 text-sm text-white/60">
+				<p className="mt-1 text-sm text-foreground/60">
 					Share this link to earn a share of the trading fee on every
 					wallet&apos;s first trade.
 				</p>
@@ -104,7 +104,7 @@ export const ReferralLinkGenerator: React.FC<ReferralLinkGeneratorProps> = ({
 					title={link}
 					placeholder="Connect a wallet to generate your referral link"
 					data-testid="referral-link-value"
-					className="min-w-0 flex-1 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-sm text-white/75 outline-none transition-colors focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20"
+					className="min-w-0 flex-1 rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 font-mono text-sm text-foreground/75 outline-none transition-colors focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20"
 				/>
 				<div className="flex gap-2">
 					<Button
@@ -118,7 +118,7 @@ export const ReferralLinkGenerator: React.FC<ReferralLinkGeneratorProps> = ({
 						{copied ? (
 							<>
 								<Check
-									className="mr-2 size-4 text-emerald-400"
+									className="mr-2 size-4 text-emerald-600 dark:text-emerald-400"
 									aria-hidden="true"
 								/>
 								Copied

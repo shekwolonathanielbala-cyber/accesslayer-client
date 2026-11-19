@@ -22,7 +22,7 @@ const NewKeyBadge: React.FC<NewKeyBadgeProps> = ({ createdAt, className }) => {
 		<div
 			className={cn(
 				'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold backdrop-blur-sm',
-				'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
+				'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
 				className
 			)}
 			title="Created within the last 7 days"

@@ -18,7 +18,7 @@ const NetworkFeeHint = ({
 		return (
 			<div
 				className={cn(
-					'flex items-center gap-1.5 text-xs text-white/40',
+					'flex items-center gap-1.5 text-xs text-foreground/40',
 					className
 				)}
 			>
@@ -33,7 +33,7 @@ const NetworkFeeHint = ({
 	return (
 		<div
 			className={cn(
-				'inline-flex min-w-0 items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 px-2 py-1 text-[0.6rem] font-medium text-amber-200/70 backdrop-blur-sm',
+				'inline-flex min-w-0 items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/5 px-2 py-1 text-[0.6rem] font-medium text-amber-700/70 dark:text-amber-200/70 backdrop-blur-sm',
 				className
 			)}
 		>

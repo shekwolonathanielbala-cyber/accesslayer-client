@@ -40,7 +40,7 @@ export interface WhitelistManagementPanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50 font-mono text-xs';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50 font-mono text-xs';
 
 export const WhitelistManagementPanel: React.FC<
 	WhitelistManagementPanelProps
@@ -148,10 +148,10 @@ export const WhitelistManagementPanel: React.FC<
 			data-testid="whitelist-management-panel"
 		>
 			{/* Header & Gate Toggle */}
-			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-white/10 pb-5">
+			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-foreground/10 pb-5">
 				<div>
 					<div className="flex items-center gap-2.5">
-						<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+						<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 							Early Access Whitelist
 						</h2>
 						<span
@@ -159,24 +159,24 @@ export const WhitelistManagementPanel: React.FC<
 							className={cn(
 								'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider',
 								isWhitelistEnabled
-									? 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-300'
-									: 'border border-white/15 bg-white/5 text-white/50'
+									? 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-700 dark:text-emerald-300'
+									: 'border border-foreground/15 bg-foreground/5 text-foreground/50'
 							)}
 						>
 							{isWhitelistEnabled ? (
 								<>
-									<ShieldCheck className="size-3 text-emerald-400" />
+									<ShieldCheck className="size-3 text-emerald-600 dark:text-emerald-400" />
 									Active
 								</>
 							) : (
 								<>
-									<ShieldAlert className="size-3 text-white/40" />
+									<ShieldAlert className="size-3 text-foreground/40" />
 									Disabled
 								</>
 							)}
 						</span>
 					</div>
-					<p className="mt-1 text-sm text-white/50">
+					<p className="mt-1 text-sm text-foreground/50">
 						Restrict early key purchases to approved wallets.
 					</p>
 				</div>
@@ -202,14 +202,14 @@ export const WhitelistManagementPanel: React.FC<
 			{!isWhitelistEnabled && (
 				<div
 					data-testid="whitelist-disabled-banner"
-					className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-sm text-white/60 flex items-start gap-3"
+					className="rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 text-sm text-foreground/60 flex items-start gap-3"
 				>
-					<ShieldAlert className="size-5 text-white/40 shrink-0 mt-0.5" />
+					<ShieldAlert className="size-5 text-foreground/40 shrink-0 mt-0.5" />
 					<div>
-						<p className="font-semibold text-white/80">
+						<p className="font-semibold text-foreground/80">
 							Whitelist gate is disabled
 						</p>
-						<p className="text-xs text-white/50 mt-0.5">
+						<p className="text-xs text-foreground/50 mt-0.5">
 							Access is public. Any visitor can purchase keys without
 							being whitelisted. This action is irreversible.
 						</p>
@@ -220,14 +220,14 @@ export const WhitelistManagementPanel: React.FC<
 			{/* Add Wallet Form (shown when whitelist is enabled) */}
 			{isWhitelistEnabled && (
 				<div
-					className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 space-y-4"
+					className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-5 space-y-4"
 					data-testid="whitelist-add-form-container"
 				>
 					<div className="flex items-center justify-between">
-						<h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+						<h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/60">
 							Add Approved Wallets
 						</h3>
-						<div className="flex items-center rounded-lg border border-white/10 bg-white/[0.03] p-0.5 text-xs">
+						<div className="flex items-center rounded-lg border border-foreground/10 bg-foreground/[0.03] p-0.5 text-xs">
 							<button
 								type="button"
 								data-testid="whitelist-mode-single"
@@ -235,8 +235,8 @@ export const WhitelistManagementPanel: React.FC<
 								className={cn(
 									'rounded-md px-3 py-1 font-semibold transition-all',
 									inputMode === 'single'
-										? 'bg-amber-400/20 text-amber-300'
-										: 'text-white/60 hover:text-white'
+										? 'bg-amber-400/20 text-amber-700 dark:text-amber-300'
+										: 'text-foreground/60 hover:text-foreground'
 								)}
 							>
 								Single Address
@@ -248,8 +248,8 @@ export const WhitelistManagementPanel: React.FC<
 								className={cn(
 									'rounded-md px-3 py-1 font-semibold transition-all',
 									inputMode === 'batch'
-										? 'bg-amber-400/20 text-amber-300'
-										: 'text-white/60 hover:text-white'
+										? 'bg-amber-400/20 text-amber-700 dark:text-amber-300'
+										: 'text-foreground/60 hover:text-foreground'
 								)}
 							>
 								Batch Paste
@@ -267,7 +267,7 @@ export const WhitelistManagementPanel: React.FC<
 							<div className="space-y-1.5">
 								<label
 									htmlFor="whitelist-address-input"
-									className="text-xs font-medium text-white/70"
+									className="text-xs font-medium text-foreground/70"
 								>
 									Stellar Public Key
 								</label>
@@ -299,7 +299,7 @@ export const WhitelistManagementPanel: React.FC<
 									<p
 										role="alert"
 										data-testid="whitelist-address-error"
-										className="text-xs text-rose-400"
+										className="text-xs text-rose-600 dark:text-rose-400"
 									>
 										{singleError}
 									</p>
@@ -316,7 +316,7 @@ export const WhitelistManagementPanel: React.FC<
 							<div className="space-y-1.5">
 								<label
 									htmlFor="whitelist-batch-input"
-									className="text-xs font-medium text-white/70"
+									className="text-xs font-medium text-foreground/70"
 								>
 									Paste Multiple Addresses (one per line)
 								</label>
@@ -336,19 +336,19 @@ export const WhitelistManagementPanel: React.FC<
 								{batchInput.trim() && (
 									<div
 										data-testid="whitelist-batch-summary"
-										className="text-xs text-white/60 flex items-center gap-3"
+										className="text-xs text-foreground/60 flex items-center gap-3"
 									>
-										<span className="text-emerald-400">
+										<span className="text-emerald-600 dark:text-emerald-400">
 											{batchParsed.valid.length} valid address
 											{batchParsed.valid.length === 1 ? '' : 'es'}
 										</span>
 										{batchParsed.invalid.length > 0 && (
-											<span className="text-rose-400">
+											<span className="text-rose-600 dark:text-rose-400">
 												{batchParsed.invalid.length} invalid
 											</span>
 										)}
 										{batchParsed.duplicates.length > 0 && (
-											<span className="text-amber-300">
+											<span className="text-amber-700 dark:text-amber-300">
 												{batchParsed.duplicates.length} duplicate
 												{batchParsed.duplicates.length === 1 ? '' : 's'}
 											</span>
@@ -359,7 +359,7 @@ export const WhitelistManagementPanel: React.FC<
 									<p
 										role="alert"
 										data-testid="whitelist-batch-error"
-										className="text-xs text-rose-400"
+										className="text-xs text-rose-600 dark:text-rose-400"
 									>
 										{batchError}
 									</p>
@@ -389,8 +389,8 @@ export const WhitelistManagementPanel: React.FC<
 			<div className="space-y-3">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-2">
-						<Users className="size-4 text-white/50" />
-						<h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+						<Users className="size-4 text-foreground/50" />
+						<h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/60">
 							Approved Wallets ({whitelist.length})
 						</h3>
 					</div>
@@ -399,36 +399,36 @@ export const WhitelistManagementPanel: React.FC<
 				{whitelist.length === 0 ? (
 					<div
 						data-testid="whitelist-empty-state"
-						className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 text-center"
+						className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-8 text-center"
 					>
-						<p className="text-sm text-white/50">
+						<p className="text-sm text-foreground/50">
 							No approved wallets on the whitelist yet.
 						</p>
-						<p className="text-xs text-white/30 mt-1">
+						<p className="text-xs text-foreground/30 mt-1">
 							Add Stellar wallet addresses above to grant early access.
 						</p>
 					</div>
 				) : (
-					<div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+					<div className="overflow-x-auto rounded-2xl border border-foreground/10 bg-foreground/[0.02]">
 						<table
 							data-testid="whitelist-table"
 							className="w-full text-left text-sm"
 						>
 							<thead>
-								<tr className="border-b border-white/10 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/40">
+								<tr className="border-b border-foreground/10 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-foreground/40">
 									<th className="px-5 py-3">Wallet Address</th>
 									<th className="px-5 py-3">Date Added</th>
 									<th className="px-5 py-3 text-right">Actions</th>
 								</tr>
 							</thead>
-							<tbody className="divide-y divide-white/5">
+							<tbody className="divide-y divide-foreground/5">
 								{whitelist.map(entry => (
 									<tr
 										key={entry.walletAddress}
 										data-testid={`whitelist-row-${entry.walletAddress}`}
-										className="hover:bg-white/[0.02] transition-colors"
+										className="hover:bg-foreground/[0.02] transition-colors"
 									>
-										<td className="px-5 py-3 font-mono text-xs text-white">
+										<td className="px-5 py-3 font-mono text-xs text-foreground">
 											<div className="flex items-center gap-2">
 												<span
 													data-testid="whitelist-wallet-address"
@@ -440,10 +440,10 @@ export const WhitelistManagementPanel: React.FC<
 													type="button"
 													aria-label={`Copy address ${entry.walletAddress}`}
 													onClick={() => handleCopy(entry.walletAddress)}
-													className="text-white/40 hover:text-white transition-colors"
+													className="text-foreground/40 hover:text-foreground transition-colors"
 												>
 													{copiedAddress === entry.walletAddress ? (
-														<Check className="size-3 text-emerald-400" />
+														<Check className="size-3 text-emerald-600 dark:text-emerald-400" />
 													) : (
 														<Copy className="size-3" />
 													)}
@@ -452,7 +452,7 @@ export const WhitelistManagementPanel: React.FC<
 										</td>
 										<td
 											data-testid="whitelist-date-added"
-											className="px-5 py-3 text-xs text-white/60"
+											className="px-5 py-3 text-xs text-foreground/60"
 										>
 											{formatWhitelistDate(entry.addedAt)}
 										</td>
@@ -467,7 +467,7 @@ export const WhitelistManagementPanel: React.FC<
 													setWalletToRemove(entry.walletAddress)
 												}
 												disabled={isSubmitting}
-												className="h-8 px-2 text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 rounded-lg"
+												className="h-8 px-2 text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 hover:text-rose-700 dark:hover:text-rose-300 rounded-lg"
 											>
 												<Trash2 className="size-3.5 mr-1" />
 												Remove
@@ -488,11 +488,11 @@ export const WhitelistManagementPanel: React.FC<
 			>
 				<DialogContent
 					data-testid="remove-wallet-modal"
-					className="border-white/10 bg-[#091528] text-white sm:max-w-md"
+					className="border-foreground/10 bg-surface-raised text-foreground sm:max-w-md"
 				>
 					<DialogHeader>
 						<DialogTitle>Remove Wallet from Whitelist</DialogTitle>
-						<DialogDescription className="text-white/60">
+						<DialogDescription className="text-foreground/60">
 							Are you sure you want to remove this wallet address from
 							early access? The wallet will no longer be able to purchase
 							keys.
@@ -500,7 +500,7 @@ export const WhitelistManagementPanel: React.FC<
 					</DialogHeader>
 
 					{walletToRemove && (
-						<div className="rounded-xl border border-white/10 bg-white/[0.03] p-3 font-mono text-xs text-amber-300 break-all">
+						<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-3 font-mono text-xs text-amber-700 dark:text-amber-300 break-all">
 							{walletToRemove}
 						</div>
 					)}
@@ -534,14 +534,14 @@ export const WhitelistManagementPanel: React.FC<
 			>
 				<DialogContent
 					data-testid="disable-whitelist-modal"
-					className="border-white/10 bg-[#091528] text-white sm:max-w-md"
+					className="border-foreground/10 bg-surface-raised text-foreground sm:max-w-md"
 				>
 					<DialogHeader>
-						<DialogTitle className="flex items-center gap-2 text-rose-400">
+						<DialogTitle className="flex items-center gap-2 text-rose-600 dark:text-rose-400">
 							<AlertTriangle className="size-5 shrink-0" />
 							Disable Early Access Whitelist
 						</DialogTitle>
-						<DialogDescription className="text-white/70">
+						<DialogDescription className="text-foreground/70">
 							Disabling the whitelist gate is permanent and cannot be
 							undone.
 						</DialogDescription>
@@ -549,12 +549,12 @@ export const WhitelistManagementPanel: React.FC<
 
 					<div
 						data-testid="disable-whitelist-warning"
-						className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs text-rose-200 space-y-1.5"
+						className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs text-rose-700 dark:text-rose-200 space-y-1.5"
 					>
-						<p className="font-bold text-sm text-rose-300">
+						<p className="font-bold text-sm text-rose-700 dark:text-rose-300">
 							Warning: This action is irreversible
 						</p>
-						<p className="text-white/80">
+						<p className="text-foreground/80">
 							Once disabled, early access restriction will be permanently
 							removed. All visitors will be able to buy this creator key,
 							and you will not be able to re-enable the whitelist.

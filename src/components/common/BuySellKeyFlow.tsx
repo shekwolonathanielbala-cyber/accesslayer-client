@@ -428,13 +428,13 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 	return (
 		<div
 			className={cn(
-				'rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md space-y-4',
+				'rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md space-y-4',
 				className
 			)}
 			data-testid="buy-sell-key-flow"
 		>
 			{/* Buy / Sell Tab Switcher */}
-			<div className="grid grid-cols-2 gap-1 rounded-xl bg-white/[0.04] p-1 border border-white/5">
+			<div className="grid grid-cols-2 gap-1 rounded-xl bg-foreground/[0.04] p-1 border border-foreground/5">
 				<button
 					type="button"
 					onClick={() => {
@@ -446,7 +446,7 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 						'rounded-lg py-2 text-xs font-bold transition-all',
 						side === 'buy'
 							? 'bg-amber-400 text-slate-950 shadow-sm'
-							: 'text-white/60 hover:text-white'
+							: 'text-foreground/60 hover:text-foreground'
 					)}
 				>
 					Buy Keys
@@ -461,8 +461,8 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 					className={cn(
 						'rounded-lg py-2 text-xs font-bold transition-all',
 						side === 'sell'
-							? 'bg-rose-500 text-white shadow-sm'
-							: 'text-white/60 hover:text-white'
+							? 'bg-rose-500 text-foreground shadow-sm'
+							: 'text-foreground/60 hover:text-foreground'
 					)}
 				>
 					Sell Keys
@@ -470,9 +470,9 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 			</div>
 
 			{/* Holdings / Key Price Overview */}
-			<div className="flex items-center justify-between text-xs text-white/60 px-1">
+			<div className="flex items-center justify-between text-xs text-foreground/60 px-1">
 				<span>{side === 'buy' ? 'Key price' : 'Available holdings'}</span>
-				<span className="font-mono font-semibold text-white/90">
+				<span className="font-mono font-semibold text-foreground/90">
 					{side === 'buy'
 						? formatDisplayKeyPrice(keyPriceStroops)
 						: `${formatNumber(availableHoldings)} keys`}
@@ -501,12 +501,12 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 				<div className="flex items-center justify-between text-xs">
 					<label
 						htmlFor="trade-amount-input"
-						className="text-white/70 font-medium"
+						className="text-foreground/70 font-medium"
 					>
 						Quantity
 					</label>
 					{side === 'sell' && availableHoldings > 0 && (
-						<span className="text-[11px] text-white/40">
+						<span className="text-[11px] text-foreground/40">
 							Max: {formatNumber(availableHoldings)}
 						</span>
 					)}
@@ -527,8 +527,8 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 						disabled={isSubmitting}
 						placeholder="1"
 						className={cn(
-							'w-full rounded-xl border bg-white/[0.04] px-3 py-2.5 pr-16 text-sm font-mono text-white outline-none transition-colors',
-							'border-white/10 focus:border-amber-400/50 focus:ring-2 focus:ring-amber-400/15',
+							'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2.5 pr-16 text-sm font-mono text-foreground outline-none transition-colors',
+							'border-foreground/10 focus:border-amber-400/50 focus:ring-2 focus:ring-amber-400/15',
 							showError &&
 								'border-red-500/60 focus:border-red-500/60 focus:ring-red-500/15'
 						)}
@@ -541,7 +541,7 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 							isSubmitting || (side === 'sell' && availableHoldings <= 0)
 						}
 						className={cn(
-							'absolute right-2 rounded-lg border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs font-bold text-amber-300 transition-colors',
+							'absolute right-2 rounded-lg border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 transition-colors',
 							'hover:bg-amber-400/20 active:scale-95 disabled:pointer-events-none disabled:opacity-40'
 						)}
 					>
@@ -552,7 +552,7 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 					<p
 						role="alert"
 						data-testid="trade-amount-error"
-						className="text-xs text-red-300"
+						className="text-xs text-red-700 dark:text-red-300"
 					>
 						{validationError}
 					</p>
@@ -583,25 +583,25 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 
 			{/* Price & Cost Estimate */}
 			{isValid && totalStroops != null && (
-				<div className="rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs space-y-2">
+				<div className="rounded-xl border border-foreground/5 bg-foreground/[0.02] p-3 text-xs space-y-2">
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">
+						<span className="text-foreground/60">
 							{side === 'buy' ? 'Estimated Total' : 'Estimated Proceeds'}
 						</span>
 						<span
-							className="font-mono font-bold text-amber-300"
+							className="font-mono font-bold text-amber-700 dark:text-amber-300"
 							data-testid="trade-estimated-total"
 						>
 							{formatDisplayKeyPrice(totalStroops)}
 						</span>
 					</div>
 					{slippageBounds && (
-						<div className="flex items-center justify-between border-t border-white/5 pt-1.5 text-[11px]">
-							<span className="text-white/50">
+						<div className="flex items-center justify-between border-t border-foreground/5 pt-1.5 text-[11px]">
+							<span className="text-foreground/50">
 								{side === 'buy' ? 'Max price bound' : 'Min price bound'}
 							</span>
 							<span
-								className="font-mono text-white/80"
+								className="font-mono text-foreground/80"
 								data-testid="trade-slippage-bound"
 							>
 								{formatDisplayKeyPrice(
@@ -616,7 +616,7 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 			)}
 
 			{/* Slippage Tolerance Selector (0.5%, 1%, 2%, custom) */}
-			<div className="border-t border-white/10 pt-3">
+			<div className="border-t border-foreground/10 pt-3">
 				<SlippageToleranceSelector
 					value={slippageTolerancePercent}
 					onChange={setSlippageTolerancePercent}
@@ -658,7 +658,7 @@ export const BuySellKeyFlow: React.FC<BuySellKeyFlowProps> = ({
 					'w-full rounded-xl py-3 font-bold text-sm shadow-md transition-all',
 					side === 'buy'
 						? 'bg-amber-400 hover:bg-amber-300 text-slate-950'
-						: 'bg-rose-500 hover:bg-rose-400 text-white'
+						: 'bg-rose-500 hover:bg-rose-400 text-foreground'
 				)}
 			>
 				<span className="flex items-center justify-center gap-1.5">

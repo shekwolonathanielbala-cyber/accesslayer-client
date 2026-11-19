@@ -24,12 +24,12 @@ const CreatorDropCountdown: React.FC<CreatorDropCountdownProps> = ({
 			className={cn(
 				'mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em]',
 				isLive
-					? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-200'
-					: 'border-amber-400/25 bg-amber-500/10 text-amber-200/90',
+					? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200'
+					: 'border-amber-400/25 bg-amber-500/10 text-amber-700/90 dark:text-amber-200/90',
 				className
 			)}
 		>
-			<span className="text-white/50">{isLive ? '' : 'Next drop in '}</span>
+			<span className="text-foreground/50">{isLive ? '' : 'Next drop in '}</span>
 			<span className="tabular-nums">{label}</span>
 		</p>
 	);

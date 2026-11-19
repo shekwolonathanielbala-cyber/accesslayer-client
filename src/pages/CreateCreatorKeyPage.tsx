@@ -69,22 +69,22 @@ export default function CreateCreatorKeyPage() {
 
 	if (!isConnected || !isWhitelisted) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-2xl space-y-4">
-					<div className="flex items-center gap-2 text-amber-300">
+					<div className="flex items-center gap-2 text-amber-700 dark:text-amber-300">
 						<ShieldCheck className="size-5" aria-hidden="true" />
 						<h1 className="font-grotesque text-2xl font-black tracking-tight">
 							Key factory access
 						</h1>
 					</div>
-					<p className="text-sm text-white/60">
+					<p className="text-sm text-foreground/60">
 						Creator key deployment is limited to whitelisted creators. If
 						you should have access, ask the team to add your wallet to
 						the factory allowlist.
 					</p>
 					<Link
 						to="/"
-						className="inline-block text-sm font-semibold text-amber-300 hover:text-amber-200"
+						className="inline-block text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200"
 					>
 						Back to marketplace
 					</Link>
@@ -94,13 +94,13 @@ export default function CreateCreatorKeyPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-4xl space-y-8">
 				<header>
 					<h1 className="font-grotesque text-3xl font-black tracking-tight">
 						Create a creator key
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						Configure and deploy a new key through the factory contract.
 						Every step is reviewed before anything is submitted on-chain.
 					</p>
@@ -109,7 +109,7 @@ export default function CreateCreatorKeyPage() {
 				{deployMutation.isError && (
 					<div
 						role="alert"
-						className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+						className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300"
 						data-testid="key-factory-deploy-error"
 					>
 						<AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
@@ -129,7 +129,7 @@ export default function CreateCreatorKeyPage() {
 					deploymentStatus={deploymentStatus}
 					transactionHash={deployment?.transactionHash ?? null}
 					deployedKeyId={deployedKeyId}
-					className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
+					className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8"
 				/>
 			</div>
 		</main>

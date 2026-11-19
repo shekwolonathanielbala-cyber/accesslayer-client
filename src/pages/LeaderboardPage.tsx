@@ -33,7 +33,7 @@ const RATING_SORT_OPTIONS: { value: RatingLeaderboardSort; label: string }[] = [
 const MINIMUM_REVIEW_OPTIONS = [1, 5, 10, 25];
 
 const skeletonBlockClass =
-        'rounded-md bg-white/12 skeleton-shimmer motion-reduce:bg-white/18 motion-reduce:ring-1 motion-reduce:ring-white/15';
+        'rounded-md bg-foreground/12 skeleton-shimmer motion-reduce:bg-foreground/18 motion-reduce:ring-1 motion-reduce:ring-foreground/15';
 
 function formatRatingScore(value: number) {
         return formatNumber(value, {
@@ -57,8 +57,8 @@ function RatingStars({ rating }: { rating: number }) {
                                         className={cn(
                                                 'size-3.5',
                                                 index < filledStars
-                                                        ? 'fill-amber-400 text-amber-400'
-                                                        : 'text-white/20'
+                                                        ? 'fill-amber-400 text-amber-600 dark:text-amber-400'
+                                                        : 'text-foreground/20'
                                         )}
                                 />
                         ))}

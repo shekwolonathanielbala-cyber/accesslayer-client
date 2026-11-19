@@ -95,7 +95,7 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 	return (
 		<div ref={containerRef} className={cn('relative w-full max-w-xs', className)}>
 			<div className="relative flex items-center">
-				<Search className="pointer-events-none absolute left-3 size-4 text-white/40" />
+				<Search className="pointer-events-none absolute left-3 size-4 text-foreground/40" />
 				<input
 					ref={inputRef}
 					type="text"
@@ -108,17 +108,17 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 						}
 					}}
 					placeholder="Search keys..."
-					className="w-full rounded-xl border border-white/10 bg-white/5 py-1.5 pl-9 pr-8 text-xs text-white placeholder:text-white/40 focus:border-amber-500/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-amber-500/20"
+					className="w-full rounded-xl border border-foreground/10 bg-foreground/5 py-1.5 pl-9 pr-8 text-xs text-foreground placeholder:text-foreground/40 focus:border-amber-500/50 focus:bg-foreground/10 focus:outline-none focus:ring-1 focus:ring-amber-500/20"
 					data-testid="marketplace-search-input"
 					aria-label="Search marketplace keys"
 				/>
 				{isLoading ? (
-					<Loader2 className="absolute right-2.5 size-3.5 animate-spin text-amber-400" />
+					<Loader2 className="absolute right-2.5 size-3.5 animate-spin text-amber-600 dark:text-amber-400" />
 				) : query ? (
 					<button
 						type="button"
 						onClick={handleClear}
-						className="absolute right-2.5 text-xs text-white/50 hover:text-white"
+						className="absolute right-2.5 text-xs text-foreground/50 hover:text-foreground"
 						aria-label="Clear search query"
 						data-testid="marketplace-search-clear"
 					>
@@ -130,11 +130,11 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 			{/* Dropdown list */}
 			{isOpen && query.trim() !== '' && (
 				<div
-					className="absolute left-0 right-0 top-full z-50 mt-1 max-h-60 overflow-y-auto rounded-xl border border-white/10 bg-[#0d1b2a] p-2 shadow-2xl backdrop-blur-lg"
+					className="absolute left-0 right-0 top-full z-50 mt-1 max-h-60 overflow-y-auto rounded-xl border border-foreground/10 bg-surface-raised p-2 shadow-2xl backdrop-blur-lg"
 					data-testid="marketplace-search-dropdown"
 				>
 					{isLoading && results.length === 0 ? (
-						<div className="p-3 text-center text-xs text-white/50" data-testid="marketplace-search-loading">
+						<div className="p-3 text-center text-xs text-foreground/50" data-testid="marketplace-search-loading">
 							Searching keys...
 						</div>
 					) : results.length > 0 ? (
@@ -144,7 +144,7 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 									<button
 										type="button"
 										onClick={() => handleSelectResult(creator.id)}
-										className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs hover:bg-white/10 transition-colors"
+										className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs hover:bg-foreground/10 transition-colors"
 										data-testid="marketplace-search-item"
 									>
 										{creator.thumbnail && (
@@ -155,11 +155,11 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 											/>
 										)}
 										<div className="flex-1 truncate">
-											<div className="text-white font-medium truncate">
+											<div className="text-foreground font-medium truncate">
 												{highlightMatchingSubstring(creator.title, query)}
 											</div>
 											{creator.socialHandle && (
-												<div className="text-[11px] text-white/40 truncate">
+												<div className="text-[11px] text-foreground/40 truncate">
 													@{highlightMatchingSubstring(creator.socialHandle, query)}
 												</div>
 											)}
@@ -169,7 +169,7 @@ const MarketplaceHeaderSearch: React.FC<MarketplaceHeaderSearchProps> = ({ class
 							))}
 						</ul>
 					) : (
-						<div className="p-3 text-center text-xs text-white/50" data-testid="marketplace-search-no-results">
+						<div className="p-3 text-center text-xs text-foreground/50" data-testid="marketplace-search-no-results">
 							No matching keys found
 						</div>
 					)}

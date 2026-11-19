@@ -22,7 +22,7 @@ const GlobalPauseBanner: React.FC<GlobalPauseBannerProps> = ({
 				Trading is temporarily suspended across all keys. We are working to
 				resolve this.
 				{formatted && (
-					<span className="ml-2 text-xs font-normal text-white/80">
+					<span className="ml-2 text-xs font-normal text-foreground/80">
 						Paused since {formatted}
 					</span>
 				)}

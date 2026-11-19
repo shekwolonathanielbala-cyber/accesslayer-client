@@ -56,11 +56,11 @@ const CurveParamDiffList: React.FC<{
 				data-testid={`curve-migration-param-${migrationId}-${change.field}`}
 				data-changed={change.changed ? 'true' : 'false'}
 			>
-				<dt className="text-white/50">{change.label}</dt>
+				<dt className="text-foreground/50">{change.label}</dt>
 				<dd
 					className={cn(
 						'font-mono',
-						change.changed ? 'text-amber-300' : 'text-white/35'
+						change.changed ? 'text-amber-700 dark:text-amber-300' : 'text-foreground/35'
 					)}
 				>
 					{change.from}
@@ -136,7 +136,7 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 			<div
 				role="alert"
 				className={cn(
-					'flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-200',
+					'flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-700 dark:text-amber-200',
 					className
 				)}
 				data-testid="curve-migration-panel-error"
@@ -154,7 +154,7 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 		return (
 			<div
 				className={cn(
-					'rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-sm text-white/55',
+					'rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 text-sm text-foreground/55',
 					className
 				)}
 				data-testid="curve-migration-panel-empty"
@@ -172,7 +172,7 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 					className="space-y-4"
 					data-testid="curve-migration-pending-section"
 				>
-					<h3 className="font-grotesque text-lg font-bold text-white">
+					<h3 className="font-grotesque text-lg font-bold text-foreground">
 						Pending migrations
 					</h3>
 
@@ -196,11 +196,11 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 							>
 								<div className="flex flex-wrap items-start justify-between gap-3">
 									<div>
-										<h4 className="font-grotesque text-base font-bold text-white">
+										<h4 className="font-grotesque text-base font-bold text-foreground">
 											{migration.title}
 										</h4>
 										{migration.description && (
-											<p className="mt-1 text-xs text-white/55">
+											<p className="mt-1 text-xs text-foreground/55">
 												{migration.description}
 											</p>
 										)}
@@ -209,8 +209,8 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 										className={cn(
 											'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold',
 											canExecute
-												? 'bg-emerald-400/15 text-emerald-300'
-												: 'bg-white/[0.08] text-white/60'
+												? 'bg-emerald-400/15 text-emerald-700 dark:text-emerald-300'
+												: 'bg-foreground/[0.08] text-foreground/60'
 										)}
 										data-testid={`curve-migration-status-${migration.id}`}
 									>
@@ -235,12 +235,12 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 
 								{/* Timelock + governance vote status */}
 								<dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-									<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 											Timelock
 										</dt>
 										<dd
-											className="mt-1 font-mono font-bold text-white"
+											className="mt-1 font-mono font-bold text-foreground"
 											role="status"
 											aria-live="polite"
 											data-testid={`curve-migration-timelock-${migration.id}`}
@@ -248,12 +248,12 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 											{formatCurveMigrationCountdown(remainingMs)}
 										</dd>
 									</div>
-									<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 											Vote approval
 										</dt>
 										<dd
-											className="mt-1 font-mono font-bold text-white"
+											className="mt-1 font-mono font-bold text-foreground"
 											data-testid={`curve-migration-vote-approval-${migration.id}`}
 										>
 											{formatPercent(
@@ -262,12 +262,12 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 											)}
 										</dd>
 									</div>
-									<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+										<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 											Vote status
 										</dt>
 										<dd
-											className="mt-1 text-sm font-bold text-white"
+											className="mt-1 text-sm font-bold text-foreground"
 											data-testid={`curve-migration-vote-status-${migration.id}`}
 										>
 											{isCurveMigrationVoteApproved(migration)
@@ -275,7 +275,7 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 												: 'Not approved'}
 										</dd>
 										<dd
-											className="mt-0.5 text-xs text-white/45"
+											className="mt-0.5 text-xs text-foreground/45"
 											data-testid={`curve-migration-vote-quorum-${migration.id}`}
 										>
 											Quorum {bpsToPercent(migration.quorumBps)} ·{' '}
@@ -291,14 +291,14 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 								<div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 									{disabledReason ? (
 										<p
-											className="flex items-center gap-1.5 text-xs text-white/60"
+											className="flex items-center gap-1.5 text-xs text-foreground/60"
 											data-testid={`curve-migration-disabled-reason-${migration.id}`}
 										>
 											<Lock className="size-3.5 shrink-0" aria-hidden="true" />
 											{disabledReason}
 										</p>
 									) : (
-										<p className="text-xs text-emerald-300/80">
+										<p className="text-xs text-emerald-700/80 dark:text-emerald-300/80">
 											Vote carried and timelock elapsed — this migration
 											can be applied.
 										</p>
@@ -324,7 +324,7 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 			{/* Executed history — applied params and execution date */}
 			{list.some(migration => migration.status === 'executed') && (
 				<section className="space-y-4" data-testid="curve-migration-history-section">
-					<h3 className="font-grotesque text-lg font-bold text-white">
+					<h3 className="font-grotesque text-lg font-bold text-foreground">
 						Executed migrations
 					</h3>
 					{list
@@ -332,23 +332,23 @@ export const CurveMigrationPanel: React.FC<CurveMigrationPanelProps> = ({
 						.map(migration => (
 							<article
 								key={migration.id}
-								className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+								className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-5"
 								data-testid={`curve-migration-history-${migration.id}`}
 							>
 								<div className="flex flex-wrap items-start justify-between gap-3">
 									<div>
-										<h4 className="font-grotesque text-base font-bold text-white">
+										<h4 className="font-grotesque text-base font-bold text-foreground">
 											{migration.title}
 										</h4>
 										<p
-											className="mt-1 text-xs text-white/50"
+											className="mt-1 text-xs text-foreground/50"
 											data-testid={`curve-migration-executed-at-${migration.id}`}
 										>
 											Executed {formatCurveMigrationDate(migration.executedAt)}
 										</p>
 									</div>
 									<span
-										className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300"
+										className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300"
 										data-testid={`curve-migration-history-status-${migration.id}`}
 									>
 										Executed

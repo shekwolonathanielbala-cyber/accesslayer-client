@@ -143,18 +143,18 @@ export const SharePortfolioModal: React.FC<SharePortfolioModalProps> = ({
 			<Dialog open={open} onOpenChange={onOpenChange}>
 				<DialogContent
 					data-testid="share-portfolio-modal"
-					className="sm:max-w-xl max-h-[90vh] overflow-y-auto border-white/10 bg-[#070e1b] text-white p-6"
+					className="sm:max-w-xl max-h-[90vh] overflow-y-auto border-foreground/10 bg-surface-raised text-foreground p-6"
 				>
 					<DialogHeader>
 						<div className="flex items-center gap-2">
-							<div className="flex size-8 items-center justify-center rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-400">
+							<div className="flex size-8 items-center justify-center rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-400">
 								<Share2 className="size-4" />
 							</div>
 							<div>
 								<DialogTitle className="text-xl font-bold font-grotesque">
 									Share Portfolio Performance
 								</DialogTitle>
-								<DialogDescription className="text-xs text-white/60">
+								<DialogDescription className="text-xs text-foreground/60">
 									Download or copy a styled summary card of your portfolio to share on social media.
 								</DialogDescription>
 							</div>
@@ -162,23 +162,23 @@ export const SharePortfolioModal: React.FC<SharePortfolioModalProps> = ({
 					</DialogHeader>
 
 					{/* Modal Body / Image Preview */}
-					<div className="my-4 flex flex-col items-center justify-center min-h-[260px] rounded-xl border border-white/10 bg-slate-950/50 p-4">
+					<div className="my-4 flex flex-col items-center justify-center min-h-[260px] rounded-xl border border-foreground/10 bg-surface-raised p-4">
 						{isGenerating ? (
-							<div className="flex flex-col items-center gap-3 py-12 text-center text-white/60">
-								<Loader2 className="size-8 animate-spin text-amber-400" />
+							<div className="flex flex-col items-center gap-3 py-12 text-center text-foreground/60">
+								<Loader2 className="size-8 animate-spin text-amber-600 dark:text-amber-400" />
 								<p className="text-sm font-medium">Generating performance card…</p>
-								<p className="text-xs text-white/40">Rendered securely in your browser</p>
+								<p className="text-xs text-foreground/40">Rendered securely in your browser</p>
 							</div>
 						) : error ? (
-							<div className="flex flex-col items-center gap-3 py-8 text-center text-red-400">
+							<div className="flex flex-col items-center gap-3 py-8 text-center text-red-600 dark:text-red-400">
 								<AlertCircle className="size-8" />
 								<p className="text-sm font-medium">Generation failed</p>
-								<p className="max-w-xs text-xs text-white/50">{error}</p>
+								<p className="max-w-xs text-xs text-foreground/50">{error}</p>
 								<Button
 									variant="outline"
 									size="sm"
 									onClick={generateImage}
-									className="mt-2 text-xs text-white border-white/20 hover:bg-white/10"
+									className="mt-2 text-xs text-foreground border-foreground/20 hover:bg-foreground/10"
 								>
 									Try Again
 								</Button>
@@ -189,18 +189,18 @@ export const SharePortfolioModal: React.FC<SharePortfolioModalProps> = ({
 									src={imageDataUrl}
 									alt="Portfolio Performance Preview"
 									data-testid="portfolio-card-preview"
-									className="w-full max-w-[500px] rounded-xl border border-white/15 shadow-2xl object-contain"
+									className="w-full max-w-[500px] rounded-xl border border-foreground/15 shadow-2xl object-contain"
 								/>
 							</div>
 						) : null}
 					</div>
 
-					<DialogFooter className="flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-end pt-2 border-t border-white/10">
+					<DialogFooter className="flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-end pt-2 border-t border-foreground/10">
 						<Button
 							type="button"
 							variant="outline"
 							onClick={() => onOpenChange(false)}
-							className="border-white/15 bg-white/5 text-white hover:bg-white/10 text-xs"
+							className="border-foreground/15 bg-foreground/5 text-foreground hover:bg-foreground/10 text-xs"
 						>
 							Close
 						</Button>
@@ -210,11 +210,11 @@ export const SharePortfolioModal: React.FC<SharePortfolioModalProps> = ({
 							data-testid="copy-image-button"
 							onClick={handleCopyImage}
 							disabled={isGenerating || !imageBlob}
-							className="inline-flex items-center gap-2 border border-white/15 bg-white/10 text-white hover:bg-white/15 text-xs font-semibold"
+							className="inline-flex items-center gap-2 border border-foreground/15 bg-foreground/10 text-foreground hover:bg-foreground/15 text-xs font-semibold"
 						>
 							{copied ? (
 								<>
-									<Check className="size-3.5 text-emerald-400" />
+									<Check className="size-3.5 text-emerald-600 dark:text-emerald-400" />
 									<span>Copied!</span>
 								</>
 							) : (

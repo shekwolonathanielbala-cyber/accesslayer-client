@@ -9,7 +9,7 @@ export interface PriceImpactOverrideCheckboxProps {
 const PriceImpactOverrideCheckbox: React.FC<
 	PriceImpactOverrideCheckboxProps
 > = ({ checked, onChange }) => (
-	<label className="flex cursor-pointer items-start gap-2 text-xs text-white/80">
+	<label className="flex cursor-pointer items-start gap-2 text-xs text-foreground/80">
 		<input
 			type="checkbox"
 			checked={checked}

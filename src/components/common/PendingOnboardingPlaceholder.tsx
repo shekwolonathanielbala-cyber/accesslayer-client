@@ -47,10 +47,10 @@ const PendingOnboardingPlaceholder: React.FC<PendingOnboardingPlaceholderProps> 
 				)}
 			>
 				<Hourglass
-					className="size-5 text-amber-400/80"
+					className="size-5 text-amber-600/80 dark:text-amber-400/80"
 					aria-hidden="true"
 				/>
-				<p className="font-jakarta text-sm text-white/70">{copy}</p>
+				<p className="font-jakarta text-sm text-foreground/70">{copy}</p>
 			</div>
 		);
 	}
@@ -60,11 +60,11 @@ const PendingOnboardingPlaceholder: React.FC<PendingOnboardingPlaceholderProps> 
 			role="status"
 			aria-live="polite"
 			className={cn(
-				'inline-flex items-center gap-1.5 font-jakarta text-xs italic text-white/55',
+				'inline-flex items-center gap-1.5 font-jakarta text-xs italic text-foreground/55',
 				className
 			)}
 		>
-			<Hourglass className="size-3 text-amber-400/70" aria-hidden="true" />
+			<Hourglass className="size-3 text-amber-600/70 dark:text-amber-400/70" aria-hidden="true" />
 			{copy}
 		</p>
 	);

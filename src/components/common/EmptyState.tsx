@@ -47,7 +47,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	return (
 		<div
 			className={cn(
-				'flex flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-white/5 px-8 py-14 text-center backdrop-blur-xl',
+				'flex flex-col items-center justify-center rounded-[2rem] border border-foreground/10 bg-foreground/5 px-8 py-14 text-center backdrop-blur-xl',
 				className
 			)}
 			role="status"
@@ -73,12 +73,12 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 				</div>
 			)}
 			{displayTitle && (
-				<h2 className="font-grotesque text-2xl font-black tracking-tight text-white mb-2">
+				<h2 className="font-grotesque text-2xl font-black tracking-tight text-foreground mb-2">
 					{displayTitle}
 				</h2>
 			)}
 			{displayMessage !== undefined && (
-				<p className="max-w-[280px] font-jakarta text-sm leading-relaxed text-white/50 mb-8">
+				<p className="max-w-[280px] font-jakarta text-sm leading-relaxed text-foreground/50 mb-8">
 					{displayMessage}
 				</p>
 			)}
@@ -87,7 +87,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 				<Link
 					to={resolvedHref}
 					aria-label={ctaLabel}
-					className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
+					className="inline-flex items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5 px-6 py-2.5 text-sm font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
 				>
 					{ctaLabel}
 				</Link>
@@ -96,7 +96,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 					onClick={resolvedOnClick}
 					variant="outline"
 					aria-label={ctaLabel}
-					className="rounded-xl border-white/10 bg-white/5 px-6 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
+					className="rounded-xl border-foreground/10 bg-foreground/5 px-6 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
 				>
 					{ctaLabel}
 				</Button>
@@ -105,7 +105,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 					onClick={onReset}
 					variant="outline"
 					aria-label="Reset search results"
-					className="rounded-xl border-white/10 bg-white/5 px-6 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
+					className="rounded-xl border-foreground/10 bg-foreground/5 px-6 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
 				>
 					<RotateCcw className="mr-2 size-4" aria-hidden="true" />
 					Reset Search

@@ -10,7 +10,7 @@ const links = [
 
 export default function Footer() {
 	return (
-		<footer className="border-t border-gray-100 bg-white px-6 py-14">
+		<footer className="border-t border-gray-100 bg-foreground px-6 py-14">
 			<div className="mx-auto max-w-5xl">
 				<div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
 					{/* Brand */}

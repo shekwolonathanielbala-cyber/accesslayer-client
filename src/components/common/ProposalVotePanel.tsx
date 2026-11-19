@@ -70,23 +70,23 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 	};
 
 	return (
-		<section className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
+		<section className="rounded-2xl border border-foreground/10 bg-foreground/5 p-5 sm:p-6">
 			<div className="flex flex-col gap-1">
-				<p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300">
+				<p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">
 					Cast your vote
 				</p>
-				<h2 className="text-lg font-semibold text-white">
+				<h2 className="text-lg font-semibold text-foreground">
 					Choose an option
 				</h2>
 			</div>
 
-			<div className="mt-5 rounded-xl border border-white/10 bg-slate-950/30 p-4">
+			<div className="mt-5 rounded-xl border border-foreground/10 bg-surface-raised p-4">
 				<div className="flex items-start gap-3">
-					<div className="rounded-lg bg-amber-400/10 p-2 text-amber-300">
+					<div className="rounded-lg bg-amber-400/10 p-2 text-amber-700 dark:text-amber-300">
 						<WalletCards className="size-4" />
 					</div>
 					<div className="min-w-0 flex-1">
-						<p className="text-sm font-medium text-white">
+						<p className="text-sm font-medium text-foreground">
 							{walletLoading
 								? 'Loading connected wallet…'
 								: isConnected
@@ -94,58 +94,58 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 									: 'No Stellar wallet connected'}
 						</p>
 						{isConnected && (
-							<p className="mt-1 text-xs text-white/50">
+							<p className="mt-1 text-xs text-foreground/50">
 								Vote weight is locked to this Stellar address.
 							</p>
 						)}
 					</div>
 					{isConnected && activeSigner && (
-						<span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
+						<span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
 							Stellar
 						</span>
 					)}
 				</div>
 
-				<div className="mt-4 border-t border-white/10 pt-4">
+				<div className="mt-4 border-t border-foreground/10 pt-4">
 					{walletLoading || snapshotQuery.isFetching ? (
-						<p className="flex items-center gap-2 text-sm text-white/60">
+						<p className="flex items-center gap-2 text-sm text-foreground/60">
 							<LoaderCircle className="size-4 animate-spin" />
 							Checking snapshot voting weight…
 						</p>
 					) : snapshotQuery.isError ? (
-						<p className="text-sm text-red-300">
+						<p className="text-sm text-red-700 dark:text-red-300">
 							{snapshotQuery.error instanceof GovernanceContractError
 								? snapshotQuery.error.message
 								: 'Snapshot voting weight is unavailable right now.'}
 						</p>
 					) : !isConnected ? (
-						<p className="text-sm text-white/60">
+						<p className="text-sm text-foreground/60">
 							Connect a Stellar wallet to view your voting weight.
 						</p>
 					) : snapshotWeight === null ? (
-						<p className="text-sm text-white/60">
+						<p className="text-sm text-foreground/60">
 							No snapshot voting weight is available for this wallet.
 						</p>
 					) : (
 						<div className="flex items-end justify-between gap-3">
 							<div>
-								<p className="text-2xl font-bold text-white">
+								<p className="text-2xl font-bold text-foreground">
 									{formatCompactNumber(snapshotWeight, {
 										maximumFractionDigits: 2,
 									})}
 								</p>
-								<p className="mt-0.5 text-xs text-white/50">
+								<p className="mt-0.5 text-xs text-foreground/50">
 									{snapshotQuery.data?.isCaptured
 										? 'Captured snapshot weight'
 										: 'Voting weight that will be locked on first vote'}
 								</p>
 							</div>
 							{snapshotQuery.data?.isCaptured ? (
-								<span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-300">
+								<span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-700 dark:text-emerald-300">
 									<Check className="size-3.5" /> Captured
 								</span>
 							) : (
-								<span className="inline-flex items-center gap-1 text-xs font-medium text-amber-300">
+								<span className="inline-flex items-center gap-1 text-xs font-medium text-amber-700 dark:text-amber-300">
 									<LockKeyhole className="size-3.5" /> Not captured
 								</span>
 							)}
@@ -175,7 +175,7 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 							className={`flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition-colors ${
 								selected
 									? 'border-amber-300/70 bg-amber-300/10'
-									: 'border-white/10 bg-white/[0.03] hover:border-white/25'
+									: 'border-foreground/10 bg-foreground/[0.03] hover:border-foreground/25'
 							}`}
 						>
 							<span className="flex min-w-0 items-center gap-3">
@@ -183,20 +183,20 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 									className={`flex size-5 shrink-0 items-center justify-center rounded-full border ${
 										selected
 											? 'border-amber-300 bg-amber-300 text-slate-950'
-											: 'border-white/30'
+											: 'border-foreground/30'
 									}`}
 								>
 									{selected && <Check className="size-3" />}
 								</span>
-								<span className="truncate text-sm font-medium text-white">
+								<span className="truncate text-sm font-medium text-foreground">
 									{option.label}
 								</span>
 							</span>
 							<span className="shrink-0 text-right">
-								<span className="block text-sm font-semibold text-white">
+								<span className="block text-sm font-semibold text-foreground">
 									{formatCompactNumber(option.weight)}
 								</span>
-								<span className="block text-[11px] text-white/45">
+								<span className="block text-[11px] text-foreground/45">
 									{percentage.toFixed(1)}%
 								</span>
 							</span>
@@ -206,7 +206,7 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 			</div>
 
 			{voteMutation.isError && (
-				<p className="mt-3 text-sm text-red-300">
+				<p className="mt-3 text-sm text-red-700 dark:text-red-300">
 					Your vote could not be submitted. Check your wallet and try
 					again.
 				</p>
@@ -221,7 +221,7 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 				Review vote
 			</Button>
 
-			<p className="mt-3 flex items-start gap-2 text-xs leading-5 text-white/45">
+			<p className="mt-3 flex items-start gap-2 text-xs leading-5 text-foreground/45">
 				<Clock3 className="mt-0.5 size-3.5 shrink-0" />
 				<span>
 					The contract captures your key balance on your first vote and
@@ -239,13 +239,13 @@ export function ProposalVotePanel({ proposal }: { proposal: Proposal }) {
 						</DialogDescription>
 					</DialogHeader>
 					<div className="rounded-xl border border-amber-300/20 bg-amber-300/5 p-4">
-						<p className="text-xs uppercase tracking-[0.16em] text-amber-300">
+						<p className="text-xs uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300">
 							Selected option
 						</p>
-						<p className="mt-1 text-lg font-semibold text-white">
+						<p className="mt-1 text-lg font-semibold text-foreground">
 							{selectedOption?.label}
 						</p>
-						<p className="mt-2 text-sm text-white/60">
+						<p className="mt-2 text-sm text-foreground/60">
 							This transaction is submitted to the Creator Keys contract
 							and may require your Stellar wallet signature.
 						</p>

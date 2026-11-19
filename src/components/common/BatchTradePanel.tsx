@@ -61,32 +61,32 @@ export default function BatchTradePanel({ open, onOpenChange }: { open: boolean;
 			<DialogHeader><DialogTitle>Batch Trade</DialogTitle><DialogDescription>Queue buys and sells across creator keys, then submit them together.</DialogDescription></DialogHeader>
 			{results ? <div className="space-y-3" role="status">
 				<h3 className="font-semibold">Batch results</h3>
-				{results.map((result, index) => <div key={`${result.creatorId}-${index}`} className="rounded-xl border border-white/10 p-3">
-					<div className="flex justify-between"><span>{getCourse(result.creatorId)?.title ?? result.creatorId} · {result.side} {result.quantity}</span><span className="text-emerald-400">{result.success ? 'Success' : 'Failed'}</span></div>
-					<div className="mt-1 break-all font-mono text-xs text-white/50">{result.success ? result.transactionHash : result.error}</div>
+				{results.map((result, index) => <div key={`${result.creatorId}-${index}`} className="rounded-xl border border-foreground/10 p-3">
+					<div className="flex justify-between"><span>{getCourse(result.creatorId)?.title ?? result.creatorId} · {result.side} {result.quantity}</span><span className="text-emerald-600 dark:text-emerald-400">{result.success ? 'Success' : 'Failed'}</span></div>
+					<div className="mt-1 break-all font-mono text-xs text-foreground/50">{result.success ? result.transactionHash : result.error}</div>
 				</div>)}
 			</div> : <div className="space-y-4">
 				<div className="grid gap-2 sm:grid-cols-[1fr_auto_auto_auto_auto]">
-					<select aria-label="Creator key" value={creatorId} onChange={event => setCreatorId(event.target.value)} className="rounded-xl bg-slate-900 px-3 py-2 text-white">
+					<select aria-label="Creator key" value={creatorId} onChange={event => setCreatorId(event.target.value)} className="rounded-xl bg-surface-raised px-3 py-2 text-foreground">
 						<option value="">Choose creator key</option>{courses.map((course: Course) => <option key={course.id} value={course.id}>{course.title}</option>)}
 					</select>
-					<select aria-label="Trade side" value={side} onChange={event => setSide(event.target.value as 'buy' | 'sell')} className="rounded-xl bg-slate-900 px-3 py-2 text-white"><option value="buy">Buy</option><option value="sell">Sell</option></select>
-					<input aria-label="Order amount" type="number" min={1} value={quantity} onChange={event => setQuantity(Number(event.target.value))} className="w-24 rounded-xl bg-white/[0.04] px-3 py-2 text-white" />
-					<select aria-label="Slippage tolerance" value={slippageBps} onChange={event => setSlippageBps(Number(event.target.value))} className="rounded-xl bg-slate-900 px-3 py-2 text-white"><option value={100}>1%</option><option value={300}>3%</option><option value={500}>5%</option><option value={1000}>10%</option></select>
+					<select aria-label="Trade side" value={side} onChange={event => setSide(event.target.value as 'buy' | 'sell')} className="rounded-xl bg-surface-raised px-3 py-2 text-foreground"><option value="buy">Buy</option><option value="sell">Sell</option></select>
+					<input aria-label="Order amount" type="number" min={1} value={quantity} onChange={event => setQuantity(Number(event.target.value))} className="w-24 rounded-xl bg-foreground/[0.04] px-3 py-2 text-foreground" />
+					<select aria-label="Slippage tolerance" value={slippageBps} onChange={event => setSlippageBps(Number(event.target.value))} className="rounded-xl bg-surface-raised px-3 py-2 text-foreground"><option value={100}>1%</option><option value={300}>3%</option><option value={500}>5%</option><option value={1000}>10%</option></select>
 					<Button onClick={addOrder} disabled={!creatorId || quantity < 1}>Add order</Button>
 				</div>
-				{coursesQuery.isLoading && <p className="text-sm text-white/50">Loading creator keys…</p>}
+				{coursesQuery.isLoading && <p className="text-sm text-foreground/50">Loading creator keys…</p>}
 				<div className="max-h-64 space-y-2 overflow-y-auto">{orders.map(order => {
 					const course = getCourse(order.creatorId);
-					return <div key={order.id} className="grid grid-cols-[1fr_auto_auto_auto] items-center gap-3 rounded-xl border border-white/10 p-3 text-sm">
-						<span className="truncate">{course?.title ?? order.creatorId} <span className="text-white/50">{order.side} · {order.quantity} keys · {order.slippageBps / 100}% slippage</span></span>
+					return <div key={order.id} className="grid grid-cols-[1fr_auto_auto_auto] items-center gap-3 rounded-xl border border-foreground/10 p-3 text-sm">
+						<span className="truncate">{course?.title ?? order.creatorId} <span className="text-foreground/50">{order.side} · {order.quantity} keys · {order.slippageBps / 100}% slippage</span></span>
 						<span>{order.side === 'buy' ? `${formatXlm(orderCost(order))} XLM` : '—'}</span>
-						{order.side === 'sell' && <span className="text-xs text-white/50">Available: {holdings.find(item => item.creatorId === order.creatorId)?.quantity ?? 0}</span>}
+						{order.side === 'sell' && <span className="text-xs text-foreground/50">Available: {holdings.find(item => item.creatorId === order.creatorId)?.quantity ?? 0}</span>}
 						<Button variant="ghost" onClick={() => setOrders(current => current.filter(item => item.id !== order.id))}>Remove</Button>
 					</div>;
 				})}</div>
-				{sellExceeded && <p role="alert" className="text-sm text-red-400">A sell order exceeds the available key balance.</p>}
-				<div className="flex justify-between border-t border-white/10 pt-3 text-sm"><span>Estimated fees</span><span>{formatXlm(totalFees)} XLM</span></div>
+				{sellExceeded && <p role="alert" className="text-sm text-red-600 dark:text-red-400">A sell order exceeds the available key balance.</p>}
+				<div className="flex justify-between border-t border-foreground/10 pt-3 text-sm"><span>Estimated fees</span><span>{formatXlm(totalFees)} XLM</span></div>
 				<div className="flex justify-between font-semibold"><span>Estimated buy cost</span><span>{formatXlm(totalCost)} XLM</span></div>
 			</div>}
 			<DialogFooter><div className="flex gap-2"><Button variant="ghost" onClick={() => close(false)}>Close</Button>{results ? <Button onClick={() => setResults(null)}>Edit orders</Button> : <Button onClick={() => void execute()} disabled={!orders.length || sellExceeded || mutation.isPending}>{mutation.isPending ? 'Executing batch…' : 'Execute batch'}</Button>}</div></DialogFooter>

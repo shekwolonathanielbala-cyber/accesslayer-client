@@ -48,14 +48,14 @@ export class TradePanelErrorBoundary extends Component<
 					data-testid="trade-panel-error-fallback"
 					role="alert"
 					aria-live="assertive"
-					className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-red-500/30 bg-slate-950/90 p-6 text-center text-white backdrop-blur-md"
+					className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-red-500/30 bg-surface-raised p-6 text-center text-foreground backdrop-blur-md"
 				>
 					<div className="flex flex-col items-center gap-2">
-						<AlertCircle className="size-8 text-red-400" aria-hidden="true" />
-						<p className="font-grotesque text-base font-bold text-white">
+						<AlertCircle className="size-8 text-red-600 dark:text-red-400" aria-hidden="true" />
+						<p className="font-grotesque text-base font-bold text-foreground">
 							{this.props.fallbackMessage ?? 'Something went wrong inside the trade panel'}
 						</p>
-						<p className="max-w-xs font-jakarta text-xs text-white/60">
+						<p className="max-w-xs font-jakarta text-xs text-foreground/60">
 							The rest of the marketplace is still running. Click retry below to attempt remounting the trade panel.
 						</p>
 					</div>
@@ -65,7 +65,7 @@ export class TradePanelErrorBoundary extends Component<
 						size="sm"
 						onClick={this.handleRetry}
 						data-testid="trade-panel-retry-button"
-						className="mt-2 inline-flex items-center gap-2 rounded-xl border-amber-400/40 bg-amber-400/10 px-4 py-2 font-jakarta text-xs font-bold text-amber-300 hover:bg-amber-400/20"
+						className="mt-2 inline-flex items-center gap-2 rounded-xl border-amber-400/40 bg-amber-400/10 px-4 py-2 font-jakarta text-xs font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-400/20"
 					>
 						<RefreshCw className="size-3.5" aria-hidden="true" />
 						Retry

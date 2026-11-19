@@ -16,7 +16,7 @@ export interface BuyCooldownPanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 /**
  * Buy Cooldown panel for the creator dashboard settings tab (#889).
@@ -68,11 +68,11 @@ const BuyCooldownPanel: React.FC<BuyCooldownPanelProps> = ({
 			noValidate
 			data-testid="buy-cooldown-panel"
 		>
-			<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-				<p className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+			<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+				<p className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50">
 					Current cooldown
 				</p>
-				<p className="mt-1 font-jakarta text-sm font-bold text-white" data-testid="buy-cooldown-display">
+				<p className="mt-1 font-jakarta text-sm font-bold text-foreground" data-testid="buy-cooldown-display">
 					{currentMinutes === 0 ? 'No cooldown' : `${currentMinutes} min`}
 				</p>
 			</div>
@@ -80,7 +80,7 @@ const BuyCooldownPanel: React.FC<BuyCooldownPanelProps> = ({
 			<div className="space-y-1.5">
 				<label
 					htmlFor="buy-cooldown"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Buy cooldown (minutes)
 				</label>
@@ -102,7 +102,7 @@ const BuyCooldownPanel: React.FC<BuyCooldownPanelProps> = ({
 				/>
 				<p
 					id="buy-cooldown-hint"
-					className="text-xs text-white/40"
+					className="text-xs text-foreground/40"
 					data-testid="buy-cooldown-hint"
 				>
 					Delay between consecutive buys from the same wallet (0 = no cooldown)
@@ -111,7 +111,7 @@ const BuyCooldownPanel: React.FC<BuyCooldownPanelProps> = ({
 					<p
 						role="alert"
 						data-testid="buy-cooldown-error"
-						className="text-xs text-red-400"
+						className="text-xs text-red-600 dark:text-red-400"
 					>
 						{errorMessage}
 					</p>

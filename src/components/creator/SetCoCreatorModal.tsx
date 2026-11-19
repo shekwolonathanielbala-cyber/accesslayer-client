@@ -80,14 +80,14 @@ export function SetCoCreatorModal({
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent
-				className="sm:max-w-md bg-[#0b1728] border-white/10 text-white"
+				className="sm:max-w-md bg-surface-raised border-foreground/10 text-foreground"
 				data-testid="set-cocreator-modal"
 			>
 				<DialogHeader>
-					<DialogTitle className="text-xl font-bold font-grotesque text-white">
+					<DialogTitle className="text-xl font-bold font-grotesque text-foreground">
 						Configure Co-Creator Split
 					</DialogTitle>
-					<DialogDescription className="text-sm text-white/60">
+					<DialogDescription className="text-sm text-foreground/60">
 						Set the Stellar wallet address and royalty split percentage (in basis points, e.g., 2500 = 25%) for your co-creator.
 					</DialogDescription>
 				</DialogHeader>
@@ -96,7 +96,7 @@ export function SetCoCreatorModal({
 					<div>
 						<label
 							htmlFor="cocreator-address-input"
-							className="block text-xs font-semibold text-white/80 uppercase tracking-wider mb-1.5"
+							className="block text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-1.5"
 						>
 							Co-Creator Stellar Address
 						</label>
@@ -107,12 +107,12 @@ export function SetCoCreatorModal({
 							value={address}
 							onChange={e => setAddress(e.target.value)}
 							placeholder="G..."
-							className="w-full rounded-xl bg-white/[0.05] border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-amber-400 focus:outline-none"
+							className="w-full rounded-xl bg-foreground/[0.05] border border-foreground/10 px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/30 focus:border-amber-400 focus:outline-none"
 						/>
 						{addressError && (
 							<p
 								data-testid="cocreator-address-error"
-								className="mt-1 text-xs text-red-400"
+								className="mt-1 text-xs text-red-600 dark:text-red-400"
 							>
 								{addressError}
 							</p>
@@ -122,7 +122,7 @@ export function SetCoCreatorModal({
 					<div>
 						<label
 							htmlFor="cocreator-bps-input"
-							className="block text-xs font-semibold text-white/80 uppercase tracking-wider mb-1.5"
+							className="block text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-1.5"
 						>
 							Split (Basis Points: 1 - 10000)
 						</label>
@@ -135,12 +135,12 @@ export function SetCoCreatorModal({
 							placeholder="e.g. 2500 for 25%"
 							min="1"
 							max="10000"
-							className="w-full rounded-xl bg-white/[0.05] border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-amber-400 focus:outline-none"
+							className="w-full rounded-xl bg-foreground/[0.05] border border-foreground/10 px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/30 focus:border-amber-400 focus:outline-none"
 						/>
 						{bpsError && (
 							<p
 								data-testid="cocreator-bps-error"
-								className="mt-1 text-xs text-red-400"
+								className="mt-1 text-xs text-red-600 dark:text-red-400"
 							>
 								{bpsError}
 							</p>
@@ -152,7 +152,7 @@ export function SetCoCreatorModal({
 							type="button"
 							variant="outline"
 							onClick={() => onOpenChange(false)}
-							className="border-white/10 text-white/80 hover:bg-white/10 hover:text-white"
+							className="border-foreground/10 text-foreground/80 hover:bg-foreground/10 hover:text-foreground"
 						>
 							Cancel
 						</Button>

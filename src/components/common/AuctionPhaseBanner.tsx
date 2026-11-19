@@ -20,19 +20,19 @@ const AuctionPhaseBanner: React.FC<AuctionPhaseBannerProps> = ({
 			aria-live="polite"
 			className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5"
 		>
-			<p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400">
+			<p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400">
 				Auction Phase
 			</p>
-			<p className="mt-1 font-grotesque text-lg font-black text-white">
+			<p className="mt-1 font-grotesque text-lg font-black text-foreground">
 				Early access price: {auctionPrice} XLM — {remaining} keys left
 			</p>
-			<div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
+			<div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-foreground/10">
 				<div
 					className="h-full rounded-full bg-amber-400 transition-all"
 					style={{ width: `${progressPercent}%` }}
 				/>
 			</div>
-			<p className="mt-1 text-xs text-white/50">
+			<p className="mt-1 text-xs text-foreground/50">
 				{auctionSold} / {auctionSupply} sold
 			</p>
 		</div>

@@ -1088,7 +1088,7 @@ function LandingPage() {
 	};
 
 	return (
-		<div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(160deg,#08111f_0%,#10213b_45%,#f0b14d_160%)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
+		<div className="relative min-h-screen overflow-x-hidden bg-[image:var(--page-gradient)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
 			<SkipToContent
 				targetId="main-creator-list"
 				label="Skip to creator list"
@@ -1097,7 +1097,7 @@ function LandingPage() {
 				<div
 					role="status"
 					aria-live="polite"
-					className="fixed right-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/35 bg-slate-950/90 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-amber-100 shadow-2xl shadow-black/30 backdrop-blur-md md:right-6 md:top-6"
+					className="fixed right-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/35 bg-surface-raised px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-100 shadow-2xl shadow-black/30 backdrop-blur-md md:right-6 md:top-6"
 				>
 					<RefreshCw
 						className="size-3.5 animate-spin motion-reduce:animate-none"
@@ -1121,14 +1121,14 @@ function LandingPage() {
 					className="text-center"
 				>
 					<img
-						className="mx-auto mb-8 size-10"
+						className="mx-auto mb-8 size-10 brightness-0 dark:brightness-100"
 						src="/icons/logo.svg"
 						alt="Access Layer logo"
 					/>
-					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-400/80">
+					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600/80 dark:text-amber-400/80">
 						Creator Keys Marketplace
 					</p>
-					<h1 className="mb-8 font-grotesque text-[clamp(2.5rem,8vw,5rem)] font-extrabold leading-[1.1] tracking-tight text-white">
+					<h1 className="mb-8 font-grotesque text-[clamp(2.5rem,8vw,5rem)] font-extrabold leading-[1.1] tracking-tight text-foreground">
 						Access Layer
 					</h1>
 					<div className="flex justify-center">
@@ -1181,7 +1181,7 @@ function LandingPage() {
 									onChange={e =>
 										setSortOption(e.target.value as CourseSortOption)
 									}
-									className="h-9 rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+									className="h-9 rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 								>
 									<option value="volume_desc">
 										Volume: High to low
@@ -1204,7 +1204,7 @@ function LandingPage() {
 									id="creator-category"
 									value={categoryFilter}
 									onChange={e => setCategoryFilter(e.target.value)}
-									className="h-9 rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+									className="h-9 rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 								>
 									<option value="">All categories</option>
 									{Array.from(
@@ -1242,7 +1242,7 @@ function LandingPage() {
 										onChange={event =>
 											setMinPriceFilter(event.target.value)
 										}
-										className="mt-1 h-10 w-full rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+										className="mt-1 h-10 w-full rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 									/>
 								</div>
 								<div>
@@ -1262,7 +1262,7 @@ function LandingPage() {
 										onChange={event =>
 											setMaxPriceFilter(event.target.value)
 										}
-										className="mt-1 h-10 w-full rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+										className="mt-1 h-10 w-full rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 									/>
 								</div>
 								<Button
@@ -1270,29 +1270,29 @@ function LandingPage() {
 									variant="outline"
 									onClick={handleClearPriceFilters}
 									disabled={!minPriceFilter && !maxPriceFilter}
-									className="h-10 rounded-lg border-white/10 bg-white/5 px-4 text-xs font-bold uppercase tracking-[0.16em] text-white"
+									className="h-10 rounded-lg border-foreground/10 bg-foreground/5 px-4 text-xs font-bold uppercase tracking-[0.16em] text-foreground"
 								>
 									Clear
 								</Button>
 							</div>
 							<div
 								aria-label={`${CREATOR_REFRESH_SHORTCUT_LABEL} refreshes creator list data`}
-								className="flex flex-wrap items-center gap-2 text-xs text-white/55"
+								className="flex flex-wrap items-center gap-2 text-xs text-foreground/55"
 							>
-								<span className="font-semibold uppercase tracking-[0.16em] text-white/40">
+								<span className="font-semibold uppercase tracking-[0.16em] text-foreground/40">
 									Shortcut
 								</span>
 								<span
 									className="inline-flex items-center gap-1"
 									aria-hidden="true"
 								>
-									<Kbd className="border border-white/10 bg-white/10 text-white/70">
+									<Kbd className="border border-foreground/10 bg-foreground/10 text-foreground/70">
 										Ctrl/Cmd
 									</Kbd>
-									<Kbd className="border border-white/10 bg-white/10 text-white/70">
+									<Kbd className="border border-foreground/10 bg-foreground/10 text-foreground/70">
 										Alt
 									</Kbd>
-									<Kbd className="border border-white/10 bg-white/10 text-white/70">
+									<Kbd className="border border-foreground/10 bg-foreground/10 text-foreground/70">
 										R
 									</Kbd>
 								</span>
@@ -1324,7 +1324,7 @@ function LandingPage() {
 								/>
 							)}
 							{finalFetchError && (
-								<div className="mb-6 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
+								<div className="mb-6 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-700 dark:text-amber-200">
 									{finalFetchError}
 								</div>
 							)}
@@ -1339,7 +1339,7 @@ function LandingPage() {
 								<div className="space-y-4">
 									<div className="flex items-center justify-center gap-2 py-8">
 										<div className="size-4 animate-spin rounded-full border-2 border-amber-400/20 border-t-amber-400" />
-										<span className="text-sm text-white/60">
+										<span className="text-sm text-foreground/60">
 											Updating results...
 										</span>
 									</div>
@@ -1371,7 +1371,7 @@ function LandingPage() {
 										<span className="marketplace-label-muted text-xs font-semibold uppercase tracking-[0.16em]">
 											List mode
 										</span>
-										<div className="inline-flex rounded-lg border border-white/10 bg-white/5 p-1">
+										<div className="inline-flex rounded-lg border border-foreground/10 bg-foreground/5 p-1">
 											<button
 												type="button"
 												onClick={() => setListMode('pagination')}
@@ -1380,7 +1380,7 @@ function LandingPage() {
 													'rounded-md px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] transition-colors',
 													listMode === 'pagination'
 														? 'bg-amber-400 text-slate-950'
-														: 'text-white/60 hover:text-white'
+														: 'text-foreground/60 hover:text-foreground'
 												)}
 											>
 												Pages
@@ -1393,7 +1393,7 @@ function LandingPage() {
 													'rounded-md px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] transition-colors',
 													listMode === 'infinite'
 														? 'bg-amber-400 text-slate-950'
-														: 'text-white/60 hover:text-white'
+														: 'text-foreground/60 hover:text-foreground'
 												)}
 											>
 												Infinite scroll
@@ -1481,7 +1481,7 @@ function LandingPage() {
 															handlePageChange(safePage + 1)
 														}
 														aria-label="Load more creators"
-														className="sr-only rounded-full border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-none focus:not-sr-only focus:flex focus:items-center focus:gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:ring-offset-2 focus:ring-offset-slate-950"
+														className="sr-only rounded-full border-foreground/10 bg-foreground/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-foreground shadow-none focus:not-sr-only focus:flex focus:items-center focus:gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400/60 focus:ring-offset-2 focus:ring-offset-slate-950"
 													>
 														<ChevronDown
 															className="size-4"
@@ -1495,7 +1495,7 @@ function LandingPage() {
 												<p
 													role="status"
 													aria-live="polite"
-													className="mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/45"
+													className="mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-foreground/45"
 												>
 													{`You've reached the end — ${formatNumber(filteredCreators.length)} creator${filteredCreators.length === 1 ? '' : 's'} shown.`}
 												</p>
@@ -1533,7 +1533,7 @@ function LandingPage() {
 															type="button"
 															variant="outline"
 															onClick={handleLoadMoreInfinite}
-															className="rounded-full border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white"
+															className="rounded-full border-foreground/10 bg-foreground/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-foreground"
 														>
 															<ChevronDown
 																className="size-4"
@@ -1543,7 +1543,7 @@ function LandingPage() {
 														</Button>
 													</>
 												) : (
-													<p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+													<p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-foreground/45">
 														{`You've reached the end — ${formatNumber(filteredCreators.length)} creator${filteredCreators.length === 1 ? '' : 's'} shown.`}
 													</p>
 												)}
@@ -1588,16 +1588,16 @@ function LandingPage() {
 					>
 						<div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
 							<div>
-								<p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-300/80">
+								<p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-700/80 dark:text-amber-300/80">
 									Your holdings
 								</p>
 								<h2
 									id="holdings-overview-heading"
-									className="font-grotesque text-2xl font-black tracking-tight text-white"
+									className="font-grotesque text-2xl font-black tracking-tight text-foreground"
 								>
 									Total portfolio value
 								</h2>
-								<p className="mt-2 max-w-2xl font-jakarta text-sm leading-relaxed text-white/60">
+								<p className="mt-2 max-w-2xl font-jakarta text-sm leading-relaxed text-foreground/60">
 									Aggregates every creator key position currently held
 									by this wallet using the latest available key prices.
 								</p>
@@ -1609,12 +1609,12 @@ function LandingPage() {
 									displayedPortfolioValue.status === 'loading' ||
 									undefined
 								}
-								className="rounded-2xl border border-white/10 bg-slate-950/45 px-5 py-4 text-left md:min-w-64"
+								className="rounded-2xl border border-foreground/10 bg-surface-raised px-5 py-4 text-left md:min-w-64"
 							>
-								<div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/45">
+								<div className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-foreground/45">
 									Portfolio total
 								</div>
-								<div className="mt-1 flex items-center gap-2 font-grotesque text-3xl font-black text-white">
+								<div className="mt-1 flex items-center gap-2 font-grotesque text-3xl font-black text-foreground">
 									{displayedPortfolioValue.status === 'loading' && (
 										<span
 											className="size-4 animate-spin rounded-full border-2 border-amber-400/25 border-t-amber-400"
@@ -1623,7 +1623,7 @@ function LandingPage() {
 									)}
 									{portfolioValueDisplay}
 								</div>
-								<p className="mt-2 text-xs leading-relaxed text-white/55">
+								<p className="mt-2 text-xs leading-relaxed text-foreground/55">
 									{portfolioValueHelperText}
 								</p>
 								<span
@@ -1639,7 +1639,7 @@ function LandingPage() {
 								variant="outline"
 								onClick={() => window.location.href = '/swap/create'}
 								disabled={heldKeyPositions.filter(p => p.quantity && p.quantity > 0).length === 0}
-								className="rounded-xl border-white/15 bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+								className="rounded-xl border-foreground/15 bg-foreground/5 text-foreground/80 hover:bg-foreground/10 hover:text-foreground"
 							>
 								<ArrowLeftRight className="size-4 mr-2" aria-hidden="true" />
 								Create Atomic Swap
@@ -1649,33 +1649,33 @@ function LandingPage() {
 							pnlSummary.totalInvested > 0 && (
 								<div
 									data-testid="pnl-summary-card"
-									className="mt-4 flex flex-col gap-3 rounded-xl border border-white/10 bg-slate-950/30 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+									className="mt-4 flex flex-col gap-3 rounded-xl border border-foreground/10 bg-surface-raised px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
 								>
 									<div className="flex flex-wrap items-center gap-6 text-sm">
 										<div>
-											<span className="text-white/45">
+											<span className="text-foreground/45">
 												Total Invested
 											</span>
 											<span
-												className="ml-2 font-grotesque font-bold text-white"
+												className="ml-2 font-grotesque font-bold text-foreground"
 												data-testid="pnl-summary-invested"
 											>
 												{formatPnLDisplay(pnlSummary.totalInvested)}
 											</span>
 										</div>
 										<div>
-											<span className="text-white/45">
+											<span className="text-foreground/45">
 												Current Value
 											</span>
 											<span
-												className="ml-2 font-grotesque font-bold text-white"
+												className="ml-2 font-grotesque font-bold text-foreground"
 												data-testid="pnl-summary-current-value"
 											>
 												{formatPnLDisplay(pnlSummary.currentValue)}
 											</span>
 										</div>
 										<div>
-											<span className="text-white/45">
+											<span className="text-foreground/45">
 												Unrealised PnL
 											</span>
 											<span
@@ -1698,13 +1698,13 @@ function LandingPage() {
 											type="button"
 											data-testid="share-performance-btn"
 											onClick={() => setSharePortfolioOpen(true)}
-											className="inline-flex items-center gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-400/50 sm:self-auto cursor-pointer"
+											className="inline-flex items-center gap-2 self-start rounded-lg border border-foreground/15 bg-foreground/5 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-foreground/30 hover:bg-foreground/10 focus:outline-none focus:ring-2 focus:ring-amber-400/50 sm:self-auto cursor-pointer"
 										>
-											<Share2 className="size-3.5 text-amber-300" aria-hidden="true" />
+											<Share2 className="size-3.5 text-amber-700 dark:text-amber-300" aria-hidden="true" />
 											<span>Share Performance</span>
 										</button>
 										<p
-											className="text-[0.65rem] leading-relaxed text-white/40 sm:text-right"
+											className="text-[0.65rem] leading-relaxed text-foreground/40 sm:text-right"
 											data-testid="pnl-summary-caption"
 										>
 											Valued at the current bonding curve sell price across&nbsp;
@@ -1947,7 +1947,7 @@ function LandingPage() {
 										]}
 									/>
 									<div className="flex items-center justify-between gap-2">
-										<span className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+										<span className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 											Metrics display
 										</span>
 										<PrecisionModeToggle
@@ -1968,13 +1968,13 @@ function LandingPage() {
 										}
 									/>
 									{/* Issue 557: Stellar address with copy button */}
-									<div className="flex items-center justify-between gap-2 rounded-xl border border-white/8 bg-white/[0.03] px-3 py-2">
+									<div className="flex items-center justify-between gap-2 rounded-xl border border-foreground/8 bg-foreground/[0.03] px-3 py-2">
 										<div className="min-w-0 flex-1">
-											<p className="mb-0.5 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">
+											<p className="mb-0.5 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-foreground/40">
 												Stellar Address
 											</p>
 											<p
-												className="truncate font-mono text-xs text-white/70"
+												className="truncate font-mono text-xs text-foreground/70"
 												title={FEATURED_CREATOR_STELLAR_ADDRESS}
 											>
 												{FEATURED_CREATOR_STELLAR_ADDRESS}
@@ -1988,11 +1988,11 @@ function LandingPage() {
 													? 'Stellar address copied'
 													: 'Copy Stellar address'
 											}
-											className="inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+											className="inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-foreground/5 text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground"
 										>
 											{stellarAddressCopied ? (
 												<Check
-													className="size-4 text-emerald-400"
+													className="size-4 text-emerald-600 dark:text-emerald-400"
 													aria-hidden="true"
 												/>
 											) : (
@@ -2042,8 +2042,8 @@ function LandingPage() {
 												/>
 											</div>
 										{tradeSubmitting && (
-											<div className="absolute inset-0 hidden items-center justify-center rounded-[1.25rem] border border-white/10 bg-slate-950/65 backdrop-blur-sm md:flex">
-												<div className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-3 py-1.5 text-xs font-bold text-white/85 shadow-lg">
+											<div className="absolute inset-0 hidden items-center justify-center rounded-[1.25rem] border border-foreground/10 bg-surface-raised backdrop-blur-sm md:flex">
+												<div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-surface-raised px-3 py-1.5 text-xs font-bold text-foreground/85 shadow-lg">
 													<div className="size-3.5 animate-spin rounded-full border-2 border-amber-400/25 border-t-amber-400" />
 													Submitting trade
 												</div>
@@ -2055,14 +2055,14 @@ function LandingPage() {
 						)}
 					</SectionErrorBoundary>
 
-					<div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-slate-950/85 backdrop-blur-md md:hidden">
+					<div className="fixed inset-x-0 bottom-0 z-40 border-t border-foreground/10 bg-surface-raised backdrop-blur-md md:hidden">
 						<div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-6 py-3">
 							<div className="min-w-0">
-								<div className="text-xs font-bold uppercase tracking-[0.22em] text-white/40">
+								<div className="text-xs font-bold uppercase tracking-[0.22em] text-foreground/40">
 									Your holdings
 								</div>
 								<div
-									className="truncate font-jakarta text-sm font-bold text-white/85"
+									className="truncate font-jakarta text-sm font-bold text-foreground/85"
 									aria-label={`Wallet holdings: ${formatNumber(
 										featuredHoldings
 									)} keys${
@@ -2079,7 +2079,7 @@ function LandingPage() {
 										featuredHoldings,
 										featuredCreator?.creatorShareSupply
 									) !== '—' && (
-										<span className="ml-2 text-xs font-normal text-white/60">
+										<span className="ml-2 text-xs font-normal text-foreground/60">
 											(
 											{formatOwnershipPercent(
 												featuredHoldings,
@@ -2129,8 +2129,8 @@ function LandingPage() {
 											/>
 										</div>
 									{tradeSubmitting && (
-										<div className="absolute inset-0 flex items-center justify-center rounded-xl border border-white/10 bg-slate-950/65 px-3 backdrop-blur-sm">
-											<div className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-3 py-1.5 text-[11px] font-bold text-white/85 shadow-lg">
+										<div className="absolute inset-0 flex items-center justify-center rounded-xl border border-foreground/10 bg-surface-raised px-3 backdrop-blur-sm">
+											<div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-surface-raised px-3 py-1.5 text-[11px] font-bold text-foreground/85 shadow-lg">
 												<div className="size-3 animate-spin rounded-full border-2 border-amber-400/25 border-t-amber-400" />
 												Submitting trade
 											</div>

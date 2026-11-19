@@ -27,8 +27,8 @@ export const BundleTimeRemaining: React.FC<BundleTimeRemainingProps> = ({
 			className={cn(
 				'inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-medium tabular-nums',
 				isExpired
-					? 'border-red-400/30 bg-red-400/10 text-red-300'
-					: 'border-amber-400/30 bg-amber-400/15 text-amber-200',
+					? 'border-red-400/30 bg-red-400/10 text-red-700 dark:text-red-300'
+					: 'border-amber-400/30 bg-amber-400/15 text-amber-700 dark:text-amber-200',
 				className
 			)}
 			data-testid="bundle-time-remaining"

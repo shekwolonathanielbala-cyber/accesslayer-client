@@ -39,7 +39,7 @@ export interface VestingSchedulePanelProps {
 	className?: string;
 }
 
-const PROGRESS_TRACK_CLASS = 'h-2 w-full rounded-full bg-white/10';
+const PROGRESS_TRACK_CLASS = 'h-2 w-full rounded-full bg-foreground/10';
 
 /**
  * Vesting schedule panel for a creator's key allocation (#960).
@@ -83,7 +83,7 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 			<div
 				role="alert"
 				className={cn(
-					'flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-200',
+					'flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-700 dark:text-amber-200',
 					className
 				)}
 				data-testid="vesting-panel-error"
@@ -106,11 +106,11 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 			data-testid="vesting-schedule-panel"
 		>
 			<div className="flex flex-wrap items-center justify-between gap-3">
-				<p className="text-sm text-white/60" data-testid="vesting-phase">
+				<p className="text-sm text-foreground/60" data-testid="vesting-phase">
 					{describeVestingPhase(schedule)}
 				</p>
 				<span
-					className="font-mono text-sm font-semibold text-white"
+					className="font-mono text-sm font-semibold text-foreground"
 					data-testid="vesting-progress-percent"
 				>
 					{formatPercent(schedule.vestedPercent, {
@@ -128,22 +128,22 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 			>
 				<div className="flex items-center justify-between gap-3 text-xs">
 					<div>
-						<p className="font-bold uppercase tracking-[0.18em] text-white/40">
+						<p className="font-bold uppercase tracking-[0.18em] text-foreground/40">
 							Cliff
 						</p>
 						<p
-							className="mt-0.5 font-mono text-white/90"
+							className="mt-0.5 font-mono text-foreground/90"
 							data-testid="vesting-cliff-date"
 						>
 							{formatVestingDate(cliffAt)}
 						</p>
 					</div>
 					<div className="text-right">
-						<p className="font-bold uppercase tracking-[0.18em] text-white/40">
+						<p className="font-bold uppercase tracking-[0.18em] text-foreground/40">
 							Fully vested
 						</p>
 						<p
-							className="mt-0.5 font-mono text-white/90"
+							className="mt-0.5 font-mono text-foreground/90"
 							data-testid="vesting-end-date"
 						>
 							{formatVestingDate(endAt)}
@@ -171,34 +171,34 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 			</div>
 
 			<dl className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Total allocation
 					</dt>
 					<dd
-						className="mt-1 font-mono font-bold text-white"
+						className="mt-1 font-mono font-bold text-foreground"
 						data-testid="vesting-total-allocation"
 					>
 						{formatXlmPrice(schedule.totalAllocation)}
 					</dd>
 				</div>
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Vested
 					</dt>
 					<dd
-						className="mt-1 font-mono font-bold text-white"
+						className="mt-1 font-mono font-bold text-foreground"
 						data-testid="vesting-vested-amount"
 					>
 						{formatXlmPrice(schedule.vestedAmount)}
 					</dd>
 				</div>
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Already claimed
 					</dt>
 					<dd
-						className="mt-1 font-mono font-bold text-white"
+						className="mt-1 font-mono font-bold text-foreground"
 						data-testid="vesting-claimed-amount"
 					>
 						{formatXlmPrice(schedule.claimedAmount)}
@@ -209,18 +209,18 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 			{/* Claimable amount + claim action */}
 			<div className="flex flex-col gap-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 sm:flex-row sm:items-center sm:justify-between">
 				<div>
-					<p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-amber-200/70">
+					<p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-amber-700/70 dark:text-amber-200/70">
 						Claimable now
 					</p>
 					<p
-						className="mt-1 font-mono text-xl font-bold text-white"
+						className="mt-1 font-mono text-xl font-bold text-foreground"
 						data-testid="vesting-claimable-amount"
 					>
 						{formatXlmPrice(schedule.claimableAmount)}
 					</p>
 					{disabledReason && (
 						<p
-							className="mt-1 flex items-center gap-1.5 text-xs text-white/60"
+							className="mt-1 flex items-center gap-1.5 text-xs text-foreground/60"
 							data-testid="vesting-claim-disabled-reason"
 						>
 							<Lock className="size-3.5 shrink-0" aria-hidden="true" />
@@ -243,11 +243,11 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 
 			{/* Claim history */}
 			<div>
-				<h3 className="flex items-center gap-2 font-grotesque text-lg font-bold text-white">
+				<h3 className="flex items-center gap-2 font-grotesque text-lg font-bold text-foreground">
 					Claim history
 					<Tooltip content={VESTING_PANEL_EXPLANATION}>
 						<span
-							className="inline-flex cursor-help text-white/50 hover:text-white/80"
+							className="inline-flex cursor-help text-foreground/50 hover:text-foreground/80"
 							data-testid="vesting-tooltip-trigger"
 							aria-label="How does creator vesting work?"
 						>
@@ -258,7 +258,7 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 
 				{claims.length === 0 ? (
 					<p
-						className="mt-2 text-sm text-white/55"
+						className="mt-2 text-sm text-foreground/55"
 						data-testid="vesting-history-empty"
 					>
 						No claims yet. Successful claims will appear here with their
@@ -271,7 +271,7 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 					>
 						<table className="w-full min-w-[32rem] text-left text-sm">
 							<thead>
-								<tr className="border-b border-white/10 text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
+								<tr className="border-b border-foreground/10 text-[0.65rem] uppercase tracking-[0.18em] text-foreground/40">
 									<th scope="col" className="py-2 pr-4 font-bold">
 										Date
 									</th>
@@ -287,18 +287,18 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 								{claims.map(claim => (
 									<tr
 										key={claim.id}
-										className="border-b border-white/5"
+										className="border-b border-foreground/5"
 										data-testid="vesting-history-row"
 									>
 										<td
-											className="py-2 pr-4 font-mono text-xs text-white/70"
+											className="py-2 pr-4 font-mono text-xs text-foreground/70"
 											title={new Date(claim.claimedAt).toLocaleString()}
 											data-testid="vesting-history-date"
 										>
 											{formatRelativeTime(claim.claimedAt)}
 										</td>
 										<td
-											className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-400"
+											className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400"
 											data-testid="vesting-history-amount"
 										>
 											+{formatXlmPrice(claim.amountXlm)}
@@ -311,7 +311,7 @@ export const VestingSchedulePanel: React.FC<VestingSchedulePanelProps> = ({
 												)}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="font-mono text-xs text-white/60 hover:text-white"
+												className="font-mono text-xs text-foreground/60 hover:text-foreground"
 												data-testid="vesting-history-tx"
 											>
 												{truncateTxHash(claim.transactionHash)}

@@ -100,7 +100,7 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 				<DialogHeader>
 					<div className="flex items-center gap-3 mb-3">
 						<div className="rounded-full bg-red-500/15 p-3">
-							<AlertCircle className="size-6 text-red-400" />
+							<AlertCircle className="size-6 text-red-600 dark:text-red-400" />
 						</div>
 						<div>
 							<DialogTitle>Transaction Failed</DialogTitle>
@@ -111,14 +111,14 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 					</div>
 				</DialogHeader>
 
-				<div className="space-y-4 border-t border-white/5 pt-4">
+				<div className="space-y-4 border-t border-foreground/5 pt-4">
 					{failureDetails.timestamp && timestamp && (
 						<div>
-							<p className="text-sm font-medium text-white/70 mb-2">
+							<p className="text-sm font-medium text-foreground/70 mb-2">
 								Time
 							</p>
 							<p
-								className="text-sm text-white/80 rounded-lg bg-white/5 p-3"
+								className="text-sm text-foreground/80 rounded-lg bg-foreground/5 p-3"
 								title={timestamp.title ?? undefined}
 							>
 								{timestamp.display}
@@ -126,27 +126,27 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 						</div>
 					)}
 					<div>
-						<p className="text-sm font-medium text-white/70 mb-2">
+						<p className="text-sm font-medium text-foreground/70 mb-2">
 							Error Message
 						</p>
-						<p className="text-sm text-white/90 rounded-lg bg-white/5 p-3 break-words">
+						<p className="text-sm text-foreground/90 rounded-lg bg-foreground/5 p-3 break-words">
 							{failureDetails.errorMessage}
 						</p>
 					</div>
 
 					{failureDetails.errorCode && (
 						<div>
-							<p className="text-sm font-medium text-white/70 mb-2">
+							<p className="text-sm font-medium text-foreground/70 mb-2">
 								Error Code
 							</p>
-							<div className="flex items-center gap-2 rounded-lg bg-white/5 p-3">
-								<code className="text-sm text-amber-400 font-mono flex-1 break-all">
+							<div className="flex items-center gap-2 rounded-lg bg-foreground/5 p-3">
+								<code className="text-sm text-amber-600 dark:text-amber-400 font-mono flex-1 break-all">
 									{failureDetails.errorCode}
 								</code>
 								<button
 									type="button"
 									onClick={handleCopyErrorCode}
-									className="shrink-0 p-2 hover:bg-white/10 rounded transition-colors"
+									className="shrink-0 p-2 hover:bg-foreground/10 rounded transition-colors"
 									aria-label={
 										copiedField === 'errorCode'
 											? 'Error code copied'
@@ -155,12 +155,12 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 								>
 									{copiedField === 'errorCode' ? (
 										<Check
-											className="size-4 text-emerald-400"
+											className="size-4 text-emerald-600 dark:text-emerald-400"
 											aria-hidden="true"
 										/>
 									) : (
 										<Copy
-											className="size-4 text-white/60"
+											className="size-4 text-foreground/60"
 											aria-hidden="true"
 										/>
 									)}
@@ -171,17 +171,17 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 
 					{failureDetails.txHash && (
 						<div>
-							<p className="text-sm font-medium text-white/70 mb-2">
+							<p className="text-sm font-medium text-foreground/70 mb-2">
 								Transaction Hash
 							</p>
-							<div className="flex items-center gap-2 rounded-lg bg-white/5 p-3">
-								<code className="text-sm text-white/60 font-mono flex-1 truncate">
+							<div className="flex items-center gap-2 rounded-lg bg-foreground/5 p-3">
+								<code className="text-sm text-foreground/60 font-mono flex-1 truncate">
 									{failureDetails.txHash}
 								</code>
 								<button
 									type="button"
 									onClick={handleCopyTxHash}
-									className="shrink-0 p-2 hover:bg-white/10 rounded transition-colors"
+									className="shrink-0 p-2 hover:bg-foreground/10 rounded transition-colors"
 									aria-label={
 										copiedField === 'txHash'
 											? 'Transaction hash copied'
@@ -190,12 +190,12 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 								>
 									{copiedField === 'txHash' ? (
 										<Check
-											className="size-4 text-emerald-400"
+											className="size-4 text-emerald-600 dark:text-emerald-400"
 											aria-hidden="true"
 										/>
 									) : (
 										<Copy
-											className="size-4 text-white/60"
+											className="size-4 text-foreground/60"
 											aria-hidden="true"
 										/>
 									)}
@@ -209,10 +209,10 @@ const TransactionFailureDrawer: React.FC<TransactionFailureDrawerProps> = ({
 					{failureDetails.developerDetails &&
 						Object.keys(failureDetails.developerDetails).length > 0 && (
 							<details className="text-sm cursor-pointer group">
-								<summary className="font-medium text-white/70 group-open:text-white/90 transition-colors">
+								<summary className="font-medium text-foreground/70 group-open:text-foreground/90 transition-colors">
 									Developer Details
 								</summary>
-								<pre className="mt-2 rounded-lg bg-white/5 p-3 overflow-auto text-xs text-white/60 font-mono">
+								<pre className="mt-2 rounded-lg bg-foreground/5 p-3 overflow-auto text-xs text-foreground/60 font-mono">
 									{JSON.stringify(
 										failureDetails.developerDetails,
 										null,

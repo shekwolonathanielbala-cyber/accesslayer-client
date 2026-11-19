@@ -67,7 +67,7 @@ export const AccessibleInfoTrigger: React.FC<AccessibleInfoTriggerProps> = ({
 				onBlur={hide}
 				onClick={toggle}
 				onKeyDown={handleKeyDown}
-				className="inline-flex size-4 items-center justify-center rounded-full text-white/55 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
+				className="inline-flex size-4 items-center justify-center rounded-full text-foreground/55 transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950"
 			>
 				<Info className="size-3" aria-hidden="true" />
 			</button>
@@ -75,7 +75,7 @@ export const AccessibleInfoTrigger: React.FC<AccessibleInfoTriggerProps> = ({
 				<span
 					id={tooltipId}
 					role="tooltip"
-					className="absolute left-1/2 top-full z-50 mt-2 w-max max-w-xs -translate-x-1/2 rounded-md border border-white/10 bg-slate-950/95 px-2.5 py-1.5 text-[0.7rem] font-medium leading-snug text-white/85 shadow-lg backdrop-blur"
+					className="absolute left-1/2 top-full z-50 mt-2 w-max max-w-xs -translate-x-1/2 rounded-md border border-foreground/10 bg-surface-raised px-2.5 py-1.5 text-[0.7rem] font-medium leading-snug text-foreground/85 shadow-lg backdrop-blur"
 				>
 					{explanation}
 				</span>

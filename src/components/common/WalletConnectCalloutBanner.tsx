@@ -83,14 +83,14 @@ const WalletConnectCalloutBanner: React.FC<WalletConnectCalloutBannerProps> = ({
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div className="min-w-0">
-					<div className="mb-1 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-amber-300/85">
+					<div className="mb-1 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-amber-700/85 dark:text-amber-300/85">
 						<Wallet className="size-3.5" />
 						Wallet required
 					</div>
-					<p className="font-jakarta text-sm font-bold text-amber-100">
+					<p className="font-jakarta text-sm font-bold text-amber-700 dark:text-amber-100">
 						{title}
 					</p>
-					<p className="mt-1 text-xs text-amber-100/75">{description}</p>
+					<p className="mt-1 text-xs text-amber-700/75 dark:text-amber-100/75">{description}</p>
 				</div>
 				<div className="shrink-0">
 					<button
@@ -104,7 +104,7 @@ const WalletConnectCalloutBanner: React.FC<WalletConnectCalloutBannerProps> = ({
 				</div>
 			</div>
 			{showAdBlockerSuggestion ? (
-				<p role="status" className="mt-3 text-xs text-amber-100/85">
+				<p role="status" className="mt-3 text-xs text-amber-700/85 dark:text-amber-100/85">
 					{WALLET_CONNECTION_AD_BLOCKER_MESSAGE}
 				</p>
 			) : null}

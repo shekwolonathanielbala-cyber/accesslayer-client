@@ -30,12 +30,12 @@ const CreatorBreadcrumb: React.FC<CreatorBreadcrumbProps> = ({
 		>
 			<Link
 				to={parentHref}
-				className="font-medium text-white/50 transition-colors hover:text-amber-400"
+				className="font-medium text-foreground/50 transition-colors hover:text-amber-600 dark:hover:text-amber-400"
 			>
 				{parentLabel}
 			</Link>
-			<ChevronRight className="size-4 text-white/30" />
-			<span className="font-bold text-white truncate max-w-[150px] sm:max-w-none">
+			<ChevronRight className="size-4 text-foreground/30" />
+			<span className="font-bold text-foreground truncate max-w-[150px] sm:max-w-none">
 				{displayCurrentLabel}
 			</span>
 		</nav>

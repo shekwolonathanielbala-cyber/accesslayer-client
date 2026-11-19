@@ -38,7 +38,7 @@ export const WhitelistUploadInput: React.FC<WhitelistUploadInputProps> = ({
 		<div className={cn('space-y-2', className)} data-testid="whitelist-upload">
 			<label
 				htmlFor="key-factory-whitelist"
-				className="block text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+				className="block text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 			>
 				Whitelist addresses
 			</label>
@@ -57,7 +57,7 @@ export const WhitelistUploadInput: React.FC<WhitelistUploadInputProps> = ({
 
 			<p
 				id="key-factory-whitelist-summary"
-				className="text-xs text-white/55"
+				className="text-xs text-foreground/55"
 				data-testid="whitelist-parsed-count"
 			>
 				{hasInput
@@ -68,7 +68,7 @@ export const WhitelistUploadInput: React.FC<WhitelistUploadInputProps> = ({
 			{invalid.length > 0 && (
 				<p
 					role="alert"
-					className="text-xs text-red-400"
+					className="text-xs text-red-600 dark:text-red-400"
 					data-testid="whitelist-invalid-entries"
 				>
 					{invalid.length} entr{invalid.length === 1 ? 'y is' : 'ies are'} not
@@ -80,7 +80,7 @@ export const WhitelistUploadInput: React.FC<WhitelistUploadInputProps> = ({
 			{duplicates.length > 0 && (
 				<p
 					role="status"
-					className="text-xs text-amber-300"
+					className="text-xs text-amber-700 dark:text-amber-300"
 					data-testid="whitelist-duplicate-entries"
 				>
 					{duplicates.length} duplicate address
@@ -89,7 +89,7 @@ export const WhitelistUploadInput: React.FC<WhitelistUploadInputProps> = ({
 			)}
 
 			{error && (
-				<p role="alert" className="text-xs text-red-400" data-testid="whitelist-error">
+				<p role="alert" className="text-xs text-red-600 dark:text-red-400" data-testid="whitelist-error">
 					{error}
 				</p>
 			)}

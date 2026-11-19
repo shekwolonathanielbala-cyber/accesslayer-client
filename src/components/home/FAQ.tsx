@@ -102,7 +102,7 @@ export default function FAQ() {
 	}, []);
 
 	return (
-		<section className="bg-white px-6 py-20">
+		<section className="bg-foreground px-6 py-20">
 			<div className="mx-auto max-w-3xl">
 				{/* Header */}
 				<div ref={headingRef} className="scroll-reveal mb-12">

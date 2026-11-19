@@ -61,13 +61,13 @@ export const SpreadIndicator: React.FC<SpreadIndicatorProps> = ({
 		>
 			{spread.hasPricePair && (
 				<div
-					className="flex items-center justify-between gap-2 text-white/60"
+					className="flex items-center justify-between gap-2 text-foreground/60"
 					data-testid="key-spread-prices"
 				>
 					<span>
 						Buy{' '}
 						<span
-							className="font-mono font-semibold text-white/90"
+							className="font-mono font-semibold text-foreground/90"
 							data-testid="key-spread-buy-price"
 						>
 							{formatDisplayKeyPrice(spread.buyPriceStroops)}
@@ -76,7 +76,7 @@ export const SpreadIndicator: React.FC<SpreadIndicatorProps> = ({
 					<span>
 						Sell{' '}
 						<span
-							className="font-mono font-semibold text-white/90"
+							className="font-mono font-semibold text-foreground/90"
 							data-testid="key-spread-sell-price"
 						>
 							{formatDisplayKeyPrice(spread.sellPriceStroops)}
@@ -87,7 +87,7 @@ export const SpreadIndicator: React.FC<SpreadIndicatorProps> = ({
 
 			{spread.hasSpread && (
 				<div
-					className="flex items-center justify-between gap-2 text-white/60"
+					className="flex items-center justify-between gap-2 text-foreground/60"
 					data-testid="key-spread-row"
 				>
 					<span className="flex items-center gap-1">
@@ -96,19 +96,19 @@ export const SpreadIndicator: React.FC<SpreadIndicatorProps> = ({
 							<button
 								type="button"
 								aria-label="What is the spread?"
-								className="text-white/50 transition-colors hover:text-white/80"
+								className="text-foreground/50 transition-colors hover:text-foreground/80"
 							>
 								ⓘ
 							</button>
 						</Tooltip>
 					</span>
-					<span className="font-mono font-semibold text-white/90">
+					<span className="font-mono font-semibold text-foreground/90">
 						<span data-testid="key-spread-amount">
 							{formatDisplayKeyPrice(spread.spreadStroops)}
 						</span>
 						{spread.spreadPercent != null && (
 							<span
-								className="ml-1 font-normal text-white/50"
+								className="ml-1 font-normal text-foreground/50"
 								data-testid="key-spread-percent"
 							>
 								({formatPercent(spread.spreadPercent)})

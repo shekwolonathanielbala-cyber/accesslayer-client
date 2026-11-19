@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 /* ------------------------------------------------------------------ */
 
 const skeletonBlockClass =
-	'rounded-md bg-white/12 skeleton-shimmer motion-reduce:bg-white/18 motion-reduce:ring-1 motion-reduce:ring-white/15';
+	'rounded-md bg-foreground/12 skeleton-shimmer motion-reduce:bg-foreground/18 motion-reduce:ring-1 motion-reduce:ring-foreground/15';
 
 function LeaderboardSkeletonRow() {
 	return (
@@ -175,13 +175,13 @@ export default function TrendingLeaderboard() {
 
 				{/* List or Skeleton */}
 				{isLoading ? (
-					<div className="mt-8 overflow-hidden rounded-2xl border border-gray-100 bg-white">
+					<div className="mt-8 overflow-hidden rounded-2xl border border-gray-100 bg-foreground">
 						<LeaderboardSkeletonList />
 					</div>
 				) : (
 					<div
 						ref={listRef}
-						className="scroll-reveal mt-8 overflow-hidden rounded-2xl border border-gray-100 bg-white"
+						className="scroll-reveal mt-8 overflow-hidden rounded-2xl border border-gray-100 bg-foreground"
 						style={{ animationDelay: '100ms' }}
 					>
 						{entries?.slice(0, 20).map(entry => (

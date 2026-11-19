@@ -17,19 +17,19 @@ const qualityStyles: Record<
 > = {
 	excellent: {
 		className:
-			'border-emerald-300/25 bg-emerald-400/10 text-emerald-100',
+			'border-emerald-300/25 bg-emerald-400/10 text-emerald-700 dark:text-emerald-100',
 		icon: <Wifi className="size-3.5" />,
 	},
 	good: {
-		className: 'border-emerald-300/20 bg-emerald-400/8 text-emerald-100',
+		className: 'border-emerald-300/20 bg-emerald-400/8 text-emerald-700 dark:text-emerald-100',
 		icon: <SignalHigh className="size-3.5" />,
 	},
 	degraded: {
-		className: 'border-amber-300/25 bg-amber-400/10 text-amber-100',
+		className: 'border-amber-300/25 bg-amber-400/10 text-amber-700 dark:text-amber-100',
 		icon: <SignalLow className="size-3.5" />,
 	},
 	offline: {
-		className: 'border-red-300/25 bg-red-400/10 text-red-100',
+		className: 'border-red-300/25 bg-red-400/10 text-red-700 dark:text-red-100',
 		icon: <WifiOff className="size-3.5" />,
 	},
 };

@@ -71,7 +71,7 @@ export default function SelfFreezeDialog({
 					</DialogDescription>
 				</DialogHeader>
 				<div className="space-y-2">
-					<label htmlFor="self-freeze-amount" className="text-sm text-white/70">
+					<label htmlFor="self-freeze-amount" className="text-sm text-foreground/70">
 						Amount
 					</label>
 					<input
@@ -84,13 +84,13 @@ export default function SelfFreezeDialog({
 							setTouched(true);
 						}}
 						disabled={isSubmitting}
-						className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-white outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15"
+						className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-foreground outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15"
 						aria-label={`${label} quantity`}
 						aria-invalid={showError || undefined}
 						data-testid="self-freeze-amount"
 					/>
-					{showError && <p role="alert" className="text-xs text-red-300">{validationError}</p>}
-					<p className="text-xs text-white/45">Available: {formatNumber(availableQuantity)} keys</p>
+					{showError && <p role="alert" className="text-xs text-red-700 dark:text-red-300">{validationError}</p>}
+					<p className="text-xs text-foreground/45">Available: {formatNumber(availableQuantity)} keys</p>
 				</div>
 				<DialogFooter className="sm:justify-between">
 					<Button type="button" variant="ghost" onClick={() => onOpenChange(false)} disabled={isSubmitting}>

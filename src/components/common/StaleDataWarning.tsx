@@ -50,11 +50,11 @@ const StaleDataWarning: React.FC<StaleDataWarningProps> = ({
 			role="status"
 			aria-live="polite"
 			className={cn(
-				'inline-flex items-center gap-1.5 rounded-full border border-amber-500/25 bg-amber-500/10 px-2.5 py-1 text-[0.7rem] font-medium text-amber-200',
+				'inline-flex items-center gap-1.5 rounded-full border border-amber-500/25 bg-amber-500/10 px-2.5 py-1 text-[0.7rem] font-medium text-amber-700 dark:text-amber-200',
 				className
 			)}
 		>
-			<AlertTriangle className="size-3 text-amber-300" aria-hidden="true" />
+			<AlertTriangle className="size-3 text-amber-700 dark:text-amber-300" aria-hidden="true" />
 			<span>
 				{copy}
 				{ageLabel}

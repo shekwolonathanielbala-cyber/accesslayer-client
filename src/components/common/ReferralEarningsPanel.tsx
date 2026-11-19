@@ -47,10 +47,10 @@ export const ReferralEarningsPanel: React.FC<ReferralEarningsPanelProps> = ({
 		<section className={className} data-testid="referral-earnings-panel">
 			<div className="flex flex-wrap items-center justify-between gap-4">
 				<div>
-					<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+					<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 						Referral earnings
 					</h2>
-					<p className="mt-1 text-sm text-white/60">
+					<p className="mt-1 text-sm text-foreground/60">
 						{formatXlmPrice(earnings.pendingXlm)} available to withdraw
 					</p>
 				</div>
@@ -68,45 +68,45 @@ export const ReferralEarningsPanel: React.FC<ReferralEarningsPanelProps> = ({
 			</div>
 
 			<dl className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Referees
 					</dt>
 					<dd
-						className="mt-1 font-mono text-lg font-bold text-white"
+						className="mt-1 font-mono text-lg font-bold text-foreground"
 						data-testid="referral-referees"
 					>
 						{earnings.referredCount}
 					</dd>
 				</div>
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Total earned
 					</dt>
 					<dd
-						className="mt-1 font-mono text-lg font-bold text-white"
+						className="mt-1 font-mono text-lg font-bold text-foreground"
 						data-testid="referral-total-earned"
 					>
 						{formatXlmPrice(earnings.totalEarnedXlm)}
 					</dd>
 				</div>
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Pending
 					</dt>
 					<dd
-						className="mt-1 font-mono text-lg font-bold text-amber-300"
+						className="mt-1 font-mono text-lg font-bold text-amber-700 dark:text-amber-300"
 						data-testid="referral-pending"
 					>
 						{formatXlmPrice(earnings.pendingXlm)}
 					</dd>
 				</div>
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Withdrawn
 					</dt>
 					<dd
-						className="mt-1 font-mono text-lg font-bold text-white/80"
+						className="mt-1 font-mono text-lg font-bold text-foreground/80"
 						data-testid="referral-claimed"
 					>
 						{formatXlmPrice(earnings.claimedXlm)}

@@ -71,7 +71,7 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 				aria-labelledby="performance-bond-heading"
 				aria-busy="true"
 				className={cn(
-					'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
+					'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
 					className
 				)}
 				data-testid="performance-bond-panel-loading"
@@ -111,7 +111,7 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 		<section
 			aria-labelledby="performance-bond-heading"
 			className={cn(
-				'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
+				'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8',
 				className
 			)}
 			data-testid="performance-bond-panel"
@@ -119,10 +119,10 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 			{/* Header with Title, Tooltip, and State Badge */}
 			<div className="flex flex-wrap items-center justify-between gap-4 mb-6">
 				<div className="flex items-center gap-2">
-					<ShieldCheck className="size-5 text-amber-400" aria-hidden="true" />
+					<ShieldCheck className="size-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
 					<h2
 						id="performance-bond-heading"
-						className="font-grotesque text-xl font-black tracking-tight text-white"
+						className="font-grotesque text-xl font-black tracking-tight text-foreground"
 					>
 						Performance Bond
 					</h2>
@@ -138,15 +138,15 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 					className={cn(
 						'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider',
 						isStaked &&
-							'border-amber-500/30 bg-amber-500/10 text-amber-400',
+							'border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400',
 						isReleased &&
-							'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
+							'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
 						isForfeited &&
-							'border-rose-500/30 bg-rose-500/10 text-rose-400',
+							'border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400',
 						!isStaked &&
 							!isReleased &&
 							!isForfeited &&
-							'border-white/20 bg-white/10 text-white/80'
+							'border-foreground/20 bg-foreground/10 text-foreground/80'
 					)}
 				>
 					{isStaked && (
@@ -176,14 +176,14 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 			{/* Info Grid: Bonded Amount & Maturity Milestone */}
 			<dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				<div
-					className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+					className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4"
 					data-testid="performance-bond-amount-card"
 				>
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Bonded Amount
 					</dt>
 					<dd
-						className="mt-2 text-lg font-bold text-white tabular-nums"
+						className="mt-2 text-lg font-bold text-foreground tabular-nums"
 						data-testid="performance-bond-amount"
 					>
 						{formattedAmount}
@@ -191,14 +191,14 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 				</div>
 
 				<div
-					className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+					className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4"
 					data-testid="performance-bond-milestone-card"
 				>
-					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+					<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 						Maturity Milestone
 					</dt>
 					<dd
-						className="mt-2 text-lg font-bold text-white/90"
+						className="mt-2 text-lg font-bold text-foreground/90"
 						data-testid="performance-bond-milestone"
 					>
 						{milestoneText}
@@ -209,11 +209,11 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 			{/* State-specific details */}
 			{isReleased && (
 				<div
-					className="mt-4 flex items-center justify-between rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-300"
+					className="mt-4 flex items-center justify-between rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-700 dark:text-emerald-300"
 					data-testid="performance-bond-released-at"
 				>
 					<span className="font-semibold">Bond Released</span>
-					<span className="font-mono text-emerald-200">
+					<span className="font-mono text-emerald-700 dark:text-emerald-200">
 						Released on {releaseDateText}
 					</span>
 				</div>
@@ -221,14 +221,14 @@ export const PerformanceBondPanel: React.FC<PerformanceBondPanelProps> = ({
 
 			{isForfeited && (
 				<div
-					className="mt-4 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs text-rose-200"
+					className="mt-4 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs text-rose-700 dark:text-rose-200"
 					data-testid="performance-bond-reason"
 				>
-					<div className="flex items-center gap-2 font-bold text-rose-300 uppercase tracking-wider mb-1">
+					<div className="flex items-center gap-2 font-bold text-rose-700 dark:text-rose-300 uppercase tracking-wider mb-1">
 						<AlertTriangle className="size-4 shrink-0" aria-hidden="true" />
 						<span>Bond Forfeited</span>
 					</div>
-					<p className="mt-1 text-white/80 leading-relaxed font-jakarta">
+					<p className="mt-1 text-foreground/80 leading-relaxed font-jakarta">
 						{forfeitureReasonText ||
 							'The creator failed to reach the required maturity milestone.'}
 					</p>

@@ -227,13 +227,13 @@ export default function BatchBuyModal({
               onChange={e => setAddInput(e.target.value)}
               placeholder="Enter Stellar recipient address"
               aria-label="Recipient address"
-              className="flex-1 rounded-xl bg-white/[0.04] px-3 py-2 text-white"
+              className="flex-1 rounded-xl bg-foreground/[0.04] px-3 py-2 text-foreground"
             />
             <Button onClick={handleAdd}>Add</Button>
           </div>
 
           {rows.length === 0 ? (
-            <p className="text-sm text-white/60">No keys added</p>
+            <p className="text-sm text-foreground/60">No keys added</p>
           ) : (
             <div className="space-y-2">
               {rows.map((row, idx) => {
@@ -250,7 +250,7 @@ export default function BatchBuyModal({
                         <span
                           data-testid={`simulation-spinner-${idx}`}
                           aria-label="Loading simulation"
-                          className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white/60"
+                          className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-foreground/20 border-t-foreground/60"
                         />
                       ) : (
                         format(perKeyStroops)
@@ -262,17 +262,17 @@ export default function BatchBuyModal({
                       value={row.quantity}
                       aria-label={`Quantity for ${row.address}`}
                       onChange={e => handleQuantityChange(idx, Number(e.target.value || 1))}
-                      className="w-24 rounded-xl bg-white/[0.04] px-2 py-1 text-white"
+                      className="w-24 rounded-xl bg-foreground/[0.04] px-2 py-1 text-foreground"
                     />
                     <div
-                      className="flex flex-1 items-center gap-2 text-sm text-white/60"
+                      className="flex flex-1 items-center gap-2 text-sm text-foreground/60"
                       data-testid={`row-subtotal-${idx}`}
                     >
                       {sim?.loading && (
                         <span
                           data-testid={`simulation-spinner-${idx}-subtotal`}
                           aria-label="Loading simulation"
-                          className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white/60"
+                          className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-foreground/20 border-t-foreground/60"
                         />
                       )}
                       <span>Subtotal: {format(subtotalStroops)} XLM</span>
@@ -281,7 +281,7 @@ export default function BatchBuyModal({
                       <span
                         data-testid={`simulation-spinner-${idx}-row`}
                         aria-label="Loading simulation"
-                        className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white/60"
+                        className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-foreground/20 border-t-foreground/60"
                       />
                     )}
                     <Button variant="ghost" onClick={() => handleRemove(idx)}>Remove</Button>
@@ -291,14 +291,14 @@ export default function BatchBuyModal({
             </div>
           )}
 
-          <div className="flex items-center justify-between border-t border-white/5 pt-4">
-            <div className="text-sm text-white/60">
+          <div className="flex items-center justify-between border-t border-foreground/5 pt-4">
+            <div className="text-sm text-foreground/60">
               Total: {totalQuantity} / {liquidBalance} keys
             </div>
-            <div className="font-bold text-white" data-testid="batch-total">{format(totalStroops)} XLM</div>
+            <div className="font-bold text-foreground" data-testid="batch-total">{format(totalStroops)} XLM</div>
           </div>
           {validationError && (
-            <p role="alert" data-testid="batch-buy-validation-error" className="text-sm text-red-400">
+            <p role="alert" data-testid="batch-buy-validation-error" className="text-sm text-red-600 dark:text-red-400">
               {validationError}
             </p>
           )}

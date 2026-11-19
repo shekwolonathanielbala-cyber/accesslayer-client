@@ -24,7 +24,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 export default function OracleAccessPanel() {
 	const {
@@ -83,7 +83,7 @@ export default function OracleAccessPanel() {
 					<h2 className="font-grotesque text-xl font-black tracking-tight">
 						Oracle Access
 					</h2>
-					<p className="mt-1 text-sm text-white/50">
+					<p className="mt-1 text-sm text-foreground/50">
 						Control which external contracts may call the AccessLayer
 						price oracle.
 					</p>
@@ -93,7 +93,7 @@ export default function OracleAccessPanel() {
 			<div className="mb-8">
 				<label
 					htmlFor="oracle-caller-input"
-					className="mb-2 block text-sm font-medium text-white/70"
+					className="mb-2 block text-sm font-medium text-foreground/70"
 				>
 					Approved caller address
 				</label>
@@ -120,10 +120,10 @@ export default function OracleAccessPanel() {
 							if (address.trim() !== '') setShowValidation(true);
 						}}
 						className={cn(
-							'h-12 min-w-0 flex-1 rounded-xl border bg-white/[0.03] px-4 font-mono text-sm text-white placeholder:text-white/25 outline-none transition-colors focus:border-amber-500/40 focus:ring-2 focus:ring-amber-500/20',
+							'h-12 min-w-0 flex-1 rounded-xl border bg-foreground/[0.03] px-4 font-mono text-sm text-foreground placeholder:text-foreground/25 outline-none transition-colors focus:border-amber-500/40 focus:ring-2 focus:ring-amber-500/20',
 							showValidationError
 								? 'border-red-500/50'
-								: 'border-white/10'
+								: 'border-foreground/10'
 						)}
 						aria-invalid={showValidationError}
 						aria-describedby={
@@ -156,7 +156,7 @@ export default function OracleAccessPanel() {
 					</div>
 				)}
 
-				<p className="mt-2 text-xs text-white/35">
+				<p className="mt-2 text-xs text-foreground/35">
 					Must be a valid Stellar contract address (56-character address
 					beginning with C).
 				</p>
@@ -180,7 +180,7 @@ export default function OracleAccessPanel() {
 					data-testid="oracle-callers-error"
 					className="rounded-2xl border border-red-500/20 bg-red-500/5 px-4 py-6 text-center"
 				>
-					<p className="font-jakarta text-sm text-white/60">
+					<p className="font-jakarta text-sm text-foreground/60">
 						We couldn&apos;t load the approved callers. Try again.
 					</p>
 					<Button
@@ -188,7 +188,7 @@ export default function OracleAccessPanel() {
 						variant="outline"
 						data-testid="oracle-callers-retry"
 						onClick={() => void refetch()}
-						className="mt-4 rounded-xl border-white/10 bg-white/5 font-bold text-white hover:border-amber-500/30 hover:bg-amber-500/10"
+						className="mt-4 rounded-xl border-foreground/10 bg-foreground/5 font-bold text-foreground hover:border-amber-500/30 hover:bg-amber-500/10"
 					>
 						Retry
 					</Button>
@@ -198,12 +198,12 @@ export default function OracleAccessPanel() {
 			{!isLoading && !isError && callers.length === 0 && (
 				<div
 					data-testid="oracle-callers-empty"
-					className="flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-12 text-center"
+					className="flex flex-col items-center gap-3 rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-6 py-12 text-center"
 				>
-					<div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/40">
+					<div className="flex size-12 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-foreground/40">
 						<KeyRound className="size-5" aria-hidden="true" />
 					</div>
-					<p className="font-jakarta text-sm text-white/50">
+					<p className="font-jakarta text-sm text-foreground/50">
 						No callers are approved yet. Add the first contract address
 						above to grant oracle access.
 					</p>
@@ -219,17 +219,17 @@ export default function OracleAccessPanel() {
 					{callers.map(caller => (
 						<li
 							key={caller.address}
-							className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3"
+							className="flex items-center justify-between gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3"
 						>
 							<div className="flex min-w-0 items-center gap-3">
 								<KeyRound
-									className="size-4 shrink-0 text-amber-300/70"
+									className="size-4 shrink-0 text-amber-700/70 dark:text-amber-300/70"
 									aria-hidden="true"
 								/>
 								<TruncatedText
 									text={caller.address}
 									maxWidth="100%"
-									className="font-mono text-sm text-white/80"
+									className="font-mono text-sm text-foreground/80"
 								/>
 							</div>
 							<Button
@@ -239,7 +239,7 @@ export default function OracleAccessPanel() {
 								data-testid={`oracle-caller-remove-${caller.address}`}
 								onClick={() => handleConfirmRemove(caller.address)}
 								disabled={removeCaller.isPending}
-								className="shrink-0 text-red-300 hover:bg-red-500/10 hover:text-red-200"
+								className="shrink-0 text-red-700 dark:text-red-300 hover:bg-red-500/10 hover:text-red-700 dark:hover:text-red-200"
 							>
 								<Trash2 aria-hidden="true" />
 								Remove
@@ -257,22 +257,22 @@ export default function OracleAccessPanel() {
 			>
 				<DialogContent
 					data-testid="oracle-caller-remove-dialog"
-					className="border-white/10 bg-[#0b1626] text-white"
+					className="border-foreground/10 bg-surface-raised text-foreground"
 					showEscapeHint={false}
 				>
 					<DialogHeader>
 						<DialogTitle className="font-grotesque">
 							Remove approved caller?
 						</DialogTitle>
-						<DialogDescription className="text-white/60">
+						<DialogDescription className="text-foreground/60">
 							This contract will no longer be able to call the
 							AccessLayer price oracle. The authorization is revoked
 							immediately.
 						</DialogDescription>
 					</DialogHeader>
 
-					<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-						<p className="break-all font-mono text-xs text-white/80">
+					<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+						<p className="break-all font-mono text-xs text-foreground/80">
 							{pendingRemoval}
 						</p>
 					</div>
@@ -284,7 +284,7 @@ export default function OracleAccessPanel() {
 							data-testid="oracle-caller-cancel-remove"
 							onClick={() => setPendingRemoval(null)}
 							disabled={removeCaller.isPending}
-							className="rounded-xl border-white/10 bg-white/5 text-white hover:bg-white/10"
+							className="rounded-xl border-foreground/10 bg-foreground/5 text-foreground hover:bg-foreground/10"
 						>
 							Cancel
 						</Button>

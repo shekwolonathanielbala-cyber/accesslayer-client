@@ -84,7 +84,7 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 			variant="outline"
 			size="sm"
 			onClick={onReset}
-			className="h-8 rounded-full border-amber-500/20 bg-amber-500/5 px-4 text-[0.68rem] font-bold uppercase tracking-wider text-amber-400 transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-300 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] md:h-7 md:px-3"
+			className="h-8 rounded-full border-amber-500/20 bg-amber-500/5 px-4 text-[0.68rem] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-300 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] md:h-7 md:px-3"
 		>
 			<X className="mr-2 size-3 md:mr-1.5" />
 			Reset Filters
@@ -93,7 +93,7 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 
 	return (
 		<div className={cn('sticky top-4 z-20 mb-10 md:top-6', className)}>
-			<div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/78 px-4 py-4 text-white shadow-[0_20px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl md:px-5 md:py-4">
+			<div className="relative overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-surface-raised px-4 py-4 text-foreground shadow-[0_20px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl md:px-5 md:py-4">
 				<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_48%,rgba(245,158,11,0.08))]" />
 
 				{/* Hidden live region for search result announcements */}
@@ -104,16 +104,16 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 				<div className="relative flex flex-col gap-4">
 					<div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
 						<div className="min-w-0">
-							<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-300/85">
+							<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-700/85 dark:text-amber-300/85">
 								{eyebrow}
 							</p>
 							<div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
-								<h2 className="font-grotesque text-xl font-bold tracking-tight text-white md:text-2xl">
+								<h2 className="font-grotesque text-xl font-bold tracking-tight text-foreground md:text-2xl">
 									{title}
 								</h2>
 								{typeof resultCount === 'number' && (
 									<span
-										className="inline-flex items-center rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs font-medium text-white/75"
+										className="inline-flex items-center rounded-full border border-foreground/10 bg-foreground/8 px-3 py-1 text-xs font-medium text-foreground/75"
 										aria-hidden="true"
 									>
 										{resultCount}{' '}
@@ -123,7 +123,7 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 								{resetButton}
 							</div>
 							{description && (
-								<p className="mt-2 hidden max-w-2xl text-sm text-white/62 md:block">
+								<p className="mt-2 hidden max-w-2xl text-sm text-foreground/62 md:block">
 									{description}
 								</p>
 							)}
@@ -142,14 +142,14 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 									variant="outline"
 									size="sm"
 									data-testid="filter-panel-trigger"
-									className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/8 px-5 py-2 text-[0.72rem] font-bold uppercase tracking-wider text-amber-300 transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-500/12 hover:text-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+									className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/8 px-5 py-2 text-[0.72rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300 transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-500/12 hover:text-amber-700 dark:hover:text-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 									aria-expanded={isFilterPanelOpen}
 									aria-controls="filter-panel-content"
 								>
 									<Filter className="size-3.5" aria-hidden="true" />
 									Filters
 									{typeof resultCount === 'number' && (
-										<span className="ml-1 rounded-full bg-amber-400/20 px-1.5 py-0.5 text-[0.65rem] text-amber-300">
+										<span className="ml-1 rounded-full bg-amber-400/20 px-1.5 py-0.5 text-[0.65rem] text-amber-700 dark:text-amber-300">
 											{resultCount}
 										</span>
 									)}
@@ -170,7 +170,7 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 
 								<div className="mt-2 flex flex-col gap-4">
 									<div className="flex items-center justify-between">
-										<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-300/85">
+										<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-700/85 dark:text-amber-300/85">
 											{eyebrow}
 										</p>
 										{resetButton}
@@ -184,7 +184,7 @@ const StickyFilterBar: React.FC<StickyFilterBarProps> = ({
 						/* ── DESKTOP: inline controls, no overlay ── */
 						<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
 							<div className="w-full md:max-w-2xl">{children}</div>
-							<span className="hidden text-xs font-medium uppercase tracking-[0.18em] text-white/45 md:inline-flex">
+							<span className="hidden text-xs font-medium uppercase tracking-[0.18em] text-foreground/45 md:inline-flex">
 								Filters stay pinned while you browse
 							</span>
 						</div>

@@ -26,7 +26,7 @@ export default function RecentlyViewedKeyCard({ creator }: Props) {
 	return (
 		<Link
 			to={`/creator/${creator.id}`}
-			className="group relative flex flex-col rounded-2xl border border-black/8 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-sm"
+			className="group relative flex flex-col rounded-2xl border border-black/8 bg-foreground p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-sm"
 			data-testid={`recently-viewed-card-${creator.id}`}
 		>
 			<div className="flex items-center gap-3">

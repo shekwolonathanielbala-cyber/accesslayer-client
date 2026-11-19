@@ -23,13 +23,13 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 	return (
 		<div className={cn('min-w-0', className)}>
 			{eyebrow ? (
-				<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-300/85">
+				<p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-amber-700/85 dark:text-amber-300/85">
 					{eyebrow}
 				</p>
 			) : null}
 			<HeadingTag
 				className={cn(
-					'mt-2 font-grotesque text-xl font-bold tracking-tight text-white md:text-2xl',
+					'mt-2 font-grotesque text-xl font-bold tracking-tight text-foreground md:text-2xl',
 					titleClassName
 				)}
 			>

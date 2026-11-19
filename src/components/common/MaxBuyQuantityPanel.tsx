@@ -10,7 +10,7 @@ export interface MaxBuyQuantityPanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 /**
  * Max Buy Per Transaction panel for the creator dashboard settings tab (#888).
@@ -72,7 +72,7 @@ const MaxBuyQuantityPanel: React.FC<MaxBuyQuantityPanelProps> = ({
 			<div className="space-y-1.5">
 				<label
 					htmlFor="max-buy-quantity"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Max Buy Per Transaction
 				</label>
@@ -94,7 +94,7 @@ const MaxBuyQuantityPanel: React.FC<MaxBuyQuantityPanelProps> = ({
 				/>
 				<p
 					id="max-buy-quantity-hint"
-					className="text-xs text-white/40"
+					className="text-xs text-foreground/40"
 					data-testid="max-buy-quantity-hint"
 				>
 					Limits the number of keys a single wallet can buy in one transaction
@@ -103,7 +103,7 @@ const MaxBuyQuantityPanel: React.FC<MaxBuyQuantityPanelProps> = ({
 					<p
 						role="alert"
 						data-testid="max-buy-quantity-error"
-						className="text-xs text-red-400"
+						className="text-xs text-red-600 dark:text-red-400"
 					>
 						{errorMessage}
 					</p>

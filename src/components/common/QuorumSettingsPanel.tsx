@@ -65,7 +65,7 @@ const QuorumSettingsPanel: React.FC<QuorumSettingsPanelProps> = ({
 			<div className="space-y-3">
 				<label
 					htmlFor="quorum-threshold"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Quorum threshold (%)
 				</label>
@@ -95,19 +95,19 @@ const QuorumSettingsPanel: React.FC<QuorumSettingsPanelProps> = ({
 							{quorumPct}%
 						</p>
 						<p
-							className="text-xs text-white/50"
+							className="text-xs text-foreground/50"
 							data-testid="quorum-value-bps"
 						>
 							{quorumBpsValue.toLocaleString()} bps
 						</p>
 					</div>
-					<p className="pb-1 text-right text-xs text-white/40">
+					<p className="pb-1 text-right text-xs text-foreground/40">
 						Min 1% — Max 50%
 					</p>
 				</div>
 				<p
 					id="quorum-hint"
-					className="text-xs text-white/40"
+					className="text-xs text-foreground/40"
 					data-testid="quorum-hint"
 				>
 					Minimum percentage of holders that must vote for a proposal to

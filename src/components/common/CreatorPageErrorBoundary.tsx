@@ -42,18 +42,18 @@ class CreatorPageErrorBoundary extends Component<Props, State> {
 
 			return (
 				<main
-					className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#06111f] px-6 py-16 text-center text-white"
+					className="flex min-h-screen flex-col items-center justify-center gap-6 bg-surface px-6 py-16 text-center text-foreground"
 					role="alert"
 					aria-live="assertive"
 				>
 					<div className="flex flex-col items-center gap-3">
-						<AlertCircle className="size-10 text-amber-400" aria-hidden="true" />
+						<AlertCircle className="size-10 text-amber-600 dark:text-amber-400" aria-hidden="true" />
 						<h1 className="font-grotesque text-3xl font-black tracking-tight sm:text-4xl">
 							{isNotFound
 								? 'Creator not found'
 								: 'This creator page could not load'}
 						</h1>
-						<p className="max-w-md font-jakarta text-base leading-7 text-white/70">
+						<p className="max-w-md font-jakarta text-base leading-7 text-foreground/70">
 							{isNotFound
 								? "We couldn't find a creator with that ID. Return to the creator list to keep browsing."
 								: 'Something went wrong while loading this creator. The rest of the marketplace is still available.'}

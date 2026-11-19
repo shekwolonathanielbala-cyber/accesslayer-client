@@ -72,7 +72,7 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 			onOpenChange={next => !isSubmitting && onOpenChange(next)}
 		>
 			<DialogContent
-				className="max-w-md border-white/10 bg-[#0b1728] text-white p-6"
+				className="max-w-md border-foreground/10 bg-surface-raised text-foreground p-6"
 				showCloseButton={!isSubmitting}
 				showEscapeHint={!isSubmitting}
 				onEscapeKeyDown={event => {
@@ -89,8 +89,8 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 							className={cn(
 								'rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider',
 								isBuy
-									? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-									: 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+									? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
+									: 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30'
 							)}
 							data-testid="confirmation-modal-side-badge"
 						>
@@ -103,7 +103,7 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 							{title}
 						</DialogTitle>
 					</div>
-					<DialogDescription className="text-xs text-white/60">
+					<DialogDescription className="text-xs text-foreground/60">
 						Please review your order details and slippage price bounds
 						before submission.
 					</DialogDescription>
@@ -111,17 +111,17 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 
 				<div className="mt-4 space-y-4">
 					{/* Trade Overview */}
-					<div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 space-y-3">
+					<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 space-y-3">
 						<div className="flex items-center justify-between text-sm">
-							<span className="text-white/60">Creator</span>
-							<span className="font-semibold text-white">
+							<span className="text-foreground/60">Creator</span>
+							<span className="font-semibold text-foreground">
 								{creatorName}
 							</span>
 						</div>
 						<div className="flex items-center justify-between text-sm">
-							<span className="text-white/60">Quantity</span>
+							<span className="text-foreground/60">Quantity</span>
 							<span
-								className="font-mono font-semibold text-white"
+								className="font-mono font-semibold text-foreground"
 								data-testid="confirmation-modal-amount"
 							>
 								{formatNumber(amount)} {amount === 1 ? 'key' : 'keys'}
@@ -129,19 +129,19 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 						</div>
 						{unitPriceStroops != null && (
 							<div className="flex items-center justify-between text-sm">
-								<span className="text-white/60">Unit Price</span>
-								<span className="font-mono text-white/90">
+								<span className="text-foreground/60">Unit Price</span>
+								<span className="font-mono text-foreground/90">
 									{formatDisplayKeyPrice(unitPriceStroops)}
 								</span>
 							</div>
 						)}
 						{totalStroops != null && (
-							<div className="flex items-center justify-between border-t border-white/5 pt-2 text-sm">
-								<span className="text-white/70 font-medium">
+							<div className="flex items-center justify-between border-t border-foreground/5 pt-2 text-sm">
+								<span className="text-foreground/70 font-medium">
 									{isBuy ? 'Estimated Total' : 'Estimated Proceeds'}
 								</span>
 								<span
-									className="font-mono text-base font-bold text-amber-300"
+									className="font-mono text-base font-bold text-amber-700 dark:text-amber-300"
 									data-testid="confirmation-modal-total"
 								>
 									{formatDisplayKeyPrice(totalStroops)}
@@ -152,15 +152,15 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 
 					{/* Slippage Protection Bounds */}
 					<div className="rounded-xl border border-amber-500/20 bg-amber-500/[0.05] p-4 space-y-3">
-						<div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300">
-							<ShieldCheck className="h-4 w-4 text-amber-400" />
+						<div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+							<ShieldCheck className="h-4 w-4 text-amber-600 dark:text-amber-400" />
 							<span>Slippage Protection Controls</span>
 						</div>
 
 						<div className="flex items-center justify-between text-sm">
-							<span className="text-white/70">Tolerance Setting</span>
+							<span className="text-foreground/70">Tolerance Setting</span>
 							<span
-								className="font-mono font-bold text-amber-300"
+								className="font-mono font-bold text-amber-700 dark:text-amber-300"
 								data-testid="confirmation-modal-slippage"
 							>
 								{slippageTolerancePercent}%
@@ -169,13 +169,13 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 
 						{isBuy && maxPriceStroops != null && (
 							<div className="flex items-center justify-between text-sm border-t border-amber-500/10 pt-2">
-								<div className="flex items-center gap-1 text-white/80">
+								<div className="flex items-center gap-1 text-foreground/80">
 									<span className="font-medium">
 										Maximum Price (max_price)
 									</span>
 								</div>
 								<span
-									className="font-mono font-bold text-amber-300 text-sm"
+									className="font-mono font-bold text-amber-700 dark:text-amber-300 text-sm"
 									data-testid="confirmation-modal-max-price"
 								>
 									{formatDisplayKeyPrice(maxPriceStroops)}
@@ -185,13 +185,13 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 
 						{!isBuy && minPriceStroops != null && (
 							<div className="flex items-center justify-between text-sm border-t border-amber-500/10 pt-2">
-								<div className="flex items-center gap-1 text-white/80">
+								<div className="flex items-center gap-1 text-foreground/80">
 									<span className="font-medium">
 										Minimum Price (min_price)
 									</span>
 								</div>
 								<span
-									className="font-mono font-bold text-amber-300 text-sm"
+									className="font-mono font-bold text-amber-700 dark:text-amber-300 text-sm"
 									data-testid="confirmation-modal-min-price"
 								>
 									{formatDisplayKeyPrice(minPriceStroops)}
@@ -199,8 +199,8 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 							</div>
 						)}
 
-						<div className="flex items-start gap-1.5 text-[11px] text-white/50">
-							<Info className="h-3.5 w-3.5 shrink-0 mt-0.5 text-amber-400/70" />
+						<div className="flex items-start gap-1.5 text-[11px] text-foreground/50">
+							<Info className="h-3.5 w-3.5 shrink-0 mt-0.5 text-amber-600/70 dark:text-amber-400/70" />
 							<p>
 								{isBuy
 									? `Your transaction will revert if the total cost exceeds ${formatDisplayKeyPrice(
@@ -235,7 +235,7 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 						onClick={handleCancel}
 						disabled={isSubmitting}
 						data-testid="confirmation-modal-cancel"
-						className="text-white/70 hover:text-white"
+						className="text-foreground/70 hover:text-foreground"
 					>
 						Back
 					</Button>
@@ -249,7 +249,7 @@ export const TradeConfirmationModal: React.FC<TradeConfirmationModalProps> = ({
 							'font-semibold',
 							isBuy
 								? 'bg-amber-400 hover:bg-amber-300 text-slate-950'
-								: 'bg-rose-500 hover:bg-rose-400 text-white'
+								: 'bg-rose-500 hover:bg-rose-400 text-foreground'
 						)}
 					>
 						<StableButtonContent

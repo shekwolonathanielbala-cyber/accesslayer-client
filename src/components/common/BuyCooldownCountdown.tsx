@@ -60,7 +60,7 @@ export const BuyCooldownCountdown: React.FC<BuyCooldownCountdownProps> = ({
 	return (
 		<div
 			className={cn(
-				'inline-flex items-center gap-1.5 rounded-lg border border-sky-500/20 bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-300',
+				'inline-flex items-center gap-1.5 rounded-lg border border-sky-500/20 bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300',
 				className
 			)}
 			data-testid="buy-cooldown-countdown"
@@ -68,7 +68,7 @@ export const BuyCooldownCountdown: React.FC<BuyCooldownCountdownProps> = ({
 			aria-live="polite"
 			aria-label={`Next buy available in ${formattedTime}`}
 		>
-			<Timer className="size-3.5 shrink-0 text-sky-400" />
+			<Timer className="size-3.5 shrink-0 text-sky-600 dark:text-sky-400" />
 			<span data-testid="buy-cooldown-text">
 				Next buy available in{' '}
 				<span className="font-mono tabular-nums">{formattedTime}</span>

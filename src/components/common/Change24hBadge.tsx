@@ -19,9 +19,9 @@ const Change24hBadge: React.FC<Change24hBadgeProps> = ({ change, className }) =>
 		<div
 			className={cn(
 				'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold backdrop-blur-sm',
-				isPositive && 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
-				isNegative && 'border-red-500/30 bg-red-500/10 text-red-400',
-				!isPositive && !isNegative && 'border-white/10 bg-white/[0.06] text-white/40',
+				isPositive && 'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+				isNegative && 'border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400',
+				!isPositive && !isNegative && 'border-foreground/10 bg-foreground/[0.06] text-foreground/40',
 				className
 			)}
 			title={change !== undefined ? `${formatted} (24h)` : 'No 24h data'}

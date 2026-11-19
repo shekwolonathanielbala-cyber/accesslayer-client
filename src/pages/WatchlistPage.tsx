@@ -9,7 +9,7 @@ function WatchlistPageContent() {
 	const watchlist = useWatchlist(state => state.getWatchlist(walletKey));
 
 	return (
-		<div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(160deg,#08111f_0%,#10213b_45%,#f0b14d_160%)] px-6 pt-24 pb-28 md:px-12 md:pb-12">
+		<div className="relative min-h-screen overflow-x-hidden bg-[image:var(--page-gradient)] px-6 pt-24 pb-28 md:px-12 md:pb-12">
 			<MarketplaceSidebar />
 			<div className="relative z-10 mx-auto max-w-7xl">
 				<SectionHeading

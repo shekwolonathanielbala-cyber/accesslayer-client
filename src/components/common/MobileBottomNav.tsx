@@ -99,7 +99,7 @@ export function MobileBottomNav() {
 										<span
 											data-testid="mobile-nav-notification-badge"
 											aria-hidden="true"
-											className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 font-mono text-[9px] font-bold leading-none text-white"
+											className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 font-mono text-[9px] font-bold leading-none text-foreground"
 										>
 											{unreadCount > 99 ? '99+' : unreadCount}
 										</span>

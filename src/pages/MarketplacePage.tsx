@@ -144,7 +144,7 @@ export default function MarketplacePage() {
 	};
 
 	return (
-		<div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(160deg,#08111f_0%,#10213b_45%,#f0b14d_160%)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
+		<div className="relative min-h-screen overflow-x-hidden bg-[image:var(--page-gradient)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
 			<div className="absolute left-[-4rem] top-[10%] size-72 rounded-full bg-amber-300/20 blur-[100px]" />
 			<div className="absolute bottom-[8%] right-[-3rem] size-72 rounded-full bg-emerald-300/15 blur-[100px]" />
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,186,73,0.1),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(74,222,128,0.08),transparent_35%)]" />
@@ -152,17 +152,17 @@ export default function MarketplacePage() {
 			<div className="relative z-10 mx-auto max-w-7xl">
 				<MarketplaceSection as="header" spacing="major" className="text-center">
 					<img
-						className="mx-auto mb-8 size-10"
+						className="mx-auto mb-8 size-10 brightness-0 dark:brightness-100"
 						src="/icons/logo.svg"
 						alt="Access Layer logo"
 					/>
-					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-400/80">
+					<p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600/80 dark:text-amber-400/80">
 						Creator Keys Marketplace
 					</p>
-					<h1 className="mb-4 font-grotesque text-[clamp(2.5rem,8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-white">
+					<h1 className="mb-4 font-grotesque text-[clamp(2.5rem,8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-foreground">
 						Explore the market
 					</h1>
-					<p className="mx-auto mb-6 max-w-2xl font-jakarta text-sm leading-relaxed text-white/55">
+					<p className="mx-auto mb-6 max-w-2xl font-jakarta text-sm leading-relaxed text-foreground/55">
 						Every creator key on Access Layer, priced live from its
 						bonding curve. Sort by volume or price, filter by supply
 						milestone, and watch prices refresh automatically — no page
@@ -174,11 +174,11 @@ export default function MarketplacePage() {
 							aria-live="polite"
 							aria-busy={isRefreshing || undefined}
 							data-testid="marketplace-poll-status"
-							className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/60"
+							className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-foreground/60"
 						>
 							{isRefreshing ? (
 								<RefreshCw
-									className="size-3.5 animate-spin text-amber-400 motion-reduce:animate-none"
+									className="size-3.5 animate-spin text-amber-600 dark:text-amber-400 motion-reduce:animate-none"
 									aria-hidden="true"
 								/>
 							) : (
@@ -225,7 +225,7 @@ export default function MarketplacePage() {
 										onChange={e =>
 											handleSortChange(e.target.value as CourseSortOption)
 										}
-										className="h-9 w-full rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+										className="h-9 w-full rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 									>
 										{MARKETPLACE_SORT_OPTIONS.map(option => (
 											<option key={option.value} value={option.value}>
@@ -248,7 +248,7 @@ export default function MarketplacePage() {
 										onChange={e =>
 											setSupplyTier(e.target.value as SupplyTierFilter)
 										}
-										className="h-9 w-full rounded-lg border border-white/15 bg-slate-950/80 px-3 text-sm text-white outline-none focus:border-amber-400/60"
+										className="h-9 w-full rounded-lg border border-foreground/15 bg-surface-raised px-3 text-sm text-foreground outline-none focus:border-amber-400/60"
 									>
 										<option value="all">All supply tiers</option>
 										{SUPPLY_TIERS.map(tier => (
@@ -335,7 +335,7 @@ export default function MarketplacePage() {
 											type="button"
 											variant="outline"
 											onClick={() => void fetchNextPage()}
-											className="rounded-full border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white"
+											className="rounded-full border-foreground/10 bg-foreground/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-foreground"
 										>
 											<ChevronDown className="size-4" aria-hidden="true" />
 											Load more creators
@@ -343,7 +343,7 @@ export default function MarketplacePage() {
 									) : (
 										!isFetchingNextPage &&
 										visibleCreators.length > 0 && (
-											<p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+											<p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-foreground/45">
 												{`You've reached the end — ${formatNumber(visibleCreators.length)} creator key${visibleCreators.length === 1 ? '' : 's'} on the marketplace.`}
 											</p>
 										)

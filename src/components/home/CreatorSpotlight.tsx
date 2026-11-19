@@ -15,14 +15,14 @@ import CreatorInitialsAvatar from '@/components/common/CreatorInitialsAvatar';
 /* ------------------------------------------------------------------ */
 
 const skeletonBlockClass =
-	'rounded-lg bg-white/12 skeleton-shimmer motion-reduce:bg-white/18 motion-reduce:ring-1 motion-reduce:ring-white/15';
+	'rounded-lg bg-foreground/12 skeleton-shimmer motion-reduce:bg-foreground/18 motion-reduce:ring-1 motion-reduce:ring-foreground/15';
 
 function SpotlightSkeletonCard() {
 	return (
 		<div
 			role="status"
 			aria-label="Loading spotlight creator"
-			className="relative overflow-hidden rounded-2xl border border-black/8 bg-white p-5"
+			className="relative overflow-hidden rounded-2xl border border-black/8 bg-foreground p-5"
 		>
 			<span className="sr-only">Loading spotlight creator</span>
 
@@ -74,7 +74,7 @@ function SpotlightCreatorCard({ creator, rank }: SpotlightCreatorCardProps) {
 	return (
 		<Link
 			to={`/creator/${creator.id}`}
-			className="group relative block overflow-hidden rounded-2xl border border-black/8 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.15)]"
+			className="group relative block overflow-hidden rounded-2xl border border-black/8 bg-foreground p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.15)]"
 		>
 			{/* Rank badge */}
 			<div className="mb-3 flex items-center gap-1.5">

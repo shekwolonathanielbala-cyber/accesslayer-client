@@ -57,13 +57,13 @@ export default function DividendPoolSection({
 
   if (isLoading) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+      <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
         <div className="animate-pulse space-y-4">
-          <div className="h-6 w-40 rounded bg-white/10" />
+          <div className="h-6 w-40 rounded bg-foreground/10" />
           <div className="grid grid-cols-3 gap-4">
-            <div className="h-24 rounded bg-white/5" />
-            <div className="h-24 rounded bg-white/5" />
-            <div className="h-24 rounded bg-white/5" />
+            <div className="h-24 rounded bg-foreground/5" />
+            <div className="h-24 rounded bg-foreground/5" />
+            <div className="h-24 rounded bg-foreground/5" />
           </div>
         </div>
       </div>
@@ -72,15 +72,15 @@ export default function DividendPoolSection({
 
   if (dividends.length === 0) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+      <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
         <div className="flex items-center gap-2 mb-4">
-          <Coins className="size-5 text-amber-400" />
-          <h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+          <Coins className="size-5 text-amber-600 dark:text-amber-400" />
+          <h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
             Dividend Pool
           </h2>
         </div>
-        <div className="rounded-2xl border border-dashed border-white/10 p-8 text-center">
-          <p className="text-sm text-white/40">
+        <div className="rounded-2xl border border-dashed border-foreground/10 p-8 text-center">
+          <p className="text-sm text-foreground/40">
             No dividend data available yet. Dividends accrue when you hold keys.
           </p>
         </div>
@@ -89,34 +89,34 @@ export default function DividendPoolSection({
   }
 
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+    <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <Coins className="size-5 text-amber-400" />
-          <h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+          <Coins className="size-5 text-amber-600 dark:text-amber-400" />
+          <h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
             Dividend Pool
           </h2>
         </div>
-        <span className="text-xs text-white/30">Auto-refreshes every 60s</span>
+        <span className="text-xs text-foreground/30">Auto-refreshes every 60s</span>
       </div>
 
       {/* Aggregate Summary */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="rounded-xl bg-white/[0.03] border border-white/5 p-4">
-          <p className="text-xs text-white/40 uppercase tracking-wider">Pending</p>
-          <p className="mt-1 text-lg font-bold text-amber-400">
+        <div className="rounded-xl bg-foreground/[0.03] border border-foreground/5 p-4">
+          <p className="text-xs text-foreground/40 uppercase tracking-wider">Pending</p>
+          <p className="mt-1 text-lg font-bold text-amber-600 dark:text-amber-400">
             {formatNumber(totalPending)} XLM
           </p>
         </div>
-        <div className="rounded-xl bg-white/[0.03] border border-white/5 p-4">
-          <p className="text-xs text-white/40 uppercase tracking-wider">Claimed</p>
-          <p className="mt-1 text-lg font-bold text-emerald-400">
+        <div className="rounded-xl bg-foreground/[0.03] border border-foreground/5 p-4">
+          <p className="text-xs text-foreground/40 uppercase tracking-wider">Claimed</p>
+          <p className="mt-1 text-lg font-bold text-emerald-600 dark:text-emerald-400">
             {formatNumber(totalClaimed)} XLM
           </p>
         </div>
-        <div className="rounded-xl bg-white/[0.03] border border-white/5 p-4">
-          <p className="text-xs text-white/40 uppercase tracking-wider">Total Earned</p>
-          <p className="mt-1 text-lg font-bold text-white">
+        <div className="rounded-xl bg-foreground/[0.03] border border-foreground/5 p-4">
+          <p className="text-xs text-foreground/40 uppercase tracking-wider">Total Earned</p>
+          <p className="mt-1 text-lg font-bold text-foreground">
             {formatNumber(totalEarned)} XLM
           </p>
         </div>
@@ -127,19 +127,19 @@ export default function DividendPoolSection({
         {dividends.map(dividend => (
           <div
             key={dividend.keyId}
-            className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+            className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4"
           >
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold text-white">{dividend.keyName}</h3>
-              <span className="text-xs text-white/40">Key ID: {dividend.keyId.slice(0, 8)}...</span>
+              <h3 className="font-semibold text-foreground">{dividend.keyName}</h3>
+              <span className="text-xs text-foreground/40">Key ID: {dividend.keyId.slice(0, 8)}...</span>
             </div>
 
             <div className="flex items-center justify-between">
               <div className="flex gap-4 text-sm">
-                <span className="text-amber-400">
+                <span className="text-amber-600 dark:text-amber-400">
                   Pending: {formatNumber(dividend.pendingDividends)} XLM
                 </span>
-                <span className="text-emerald-400">
+                <span className="text-emerald-600 dark:text-emerald-400">
                   Claimed: {formatNumber(dividend.claimedDividends)} XLM
                 </span>
               </div>
@@ -164,20 +164,20 @@ export default function DividendPoolSection({
 
             {/* Distribution History */}
             {dividend.distributions.length > 0 && (
-              <div className="mt-3 pt-3 border-t border-white/5">
-                <p className="text-xs text-white/40 mb-2">Recent Distributions</p>
+              <div className="mt-3 pt-3 border-t border-foreground/5">
+                <p className="text-xs text-foreground/40 mb-2">Recent Distributions</p>
                 <div className="space-y-1">
                   {dividend.distributions.slice(0, 3).map(dist => (
                     <div key={dist.id} className="flex items-center justify-between text-xs">
-                      <span className="text-white/50">
+                      <span className="text-foreground/50">
                         <Clock className="inline h-3 w-3 mr-1" />
                         {new Date(dist.date).toLocaleDateString()}
                       </span>
-                      <span className="text-white/60">
+                      <span className="text-foreground/60">
                         Pool: {formatNumber(dist.poolAmount)} · Share: {formatNumber(dist.holderShare)} XLM
                       </span>
                       {dist.claimed && (
-                        <CheckCircle className="h-3 w-3 text-emerald-400" />
+                        <CheckCircle className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                       )}
                     </div>
                   ))}

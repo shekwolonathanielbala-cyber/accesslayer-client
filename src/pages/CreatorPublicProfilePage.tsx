@@ -50,17 +50,17 @@ function CreatorProfileNotFound({ address }: { address: string }) {
 	return (
 		<main
 			data-testid="creator-profile-not-found"
-			className="flex min-h-screen flex-col items-center justify-center gap-5 bg-[#06111f] px-6 py-16 text-center text-white"
+			className="flex min-h-screen flex-col items-center justify-center gap-5 bg-surface px-6 py-16 text-center text-foreground"
 		>
-			<div className="flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-amber-400">
+			<div className="flex size-14 items-center justify-center rounded-2xl border border-foreground/10 bg-foreground/[0.04] text-amber-600 dark:text-amber-400">
 				<SearchX className="size-7" aria-hidden="true" />
 			</div>
 			<h1 className="font-grotesque text-3xl font-black tracking-tight">
 				Creator not found
 			</h1>
-			<p className="max-w-md font-jakarta text-sm text-white/65">
+			<p className="max-w-md font-jakarta text-sm text-foreground/65">
 				We couldn&apos;t find a creator profile for{' '}
-				<span className="font-mono text-white/80">
+				<span className="font-mono text-foreground/80">
 					{address || 'that address'}
 				</span>
 				. The address may be incorrect or the creator may not have deployed
@@ -89,7 +89,7 @@ function CreatorPublicProfilePageContent() {
 
 	if (isLoading) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-7xl space-y-8">
 					<CreatorProfileHeaderSkeleton />
 					<CreatorGridSkeleton count={3} />
@@ -109,16 +109,16 @@ function CreatorPublicProfilePageContent() {
 	const memberSince = formatMemberSince(profile.joinedAt);
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-7xl space-y-8">
-				<nav aria-label="Breadcrumb" className="text-xs text-white/50">
-					<Link to="/creators" className="hover:text-amber-300">
+				<nav aria-label="Breadcrumb" className="text-xs text-foreground/50">
+					<Link to="/creators" className="hover:text-amber-700 dark:hover:text-amber-300">
 						Creators
 					</Link>
-					<span className="mx-2 text-white/25" aria-hidden="true">
+					<span className="mx-2 text-foreground/25" aria-hidden="true">
 						/
 					</span>
-					<span className="text-white/70">{profile.displayName}</span>
+					<span className="text-foreground/70">{profile.displayName}</span>
 				</nav>
 
 				<CreatorPublicProfileHeader
@@ -162,11 +162,11 @@ function CreatorPublicProfilePageContent() {
 					<div>
 						<h2
 							id="creator-deployed-keys-heading"
-							className="font-grotesque text-xl font-black tracking-tight text-white"
+							className="font-grotesque text-xl font-black tracking-tight text-foreground"
 						>
 							Deployed Keys
 						</h2>
-						<p className="mt-1 text-sm text-white/60">
+						<p className="mt-1 text-sm text-foreground/60">
 							Every key this creator has deployed, with its current
 							status and price.
 						</p>
@@ -175,7 +175,7 @@ function CreatorPublicProfilePageContent() {
 					{profile.keys.length === 0 ? (
 						<p
 							data-testid="creator-deployed-keys-empty"
-							className="rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-6 text-sm text-white/50"
+							className="rounded-2xl border border-dashed border-foreground/10 bg-foreground/[0.02] p-6 text-sm text-foreground/50"
 						>
 							This creator has not deployed any keys yet.
 						</p>

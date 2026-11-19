@@ -98,16 +98,16 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 						noValidate
 						className="space-y-4"
 					>
-						<div className="rounded-xl border border-white/10 bg-slate-950/30 p-3 text-xs text-white/60">
+						<div className="rounded-xl border border-foreground/10 bg-surface-raised p-3 text-xs text-foreground/60">
 							<div className="flex justify-between gap-3">
 								<span>Current contribution</span>
-								<span className="break-all text-right font-mono text-white/85">
+								<span className="break-all text-right font-mono text-foreground/85">
 									{formatLpAmount(position.contributionStroops)}
 								</span>
 							</div>
 							<div className="mt-1 flex justify-between gap-3">
 								<span>Current pool share</span>
-								<span className="font-mono text-white/85">
+								<span className="font-mono text-foreground/85">
 									{formatPoolShare(position)}
 								</span>
 							</div>
@@ -117,13 +117,13 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 							<div className="mb-1.5 flex items-end justify-between gap-3">
 								<label
 									htmlFor="add-liquidity-amount"
-									className="text-sm font-medium text-white"
+									className="text-sm font-medium text-foreground"
 								>
 									Amount (XLM)
 								</label>
 								<span
 									data-testid="add-liquidity-available"
-									className="text-right text-xs text-white/50"
+									className="text-right text-xs text-foreground/50"
 								>
 									Available:{' '}
 									{balanceQuery.isLoading
@@ -149,7 +149,7 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 									disabled={isSubmitting}
 									aria-invalid={showError || undefined}
 									aria-describedby={showError ? errorId : undefined}
-									className="min-w-0 flex-1 rounded-lg border border-white/15 bg-white/5 px-3 py-2 font-mono text-sm text-white outline-none placeholder:text-white/30 focus:border-amber-300/60"
+									className="min-w-0 flex-1 rounded-lg border border-foreground/15 bg-foreground/5 px-3 py-2 font-mono text-sm text-foreground outline-none placeholder:text-foreground/30 focus:border-amber-300/60"
 								/>
 								<Button
 									type="button"
@@ -176,7 +176,7 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 									id={errorId}
 									role="alert"
 									data-testid="add-liquidity-error"
-									className="mt-1.5 text-xs text-rose-300"
+									className="mt-1.5 text-xs text-rose-700 dark:text-rose-300"
 								>
 									{validation.message}
 								</p>
@@ -187,18 +187,18 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 							data-testid="add-liquidity-reward-preview"
 							className="rounded-xl border border-amber-300/20 bg-amber-300/5 p-3 text-xs"
 						>
-							<p className="font-semibold uppercase tracking-[0.16em] text-amber-300">
+							<p className="font-semibold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300">
 								Reward rate preview
 							</p>
 							{poolQuery.isLoading ? (
-								<p className="mt-2 text-white/60">Loading pool data…</p>
+								<p className="mt-2 text-foreground/60">Loading pool data…</p>
 							) : (
-								<dl className="mt-2 space-y-1 text-white/60">
+								<dl className="mt-2 space-y-1 text-foreground/60">
 									<div className="flex justify-between gap-3">
 										<dt>Current APR (estimate)</dt>
 										<dd
 											data-testid="add-liquidity-apr"
-											className="font-mono text-white/85"
+											className="font-mono text-foreground/85"
 										>
 											{pool?.aprBps != null
 												? bpsToPercent(pool.aprBps)
@@ -209,7 +209,7 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 										<dt>Share of pool for this deposit</dt>
 										<dd
 											data-testid="add-liquidity-projected-share"
-											className="font-mono text-white/85"
+											className="font-mono text-foreground/85"
 										>
 											{validation.ok
 												? formatProjectedPoolShare(
@@ -221,7 +221,7 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 									</div>
 								</dl>
 							)}
-							<p className="mt-2 leading-5 text-white/45">
+							<p className="mt-2 leading-5 text-foreground/45">
 								Rewards come from trading fees and change with volume
 								and total pool size. The APR is an estimate, not a
 								guarantee.
@@ -232,7 +232,7 @@ const AddLiquidityDialog: React.FC<AddLiquidityDialogProps> = ({
 							<p
 								role="alert"
 								data-testid="add-liquidity-submit-error"
-								className="text-sm text-rose-300"
+								className="text-sm text-rose-700 dark:text-rose-300"
 							>
 								{submitError}
 							</p>

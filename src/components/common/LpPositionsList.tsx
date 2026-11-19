@@ -35,7 +35,7 @@ function LockBadge({ lpId, lock }: { lpId: string; lock: LpLockState }) {
 		return (
 			<span
 				data-testid={`lp-lock-status-${lpId}`}
-				className="inline-flex max-w-full items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-300"
+				className="inline-flex max-w-full items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:text-amber-300"
 			>
 				<Lock className="size-3 shrink-0" aria-hidden="true" />
 				<span className="truncate">
@@ -48,7 +48,7 @@ function LockBadge({ lpId, lock }: { lpId: string; lock: LpLockState }) {
 		return (
 			<span
 				data-testid={`lp-lock-status-${lpId}`}
-				className="inline-flex items-center gap-1 rounded-full bg-rose-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-rose-300"
+				className="inline-flex items-center gap-1 rounded-full bg-rose-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-rose-700 dark:text-rose-300"
 			>
 				<AlertTriangle className="size-3" aria-hidden="true" />
 				Lock unknown
@@ -58,7 +58,7 @@ function LockBadge({ lpId, lock }: { lpId: string; lock: LpLockState }) {
 	return (
 		<span
 			data-testid={`lp-lock-status-${lpId}`}
-			className="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300"
+			className="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300"
 		>
 			<LockOpen className="size-3" aria-hidden="true" />
 			{lock.status === 'unlocked' ? 'Unlocked' : 'No lock'}
@@ -79,12 +79,12 @@ function Field({
 }) {
 	return (
 		<div className={cn('min-w-0', className)}>
-			<dt className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+			<dt className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 				{label}
 			</dt>
 			<dd
 				data-testid={testId}
-				className="mt-1 break-all font-mono text-sm text-white/85"
+				className="mt-1 break-all font-mono text-sm text-foreground/85"
 			>
 				{children}
 			</dd>
@@ -129,28 +129,28 @@ const LpPositionsList: React.FC<LpPositionsListProps> = ({
 				<li
 					key={position.lpId}
 					data-testid={`lp-position-${position.lpId}`}
-					className="rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-colors hover:border-white/20"
+					className="rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 transition-colors hover:border-foreground/20"
 				>
 					<div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 						<div className="min-w-0 lg:w-56">
 							{position.creatorId ? (
 								<Link
 									to={`/creator/${position.creatorId}`}
-									className="block truncate text-sm font-semibold text-white transition-colors hover:text-amber-300"
+									className="block truncate text-sm font-semibold text-foreground transition-colors hover:text-amber-700 dark:hover:text-amber-300"
 									title={position.keyName}
 								>
 									{position.keyName}
 								</Link>
 							) : (
 								<p
-									className="truncate text-sm font-semibold text-white"
+									className="truncate text-sm font-semibold text-foreground"
 									title={position.keyName}
 								>
 									{position.keyName}
 								</p>
 							)}
 							<div className="mt-1 flex flex-wrap items-center gap-2">
-								<span className="text-[11px] text-white/40">
+								<span className="text-[11px] text-foreground/40">
 									Position #{position.lpId}
 								</span>
 								<LockBadge lpId={position.lpId} lock={lock} />
@@ -177,8 +177,8 @@ const LpPositionsList: React.FC<LpPositionsListProps> = ({
 								<span
 									className={
 										pending == null
-											? 'text-white/45'
-											: 'text-emerald-300'
+											? 'text-foreground/45'
+											: 'text-emerald-700 dark:text-emerald-300'
 									}
 								>
 									{pending == null

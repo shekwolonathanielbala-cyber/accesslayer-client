@@ -28,14 +28,14 @@ const CompactEmptyWalletState: React.FC<CompactEmptyWalletStateProps> = ({
 			>
 				<WalletMinimal
 					className={cn(
-						'text-amber-200',
+						'text-amber-700 dark:text-amber-200',
 						EMPTY_STATE_ILLUSTRATION_SIZES.compactBadgeIcon
 					)}
 				/>
 			</div>
 			<div>
-				<p className="text-sm font-semibold text-amber-100">{title}</p>
-				<p className="mt-0.5 text-xs text-amber-100/75">{description}</p>
+				<p className="text-sm font-semibold text-amber-700 dark:text-amber-100">{title}</p>
+				<p className="mt-0.5 text-xs text-amber-700/75 dark:text-amber-100/75">{description}</p>
 			</div>
 		</div>
 	);

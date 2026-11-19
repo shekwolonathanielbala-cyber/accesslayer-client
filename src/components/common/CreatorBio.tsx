@@ -69,12 +69,12 @@ const DEFAULT_COLLAPSE_THRESHOLD_CHARS = 200;
 
 const variantClasses: Record<'card' | 'profile', { value: string; fallback: string }> = {
 	card: {
-		value: 'text-sm text-white/60 leading-relaxed',
-		fallback: 'text-xs italic text-white/35',
+		value: 'text-sm text-foreground/60 leading-relaxed',
+		fallback: 'text-xs italic text-foreground/35',
 	},
 	profile: {
-		value: 'font-jakarta text-sm text-white/70 leading-relaxed',
-		fallback: 'font-jakarta text-sm italic text-white/40',
+		value: 'font-jakarta text-sm text-foreground/70 leading-relaxed',
+		fallback: 'font-jakarta text-sm italic text-foreground/40',
 	},
 };
 
@@ -173,7 +173,7 @@ const CreatorBio: React.FC<CreatorBioProps> = ({
 				aria-expanded={expanded}
 				aria-controls={bioId}
 				onClick={() => setExpanded(prev => !prev)}
-				className="font-jakarta text-xs font-semibold text-amber-300/85 underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/55 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950 rounded-sm"
+				className="font-jakarta text-xs font-semibold text-amber-700/85 dark:text-amber-300/85 underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/55 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-950 rounded-sm"
 			>
 				{expanded ? 'Show less' : 'Show more'}
 			</button>

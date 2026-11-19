@@ -24,17 +24,17 @@ const MiniStatChip: React.FC<MiniStatChipProps> = ({
 	return (
 		<div
 			className={cn(
-				'inline-flex min-w-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[0.65rem] font-medium text-white/80 backdrop-blur-sm',
+				'inline-flex min-w-0 items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.06] px-2.5 py-1 text-[0.65rem] font-medium text-foreground/80 backdrop-blur-sm',
 				className
 			)}
 		>
-			<span className="shrink-0 uppercase tracking-[0.18em] text-white/42">
+			<span className="shrink-0 uppercase tracking-[0.18em] text-foreground/42">
 				{label}
 			</span>
 			<TruncatedText
 				text={value}
 				maxWidth={120}
-				className="font-jakarta text-xs font-semibold text-white"
+				className="font-jakarta text-xs font-semibold text-foreground"
 			/>
 			{explanation && (
 				<AccessibleInfoTrigger

@@ -49,19 +49,19 @@ const EmptySearchSuggestions: React.FC<EmptySearchSuggestionsProps> = ({
 		<section
 			aria-label="Search suggestions"
 			className={cn(
-				'rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 backdrop-blur-sm',
+				'rounded-2xl border border-foreground/10 bg-foreground/[0.04] px-5 py-4 backdrop-blur-sm',
 				className
 			)}
 		>
 			<div className="flex items-start justify-between gap-3">
-				<p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+				<p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
 					{title}
 				</p>
 				<button
 					type="button"
 					onClick={() => setDismissed(true)}
 					aria-label="Dismiss search suggestions"
-					className="-mr-1 -mt-1 inline-flex size-7 items-center justify-center rounded-full text-white/45 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+					className="-mr-1 -mt-1 inline-flex size-7 items-center justify-center rounded-full text-foreground/45 transition-colors hover:bg-foreground/10 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 				>
 					<X className="size-3.5" />
 				</button>
@@ -72,7 +72,7 @@ const EmptySearchSuggestions: React.FC<EmptySearchSuggestionsProps> = ({
 						<button
 							type="button"
 							onClick={() => onSelect(term)}
-							className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white/85 transition-colors hover:border-amber-400/40 hover:bg-amber-400/10 hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+							className="inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/[0.06] px-3 py-1.5 text-xs font-semibold text-foreground/85 transition-colors hover:border-amber-400/40 hover:bg-amber-400/10 hover:text-amber-700 dark:hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 						>
 							<Search className="size-3 opacity-70" />
 							<span>{term}</span>

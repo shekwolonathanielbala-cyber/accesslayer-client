@@ -31,7 +31,7 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 		<article
 			aria-label={`Key for ${displayName}`}
 			className={cn(
-				'group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-amber-500/5',
+				'group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-foreground/10 bg-surface-raised p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-surface-raised hover:shadow-xl hover:shadow-amber-500/5',
 				className
 			)}
 		>
@@ -46,7 +46,7 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 			{/* Top Bar: Avatar & Badges */}
 			<div>
 				<div className="flex items-start justify-between gap-3">
-					<div className="relative size-14 shrink-0 overflow-hidden rounded-full border border-white/15 bg-slate-800 shadow-md transition-transform duration-300 group-hover:scale-105">
+					<div className="relative size-14 shrink-0 overflow-hidden rounded-full border border-foreground/15 bg-slate-800 shadow-md transition-transform duration-300 group-hover:scale-105">
 						<CreatorInitialsAvatar
 							name={displayName}
 							creatorId={creator.id}
@@ -59,7 +59,7 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 						{rank !== undefined && (
 							<span
 								data-testid="discovery-card-rank"
-								className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 font-mono text-[0.68rem] font-bold text-amber-300"
+								className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 font-mono text-[0.68rem] font-bold text-amber-700 dark:text-amber-300"
 							>
 								#{rank}
 							</span>
@@ -67,7 +67,7 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 						{badgeLabel && (
 							<span
 								data-testid="discovery-card-badge"
-								className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-0.5 font-mono text-[0.65rem] font-semibold text-emerald-300"
+								className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-0.5 font-mono text-[0.65rem] font-semibold text-emerald-700 dark:text-emerald-300"
 							>
 								{badgeLabel}
 							</span>
@@ -83,14 +83,14 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 				<div className="mt-4 min-w-0">
 					<h3
 						data-testid="discovery-card-name"
-						className="truncate font-jakarta text-base font-bold text-white transition-colors group-hover:text-amber-300"
+						className="truncate font-jakarta text-base font-bold text-foreground transition-colors group-hover:text-amber-700 dark:group-hover:text-amber-300"
 					>
 						{displayName}
 					</h3>
 					{handle && (
 						<p
 							data-testid="discovery-card-handle"
-							className="truncate font-mono text-xs text-white/50"
+							className="truncate font-mono text-xs text-foreground/50"
 						>
 							{handle}
 						</p>
@@ -99,8 +99,8 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 			</div>
 
 			{/* Bottom Bar: Price */}
-			<div className="mt-6 flex items-center justify-between border-t border-white/10 pt-3">
-				<span className="text-[0.7rem] font-semibold uppercase tracking-wider text-white/45">
+			<div className="mt-6 flex items-center justify-between border-t border-foreground/10 pt-3">
+				<span className="text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/45">
 					Price
 				</span>
 				<div className="flex items-center gap-1.5">
@@ -112,7 +112,7 @@ export const DiscoveryKeyCard: React.FC<DiscoveryKeyCardProps> = ({
 					/>
 					<span
 						data-testid="discovery-card-price"
-						className="font-jakarta text-sm font-extrabold text-white"
+						className="font-jakarta text-sm font-extrabold text-foreground"
 					>
 						{priceFormatted}
 					</span>

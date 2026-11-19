@@ -23,7 +23,7 @@ const TransactionHashRow: FC<TransactionHashRowProps> = ({
 				className
 			)}
 		>
-			<span className="shrink-0 uppercase tracking-wider text-white/40">
+			<span className="shrink-0 uppercase tracking-wider text-foreground/40">
 				{label}
 			</span>
 			<div className="flex items-center gap-2 overflow-hidden">
@@ -36,7 +36,7 @@ const TransactionHashRow: FC<TransactionHashRowProps> = ({
 						href={explorerUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex size-6 items-center justify-center rounded-md bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+						className="inline-flex size-6 items-center justify-center rounded-md bg-foreground/5 text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground"
 						aria-label="View on block explorer"
 					>
 						<ExternalLink className="size-3" />

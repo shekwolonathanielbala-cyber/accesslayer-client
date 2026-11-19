@@ -17,7 +17,7 @@ export interface StakingRewardsSectionProps extends StakingPoolStats {
 }
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 /**
  * Staking Rewards panel for the key detail page (#817).
@@ -82,8 +82,8 @@ const StakingRewardsSection: React.FC<StakingRewardsSectionProps> = ({
 	return (
 		<section className={CARD_CLASS} data-testid="staking-rewards-section">
 			<div className="mb-6 flex items-center gap-2">
-				<Coins className="size-5 text-amber-300" aria-hidden="true" />
-				<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+				<Coins className="size-5 text-amber-700 dark:text-amber-300" aria-hidden="true" />
+				<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 					Staking Rewards
 				</h2>
 			</div>
@@ -92,20 +92,20 @@ const StakingRewardsSection: React.FC<StakingRewardsSectionProps> = ({
 				{items.map(item => (
 					<div
 						key={item.label}
-						className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4"
+						className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-4"
 						data-testid={item.testId}
 					>
-						<p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+						<p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 							{item.label}
 						</p>
-						<p className="mt-2 font-jakarta text-base font-bold text-white md:text-[1.05rem]">
+						<p className="mt-2 font-jakarta text-base font-bold text-foreground md:text-[1.05rem]">
 							{item.value}
 						</p>
 					</div>
 				))}
 			</div>
 
-			<p className="mt-4 text-xs text-white/45">
+			<p className="mt-4 text-xs text-foreground/45">
 				APY is an estimate: last month&apos;s protocol fee inflow, annualised over the
 				current pool balance. Actual rewards vary with trading volume.
 			</p>

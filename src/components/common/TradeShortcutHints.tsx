@@ -58,7 +58,7 @@ const TradeShortcutHints: React.FC<TradeShortcutHintsProps> = ({
 			className={cn(
 				'pointer-events-none fixed bottom-24 left-1/2 z-[60] -translate-x-1/2',
 				'flex items-center gap-3 rounded-full border border-amber-400/20',
-				'bg-slate-950/90 px-4 py-2 text-xs text-white/70 shadow-2xl shadow-black/40',
+				'bg-surface-raised px-4 py-2 text-xs text-foreground/70 shadow-2xl shadow-black/40',
 				'backdrop-blur-md transition-all duration-300',
 				'sm:bottom-32',
 				'motion-reduce:transition-none',
@@ -66,25 +66,25 @@ const TradeShortcutHints: React.FC<TradeShortcutHintsProps> = ({
 			)}
 			data-testid="trade-shortcut-hints"
 		>
-			<Zap className="size-3.5 text-amber-400/80" aria-hidden="true" />
-			<span className="text-white/50">
+			<Zap className="size-3.5 text-amber-600/80 dark:text-amber-400/80" aria-hidden="true" />
+			<span className="text-foreground/50">
 				{side === 'buy' ? 'Buy' : 'Sell'} shortcuts:
 			</span>
 			<span className="flex items-center gap-1.5">
 				<Kbd>Enter</Kbd>
-				<span className="text-white/40">confirm</span>
+				<span className="text-foreground/40">confirm</span>
 			</span>
-			<span className="text-white/20">·</span>
+			<span className="text-foreground/20">·</span>
 			<span className="flex items-center gap-1.5">
 				<Kbd>+</Kbd>
 				<Kbd>-</Kbd>
-				<span className="text-white/40">adjust</span>
+				<span className="text-foreground/40">adjust</span>
 			</span>
-			<span className="text-white/20">·</span>
+			<span className="text-foreground/20">·</span>
 			<span className="flex items-center gap-1.5">
 				<Kbd>1</Kbd>
 				<Kbd>5</Kbd>
-				<span className="text-white/40">quick amount</span>
+				<span className="text-foreground/40">quick amount</span>
 			</span>
 		</div>
 	);

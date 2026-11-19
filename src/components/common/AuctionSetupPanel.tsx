@@ -18,7 +18,7 @@ export interface AuctionSetupPanelProps extends AuctionConfig {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 /**
  * Auction configuration panel for the creator dashboard settings tab (#816).
@@ -70,11 +70,11 @@ const AuctionSetupPanel: React.FC<AuctionSetupPanelProps> = ({
 
 	return (
 		<div className="space-y-5" data-testid="auction-setup-panel">
-			<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-				<p className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+			<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+				<p className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50">
 					Current state
 				</p>
-				<p className="mt-1 font-jakarta text-sm font-bold text-white" data-testid="auction-state">
+				<p className="mt-1 font-jakarta text-sm font-bold text-foreground" data-testid="auction-state">
 					{describeAuctionState(config)}
 				</p>
 			</div>
@@ -84,7 +84,7 @@ const AuctionSetupPanel: React.FC<AuctionSetupPanelProps> = ({
 					<div className="space-y-1.5">
 						<label
 							htmlFor="auction-price"
-							className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+							className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 						>
 							Auction price (XLM)
 						</label>
@@ -100,7 +100,7 @@ const AuctionSetupPanel: React.FC<AuctionSetupPanelProps> = ({
 							aria-invalid={showErrors && priceError ? 'true' : undefined}
 						/>
 						{showErrors && priceError && (
-							<p role="alert" data-testid="auction-price-error" className="text-xs text-red-400">
+							<p role="alert" data-testid="auction-price-error" className="text-xs text-red-600 dark:text-red-400">
 								{priceError}
 							</p>
 						)}
@@ -109,7 +109,7 @@ const AuctionSetupPanel: React.FC<AuctionSetupPanelProps> = ({
 					<div className="space-y-1.5">
 						<label
 							htmlFor="auction-supply"
-							className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+							className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 						>
 							Auction supply (keys)
 						</label>
@@ -125,7 +125,7 @@ const AuctionSetupPanel: React.FC<AuctionSetupPanelProps> = ({
 							aria-invalid={showErrors && supplyError ? 'true' : undefined}
 						/>
 						{showErrors && supplyError && (
-							<p role="alert" data-testid="auction-supply-error" className="text-xs text-red-400">
+							<p role="alert" data-testid="auction-supply-error" className="text-xs text-red-600 dark:text-red-400">
 								{supplyError}
 							</p>
 						)}

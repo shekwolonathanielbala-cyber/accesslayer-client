@@ -60,7 +60,7 @@ export default function SessionExpiryModal({
 						role="alert"
 						aria-live="polite"
 						data-testid="session-expiry-renew-error"
-						className="text-sm text-red-400"
+						className="text-sm text-red-600 dark:text-red-400"
 					>
 						{renewError}
 					</p>

@@ -18,7 +18,7 @@ const FollowerCountPill: React.FC<FollowerCountPillProps> = ({
 	return (
 		<span
 			className={cn(
-				'inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs font-medium text-white/70',
+				'inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-foreground/5 px-2 py-0.5 text-xs font-medium text-foreground/70',
 				className
 			)}
 			title={count.toString()} // Preserve full value availability

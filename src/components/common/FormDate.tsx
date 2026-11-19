@@ -140,7 +140,7 @@ const FormDate: React.FC<FormDateProps> = ({
 						type="button"
 						disabled={disabled}
 						className={cn(
-							'w-full justify-start text-left flex items-center gap-4 px-4 py-3 h-14 rounded-md bg-white border transition-all duration-200',
+							'w-full justify-start text-left flex items-center gap-4 px-4 py-3 h-14 rounded-md bg-foreground border transition-all duration-200',
 							'focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500',
 							'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-400',
 							hasError

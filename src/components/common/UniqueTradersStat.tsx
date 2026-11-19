@@ -19,9 +19,9 @@ interface UniqueTradersStatProps {
 }
 
 const TREND_STYLES = {
-	up: { Icon: ArrowUpRight, className: 'text-emerald-300', word: 'Up' },
-	down: { Icon: ArrowDownRight, className: 'text-rose-300', word: 'Down' },
-	flat: { Icon: Minus, className: 'text-white/40', word: 'No change' },
+	up: { Icon: ArrowUpRight, className: 'text-emerald-700 dark:text-emerald-300', word: 'Up' },
+	down: { Icon: ArrowDownRight, className: 'text-rose-700 dark:text-rose-300', word: 'Down' },
+	flat: { Icon: Minus, className: 'text-foreground/40', word: 'No change' },
 } as const;
 
 /**
@@ -39,17 +39,17 @@ const UniqueTradersStat: React.FC<UniqueTradersStatProps> = ({
 
 	return (
 		<div
-			className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4"
+			className="min-w-0 rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-4"
 			data-testid="key-stat-uniqueTraders"
 		>
-			<dt className="flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+			<dt className="flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 				<span className="truncate">{UNIQUE_TRADERS_LABEL}</span>
 				<AccessibleInfoTrigger
 					explanation={UNIQUE_TRADERS_EXPLANATION}
 					label={`Explanation for: ${UNIQUE_TRADERS_LABEL}`}
 				/>
 			</dt>
-			<dd className="mt-2.5 flex h-7 items-center gap-2 font-jakarta text-base font-bold tabular-nums text-white md:text-[1.05rem]">
+			<dd className="mt-2.5 flex h-7 items-center gap-2 font-jakarta text-base font-bold tabular-nums text-foreground md:text-[1.05rem]">
 				{showSkeleton ? (
 					<Skeleton className="h-5 w-20" />
 				) : (

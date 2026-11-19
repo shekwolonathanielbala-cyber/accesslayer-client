@@ -20,7 +20,7 @@ const DeprecationNotice: React.FC<DeprecationNoticeProps> = ({
 	return (
 		<span
 			className={cn(
-				'inline-flex items-center gap-1 rounded-full border border-orange-500/30 bg-orange-500/10 px-2 py-0.5 text-[0.65rem] font-semibold text-orange-400',
+				'inline-flex items-center gap-1 rounded-full border border-orange-500/30 bg-orange-500/10 px-2 py-0.5 text-[0.65rem] font-semibold text-orange-600 dark:text-orange-400',
 				className
 			)}
 			title={reason ?? 'This key has been deprecated and can no longer be traded.'}

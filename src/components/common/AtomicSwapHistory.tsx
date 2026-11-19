@@ -12,7 +12,7 @@ import { useAtomicSwapHistory } from '@/hooks/useAtomicSwap';
 
 function SwapTypePill() {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-400">
+    <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-400">
       <ArrowLeftRight className="size-3" aria-hidden="true" />
       Atomic Swap
     </span>
@@ -23,12 +23,12 @@ function SwapTypePill() {
 
 function SkeletonRow() {
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 animate-pulse" aria-hidden="true">
-      <div className="h-4 w-20 animate-pulse rounded bg-white/10" />
-      <div className="h-4 w-16 animate-pulse rounded bg-white/10" />
-      <div className="h-4 w-16 animate-pulse rounded bg-white/10" />
-      <div className="h-4 w-20 animate-pulse rounded bg-white/10" />
-      <div className="ml-auto h-4 w-24 animate-pulse rounded bg-white/10" />
+    <div className="flex items-center gap-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4 animate-pulse" aria-hidden="true">
+      <div className="h-4 w-20 animate-pulse rounded bg-foreground/10" />
+      <div className="h-4 w-16 animate-pulse rounded bg-foreground/10" />
+      <div className="h-4 w-16 animate-pulse rounded bg-foreground/10" />
+      <div className="h-4 w-20 animate-pulse rounded bg-foreground/10" />
+      <div className="ml-auto h-4 w-24 animate-pulse rounded bg-foreground/10" />
     </div>
   );
 }
@@ -44,7 +44,7 @@ function SwapRow({ swap }: SwapRowProps) {
     <div
       data-testid={`swap-row-${swap.id}`}
       className={cn(
-        'flex flex-col gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 pl-5 transition-colors hover:border-white/20 hover:bg-white/[0.04] sm:flex-row sm:items-center sm:justify-between',
+        'flex flex-col gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 pl-5 transition-colors hover:border-foreground/20 hover:bg-foreground/[0.04] sm:flex-row sm:items-center sm:justify-between',
         'border-l-4 border-l-amber-400'
       )}
     >
@@ -52,52 +52,52 @@ function SwapRow({ swap }: SwapRowProps) {
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           <SwapTypePill />
-          <span className="truncate text-sm font-semibold text-white">
+          <span className="truncate text-sm font-semibold text-foreground">
             {swap.offeredKeyName} ↔ {swap.receivedKeyName}
           </span>
         </div>
-        <div className="mt-1 text-xs text-white/55">
+        <div className="mt-1 text-xs text-foreground/55">
           Atomic swap
         </div>
       </div>
 
       {/* Numeric columns */}
-      <div className="flex items-center gap-4 text-xs text-white/60 sm:gap-6">
+      <div className="flex items-center gap-4 text-xs text-foreground/60 sm:gap-6">
         <div className="flex flex-col items-end">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">You gave</span>
-          <span className="font-mono text-white/80">{formatNumber(swap.offeredAmount)} {swap.offeredKeyName}</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">You gave</span>
+          <span className="font-mono text-foreground/80">{formatNumber(swap.offeredAmount)} {swap.offeredKeyName}</span>
         </div>
 
         <div className="flex flex-col items-end">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">You received</span>
-          <span className="font-mono text-white/80">{formatNumber(swap.receivedAmount)} {swap.receivedKeyName}</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">You received</span>
+          <span className="font-mono text-foreground/80">{formatNumber(swap.receivedAmount)} {swap.receivedKeyName}</span>
         </div>
 
         <div className="flex flex-col items-end">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">When</span>
-          <span className="font-mono text-white/60" title={new Date(swap.timestamp).toLocaleString()}>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">When</span>
+          <span className="font-mono text-foreground/60" title={new Date(swap.timestamp).toLocaleString()}>
             {formatRelativeTime(swap.timestamp)}
           </span>
         </div>
 
         <div className="flex flex-col items-end ml-auto">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Status</span>
-          <span className={cn('font-mono font-semibold', swap.status === 'completed' ? 'text-emerald-400' : 'text-rose-400')}>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Status</span>
+          <span className={cn('font-mono font-semibold', swap.status === 'completed' ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400')}>
             {swap.status}
           </span>
         </div>
       </div>
 
       {/* Expanded details */}
-      <details className="group mt-4 pt-4 border-t border-white/10 sm:hidden">
+      <details className="group mt-4 pt-4 border-t border-foreground/10 sm:hidden">
         <summary className="flex items-center justify-between cursor-pointer list-none">
-          <span className="text-xs text-white/60">Details</span>
-          <span className="text-white/40">▼</span>
+          <span className="text-xs text-foreground/60">Details</span>
+          <span className="text-foreground/40">▼</span>
         </summary>
-        <div className="mt-3 grid gap-2 text-xs text-white/70">
-          <div><span className="text-white/40">Proposer: </span><span className="font-mono">{swap.proposerAddress.slice(0, 8)}…{swap.proposerAddress.slice(-6)}</span></div>
-          <div><span className="text-white/40">Counterparty: </span><span className="font-mono">{swap.counterpartyAddress.slice(0, 8)}…{swap.counterpartyAddress.slice(-6)}</span></div>
-          <div><span className="text-white/40">Tx hash: </span><span className="font-mono">{swap.transactionHash}</span></div>
+        <div className="mt-3 grid gap-2 text-xs text-foreground/70">
+          <div><span className="text-foreground/40">Proposer: </span><span className="font-mono">{swap.proposerAddress.slice(0, 8)}…{swap.proposerAddress.slice(-6)}</span></div>
+          <div><span className="text-foreground/40">Counterparty: </span><span className="font-mono">{swap.counterpartyAddress.slice(0, 8)}…{swap.counterpartyAddress.slice(-6)}</span></div>
+          <div><span className="text-foreground/40">Tx hash: </span><span className="font-mono">{swap.transactionHash}</span></div>
         </div>
       </details>
     </div>
@@ -157,7 +157,7 @@ const AtomicSwapHistory: React.FC<AtomicSwapHistoryProps> = ({ walletAddress }) 
   return (
     <section aria-label="Atomic swap history">
       {/* Column header row */}
-      <div className="mb-2 hidden items-center gap-4 px-5 text-[10px] font-bold uppercase tracking-widest text-white/30 sm:flex sm:justify-between">
+      <div className="mb-2 hidden items-center gap-4 px-5 text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:flex sm:justify-between">
         <span className="flex-1">Exchange</span>
         <div className="flex items-center gap-4 sm:gap-6">
           <span className="w-20 text-right">You gave</span>
@@ -181,7 +181,7 @@ const AtomicSwapHistory: React.FC<AtomicSwapHistoryProps> = ({ walletAddress }) 
             onClick={() => void fetchNextPage()}
             disabled={isFetchingNextPage}
             data-testid="atomic-swap-history-load-more"
-            className="rounded-xl border-white/15 bg-white/5 px-8 text-white/80 hover:bg-white/10 hover:text-white"
+            className="rounded-xl border-foreground/15 bg-foreground/5 px-8 text-foreground/80 hover:bg-foreground/10 hover:text-foreground"
           >
             {isFetchingNextPage ? 'Loading…' : 'Load More'}
           </Button>

@@ -107,7 +107,7 @@ export const FormInput: React.FC<FormInputProps> = ({
 		w-full px-4 py-2 border-none rounded-md transition-colors duration-200 outline-none
 		focus:ring-0 focus:ring-blue-500  h-14
 		placeholder:text-gray-400 
-		disabled:bg-gray-100 disabled:cursor-not-allowed bg-white  selection:bg-blue-500 selection:text-white 
+		disabled:bg-gray-100 disabled:cursor-not-allowed bg-foreground  selection:bg-blue-500 selection:text-foreground 
 		${
 			hasError
 				? 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -123,7 +123,7 @@ export const FormInput: React.FC<FormInputProps> = ({
 				? 'border-red-500  focus-within:ring-red-200/70 focus-within:ring-[3px]'
 				: 'border-gray-300 focus-within:ring-gray-300/70 focus-within:ring-[3px]'
 		}
-		${disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'}
+		${disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-foreground'}
 		${wrapperClassName}
 	`;
 

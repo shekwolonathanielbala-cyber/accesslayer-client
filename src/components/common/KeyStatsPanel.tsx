@@ -35,12 +35,12 @@ const KeyStatsPanel: React.FC<KeyStatsPanelProps> = ({
 		<section
 			aria-labelledby="key-stats-heading"
 			aria-busy={showSkeleton}
-			className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
+			className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8"
 			data-testid="key-stats-panel"
 		>
 			<h2
 				id="key-stats-heading"
-				className="font-grotesque text-xl font-black tracking-tight text-white mb-6"
+				className="font-grotesque text-xl font-black tracking-tight text-foreground mb-6"
 			>
 				Key Stats
 			</h2>
@@ -48,17 +48,17 @@ const KeyStatsPanel: React.FC<KeyStatsPanelProps> = ({
 				{KEY_STAT_DEFINITIONS.map(stat => (
 					<div
 						key={stat.key}
-						className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4"
+						className="min-w-0 rounded-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-4"
 						data-testid={`key-stat-${stat.key}`}
 					>
-						<dt className="flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+						<dt className="flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 							<span className="truncate">{stat.label}</span>
 							<AccessibleInfoTrigger
 								explanation={stat.explanation}
 								label={`Explanation for: ${stat.label}`}
 							/>
 						</dt>
-						<dd className="mt-2.5 flex h-7 items-center font-jakarta text-base font-bold tabular-nums text-white md:text-[1.05rem]">
+						<dd className="mt-2.5 flex h-7 items-center font-jakarta text-base font-bold tabular-nums text-foreground md:text-[1.05rem]">
 							{showSkeleton ? (
 								<Skeleton className="h-5 w-20" />
 							) : (
@@ -83,7 +83,7 @@ const KeyStatsPanel: React.FC<KeyStatsPanelProps> = ({
 				</span>
 			)}
 			{showError && (
-				<p role="alert" className="mt-4 text-xs text-rose-300/80">
+				<p role="alert" className="mt-4 text-xs text-rose-700/80 dark:text-rose-300/80">
 					Key stats are temporarily unavailable.
 				</p>
 			)}

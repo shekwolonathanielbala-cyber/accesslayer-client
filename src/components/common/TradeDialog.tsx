@@ -571,9 +571,9 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 	const bodyContent = (
 		<>
 			{side === 'buy' && keyPriceStroops != null && (
-				<p className="text-sm text-white/60">
+				<p className="text-sm text-foreground/60">
 					Unit price:{' '}
-					<span className="font-semibold text-amber-300/90 tabular-nums">
+					<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 						{formatDisplayKeyPrice(keyPriceStroops)}
 					</span>
 				</p>
@@ -596,7 +596,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 			)}
 
 			<div className="space-y-2">
-				<div className="text-sm text-white/70">Amount</div>
+				<div className="text-sm text-foreground/70">Amount</div>
 				<div className="relative flex items-center">
 					<input
 						ref={amountInputRef}
@@ -609,8 +609,8 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 						onBlur={handleBlur}
 						disabled={isSubmitting}
 						className={cn(
-							'w-full rounded-xl border bg-white/[0.04] px-3 py-2 pr-16 text-white outline-none transition-colors',
-							'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15',
+							'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 pr-16 text-foreground outline-none transition-colors',
+							'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15',
 							showError ? 'border-red-500/60' : ''
 						)}
 						aria-label="Trade amount"
@@ -631,7 +631,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 							(side === 'buy' && isCapLimitReached)
 						}
 						// ≥44px tap target on mobile; compact pill on sm+ (#1055).
-						className="absolute right-2 -my-1 min-h-11 rounded-md border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-300 transition-colors hover:bg-amber-400/20 active:scale-95 disabled:pointer-events-none disabled:opacity-40 sm:my-0 sm:min-h-0 sm:px-2 sm:py-0.5"
+						className="absolute right-2 -my-1 min-h-11 rounded-md border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-700 dark:text-amber-300 transition-colors hover:bg-amber-400/20 active:scale-95 disabled:pointer-events-none disabled:opacity-40 sm:my-0 sm:min-h-0 sm:px-2 sm:py-0.5"
 					>
 						MAX
 					</button>
@@ -640,7 +640,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 					<p
 						id="trade-amount-error"
 						role="alert"
-						className="text-xs text-red-300"
+						className="text-xs text-red-700 dark:text-red-300"
 						data-testid="trade-dialog-amount-error"
 					>
 						{validationError}
@@ -660,7 +660,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 						className="my-2.5"
 					/>
 				)}
-				<div className="flex flex-wrap items-center gap-2 text-xs text-white/45">
+				<div className="flex flex-wrap items-center gap-2 text-xs text-foreground/45">
 					<span
 						aria-label={`Current wallet holdings: ${formatNumber(availableHoldings)} keys`}
 					>
@@ -693,7 +693,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 					<NetworkFeeHint
 						variant="text"
 						fee={estimatedNetworkFee}
-						className="text-white/45"
+						className="text-foreground/45"
 					/>
 				)}
 				{side === 'buy' && amountValid && (
@@ -708,9 +708,9 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 					/>
 				)}
 				{side === 'buy' && estimatedTotalStroops != null && (
-					<div className="text-xs text-white/45 mt-2">
+					<div className="text-xs text-foreground/45 mt-2">
 						Estimated total (approximate):{' '}
-						<span className="font-semibold text-amber-300/90 tabular-nums">
+						<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 							{formatDisplayKeyPrice(estimatedTotalStroops)}
 						</span>
 					</div>
@@ -722,7 +722,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 					/>
 				)}
 				{amountValid && (
-					<div className="mt-3 border-t border-white/10 pt-3">
+					<div className="mt-3 border-t border-foreground/10 pt-3">
 						<SlippageToleranceSelector
 							value={slippageTolerancePercent}
 							onChange={setSlippageTolerancePercent}
@@ -730,14 +730,14 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 						/>
 						{slippageBounds && (
 							<p
-								className="mt-2 text-[0.7rem] text-white/45"
+								className="mt-2 text-[0.7rem] text-foreground/45"
 								data-testid="trade-dialog-slippage-bound"
 							>
 								{side === 'buy'
 									? slippageBounds.maxPriceStroops != null && (
 											<>
 												Max price:{' '}
-												<span className="font-semibold text-white/70 tabular-nums">
+												<span className="font-semibold text-foreground/70 tabular-nums">
 													{formatDisplayKeyPrice(
 														slippageBounds.maxPriceStroops
 													)}
@@ -747,7 +747,7 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 									: slippageBounds.minPriceStroops != null && (
 											<>
 												Min price:{' '}
-												<span className="font-semibold text-white/70 tabular-nums">
+												<span className="font-semibold text-foreground/70 tabular-nums">
 													{formatDisplayKeyPrice(
 														slippageBounds.minPriceStroops
 													)}
@@ -952,27 +952,27 @@ const TradeDialog: React.FC<TradeDialogProps> = ({
 
 					{/* Subtle keyboard shortcut hint for power users */}
 					<div
-						className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-white/5 pt-3 text-[11px] text-white/30"
+						className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-foreground/5 pt-3 text-[11px] text-foreground/30"
 						aria-hidden="true"
 						data-testid="trade-dialog-shortcut-hint"
 					>
 						<span className="flex items-center gap-1">
-							<kbd className="rounded border border-white/10 bg-white/[0.04] px-1 py-0.5 font-mono text-[10px]">
+							<kbd className="rounded border border-foreground/10 bg-foreground/[0.04] px-1 py-0.5 font-mono text-[10px]">
 								Enter
 							</kbd>
 							<span>confirm</span>
 						</span>
 						<span className="flex items-center gap-1">
-							<kbd className="rounded border border-white/10 bg-white/[0.04] px-1 py-0.5 font-mono text-[10px]">
+							<kbd className="rounded border border-foreground/10 bg-foreground/[0.04] px-1 py-0.5 font-mono text-[10px]">
 								Esc
 							</kbd>
 							<span>close</span>
 						</span>
 						<span className="flex items-center gap-1">
-							<kbd className="rounded border border-white/10 bg-white/[0.04] px-1 py-0.5 font-mono text-[10px]">
+							<kbd className="rounded border border-foreground/10 bg-foreground/[0.04] px-1 py-0.5 font-mono text-[10px]">
 								+
 							</kbd>
-							<kbd className="rounded border border-white/10 bg-white/[0.04] px-1 py-0.5 font-mono text-[10px]">
+							<kbd className="rounded border border-foreground/10 bg-foreground/[0.04] px-1 py-0.5 font-mono text-[10px]">
 								-
 							</kbd>
 							<span>adjust</span>

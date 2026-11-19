@@ -26,12 +26,12 @@ const SellFeeBreakdown: React.FC<SellFeeBreakdownProps> = ({
 	launchPenalty,
 }) => {
 	return (
-		<div className="text-xs text-white/45 mt-2" data-testid="sell-fee-breakdown">
+		<div className="text-xs text-foreground/45 mt-2" data-testid="sell-fee-breakdown">
 			{grossProceedsStroops != null ? (
 				<>
 					<div className="flex justify-between items-center">
 						<span>Estimated proceeds (approximate)</span>
-						<span className="font-semibold text-amber-300/90 tabular-nums">
+						<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 							{formatDisplayKeyPrice(grossProceedsStroops)}
 						</span>
 					</div>
@@ -42,21 +42,21 @@ const SellFeeBreakdown: React.FC<SellFeeBreakdownProps> = ({
 								className="flex justify-between items-center mt-1"
 								data-testid="sell-fee-breakdown-penalty"
 							>
-								<span className="text-yellow-300/80">
+								<span className="text-yellow-700/80 dark:text-yellow-300/80">
 									Launch penalty ({bpsToPercent(launchPenalty.penaltyBps)})
 								</span>
-								<span className="font-mono text-yellow-300/90 tabular-nums">
+								<span className="font-mono text-yellow-700/90 dark:text-yellow-300/90 tabular-nums">
 									-{formatDisplayKeyPrice(launchPenalty.penaltyStroops)}
 								</span>
 							</div>
 							<div
-								className="flex justify-between items-center mt-1 pt-1 border-t border-white/10"
+								className="flex justify-between items-center mt-1 pt-1 border-t border-foreground/10"
 								data-testid="sell-fee-breakdown-net"
 							>
-								<span className="font-semibold text-white/70">
+								<span className="font-semibold text-foreground/70">
 									Net proceeds
 								</span>
-								<span className="font-semibold text-amber-300/90 tabular-nums">
+								<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 									{formatDisplayKeyPrice(launchPenalty.netProceedsStroops)}
 								</span>
 							</div>

@@ -86,12 +86,12 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 					<article
 						key={position.creatorId}
 						data-testid={`holding-card-${position.creatorId}`}
-						className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-white/20"
+						className="flex flex-col rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4 transition-colors hover:border-foreground/20"
 					>
 						<div className="mb-3 flex items-start justify-between gap-3">
 							<Link
 								to={creatorHref}
-								className="min-w-0 truncate font-grotesque text-base font-bold text-white transition-colors hover:text-amber-300"
+								className="min-w-0 truncate font-grotesque text-base font-bold text-foreground transition-colors hover:text-amber-700 dark:hover:text-amber-300"
 							>
 								{title}
 							</Link>
@@ -99,7 +99,7 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 								<span
 									role="status"
 									aria-label="Processing trade"
-									className="shrink-0 rounded-full bg-amber-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-300"
+									className="shrink-0 rounded-full bg-amber-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:text-amber-300"
 								>
 									Processing…
 								</span>
@@ -107,7 +107,7 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 						</div>
 
 						{isDeprecated && (
-							<div className="mb-3 flex items-center gap-2 rounded-lg border border-rose-500/20 bg-rose-500/10 px-3 py-1.5 text-xs font-semibold text-rose-300">
+							<div className="mb-3 flex items-center gap-2 rounded-lg border border-rose-500/20 bg-rose-500/10 px-3 py-1.5 text-xs font-semibold text-rose-700 dark:text-rose-300">
 								<Lock className="size-3.5" aria-hidden="true" />
 								Deprecated key
 							</div>
@@ -115,40 +115,40 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 
 						<div className="space-y-2">
 							<div className="flex items-center justify-between text-sm">
-								<span className="text-white/50">Quantity</span>
+								<span className="text-foreground/50">Quantity</span>
 								<span
 									data-testid={`holding-quantity-${position.creatorId}`}
-									className="font-semibold text-white"
+									className="font-semibold text-foreground"
 								>
 									{formatNumber(quantity)} keys
 								</span>
 							</div>
 							<div className="flex items-center justify-between text-sm">
-								<span className="text-white/50">Price / key</span>
-								<span className="font-mono text-white/80">
+								<span className="text-foreground/50">Price / key</span>
+								<span className="font-mono text-foreground/80">
 									{formatDisplayKeyPrice(priceStroops)}
 								</span>
 							</div>
 							<div className="flex items-center justify-between text-sm">
-								<span className="text-white/50">Current value</span>
+								<span className="text-foreground/50">Current value</span>
 								<span
 									data-testid={`holding-current-value-${position.creatorId}`}
-									className="font-mono font-bold text-amber-300"
+									className="font-mono font-bold text-amber-700 dark:text-amber-300"
 								>
 									{formatDisplayKeyPrice(totalValueStroops)}
 								</span>
 							</div>
 							<div className="flex items-center justify-between text-sm">
-								<span className="text-white/50">Unrealised P&L</span>
+								<span className="text-foreground/50">Unrealised P&L</span>
 								<span
 									data-testid={`holding-pnl-${position.creatorId}`}
 									className={cn(
 										'font-mono font-bold',
 										(unrealisedPnL ?? 0) > 0
-											? 'text-emerald-300'
+											? 'text-emerald-700 dark:text-emerald-300'
 											: (unrealisedPnL ?? 0) < 0
-												? 'text-rose-300'
-												: 'text-white/80'
+												? 'text-rose-700 dark:text-rose-300'
+												: 'text-foreground/80'
 									)}
 								>
 									{formatPnLDisplay(unrealisedPnL ?? 0)}
@@ -157,7 +157,7 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 						</div>
 
 						{isOwnProfile && (
-							<div className="mt-4 flex gap-2 border-t border-white/5 pt-3">
+							<div className="mt-4 flex gap-2 border-t border-foreground/5 pt-3">
 								{isDeprecated ? (
 									<Button asChild size="sm" className="flex-1">
 										<Link to={creatorHref}>Redeem</Link>
@@ -176,7 +176,7 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 											asChild
 											size="sm"
 											variant="outline"
-											className="flex-1 border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+											className="flex-1 border-foreground/10 bg-foreground/5 text-foreground hover:bg-foreground/10 hover:text-foreground"
 											aria-label={`Sell ${title}`}
 										>
 											<Link to={creatorHref}>Sell</Link>
@@ -186,7 +186,7 @@ const HeldKeysGrid: React.FC<HeldKeysGridProps> = ({
 								{(position.unclaimedDividend ?? 0) > 0 && (
 									<span
 										data-testid={`holding-unclaimed-dividend-${position.creatorId}`}
-										className="ml-1 inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300"
+										className="ml-1 inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300"
 									>
 										<KeyRound className="size-3" aria-hidden="true" />
 										Dividends

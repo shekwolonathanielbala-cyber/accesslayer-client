@@ -39,7 +39,7 @@ export interface KeyFactoryWizardProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 const DEPLOYMENT_STATUS_COPY: Record<KeyDeploymentStatus, string> = {
 	submitted: 'Deployment submitted. Waiting for the factory contract…',
@@ -119,13 +119,13 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 	if (deploymentStatus === 'confirmed' && deployedKeyId) {
 		return (
 			<section className={className} data-testid="key-factory-deploy-success">
-				<div className="flex items-center gap-3 text-emerald-300">
+				<div className="flex items-center gap-3 text-emerald-700 dark:text-emerald-300">
 					<CheckCircle2 className="size-6" aria-hidden="true" />
 					<h2 className="font-grotesque text-xl font-black tracking-tight">
 						Key deployed
 					</h2>
 				</div>
-				<p className="mt-2 text-sm text-white/60">
+				<p className="mt-2 text-sm text-foreground/60">
 					Your new key is live. Taking you to its detail page…
 				</p>
 				<Button
@@ -153,12 +153,12 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 
 			<div className="mt-8">
 				<h2
-					className="font-grotesque text-xl font-black tracking-tight text-white"
+					className="font-grotesque text-xl font-black tracking-tight text-foreground"
 					data-testid="key-factory-step-title"
 				>
 					{step.label}
 				</h2>
-				<p className="mt-1 text-sm text-white/50">
+				<p className="mt-1 text-sm text-foreground/50">
 					Step {stepIndex + 1} of {KEY_FACTORY_STEPS.length}
 				</p>
 			</div>
@@ -169,7 +169,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					<div className="space-y-1.5">
 						<label
 							htmlFor="key-factory-name"
-							className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+							className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 						>
 							Key name
 						</label>
@@ -187,7 +187,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 							data-testid="key-factory-name-input"
 						/>
 						{errorFor('name') && (
-							<p role="alert" className="text-xs text-red-400">
+							<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 								{errorFor('name')}
 							</p>
 						)}
@@ -196,7 +196,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					<div className="space-y-1.5">
 						<label
 							htmlFor="key-factory-description"
-							className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+							className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 						>
 							Description
 						</label>
@@ -214,7 +214,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 							data-testid="key-factory-description-input"
 						/>
 						{errorFor('description') && (
-							<p role="alert" className="text-xs text-red-400">
+							<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 								{errorFor('description')}
 							</p>
 						)}
@@ -223,7 +223,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					<div className="space-y-1.5">
 						<label
 							htmlFor="key-factory-category"
-							className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+							className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 						>
 							Category
 						</label>
@@ -241,7 +241,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 							data-testid="key-factory-category-input"
 						/>
 						{errorFor('category') && (
-							<p role="alert" className="text-xs text-red-400">
+							<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 								{errorFor('category')}
 							</p>
 						)}
@@ -259,7 +259,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						<div className="space-y-1.5">
 							<label
 								htmlFor="key-factory-base-price"
-								className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+								className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 							>
 								Base price (XLM)
 							</label>
@@ -279,7 +279,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 								data-testid="key-factory-base-price-input"
 							/>
 							{errorFor('basePriceXlm') && (
-								<p role="alert" className="text-xs text-red-400">
+								<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 									{errorFor('basePriceXlm')}
 								</p>
 							)}
@@ -288,7 +288,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						<div className="space-y-1.5">
 							<label
 								htmlFor="key-factory-growth-factor"
-								className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+								className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 							>
 								Growth factor
 							</label>
@@ -308,7 +308,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 								data-testid="key-factory-growth-factor-input"
 							/>
 							{errorFor('growthFactor') && (
-								<p role="alert" className="text-xs text-red-400">
+								<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 									{errorFor('growthFactor')}
 								</p>
 							)}
@@ -317,7 +317,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						<div className="space-y-1.5">
 							<label
 								htmlFor="key-factory-max-supply"
-								className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+								className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 							>
 								Max supply
 							</label>
@@ -335,7 +335,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 								data-testid="key-factory-max-supply-input"
 							/>
 							{errorFor('maxSupply') && (
-								<p role="alert" className="text-xs text-red-400">
+								<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 									{errorFor('maxSupply')}
 								</p>
 							)}
@@ -345,7 +345,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					<KeyFactoryCurvePreview
 						draft={draft}
 						isValid={validateKeyFactoryStep('curve', draft).isValid}
-						className="rounded-2xl border border-white/10 bg-white/[0.02] p-4"
+						className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-4"
 					/>
 				</div>
 			)}
@@ -354,7 +354,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 			{step.value === 'launch' && (
 				<div className="mt-6 space-y-4" data-testid="key-factory-step-launch">
 					<fieldset className="space-y-3">
-						<legend className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+						<legend className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50">
 							Launch mode
 						</legend>
 
@@ -376,7 +376,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						).map(option => (
 							<label
 								key={option.value}
-								className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-white/20"
+								className="flex cursor-pointer items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 transition-colors hover:border-foreground/20"
 							>
 								<input
 									type="radio"
@@ -391,10 +391,10 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 									className="mt-1"
 								/>
 								<span>
-									<span className="block text-sm font-bold text-white">
+									<span className="block text-sm font-bold text-foreground">
 										{option.label}
 									</span>
-									<span className="mt-1 block text-xs text-white/55">
+									<span className="mt-1 block text-xs text-foreground/55">
 										{option.description}
 									</span>
 								</span>
@@ -406,7 +406,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						<div className="space-y-1.5">
 							<label
 								htmlFor="key-factory-auction-price"
-								className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+								className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 							>
 								Auction price (XLM)
 							</label>
@@ -426,7 +426,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 								data-testid="key-factory-auction-price-input"
 							/>
 							{errorFor('auctionPriceXlm') && (
-								<p role="alert" className="text-xs text-red-400">
+								<p role="alert" className="text-xs text-red-600 dark:text-red-400">
 									{errorFor('auctionPriceXlm')}
 								</p>
 							)}
@@ -480,12 +480,12 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 						].map(row => (
 							<div
 								key={row.label}
-								className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+								className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3"
 							>
-								<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+								<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 									{row.label}
 								</dt>
-								<dd className="mt-1 break-words text-sm text-white">
+								<dd className="mt-1 break-words text-sm text-foreground">
 									{row.value}
 								</dd>
 							</div>
@@ -495,7 +495,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					{!draftValidation.isValid && showErrors && (
 						<p
 							role="alert"
-							className="text-sm text-red-400"
+							className="text-sm text-red-600 dark:text-red-400"
 							data-testid="key-factory-review-errors"
 						>
 							Fix the highlighted steps before deploying.
@@ -505,7 +505,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 					{deploymentStatus && (
 						<div
 							role="status"
-							className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/75"
+							className="flex items-center gap-2 rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground/75"
 							data-testid="key-factory-deployment-status"
 						>
 							{isDeploymentSettled ? null : (
@@ -519,7 +519,7 @@ export const KeyFactoryWizard: React.FC<KeyFactoryWizardProps> = ({
 							</span>
 							{transactionHash && (
 								<span
-									className="font-mono text-xs text-white/50"
+									className="font-mono text-xs text-foreground/50"
 									data-testid="key-factory-deployment-tx"
 								>
 									{truncateTxHash(transactionHash)}

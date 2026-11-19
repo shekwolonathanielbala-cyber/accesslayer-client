@@ -12,10 +12,10 @@ interface CreatorCardSkeletonProps {
 }
 
 const skeletonBlockClass =
-	'rounded-md bg-white/12 skeleton-shimmer motion-reduce:bg-white/18 motion-reduce:ring-1 motion-reduce:ring-white/15';
+	'rounded-md bg-foreground/12 skeleton-shimmer motion-reduce:bg-foreground/18 motion-reduce:ring-1 motion-reduce:ring-foreground/15';
 const skeletonStaticBlockClass =
-	'rounded-md bg-white/16 ring-1 ring-white/15';
-const dividerClass = 'h-px w-full bg-white/10';
+	'rounded-md bg-foreground/16 ring-1 ring-foreground/15';
+const dividerClass = 'h-px w-full bg-foreground/10';
 
 /**
  * Loading skeleton for a single creator card (#421).

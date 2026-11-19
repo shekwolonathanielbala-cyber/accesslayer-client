@@ -24,7 +24,7 @@ export interface ProtocolRevenueClaimProps {
 }
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 const REVENUE_SHARE_EXPLANATION =
 	'Your share = your staked keys / total staked keys × trading-fee revenue pool. Claimable amounts accrue per stake position under the claim-based dividend model.';
@@ -106,11 +106,11 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 		<section className={CARD_CLASS} data-testid="protocol-revenue-claim">
 			<div className="mb-6 flex flex-wrap items-center justify-between gap-4">
 				<div>
-					<h2 className="flex items-center gap-2 font-grotesque text-xl font-black tracking-tight text-white">
+					<h2 className="flex items-center gap-2 font-grotesque text-xl font-black tracking-tight text-foreground">
 						Protocol Revenue
 						<Tooltip content={REVENUE_SHARE_EXPLANATION}>
 							<span
-								className="inline-flex cursor-help text-white/50 hover:text-white/80"
+								className="inline-flex cursor-help text-foreground/50 hover:text-foreground/80"
 								data-testid="revenue-share-tooltip"
 								aria-label="Revenue share calculation info"
 							>
@@ -118,10 +118,10 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 							</span>
 						</Tooltip>
 					</h2>
-					<p className="mt-1 text-sm text-white/60">
+					<p className="mt-1 text-sm text-foreground/60">
 						Total claimable:{' '}
 						<span
-							className="font-mono font-bold text-white"
+							className="font-mono font-bold text-foreground"
 							data-testid="revenue-total-claimable"
 						>
 							{formatXlmPrice(totalClaimable)}
@@ -149,15 +149,15 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 						.map(entry => (
 							<div
 								key={entry.position.creatorId}
-								className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between"
+								className="flex flex-col gap-3 rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between"
 								data-testid="revenue-position-row"
 							>
 								<div className="min-w-0 flex-1">
-									<p className="truncate text-sm font-bold text-white">
+									<p className="truncate text-sm font-bold text-foreground">
 										{entry.position.creatorId}
 									</p>
 									<p
-										className="mt-1 font-mono text-xs text-white/70"
+										className="mt-1 font-mono text-xs text-foreground/70"
 										data-testid="revenue-claimable-amount"
 									>
 										{formatXlmPrice(entry.claimable)} claimable
@@ -184,12 +184,12 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 			)}
 
 			<div className="mt-8">
-				<h3 className="font-grotesque text-lg font-bold text-white">
+				<h3 className="font-grotesque text-lg font-bold text-foreground">
 					Claim history
 				</h3>
 				{history.length === 0 ? (
 					<p
-						className="mt-2 text-sm text-white/55"
+						className="mt-2 text-sm text-foreground/55"
 						data-testid="revenue-history-empty"
 					>
 						No claims yet. Successful claims will appear here with their
@@ -200,19 +200,19 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 						{history.map(record => (
 							<div
 								key={record.id}
-								className="flex flex-col gap-2 rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:flex-row sm:items-center sm:justify-between"
+								className="flex flex-col gap-2 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 sm:flex-row sm:items-center sm:justify-between"
 								data-testid="revenue-history-row"
 							>
-								<div className="flex items-center gap-4 text-xs text-white/60">
+								<div className="flex items-center gap-4 text-xs text-foreground/60">
 									<span
-										className="font-mono text-white/80"
+										className="font-mono text-foreground/80"
 										title={new Date(record.timestamp).toLocaleString()}
 										data-testid="revenue-history-date"
 									>
 										{formatRelativeTime(record.timestamp)}
 									</span>
 									<span
-										className="font-mono font-semibold text-emerald-400"
+										className="font-mono font-semibold text-emerald-600 dark:text-emerald-400"
 										data-testid="revenue-history-amount"
 									>
 										+{record.amount.toFixed(4)} XLM
@@ -225,7 +225,7 @@ const ProtocolRevenueClaim: React.FC<ProtocolRevenueClaimProps> = ({
 									)}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-1 font-mono text-xs text-white/60 hover:text-white"
+									className="inline-flex items-center gap-1 font-mono text-xs text-foreground/60 hover:text-foreground"
 									data-testid="revenue-history-tx"
 								>
 									{truncateTxHash(record.transactionHash)}

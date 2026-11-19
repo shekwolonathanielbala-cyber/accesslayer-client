@@ -52,13 +52,13 @@ export const LockupCountdown: React.FC<LockupCountdownProps> = ({
 	return (
 		<div
 			className={cn(
-				'inline-flex items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-300',
+				'inline-flex items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300',
 				className
 			)}
 			data-testid="lockup-countdown"
 			aria-label={`Lockup remaining: ${formattedTime}`}
 		>
-			<Clock className="size-3.5 shrink-0 text-amber-400 animate-pulse" />
+			<Clock className="size-3.5 shrink-0 text-amber-600 dark:text-amber-400 animate-pulse" />
 			<span className="font-mono tabular-nums" data-testid="lockup-timer-text">
 				{formattedTime}
 			</span>

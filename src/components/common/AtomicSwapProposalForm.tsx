@@ -180,11 +180,11 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
 
           <div className="space-y-6">
             {/* Offered Side */}
-            <fieldset className="space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-              <legend className="text-sm font-semibold text-amber-300/90">You offer</legend>
+            <fieldset className="space-y-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+              <legend className="text-sm font-semibold text-amber-700/90 dark:text-amber-300/90">You offer</legend>
               <div className="space-y-3">
                 <div>
-                  <label htmlFor="offered-key" className="block text-xs font-medium text-white/70 mb-1.5">
+                  <label htmlFor="offered-key" className="block text-xs font-medium text-foreground/70 mb-1.5">
                     Key to offer
                   </label>
                   <select
@@ -194,8 +194,8 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                     onBlur={() => handleBlur('offeredKey')}
                     disabled={isSubmitting || createProposalMutation.isPending}
                     className={cn(
-                      'w-full rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-                      validationErrors.offeredKey ? 'border-red-500/60' : 'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
+                      'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+                      validationErrors.offeredKey ? 'border-red-500/60' : 'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
                     )}
                     aria-invalid={!!validationErrors.offeredKey}
                     aria-describedby={validationErrors.offeredKey ? 'offered-key-error' : undefined}
@@ -211,14 +211,14 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                     })}
                   </select>
                   {validationErrors.offeredKey && (
-                    <p id="offered-key-error" className="mt-1 text-xs text-red-300" role="alert">
+                    <p id="offered-key-error" className="mt-1 text-xs text-red-700 dark:text-red-300" role="alert">
                       {validationErrors.offeredKey}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="offered-amount" className="block text-xs font-medium text-white/70 mb-1.5">
+                  <label htmlFor="offered-amount" className="block text-xs font-medium text-foreground/70 mb-1.5">
                     Amount to offer
                   </label>
                   <input
@@ -233,20 +233,20 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                     onBlur={() => handleBlur('offeredAmount')}
                     disabled={isSubmitting || createProposalMutation.isPending || !offeredKeyId}
                     className={cn(
-                      'w-full rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-                      validationErrors.offeredAmount ? 'border-red-500/60' : 'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
+                      'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+                      validationErrors.offeredAmount ? 'border-red-500/60' : 'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
                     )}
                     aria-invalid={!!validationErrors.offeredAmount}
                     aria-describedby={validationErrors.offeredAmount ? 'offered-amount-error' : undefined}
                     placeholder={offeredKeyId ? 'Enter amount' : 'Select a key first'}
                   />
                   {validationErrors.offeredAmount && (
-                    <p id="offered-amount-error" className="mt-1 text-xs text-red-300" role="alert">
+                    <p id="offered-amount-error" className="mt-1 text-xs text-red-700 dark:text-red-300" role="alert">
                       {validationErrors.offeredAmount}
                     </p>
                   )}
                   {offeredKeyId && (
-                    <p className="mt-1 text-xs text-white/50">
+                    <p className="mt-1 text-xs text-foreground/50">
                       Available: {formatNumber(offeredHolding)} {offeredKey?.title ?? 'keys'}
                     </p>
                   )}
@@ -255,11 +255,11 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
             </fieldset>
 
             {/* Desired Side */}
-            <fieldset className="space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-              <legend className="text-sm font-semibold text-emerald-300/90">You want</legend>
+            <fieldset className="space-y-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+              <legend className="text-sm font-semibold text-emerald-700/90 dark:text-emerald-300/90">You want</legend>
               <div className="space-y-3">
                 <div>
-                  <label htmlFor="desired-key" className="block text-xs font-medium text-white/70 mb-1.5">
+                  <label htmlFor="desired-key" className="block text-xs font-medium text-foreground/70 mb-1.5">
                     Key you want
                   </label>
                   <select
@@ -269,8 +269,8 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                     onBlur={() => handleBlur('desiredKey')}
                     disabled={isSubmitting || createProposalMutation.isPending}
                     className={cn(
-                      'w-full rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-                      validationErrors.desiredKey ? 'border-red-500/60' : 'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
+                      'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+                      validationErrors.desiredKey ? 'border-red-500/60' : 'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
                     )}
                     aria-invalid={!!validationErrors.desiredKey}
                     aria-describedby={validationErrors.desiredKey ? 'desired-key-error' : undefined}
@@ -285,14 +285,14 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                       ))}
                   </select>
                   {validationErrors.desiredKey && (
-                    <p id="desired-key-error" className="mt-1 text-xs text-red-300" role="alert">
+                    <p id="desired-key-error" className="mt-1 text-xs text-red-700 dark:text-red-300" role="alert">
                       {validationErrors.desiredKey}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="desired-amount" className="block text-xs font-medium text-white/70 mb-1.5">
+                  <label htmlFor="desired-amount" className="block text-xs font-medium text-foreground/70 mb-1.5">
                     Amount wanted
                   </label>
                   <input
@@ -306,15 +306,15 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                     onBlur={() => handleBlur('desiredAmount')}
                     disabled={isSubmitting || createProposalMutation.isPending || !desiredKeyId}
                     className={cn(
-                      'w-full rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-                      validationErrors.desiredAmount ? 'border-red-500/60' : 'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
+                      'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+                      validationErrors.desiredAmount ? 'border-red-500/60' : 'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
                     )}
                     aria-invalid={!!validationErrors.desiredAmount}
                     aria-describedby={validationErrors.desiredAmount ? 'desired-amount-error' : undefined}
                     placeholder={desiredKeyId ? 'Enter amount' : 'Select a key first'}
                   />
                   {validationErrors.desiredAmount && (
-                    <p id="desired-amount-error" className="mt-1 text-xs text-red-300" role="alert">
+                    <p id="desired-amount-error" className="mt-1 text-xs text-red-700 dark:text-red-300" role="alert">
                       {validationErrors.desiredAmount}
                     </p>
                   )}
@@ -324,7 +324,7 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
 
             {/* Expiry */}
             <div className="space-y-2">
-              <label htmlFor="expiry-hours" className="block text-xs font-medium text-white/70 mb-1.5">
+              <label htmlFor="expiry-hours" className="block text-xs font-medium text-foreground/70 mb-1.5">
                 Proposal expires in (hours)
               </label>
               <input
@@ -339,38 +339,38 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                 onBlur={() => handleBlur('expiryHours')}
                 disabled={isSubmitting || createProposalMutation.isPending}
                 className={cn(
-                  'w-full rounded-xl border bg-white/[0.04] px-3 py-2 text-white outline-none transition-colors',
-                  validationErrors.expiryHours ? 'border-red-500/60' : 'border-white/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
+                  'w-full rounded-xl border bg-foreground/[0.04] px-3 py-2 text-foreground outline-none transition-colors',
+                  validationErrors.expiryHours ? 'border-red-500/60' : 'border-foreground/10 focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/15'
                 )}
                 aria-invalid={!!validationErrors.expiryHours}
                 aria-describedby={validationErrors.expiryHours ? 'expiry-hours-error' : undefined}
               />
               {validationErrors.expiryHours && (
-                <p id="expiry-hours-error" className="mt-1 text-xs text-red-300" role="alert">
+                <p id="expiry-hours-error" className="mt-1 text-xs text-red-700 dark:text-red-300" role="alert">
                   {validationErrors.expiryHours}
                 </p>
               )}
-              <p className="text-xs text-white/50">
+              <p className="text-xs text-foreground/50">
                 After expiry, the proposal can no longer be accepted. Max {MAX_EXPIRY_HOURS} hours (7 days).
               </p>
             </div>
 
             {/* Summary Preview */}
             {offeredKey && desiredKey && offeredAmount && desiredAmount && (
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-white/50 mb-3">Proposal summary</p>
+              <div className="rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-3">Proposal summary</p>
                 <div className="flex items-center justify-between gap-4 text-sm">
                   <div className="flex-1 text-center p-3 rounded-lg bg-amber-400/10 border border-amber-400/20">
-                    <p className="font-semibold text-amber-300">{offeredKey.title}</p>
-                    <p className="font-mono text-white/90">{formatNumber(parsedOfferedAmount)} keys</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-300">{offeredKey.title}</p>
+                    <p className="font-mono text-foreground/90">{formatNumber(parsedOfferedAmount)} keys</p>
                   </div>
-                  <span className="text-white/40 shrink-0" aria-hidden="true">↔</span>
+                  <span className="text-foreground/40 shrink-0" aria-hidden="true">↔</span>
                   <div className="flex-1 text-center p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                    <p className="font-semibold text-emerald-400">{desiredKey.title}</p>
-                    <p className="font-mono text-white/90">{formatNumber(parsedDesiredAmount)} keys</p>
+                    <p className="font-semibold text-emerald-600 dark:text-emerald-400">{desiredKey.title}</p>
+                    <p className="font-mono text-foreground/90">{formatNumber(parsedDesiredAmount)} keys</p>
                   </div>
                 </div>
-                <p className="mt-2 text-xs text-white/50 text-center">
+                <p className="mt-2 text-xs text-foreground/50 text-center">
                   Expires in {expiryHours} hour{expiryHours !== 1 ? 's' : ''}
                 </p>
               </div>
@@ -413,14 +413,14 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-              <label className="block text-xs font-medium text-white/70 mb-2">Shareable link</label>
+            <div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+              <label className="block text-xs font-medium text-foreground/70 mb-2">Shareable link</label>
               <div className="flex gap-2">
                 <input
                   type="text"
                   readOnly
                   value={generatedLink}
-                  className="flex-1 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-white outline-none font-mono text-sm truncate"
+                  className="flex-1 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-foreground outline-none font-mono text-sm truncate"
                   aria-label="Proposal share link"
                 />
                 <Button
@@ -434,7 +434,7 @@ export const AtomicSwapProposalForm: React.FC<AtomicSwapProposalFormProps> = ({
                 </Button>
               </div>
             </div>
-            <p className="text-xs text-white/50 text-center">
+            <p className="text-xs text-foreground/50 text-center">
               This proposal expires in {expiryHours} hour{expiryHours !== 1 ? 's' : ''}.
             </p>
           </div>

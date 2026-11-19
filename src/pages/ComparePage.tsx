@@ -51,17 +51,17 @@ export default function ComparePage() {
 
 	if (keysToShow.length === 0) {
 		return (
-			<div className="min-h-screen bg-black text-white">
+			<div className="min-h-screen bg-surface text-foreground">
 				<div className="mx-auto max-w-5xl px-6 py-12">
 					<Link
 						to="/"
-						className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/90"
+						className="mb-8 inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground/90"
 					>
 						<ArrowLeft className="size-4" />
 						Back to Marketplace
 					</Link>
 					<h1 className="font-grotesque text-3xl font-black">Compare Keys</h1>
-					<p className="mt-4 text-white/60">
+					<p className="mt-4 text-foreground/60">
 						No keys selected for comparison. Go back to the marketplace and add
 						keys to compare.
 					</p>
@@ -71,17 +71,17 @@ export default function ComparePage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-black text-white">
+		<div className="min-h-screen bg-surface text-foreground">
 			<div className="mx-auto max-w-5xl px-6 py-12">
 				<Link
 					to="/"
-					className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/90"
+					className="mb-8 inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground/90"
 				>
 					<ArrowLeft className="size-4" />
 					Back to Marketplace
 				</Link>
 				<h1 className="font-grotesque text-3xl font-black">Compare Keys</h1>
-				<p className="mt-2 text-white/60">
+				<p className="mt-2 text-foreground/60">
 					Comparing {keysToShow.length} creator {keysToShow.length === 1 ? 'key' : 'keys'}
 				</p>
 
@@ -89,13 +89,13 @@ export default function ComparePage() {
 					<table className="w-full border-collapse">
 						<thead>
 							<tr>
-								<th className="border-b border-white/10 py-4 pr-8 text-left text-sm font-medium text-white/50">
+								<th className="border-b border-foreground/10 py-4 pr-8 text-left text-sm font-medium text-foreground/50">
 									Stat
 								</th>
 								{keysToShow.map(key => (
 									<th
 										key={key.id}
-										className="border-b border-white/10 py-4 px-4 text-left text-sm font-medium text-white"
+										className="border-b border-foreground/10 py-4 px-4 text-left text-sm font-medium text-foreground"
 									>
 										{key.name}
 									</th>
@@ -103,32 +103,32 @@ export default function ComparePage() {
 							</tr>
 						</thead>
 						<tbody>
-							<tr className="border-b border-white/5">
-								<td className="py-4 pr-8 text-sm text-white/50">Price</td>
+							<tr className="border-b border-foreground/5">
+								<td className="py-4 pr-8 text-sm text-foreground/50">Price</td>
 								{keysToShow.map(key => (
 									<td key={key.id} className="py-4 px-4 text-sm font-medium">
 										{key.price}
 									</td>
 								))}
 							</tr>
-							<tr className="border-b border-white/5">
-								<td className="py-4 pr-8 text-sm text-white/50">Volume</td>
+							<tr className="border-b border-foreground/5">
+								<td className="py-4 pr-8 text-sm text-foreground/50">Volume</td>
 								{keysToShow.map(key => (
 									<td key={key.id} className="py-4 px-4 text-sm">
 										{key.volume}
 									</td>
 								))}
 							</tr>
-							<tr className="border-b border-white/5">
-								<td className="py-4 pr-8 text-sm text-white/50">Holders</td>
+							<tr className="border-b border-foreground/5">
+								<td className="py-4 pr-8 text-sm text-foreground/50">Holders</td>
 								{keysToShow.map(key => (
 									<td key={key.id} className="py-4 px-4 text-sm">
 										{key.holders}
 									</td>
 								))}
 							</tr>
-							<tr className="border-b border-white/5">
-								<td className="py-4 pr-8 text-sm text-white/50">Supply</td>
+							<tr className="border-b border-foreground/5">
+								<td className="py-4 pr-8 text-sm text-foreground/50">Supply</td>
 								{keysToShow.map(key => (
 									<td key={key.id} className="py-4 px-4 text-sm">
 										{key.supply}
@@ -136,15 +136,15 @@ export default function ComparePage() {
 								))}
 							</tr>
 							<tr>
-								<td className="py-4 pr-8 text-sm text-white/50">24h Change</td>
+								<td className="py-4 pr-8 text-sm text-foreground/50">24h Change</td>
 								{keysToShow.map(key => (
 									<td
 										key={key.id}
 										className={`py-4 px-4 text-sm font-medium ${
 											key.change24h.startsWith('+')
-												? 'text-emerald-400'
+												? 'text-emerald-600 dark:text-emerald-400'
 												: key.change24h.startsWith('-')
-													? 'text-red-400'
+													? 'text-red-600 dark:text-red-400'
 													: ''
 										}`}
 									>

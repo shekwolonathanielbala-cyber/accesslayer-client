@@ -136,7 +136,7 @@ describe('Property 9: CSS classes always present on overlay', () => {
       fc.property(fc.string(), (content) => {
         const { unmount } = renderTooltip(content);
         const overlay = screen.getByRole('tooltip');
-        expect(overlay.className).toContain('bg-black');
+        expect(overlay.className).toContain('bg-surface');
         expect(overlay.className).toContain('rounded-md');
         expect(overlay.className).toContain('shadow-md');
         unmount();

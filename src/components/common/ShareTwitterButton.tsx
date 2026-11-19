@@ -55,7 +55,7 @@ export function ShareTwitterButton({
 			data-testid="share-twitter-button"
 			onClick={handleShareClick}
 			aria-label="Share key purchase to X"
-			className={`inline-flex items-center gap-2 rounded-xl bg-[#1DA1F2]/15 border border-[#1DA1F2]/30 px-4 py-2.5 text-sm font-semibold font-jakarta text-[#1DA1F2] transition-all hover:bg-[#1DA1F2]/25 hover:text-white ${className}`}
+			className={`inline-flex items-center gap-2 rounded-xl bg-[#1DA1F2]/15 border border-[#1DA1F2]/30 px-4 py-2.5 text-sm font-semibold font-jakarta text-[#1DA1F2] transition-all hover:bg-[#1DA1F2]/25 hover:text-foreground ${className}`}
 		>
 			<Share2 className="size-4" aria-hidden="true" />
 			<span>Share to X</span>

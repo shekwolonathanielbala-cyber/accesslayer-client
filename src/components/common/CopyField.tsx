@@ -49,7 +49,7 @@ const CopyField: React.FC<CopyFieldProps> = ({
 				aria-label={label}
 				title={value}
 				className={cn(
-					'min-w-0 flex-1 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-sm text-white/75 outline-none transition-colors focus:border-amber-400/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-amber-400/20',
+					'min-w-0 flex-1 rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 font-mono text-sm text-foreground/75 outline-none transition-colors focus:border-amber-400/40 focus:bg-foreground/[0.06] focus:ring-1 focus:ring-amber-400/20',
 					inputClassName
 				)}
 			/>
@@ -57,13 +57,13 @@ const CopyField: React.FC<CopyFieldProps> = ({
 				type="button"
 				onClick={handleCopy}
 				className={cn(
-					'inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white',
+					'inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-foreground/5 text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground',
 					buttonClassName
 				)}
 				aria-label={copied ? `${label} copied` : `Copy ${label}`}
 			>
 				{copied ? (
-					<Check className="size-4 text-emerald-400" aria-hidden="true" />
+					<Check className="size-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
 				) : (
 					<Copy className="size-4" aria-hidden="true" />
 				)}

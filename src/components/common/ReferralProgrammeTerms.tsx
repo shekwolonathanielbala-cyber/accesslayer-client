@@ -22,10 +22,10 @@ export const ReferralProgrammeTerms: React.FC<ReferralProgrammeTermsProps> = ({
 
 	return (
 		<section className={className} data-testid="referral-programme-terms">
-			<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+			<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 				How the referral programme works
 			</h2>
-			<ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/60">
+			<ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-foreground/60">
 				{terms.map(term => (
 					<li key={term} data-testid="referral-term">
 						{term}

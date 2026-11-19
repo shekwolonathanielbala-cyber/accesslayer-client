@@ -27,7 +27,7 @@ const PrecisionModeToggle: React.FC<PrecisionModeToggleProps> = ({
 				role="group"
 				aria-label="Metrics display precision"
 				className={cn(
-					'inline-flex items-center rounded-lg border border-white/10 bg-white/[0.05] p-0.5',
+					'inline-flex items-center rounded-lg border border-foreground/10 bg-foreground/[0.05] p-0.5',
 					className
 				)}
 			>
@@ -39,8 +39,8 @@ const PrecisionModeToggle: React.FC<PrecisionModeToggleProps> = ({
 					className={cn(
 						'rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] transition-colors',
 						mode === 'compact'
-							? 'bg-amber-400/20 text-amber-300'
-							: 'text-white/45 hover:text-white/70'
+							? 'bg-amber-400/20 text-amber-700 dark:text-amber-300'
+							: 'text-foreground/45 hover:text-foreground/70'
 					)}
 				>
 					Compact
@@ -53,8 +53,8 @@ const PrecisionModeToggle: React.FC<PrecisionModeToggleProps> = ({
 					className={cn(
 						'rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] transition-colors',
 						mode === 'full'
-							? 'bg-amber-400/20 text-amber-300'
-							: 'text-white/45 hover:text-white/70'
+							? 'bg-amber-400/20 text-amber-700 dark:text-amber-300'
+							: 'text-foreground/45 hover:text-foreground/70'
 					)}
 				>
 					Full

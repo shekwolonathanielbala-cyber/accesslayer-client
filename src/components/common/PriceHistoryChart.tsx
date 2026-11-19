@@ -44,19 +44,19 @@ export function PriceHistoryChart({
 }: PriceHistoryChartProps) {
 	return (
 		<section
-			className="rounded-4xl border border-white/10 bg-white/2 p-6 shadow-2xl backdrop-blur-md md:p-8"
+			className="rounded-4xl border border-foreground/10 bg-foreground/2 p-6 shadow-2xl backdrop-blur-md md:p-8"
 			aria-labelledby="price-history-heading"
 			data-testid="price-history-chart"
 		>
 			<div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<h2
 					id="price-history-heading"
-					className="font-grotesque text-xl font-black tracking-tight text-white"
+					className="font-grotesque text-xl font-black tracking-tight text-foreground"
 				>
 					Price history
 				</h2>
 				<div
-					className="flex w-fit rounded-lg border border-white/10 bg-black/20 p-1"
+					className="flex w-fit rounded-lg border border-foreground/10 bg-black/20 p-1"
 					role="group"
 					aria-label="Price history interval"
 				>
@@ -68,7 +68,7 @@ export function PriceHistoryChart({
 								'rounded-md px-3 py-1.5 text-xs font-bold tracking-wider transition-colors',
 								interval === option.value
 									? 'bg-emerald-400 text-slate-950'
-									: 'text-white/55 hover:bg-white/10 hover:text-white'
+									: 'text-foreground/55 hover:bg-foreground/10 hover:text-foreground'
 							)}
 							aria-pressed={interval === option.value}
 							data-testid={`price-history-interval-${option.value}`}
@@ -91,7 +91,7 @@ export function PriceHistoryChart({
 				</div>
 			) : data.length === 0 ? (
 				<div
-					className="flex h-65 items-center justify-center text-sm text-white/45"
+					className="flex h-65 items-center justify-center text-sm text-foreground/45"
 					data-testid="price-history-empty"
 				>
 					No price history yet

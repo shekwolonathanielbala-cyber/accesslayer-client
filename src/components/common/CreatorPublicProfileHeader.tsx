@@ -49,7 +49,7 @@ const CreatorPublicProfileHeader: React.FC<CreatorPublicProfileHeaderProps> = ({
 		<header
 			data-testid="creator-public-profile-header"
 			className={cn(
-				'relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 shadow-2xl backdrop-blur-md md:p-8',
+				'relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-gradient-to-br from-foreground/[0.06] via-foreground/[0.02] to-transparent p-6 shadow-2xl backdrop-blur-md md:p-8',
 				className
 			)}
 		>
@@ -60,7 +60,7 @@ const CreatorPublicProfileHeader: React.FC<CreatorPublicProfileHeaderProps> = ({
 
 			<div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 				<div className="flex min-w-0 items-center gap-5">
-					<div className="size-20 shrink-0 overflow-hidden rounded-2xl border-2 border-white/10 shadow-xl md:size-24">
+					<div className="size-20 shrink-0 overflow-hidden rounded-2xl border-2 border-foreground/10 shadow-xl md:size-24">
 						<CreatorInitialsAvatar
 							name={displayName}
 							creatorId={creatorId}
@@ -72,7 +72,7 @@ const CreatorPublicProfileHeader: React.FC<CreatorPublicProfileHeaderProps> = ({
 						<div className="flex flex-wrap items-center gap-2">
 							<h1
 								data-testid="creator-public-profile-name"
-								className="truncate font-grotesque text-2xl font-black tracking-tight text-white md:text-3xl"
+								className="truncate font-grotesque text-2xl font-black tracking-tight text-foreground md:text-3xl"
 							>
 								{displayName}
 							</h1>
@@ -80,13 +80,13 @@ const CreatorPublicProfileHeader: React.FC<CreatorPublicProfileHeaderProps> = ({
 						</div>
 
 						{displayHandle && (
-							<p className="font-mono text-sm text-white/50">
+							<p className="font-mono text-sm text-foreground/50">
 								{displayHandle}
 							</p>
 						)}
 
 						{metaItems.length > 0 && (
-							<p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+							<p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/45">
 								{metaItems.map((item, index) => (
 									<span
 										key={item}
@@ -94,7 +94,7 @@ const CreatorPublicProfileHeader: React.FC<CreatorPublicProfileHeaderProps> = ({
 									>
 										{index > 0 && (
 											<span
-												className="text-white/20"
+												className="text-foreground/20"
 												aria-hidden="true"
 											>
 												•

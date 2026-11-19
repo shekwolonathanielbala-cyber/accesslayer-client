@@ -66,7 +66,7 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 		<div
 			data-testid="portfolio-performance-card"
 			className={cn(
-				'w-[540px] max-w-full rounded-2xl border border-white/15 bg-gradient-to-br from-slate-950 via-[#0a1526] to-[#040812] p-6 text-white shadow-2xl relative overflow-hidden font-jakarta select-none',
+				'w-[540px] max-w-full rounded-2xl border border-foreground/15 bg-gradient-to-br from-slate-950 via-surface-raised to-surface p-6 text-foreground shadow-2xl relative overflow-hidden font-jakarta select-none',
 				className
 			)}
 			style={{
@@ -84,57 +84,57 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 			/>
 
 			{/* Card Header: Logo, Branding & Truncated Wallet */}
-			<div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+			<div className="relative z-10 flex items-center justify-between border-b border-foreground/10 pb-4">
 				<div className="flex items-center gap-3">
 					<AccessLayerLogoIcon className="size-9" />
 					<div>
 						<div className="flex items-center gap-2">
-							<span className="font-grotesque text-lg font-black tracking-tight text-white">
+							<span className="font-grotesque text-lg font-black tracking-tight text-foreground">
 								AccessLayer
 							</span>
-							<span className="rounded-full bg-amber-400/15 border border-amber-400/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300">
+							<span className="rounded-full bg-amber-400/15 border border-amber-400/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
 								Portfolio
 							</span>
 						</div>
-						<p className="text-[11px] text-white/50">Creator Key Performance</p>
+						<p className="text-[11px] text-foreground/50">Creator Key Performance</p>
 					</div>
 				</div>
 
 				<div
 					data-testid="performance-card-wallet"
-					className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-mono text-white/80"
+					className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-2.5 py-1 text-xs font-mono text-foreground/80"
 				>
-					<Wallet className="size-3 text-amber-400" aria-hidden="true" />
+					<Wallet className="size-3 text-amber-600 dark:text-amber-400" aria-hidden="true" />
 					<span>{truncatedWallet}</span>
 				</div>
 			</div>
 
 			{/* Main Metrics: Total Value & Unrealised PnL */}
 			<div className="relative z-10 mt-5 grid grid-cols-2 gap-4">
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm">
-					<span className="text-xs font-medium text-white/55 uppercase tracking-wider">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 backdrop-blur-sm">
+					<span className="text-xs font-medium text-foreground/55 uppercase tracking-wider">
 						Total Value
 					</span>
 					<div
 						data-testid="performance-card-total-value"
-						className="mt-1 font-grotesque text-2xl font-black text-white tracking-tight"
+						className="mt-1 font-grotesque text-2xl font-black text-foreground tracking-tight"
 					>
 						{formatPnLDisplay(pnlSummary.currentValue)}
 					</div>
-					<div className="mt-1 text-[11px] text-white/45">
+					<div className="mt-1 text-[11px] text-foreground/45">
 						Invested: {formatPnLDisplay(pnlSummary.totalInvested)}
 					</div>
 				</div>
 
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 backdrop-blur-sm">
 					<div className="flex items-center justify-between">
-						<span className="text-xs font-medium text-white/55 uppercase tracking-wider">
+						<span className="text-xs font-medium text-foreground/55 uppercase tracking-wider">
 							Unrealised PnL
 						</span>
 						{isProfitable ? (
-							<TrendingUp className="size-4 text-emerald-400" aria-hidden="true" />
+							<TrendingUp className="size-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
 						) : isLoss ? (
-							<TrendingDown className="size-4 text-red-400" aria-hidden="true" />
+							<TrendingDown className="size-4 text-red-600 dark:text-red-400" aria-hidden="true" />
 						) : null}
 					</div>
 					<div
@@ -142,10 +142,10 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 						className={cn(
 							'mt-1 font-grotesque text-2xl font-black tracking-tight',
 							isProfitable
-								? 'text-emerald-400'
+								? 'text-emerald-600 dark:text-emerald-400'
 								: isLoss
-									? 'text-red-400'
-									: 'text-white'
+									? 'text-red-600 dark:text-red-400'
+									: 'text-foreground'
 						)}
 					>
 						{formatPnLDisplay(pnlSummary.unrealisedPnL)}
@@ -155,10 +155,10 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 						className={cn(
 							'mt-1 text-[11px] font-bold font-grotesque',
 							isProfitable
-								? 'text-emerald-400'
+								? 'text-emerald-600 dark:text-emerald-400'
 								: isLoss
-									? 'text-red-400'
-									: 'text-white/60'
+									? 'text-red-600 dark:text-red-400'
+									: 'text-foreground/60'
 						)}
 					>
 						{formatPnLPercentage(pnlSummary.pnlPercentage)} return
@@ -169,10 +169,10 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 			{/* Top 3 Holdings */}
 			<div className="relative z-10 mt-5">
 				<div className="flex items-center justify-between text-xs mb-2.5">
-					<span className="font-semibold text-white/70 uppercase tracking-wider text-[11px]">
+					<span className="font-semibold text-foreground/70 uppercase tracking-wider text-[11px]">
 						Top Holdings by Value
 					</span>
-					<span className="text-[11px] text-white/40">
+					<span className="text-[11px] text-foreground/40">
 						{activeHoldings.length} {activeHoldings.length === 1 ? 'position' : 'positions'}
 					</span>
 				</div>
@@ -182,7 +182,7 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 					className="space-y-2"
 				>
 					{topHoldings.length === 0 ? (
-						<div className="rounded-lg border border-dashed border-white/10 p-3 text-center text-xs text-white/40">
+						<div className="rounded-lg border border-dashed border-foreground/10 p-3 text-center text-xs text-foreground/40">
 							No held creator keys
 						</div>
 					) : (
@@ -198,17 +198,17 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 								<div
 									key={position.creatorId}
 									data-testid={`top-holding-${index}`}
-									className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] px-3.5 py-2.5"
+									className="flex items-center justify-between rounded-xl border border-foreground/10 bg-foreground/[0.02] px-3.5 py-2.5"
 								>
 									<div className="flex items-center gap-2.5 min-w-0">
-										<span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-amber-300">
+										<span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-foreground/10 text-[10px] font-bold text-amber-700 dark:text-amber-300">
 											#{index + 1}
 										</span>
 										<div className="min-w-0">
-											<div className="truncate text-xs font-bold text-white">
+											<div className="truncate text-xs font-bold text-foreground">
 												{name}
 											</div>
-											<div className="text-[10px] text-white/50">
+											<div className="text-[10px] text-foreground/50">
 												{handle ? `${handle} · ` : ''}
 												{position.quantity} {position.quantity === 1 ? 'key' : 'keys'}
 											</div>
@@ -216,7 +216,7 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 									</div>
 
 									<div className="text-right shrink-0">
-										<div className="font-grotesque text-xs font-bold text-white">
+										<div className="font-grotesque text-xs font-bold text-foreground">
 											{totalVal != null ? formatDisplayKeyPrice(totalVal) : '—'}
 										</div>
 									</div>
@@ -228,7 +228,7 @@ export const PortfolioPerformanceCard: React.FC<PortfolioPerformanceCardProps> =
 			</div>
 
 			{/* Card Footer: Brand watermark & URL */}
-			<div className="relative z-10 mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-white/40 font-mono">
+			<div className="relative z-10 mt-5 pt-3 border-t border-foreground/10 flex items-center justify-between text-[10px] text-foreground/40 font-mono">
 				<span>accesslayer.org</span>
 				<span>Decentralized Creator Keys on Stellar</span>
 			</div>

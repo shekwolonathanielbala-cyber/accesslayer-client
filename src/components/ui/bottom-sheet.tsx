@@ -241,7 +241,7 @@ export const BottomSheetContent = React.forwardRef<
 						// behavior are already provided by Radix.
 						aria-modal="true"
 						className={cn(
-							"fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-lg touch-pan-y rounded-t-2xl border border-white/10 bg-slate-950/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-xl",
+							"fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-lg touch-pan-y rounded-t-2xl border border-foreground/10 bg-surface-raised p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-xl",
 							"data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-bottom-8 data-[state=closed]:slide-out-to-bottom-8",
 							className
 						)}
@@ -254,7 +254,7 @@ export const BottomSheetContent = React.forwardRef<
 						{children}
 						{!hideCloseButton && (
 							<DialogPrimitive.Close
-								className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+								className="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-foreground/80 transition-colors hover:bg-foreground/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 								aria-label="Close panel"
 							>
 								<XIcon className="size-4" aria-hidden="true" />
@@ -289,7 +289,7 @@ export const BottomSheetHandle: React.FC<{ className?: string }> = ({
 			role="presentation"
 			data-testid="bottom-sheet-handle"
 			className={cn(
-				"mx-auto mb-3 h-1.5 w-12 cursor-grab rounded-full bg-white/25 active:cursor-grabbing",
+				"mx-auto mb-3 h-1.5 w-12 cursor-grab rounded-full bg-foreground/25 active:cursor-grabbing",
 				className
 			)}
 		/>

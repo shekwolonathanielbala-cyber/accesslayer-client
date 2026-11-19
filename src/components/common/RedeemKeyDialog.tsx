@@ -96,22 +96,22 @@ const RedeemKeyDialog: React.FC<RedeemKeyDialogProps> = ({
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className="space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm">
+				<div className="space-y-3 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 text-sm">
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Keys held</span>
-						<span className="font-semibold text-white tabular-nums">
+						<span className="text-foreground/60">Keys held</span>
+						<span className="font-semibold text-foreground tabular-nums">
 							{formatNumber(quantity)}
 						</span>
 					</div>
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Per-key price</span>
-						<span className="font-semibold text-white tabular-nums">
+						<span className="text-foreground/60">Per-key price</span>
+						<span className="font-semibold text-foreground tabular-nums">
 							{formatDisplayKeyPrice(estimate?.keyPriceStroops)}
 						</span>
 					</div>
 					<div className="flex items-center justify-between">
-						<span className="text-white/60">Redemption value</span>
-						<span className="font-semibold text-amber-300/90 tabular-nums">
+						<span className="text-foreground/60">Redemption value</span>
+						<span className="font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums">
 							{estimate
 								? `${formatNumber(estimate.totalValueStroops / STROOPS_PER_XLM, {
 										minimumFractionDigits: 2,

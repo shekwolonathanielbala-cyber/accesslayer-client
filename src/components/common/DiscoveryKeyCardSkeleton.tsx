@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 const skeletonBlockClass =
-	'rounded-md bg-white/10 skeleton-shimmer motion-reduce:bg-white/15 motion-reduce:ring-1 motion-reduce:ring-white/10';
+	'rounded-md bg-foreground/10 skeleton-shimmer motion-reduce:bg-foreground/15 motion-reduce:ring-1 motion-reduce:ring-foreground/10';
 
 export interface DiscoveryKeyCardSkeletonProps {
 	className?: string;
@@ -16,7 +16,7 @@ export const DiscoveryKeyCardSkeleton: React.FC<DiscoveryKeyCardSkeletonProps> =
 			aria-hidden="true"
 			data-testid="discovery-card-skeleton"
 			className={cn(
-				'flex flex-col justify-between rounded-2xl border border-white/10 bg-slate-900/40 p-5 backdrop-blur-md',
+				'flex flex-col justify-between rounded-2xl border border-foreground/10 bg-surface-raised p-5 backdrop-blur-md',
 				className
 			)}
 		>
@@ -38,7 +38,7 @@ export const DiscoveryKeyCardSkeleton: React.FC<DiscoveryKeyCardSkeletonProps> =
 			</div>
 
 			{/* Price Skeleton */}
-			<div className="mt-6 flex items-center justify-between border-t border-white/10 pt-3">
+			<div className="mt-6 flex items-center justify-between border-t border-foreground/10 pt-3">
 				<div className={cn('h-3.5 w-10', skeletonBlockClass)} />
 				<div className={cn('h-4 w-16', skeletonBlockClass)} />
 			</div>

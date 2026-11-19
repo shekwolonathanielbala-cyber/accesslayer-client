@@ -24,7 +24,7 @@ const RecentActivityBadge: React.FC<RecentActivityBadgeProps> = ({
 			<span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
 			<span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
 		</span>
-		<span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-emerald-400">
+		<span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
 			Active
 		</span>
 		<span className="sr-only">Recently active</span>

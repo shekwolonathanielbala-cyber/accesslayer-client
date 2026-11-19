@@ -114,7 +114,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 			className={cn(
 				'sticky top-0 z-30 -mx-6 px-6 py-4 transition-all duration-300 md:-mx-12 md:px-12',
 				isScrolled
-					? 'bg-slate-950/80 shadow-lg backdrop-blur-md py-3'
+					? 'bg-surface-raised shadow-lg backdrop-blur-md py-3'
 					: 'bg-transparent',
 				className
 			)}
@@ -129,7 +129,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 							variant="outline"
 							size="icon"
 							className={cn(
-								'shrink-0 rounded-xl border-white/10 bg-white/5 text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
+								'shrink-0 rounded-xl border-foreground/10 bg-foreground/5 text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
 								isScrolled ? 'size-9' : 'size-11'
 							)}
 						>
@@ -145,7 +145,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 						}}
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
 						className={cn(
-							'overflow-hidden border-2 border-white/10 shadow-xl shrink-0',
+							'overflow-hidden border-2 border-foreground/10 shadow-xl shrink-0',
 							isScrolled ? 'size-12 md:size-16' : 'size-24 md:size-32',
 							CREATOR_CARD_MEDIA_RADIUS_CLASS
 						)}
@@ -164,7 +164,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 									fontSize: isScrolled ? '1.25rem' : '1.875rem',
 								}}
 								className={cn(
-									'truncate font-grotesque font-black tracking-tight text-white transition-all duration-300',
+									'truncate font-grotesque font-black tracking-tight text-foreground transition-all duration-300',
 									isScrolled
 										? 'text-xl md:text-2xl'
 										: 'text-3xl md:text-4xl'
@@ -182,7 +182,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 							<div className="animate-in fade-in slide-in-from-top-1 duration-300">
 								<p
 									className={cn(
-										'font-jakarta text-lg text-white/50',
+										'font-jakarta text-lg text-foreground/50',
 										CREATOR_PROFILE_SUBTITLE_WRAP_CLASS_NAME
 									)}
 								>
@@ -196,17 +196,17 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 								/>
 								{displayPrice && (
 									<div className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1.5">
-										<span className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white/45">
+										<span className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-foreground/45">
 											Current key price
 										</span>
-										<span className="font-jakarta text-sm font-semibold text-amber-300">
+										<span className="font-jakarta text-sm font-semibold text-amber-700 dark:text-amber-300">
 											{displayPrice}
 										</span>
 									</div>
 								)}
 							</div>
 						) : (
-							<p className="font-jakarta text-xs text-white/50 truncate">
+							<p className="font-jakarta text-xs text-foreground/50 truncate">
 								{displayHandle || `@${handle}`}
 							</p>
 						)}
@@ -225,7 +225,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 								aria-label="Edit bio"
 								variant="outline"
 								className={cn(
-									'rounded-xl border-white/10 bg-white/5 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
+									'rounded-xl border-foreground/10 bg-foreground/5 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
 									isScrolled ? 'h-9 px-3 text-xs' : 'h-11 px-4 text-sm'
 								)}
 							>
@@ -237,7 +237,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 								aria-label="Change avatar"
 								variant="outline"
 								className={cn(
-									'rounded-xl border-white/10 bg-white/5 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
+									'rounded-xl border-foreground/10 bg-foreground/5 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
 									isScrolled ? 'h-9 px-3 text-xs' : 'h-11 px-4 text-sm'
 								)}
 							>
@@ -254,7 +254,7 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 							aria-label={copied ? 'Copied!' : 'Share profile'}
 							variant="outline"
 							className={cn(
-								'rounded-xl border-white/10 bg-white/5 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
+								'rounded-xl border-foreground/10 bg-foreground/5 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10 active:scale-95',
 								isScrolled ? 'h-9 px-3 text-xs' : 'h-11 px-4 text-sm'
 							)}
 						>

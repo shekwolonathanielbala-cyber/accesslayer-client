@@ -69,7 +69,7 @@ const HolderConcentrationChart: React.FC<HolderConcentrationChartProps> = ({
 	if (bars.length === 0) {
 		return (
 			<p
-				className="py-8 text-center text-sm text-white/50"
+				className="py-8 text-center text-sm text-foreground/50"
 				data-testid="holder-concentration-empty"
 			>
 				No holder concentration data yet.
@@ -83,12 +83,12 @@ const HolderConcentrationChart: React.FC<HolderConcentrationChartProps> = ({
 			data-testid="holder-concentration-chart"
 		>
 			<div className="flex flex-wrap items-center justify-between gap-3">
-				<p className="text-sm text-white/60">
+				<p className="text-sm text-foreground/60">
 					Top holders by share of circulating supply.
 				</p>
 				{isHighlyConcentrated && (
 					<span
-						className="inline-flex items-center gap-1.5 rounded-full border border-red-400/30 bg-red-400/10 px-2.5 py-1 text-xs font-bold text-red-200"
+						className="inline-flex items-center gap-1.5 rounded-full border border-red-400/30 bg-red-400/10 px-2.5 py-1 text-xs font-bold text-red-700 dark:text-red-200"
 						data-testid="holder-concentration-warning"
 					>
 						<AlertTriangle className="size-3.5" aria-hidden="true" />
@@ -106,7 +106,7 @@ const HolderConcentrationChart: React.FC<HolderConcentrationChartProps> = ({
 					>
 						<span
 							className={cn(
-								'truncate text-sm font-semibold text-white/80',
+								'truncate text-sm font-semibold text-foreground/80',
 								bar.walletAddress && 'font-mono'
 							)}
 							title={bar.walletAddress ?? bar.label}
@@ -119,19 +119,19 @@ const HolderConcentrationChart: React.FC<HolderConcentrationChartProps> = ({
 							{bar.label}
 						</span>
 						<div
-							className="h-3 overflow-hidden rounded-full bg-white/10"
+							className="h-3 overflow-hidden rounded-full bg-foreground/10"
 							aria-hidden="true"
 						>
 							<div
 								className={cn(
 									'h-full rounded-full',
-									bar.id === 'others' ? 'bg-white/35' : 'bg-amber-400'
+									bar.id === 'others' ? 'bg-foreground/35' : 'bg-amber-400'
 								)}
 								style={{ width: `${Math.min(100, bar.percent)}%` }}
 							/>
 						</div>
 						<span
-							className="text-right text-sm font-bold tabular-nums text-amber-300/90"
+							className="text-right text-sm font-bold tabular-nums text-amber-700/90 dark:text-amber-300/90"
 							data-testid={
 								bar.id === 'others'
 									? 'holder-concentration-others-percent'

@@ -22,10 +22,10 @@ interface PercentageBadgeProps extends FormatPercentOptions {
 }
 
 const toneClasses: Record<PercentageBadgeTone, string> = {
-	neutral: 'border-white/10 bg-white/[0.06] text-white/70',
-	positive: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
-	negative: 'border-red-500/30 bg-red-500/10 text-red-400',
-	muted: 'border-white/10 bg-white/[0.04] text-white/40',
+	neutral: 'border-foreground/10 bg-foreground/[0.06] text-foreground/70',
+	positive: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+	negative: 'border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400',
+	muted: 'border-foreground/10 bg-foreground/[0.04] text-foreground/40',
 };
 
 /**
@@ -51,7 +51,7 @@ const PercentageBadge: React.FC<PercentageBadgeProps> = ({
 			)}
 			title={label ? `${label}: ${formatted}` : formatted}
 		>
-			{label && <span className="text-white/50">{label}</span>}
+			{label && <span className="text-foreground/50">{label}</span>}
 			<span>{formatted}</span>
 		</span>
 	);

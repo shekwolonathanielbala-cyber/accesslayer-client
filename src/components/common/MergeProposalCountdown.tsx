@@ -54,7 +54,7 @@ export default function MergeProposalCountdown({
 	return (
 		<div
 			className={cn(
-				'inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/[0.05] px-2.5 py-1 text-xs font-semibold text-white/80',
+				'inline-flex items-center gap-1.5 rounded-lg border border-foreground/15 bg-foreground/[0.05] px-2.5 py-1 text-xs font-semibold text-foreground/80',
 				className
 			)}
 			data-testid="merge-proposal-countdown"
@@ -62,7 +62,7 @@ export default function MergeProposalCountdown({
 			aria-live="polite"
 			aria-label={`Voting closes in ${formatted}`}
 		>
-			<Clock className="size-3.5 shrink-0 text-amber-300" aria-hidden="true" />
+			<Clock className="size-3.5 shrink-0 text-amber-700 dark:text-amber-300" aria-hidden="true" />
 			<span data-testid="merge-proposal-countdown-text">
 				Voting closes in{' '}
 				<span className="font-mono tabular-nums">{formatted}</span>

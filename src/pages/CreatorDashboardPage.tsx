@@ -47,7 +47,7 @@ const TABS = [
 ];
 
 const CARD_CLASS =
-	'rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
+	'rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8';
 
 export default function CreatorDashboardPage() {
 	const { id = '' } = useParams<{ id: string }>();
@@ -125,7 +125,7 @@ export default function CreatorDashboardPage() {
 
 	if (isLoading) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-5xl">
 					<CreatorDashboardSkeleton />
 				</div>
@@ -135,13 +135,13 @@ export default function CreatorDashboardPage() {
 
 	if (isError || !creator) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-5xl">
 					<h1 className="font-grotesque text-3xl font-black">
 						Creator dashboard
 					</h1>
 					<p
-						className="mt-4 text-white/60"
+						className="mt-4 text-foreground/60"
 						data-testid="creator-dashboard-error"
 					>
 						We couldn&apos;t load this creator&apos;s dashboard. Try again
@@ -153,18 +153,18 @@ export default function CreatorDashboardPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-5xl space-y-8">
 				<div>
 					<h1 className="font-grotesque text-3xl font-black tracking-tight">
 						{creator.title} · Creator dashboard
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						Manage your key profile and auction configuration.
 					</p>
 					<Link
 						to={`/creator/${id}/bundles`}
-						className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-300 underline-offset-4 hover:text-amber-200 hover:underline"
+						className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 dark:text-amber-300 underline-offset-4 hover:text-amber-700 dark:hover:text-amber-200 hover:underline"
 						data-testid="creator-dashboard-bundles-link"
 					>
 						Manage key bundles
@@ -173,16 +173,16 @@ export default function CreatorDashboardPage() {
 
 				{creator.deprecated && (
 					<div
-						className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-6 text-white"
+						className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-6 text-foreground"
 						data-testid="key-deprecated-banner"
 					>
 						<div className="flex items-center gap-3">
-							<AlertTriangle className="size-6 text-amber-400 shrink-0" />
+							<AlertTriangle className="size-6 text-amber-600 dark:text-amber-400 shrink-0" />
 							<div>
-								<h2 className="font-grotesque text-xl font-bold text-amber-300">
+								<h2 className="font-grotesque text-xl font-bold text-amber-700 dark:text-amber-300">
 									Key deprecated
 								</h2>
-								<p className="mt-1 text-sm text-white/70">
+								<p className="mt-1 text-sm text-foreground/70">
 									This key has been deprecated. All new buys are
 									disabled and holders can redeem their keys for
 									escrowed buyback value.
@@ -212,7 +212,7 @@ export default function CreatorDashboardPage() {
 							</h2>
 							<dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 								<div>
-									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 										Current price
 									</dt>
 									<dd className="mt-1 font-jakarta font-bold">
@@ -222,7 +222,7 @@ export default function CreatorDashboardPage() {
 									</dd>
 								</div>
 								<div>
-									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 										Key supply
 									</dt>
 									<dd className="mt-1 font-jakarta font-bold">
@@ -230,7 +230,7 @@ export default function CreatorDashboardPage() {
 									</dd>
 								</div>
 								<div>
-									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40">
+									<dt className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-foreground/40">
 										Category
 									</dt>
 									<dd className="mt-1 font-jakarta font-bold">
@@ -262,7 +262,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Edit Profile
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Update the display name, bio and avatar stored with your
 								key.
 							</p>
@@ -284,7 +284,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Auction Setup
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Set a fixed auction price and supply allocation before
 								your key goes live.
 							</p>
@@ -326,7 +326,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Launch Penalty
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Charge early sellers a percentage fee during the first 7
 								days after key creation.
 							</p>
@@ -346,7 +346,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Buy Cooldown
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Set a delay in minutes between consecutive buys from the
 								same wallet.
 							</p>
@@ -366,7 +366,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Max Buy Per Transaction
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Limit how many keys a wallet can buy in a single
 								transaction.
 							</p>
@@ -384,7 +384,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Graduated Curve
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Configure up to five supply milestones and the exponent
 								applied to each tier.
 							</p>
@@ -403,7 +403,7 @@ export default function CreatorDashboardPage() {
 						<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 							Deprecate Key
 						</h2>
-						<p className="mb-6 text-sm text-white/50">
+						<p className="mb-6 text-sm text-foreground/50">
 							Initiate a key wind-down by setting a buyback price and
 							escrowing the required XLM.
 						</p>
@@ -425,7 +425,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Vesting Schedule
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Track the creator allocation reserved for your wallet, and
 								claim the tokens that have vested.
 							</p>
@@ -461,7 +461,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Quorum Settings
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Set the minimum percentage of holders that must
 								participate in a vote for a proposal to pass.
 							</p>
@@ -481,7 +481,7 @@ export default function CreatorDashboardPage() {
 							<h2 className="mb-1 font-grotesque text-xl font-black tracking-tight">
 								Curve Migrations
 							</h2>
-							<p className="mb-6 text-sm text-white/50">
+							<p className="mb-6 text-sm text-foreground/50">
 								Review pending bonding-curve changes, follow the timelock
 								and holder vote, then execute a migration once both
 								conditions are met.

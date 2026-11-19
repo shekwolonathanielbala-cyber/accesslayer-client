@@ -16,13 +16,13 @@ export default function AdminDashboardPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-5xl space-y-8">
 				<header>
 					<h1 className="font-grotesque text-3xl font-black tracking-tight">
 						Admin dashboard
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						Manage protocol integrations and access control.
 					</p>
 				</header>
@@ -35,7 +35,7 @@ export default function AdminDashboardPage() {
 					</>
 				)}
 				{!isConnected && (
-					<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 text-center text-white/50">
+					<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-8 text-center text-foreground/50">
 						Please connect your admin wallet to view this page.
 					</div>
 				)}

@@ -8,7 +8,7 @@ export default function FollowingPage() {
 
 	return (
 		<main className="mx-auto max-w-7xl px-6 py-16">
-			<h1 className="mb-8 font-jakarta text-2xl font-bold text-white">
+			<h1 className="mb-8 font-jakarta text-2xl font-bold text-foreground">
 				Following
 			</h1>
 
@@ -21,7 +21,7 @@ export default function FollowingPage() {
 						<div
 							key={i}
 							data-testid="following-skeleton"
-							className="h-64 animate-pulse rounded-2xl bg-white/5"
+							className="h-64 animate-pulse rounded-2xl bg-foreground/5"
 						/>
 					))}
 				</div>
@@ -30,12 +30,12 @@ export default function FollowingPage() {
 			{!isLoading && isFetched && creators.length === 0 && (
 				<div
 					data-testid="following-empty-state"
-					className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-12 text-center"
+					className="flex flex-col items-center justify-center rounded-2xl border border-foreground/10 bg-foreground/5 p-12 text-center"
 				>
-					<div className="mb-4 flex size-14 items-center justify-center rounded-full bg-white/10 text-amber-400">
+					<div className="mb-4 flex size-14 items-center justify-center rounded-full bg-foreground/10 text-amber-600 dark:text-amber-400">
 						<Users className="size-7" aria-hidden="true" />
 					</div>
-					<p className="mb-6 max-w-md text-base text-white/70">
+					<p className="mb-6 max-w-md text-base text-foreground/70">
 						You are not following anyone yet — discover creators on the marketplace
 					</p>
 					<Link

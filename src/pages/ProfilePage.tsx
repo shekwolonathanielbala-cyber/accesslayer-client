@@ -242,14 +242,14 @@ export default function ProfilePage() {
 	};
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-7xl space-y-6">
 				<div>
 					<h1 className="text-2xl font-black">
 						{isOwnProfile ? 'My Portfolio' : 'Portfolio'}
 					</h1>
 					{isOwnProfile ? (
-						<p className="text-sm text-white/60">
+						<p className="text-sm text-foreground/60">
 							{profile?.firstName} {profile?.lastName}
 						</p>
 					) : (
@@ -289,10 +289,10 @@ export default function ProfilePage() {
 						className="space-y-6"
 					>
 						<div>
-							<h2 className="font-grotesque text-xl font-bold text-white">
+							<h2 className="font-grotesque text-xl font-bold text-foreground">
 								Held Keys
 							</h2>
-							<p className="mt-1 text-sm text-white/60">
+							<p className="mt-1 text-sm text-foreground/60">
 								Every creator key this wallet holds, valued at the
 								current bonding-curve price.
 							</p>
@@ -320,7 +320,7 @@ export default function ProfilePage() {
 						{/* Full referral programme dashboard (#963) */}
 						<Link
 							to="/referrals"
-							className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-amber-400/30 hover:bg-amber-400/10"
+							className="inline-flex items-center gap-2 rounded-xl border border-foreground/10 bg-foreground/[0.02] px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-amber-400/30 hover:bg-amber-400/10"
 							data-testid="portfolio-referral-dashboard-link"
 						>
 							Open referral programme
@@ -338,10 +338,10 @@ export default function ProfilePage() {
 						className="space-y-6"
 					>
 						<div>
-							<h2 className="font-grotesque text-xl font-bold text-white">
+							<h2 className="font-grotesque text-xl font-bold text-foreground">
 								Staking
 							</h2>
-							<p className="mt-1 text-sm text-white/60">
+							<p className="mt-1 text-sm text-foreground/60">
 								Keys currently locked in the staking contract with
 								their unlock timers and accrued rewards.
 							</p>
@@ -359,7 +359,7 @@ export default function ProfilePage() {
 							<>
 								{/* Sub-tab navigation within Staking section */}
 								<div
-									className="flex items-center gap-2 border-b border-white/10 pb-4"
+									className="flex items-center gap-2 border-b border-foreground/10 pb-4"
 									role="tablist"
 									aria-label="Staking section sub-tabs"
 								>
@@ -380,8 +380,8 @@ export default function ProfilePage() {
 											className={cn(
 												'rounded-full px-4 py-1.5 text-xs font-semibold font-jakarta transition-all duration-200 outline-none',
 												activeStakingSubTab === subtab.value
-													? 'border border-amber-400/30 bg-amber-400/15 text-white'
-													: 'border border-white/10 bg-white/[0.06] text-white/60 hover:border-white/20 hover:bg-white/10 hover:text-white/80'
+													? 'border border-amber-400/30 bg-amber-400/15 text-foreground'
+													: 'border border-foreground/10 bg-foreground/[0.06] text-foreground/60 hover:border-foreground/20 hover:bg-foreground/10 hover:text-foreground/80'
 											)}
 										>
 											{subtab.label}
@@ -454,12 +454,12 @@ export default function ProfilePage() {
 						aria-labelledby="profile-tab-trade-history"
 						data-testid="portfolio-trade-history-panel"
 					>
-						<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+						<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8">
 							<div className="mb-6">
-								<h2 className="font-grotesque text-2xl font-bold text-white">
+								<h2 className="font-grotesque text-2xl font-bold text-foreground">
 									Trade History
 								</h2>
-								<p className="mt-1 text-sm text-white/65">
+								<p className="mt-1 text-sm text-foreground/65">
 									A full audit trail of past buys and sells
 								</p>
 							</div>						<TradeHistoryTable
@@ -478,12 +478,12 @@ export default function ProfilePage() {
 						aria-labelledby="profile-tab-atomic-swaps"
 						data-testid="portfolio-atomic-swaps-panel"
 					>
-						<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+						<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8">
 							<div className="mb-6">
-								<h2 className="font-grotesque text-2xl font-bold text-white">
+								<h2 className="font-grotesque text-2xl font-bold text-foreground">
 									Atomic Swap History
 								</h2>
-								<p className="mt-1 text-sm text-white/65">
+								<p className="mt-1 text-sm text-foreground/65">
 									Completed direct key exchanges with counterparties
 								</p>
 							</div>
@@ -501,12 +501,12 @@ export default function ProfilePage() {
 						aria-labelledby="profile-tab-activity"
 						data-testid="portfolio-activity-panel"
 					>
-						<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+						<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8">
 							<div className="mb-6">
-								<h2 className="font-grotesque text-2xl font-bold text-white">
+								<h2 className="font-grotesque text-2xl font-bold text-foreground">
 									Wallet Activity
 								</h2>
-								<p className="mt-1 text-sm text-white/65">
+								<p className="mt-1 text-sm text-foreground/65">
 									All trading, staking, and governance events for your wallet
 								</p>
 							</div>

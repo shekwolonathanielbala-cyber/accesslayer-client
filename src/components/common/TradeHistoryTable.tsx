@@ -39,8 +39,8 @@ function TradeTypePill({ type }: { type: Trade['tradeType'] }) {
 			className={cn(
 				'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide',
 				isBuy
-					? 'bg-emerald-500/10 text-emerald-400'
-					: 'bg-rose-500/10 text-rose-400'
+					? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+					: 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
 			)}
 		>
 			{isBuy ? (
@@ -65,14 +65,14 @@ function TradeHashActions({
 	if (!transactionHash) {
 		return (
 			<div className="flex items-center gap-1">
-				<span className="text-[10px] font-bold uppercase tracking-widest text-white/20">
+				<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/20">
 					N/A
 				</span>
 				<button
 					type="button"
 					disabled
 					aria-label="Copy transaction hash unavailable"
-					className="inline-flex size-7 cursor-not-allowed items-center justify-center rounded-md text-white/15"
+					className="inline-flex size-7 cursor-not-allowed items-center justify-center rounded-md text-foreground/15"
 				>
 					<Copy className="size-3.5" aria-hidden="true" />
 				</button>
@@ -80,7 +80,7 @@ function TradeHashActions({
 					type="button"
 					disabled
 					aria-label="View on block explorer unavailable"
-					className="inline-flex size-7 cursor-not-allowed items-center justify-center rounded-md text-white/15"
+					className="inline-flex size-7 cursor-not-allowed items-center justify-center rounded-md text-foreground/15"
 				>
 					<ExternalLink className="size-3.5" aria-hidden="true" />
 				</button>
@@ -110,10 +110,10 @@ function TradeHashActions({
 				onClick={handleCopy}
 				aria-label={copied ? 'Transaction hash copied' : 'Copy transaction hash'}
 				data-testid="trade-row-copy-hash"
-				className="relative inline-flex size-7 items-center justify-center rounded-md bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+				className="relative inline-flex size-7 items-center justify-center rounded-md bg-foreground/5 text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground"
 			>
 				{copied ? (
-					<Check className="size-3.5 text-emerald-400" aria-hidden="true" />
+					<Check className="size-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
 				) : (
 					<Copy className="size-3.5" aria-hidden="true" />
 				)}
@@ -122,7 +122,7 @@ function TradeHashActions({
 						role="status"
 						aria-live="polite"
 						data-testid="trade-row-copy-tooltip"
-						className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[10px] font-medium text-emerald-300 shadow-lg"
+						className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-surface-raised px-2 py-1 text-[10px] font-medium text-emerald-700 dark:text-emerald-300 shadow-lg"
 					>
 						Copied!
 					</span>
@@ -134,7 +134,7 @@ function TradeHashActions({
 				rel="noopener noreferrer"
 				aria-label="View transaction on Stellar Expert"
 				data-testid="trade-row-explorer-link"
-				className="inline-flex size-7 items-center justify-center rounded-md bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+				className="inline-flex size-7 items-center justify-center rounded-md bg-foreground/5 text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground"
 			>
 				<ExternalLink className="size-3.5" aria-hidden="true" />
 			</a>
@@ -147,15 +147,15 @@ function TradeHashActions({
 function SkeletonRow() {
 	return (
 		<div
-			className="flex items-center gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+			className="flex items-center gap-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4"
 			aria-hidden="true"
 		>
-			<div className="h-4 w-1/4 animate-pulse rounded bg-white/10" />
-			<div className="h-4 w-12 animate-pulse rounded bg-white/10" />
-			<div className="h-4 w-10 animate-pulse rounded bg-white/10" />
-			<div className="h-4 w-16 animate-pulse rounded bg-white/10" />
-			<div className="h-4 w-20 animate-pulse rounded bg-white/10" />
-			<div className="ml-auto h-4 w-20 animate-pulse rounded bg-white/10" />
+			<div className="h-4 w-1/4 animate-pulse rounded bg-foreground/10" />
+			<div className="h-4 w-12 animate-pulse rounded bg-foreground/10" />
+			<div className="h-4 w-10 animate-pulse rounded bg-foreground/10" />
+			<div className="h-4 w-16 animate-pulse rounded bg-foreground/10" />
+			<div className="h-4 w-20 animate-pulse rounded bg-foreground/10" />
+			<div className="ml-auto h-4 w-20 animate-pulse rounded bg-foreground/10" />
 		</div>
 	);
 }
@@ -168,7 +168,7 @@ function TradeRow({ trade }: { trade: Trade }) {
 		<div
 			data-testid={`trade-row-${trade.tradeType.toLowerCase()}`}
 			className={cn(
-				'flex flex-col gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 pl-5 transition-colors hover:border-white/20 hover:bg-white/[0.04] sm:flex-row sm:items-center sm:justify-between',
+				'flex flex-col gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 pl-5 transition-colors hover:border-foreground/20 hover:bg-foreground/[0.04] sm:flex-row sm:items-center sm:justify-between',
 				// Accent left border per acceptance criterion
 				isBuy
 					? 'border-l-4 border-l-emerald-500'
@@ -176,7 +176,7 @@ function TradeRow({ trade }: { trade: Trade }) {
 			)}
 		>
 			{/* Key name */}
-			<span className="min-w-0 flex-1 truncate text-sm font-semibold text-white">
+			<span className="min-w-0 flex-1 truncate text-sm font-semibold text-foreground">
 				{trade.keyName}
 			</span>
 
@@ -184,31 +184,31 @@ function TradeRow({ trade }: { trade: Trade }) {
 			<TradeTypePill type={trade.tradeType} />
 
 			{/* Numeric columns */}
-			<div className="flex items-center gap-4 text-xs text-white/60 sm:gap-6">
+			<div className="flex items-center gap-4 text-xs text-foreground/60 sm:gap-6">
 				<div className="flex flex-col items-end">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 						Qty
 					</span>
-					<span className="font-mono text-white/80">{trade.quantity}</span>
+					<span className="font-mono text-foreground/80">{trade.quantity}</span>
 				</div>
 
 				<div className="flex flex-col items-end">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 						Price / key
 					</span>
-					<span className="font-mono text-white/80">
+					<span className="font-mono text-foreground/80">
 						{trade.pricePerKey.toFixed(4)} XLM
 					</span>
 				</div>
 
 				<div className="flex flex-col items-end">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 						Total
 					</span>
 					<span
 						className={cn(
 							'font-mono font-semibold',
-							isBuy ? 'text-rose-400' : 'text-emerald-400'
+							isBuy ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'
 						)}
 					>
 						{isBuy ? '−' : '+'}
@@ -217,11 +217,11 @@ function TradeRow({ trade }: { trade: Trade }) {
 				</div>
 
 				<div className="flex flex-col items-end">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 						When
 					</span>
 					<span
-						className="font-mono text-white/60"
+						className="font-mono text-foreground/60"
 						title={new Date(trade.timestamp).toLocaleString()}
 					>
 						{formatRelativeTime(trade.timestamp)}
@@ -229,7 +229,7 @@ function TradeRow({ trade }: { trade: Trade }) {
 				</div>
 
 				<div className="flex flex-col items-end">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">
 						Tx
 					</span>
 					<TradeHashActions transactionHash={trade.transactionHash} />
@@ -326,7 +326,7 @@ const TradeHistoryTable: React.FC<TradeHistoryTableProps> = ({
 	return (
 		<section aria-label="Trade history">
 			{/* Column header row — hidden on mobile, visible on sm+ */}
-			<div className="mb-2 hidden items-center gap-4 px-5 text-[10px] font-bold uppercase tracking-widest text-white/30 sm:flex sm:justify-between">
+			<div className="mb-2 hidden items-center gap-4 px-5 text-[10px] font-bold uppercase tracking-widest text-foreground/30 sm:flex sm:justify-between">
 				<span className="flex-1">Key</span>
 				<div className="flex items-center gap-4 sm:gap-6">
 					<span className="w-12 text-right">Type</span>
@@ -365,7 +365,7 @@ const TradeHistoryTable: React.FC<TradeHistoryTableProps> = ({
 						onClick={() => void fetchNextPage()}
 						disabled={isFetchingNextPage}
 						data-testid="trade-history-load-more"
-						className="rounded-xl border-white/15 bg-white/5 px-8 text-white/80 hover:bg-white/10 hover:text-white"
+						className="rounded-xl border-foreground/15 bg-foreground/5 px-8 text-foreground/80 hover:bg-foreground/10 hover:text-foreground"
 					>
 						{isFetchingNextPage ? 'Loading…' : 'Load More'}
 					</Button>

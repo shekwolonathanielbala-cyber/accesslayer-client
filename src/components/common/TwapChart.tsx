@@ -36,27 +36,27 @@ export default function TwapChart({
 
   if (isLoading) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+      <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
         <div className="animate-pulse space-y-4">
-          <div className="h-6 w-32 rounded bg-white/10" />
-          <div className="h-48 rounded bg-white/5" />
+          <div className="h-6 w-32 rounded bg-foreground/10" />
+          <div className="h-48 rounded bg-foreground/5" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
+    <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+          <h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
             TWAP Price Oracle
           </h2>
           <Tooltip content="Time-Weighted Average Price smooths out short-term volatility, providing a manipulation-resistant price reference.">
             <button
               type="button"
               aria-label="What is TWAP?"
-              className="text-white/50 hover:text-white/70"
+              className="text-foreground/50 hover:text-foreground/70"
             >
               ⓘ
             </button>
@@ -73,8 +73,8 @@ export default function TwapChart({
               className={cn(
                 'rounded-lg px-3 py-1 text-xs font-semibold transition-colors',
                 selectedPeriod === value
-                  ? 'bg-amber-500/20 text-amber-400'
-                  : 'text-white/40 hover:text-white/60'
+                  ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400'
+                  : 'text-foreground/40 hover:text-foreground/60'
               )}
             >
               {label}
@@ -84,7 +84,7 @@ export default function TwapChart({
       </div>
 
       {/* Chart Area */}
-      <div className="relative h-48 rounded-xl bg-white/[0.03] border border-white/5 overflow-hidden">
+      <div className="relative h-48 rounded-xl bg-foreground/[0.03] border border-foreground/5 overflow-hidden">
         {historicalPrices.length > 0 ? (
           <svg
             viewBox="0 0 400 150"
@@ -129,7 +129,7 @@ export default function TwapChart({
             )}
           </svg>
         ) : (
-          <div className="flex items-center justify-center h-full text-white/30 text-sm">
+          <div className="flex items-center justify-center h-full text-foreground/30 text-sm">
             No price data available
           </div>
         )}
@@ -139,31 +139,31 @@ export default function TwapChart({
       <div className="flex items-center gap-6 mt-4 text-xs">
         <div className="flex items-center gap-2">
           <span className="w-3 h-0.5 bg-amber-400 rounded" />
-          <span className="text-white/50">Spot Price</span>
+          <span className="text-foreground/50">Spot Price</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-3 h-0.5 bg-emerald-400 rounded border-dashed" style={{ borderBottom: '2px dashed rgb(34, 197, 94)' }} />
-          <span className="text-white/50">TWAP ({selectedPeriod})</span>
+          <span className="text-foreground/50">TWAP ({selectedPeriod})</span>
         </div>
       </div>
 
       {/* Numeric Display */}
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="rounded-xl bg-white/[0.03] border border-white/5 p-4">
-          <p className="text-xs text-white/40 uppercase tracking-wider">Spot Price</p>
-          <p className="mt-1 text-lg font-bold text-white">
+        <div className="rounded-xl bg-foreground/[0.03] border border-foreground/5 p-4">
+          <p className="text-xs text-foreground/40 uppercase tracking-wider">Spot Price</p>
+          <p className="mt-1 text-lg font-bold text-foreground">
             {spotPrice ? formatDisplayKeyPrice(spotPrice) : '—'}
           </p>
         </div>
-        <div className="rounded-xl bg-white/[0.03] border border-white/5 p-4">
-          <p className="text-xs text-white/40 uppercase tracking-wider">TWAP ({selectedPeriod})</p>
-          <p className="mt-1 text-lg font-bold text-emerald-400">
+        <div className="rounded-xl bg-foreground/[0.03] border border-foreground/5 p-4">
+          <p className="text-xs text-foreground/40 uppercase tracking-wider">TWAP ({selectedPeriod})</p>
+          <p className="mt-1 text-lg font-bold text-emerald-600 dark:text-emerald-400">
             {twapPrice ? formatDisplayKeyPrice(twapPrice) : '—'}
           </p>
           {twapDeltaPercent != null && (
             <p className={cn(
               'text-xs font-semibold mt-1',
-              twapDeltaPercent < 0 ? 'text-emerald-400' : 'text-rose-400'
+              twapDeltaPercent < 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
             )}>
               {twapDeltaPercent < 0 ? '▼' : '▲'} {Math.abs(twapDeltaPercent).toFixed(2)}% vs spot
             </p>

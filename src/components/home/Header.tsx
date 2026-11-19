@@ -47,9 +47,9 @@ export default function Header() {
 					<img
 						src="/icons/logo.svg"
 						alt="Access Layer"
-						className={`size-6 sm:size-5 transition-all duration-300 ${scrolled ? 'opacity-60 invert' : 'opacity-70'}`}
+						className={`size-6 sm:size-5 transition-all duration-300 ${scrolled ? 'opacity-60 invert' : 'opacity-70 brightness-0 dark:brightness-100'}`}
 					/>
-					<span className={`hidden font-mono text-[13px] uppercase tracking-[0.08em] sm:inline transition-colors duration-300 ${scrolled ? 'text-gray-700' : 'text-white/70'}`}>
+					<span className={`hidden font-mono text-[13px] uppercase tracking-[0.08em] sm:inline transition-colors duration-300 ${scrolled ? 'text-gray-700' : 'text-foreground/70'}`}>
 						Access Layer
 					</span>
 				</Link>
@@ -65,7 +65,7 @@ export default function Header() {
 								href={link.href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className={`font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-white/45 hover:text-white/80'}`}
+								className={`font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-foreground/45 hover:text-foreground/80'}`}
 							>
 								{link.label}
 							</a>
@@ -73,7 +73,7 @@ export default function Header() {
 							<Link
 								key={link.href}
 								to={link.href}
-								className={`font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-white/45 hover:text-white/80'}`}
+								className={`font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-foreground/45 hover:text-foreground/80'}`}
 							>
 								{link.label}
 							</Link>
@@ -81,10 +81,10 @@ export default function Header() {
 					)}
 					<Link
 						to="/watchlist"
-						className={`relative inline-flex items-center gap-1.5 font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-white/45 hover:text-white/80'}`}
+						className={`relative inline-flex items-center gap-1.5 font-jakarta text-sm transition-colors duration-300 ${scrolled ? 'text-gray-500 hover:text-gray-900' : 'text-foreground/45 hover:text-foreground/80'}`}
 						aria-label={`Watchlist, ${watchlistCount} saved ${watchlistCount === 1 ? 'key' : 'keys'}`}
 					>
-						<Bookmark className="size-4 text-amber-400/80" aria-hidden="true" />
+						<Bookmark className="size-4 text-amber-600/80 dark:text-amber-400/80" aria-hidden="true" />
 						Watchlist
 						{watchlistCount > 0 && (
 							<span
@@ -108,7 +108,7 @@ export default function Header() {
 					<button
 						type="button"
 						onClick={() => setBatchOpen(true)}
-						className={`rounded-xl border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 ${scrolled ? '' : ''}`}
+						className={`rounded-xl border-foreground/10 bg-foreground/5 px-3 py-2 text-sm text-foreground/80 ${scrolled ? '' : ''}`}
 					>
 						Batch Trade
 					</button>
@@ -117,7 +117,7 @@ export default function Header() {
 					className={
 						scrolled
 							? 'text-gray-600 hover:bg-black/5 hover:text-gray-900'
-							: 'text-white/60 hover:text-white/90'
+							: 'text-foreground/60 hover:text-foreground/90'
 					}
 				/>
 					{profile && (

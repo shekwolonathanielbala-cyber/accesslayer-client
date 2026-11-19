@@ -55,7 +55,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
 			>
 				<DialogHeader>
 					<DialogTitle className="flex items-center gap-2">
-						<Keyboard className="size-5 text-amber-400" aria-hidden="true" />
+						<Keyboard className="size-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
 						Keyboard shortcuts
 					</DialogTitle>
 					<DialogDescription>
@@ -67,23 +67,23 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
 				<div className="max-h-[60vh] space-y-5 overflow-y-auto pr-1">
 					{Array.from(groups.entries()).map(([category, shortcuts]) => (
 						<div key={category}>
-							<h3 className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-white/45">
+							<h3 className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground/45">
 								{category}
 							</h3>
 							<ul className="space-y-1.5">
 								{shortcuts.map(shortcut => (
 									<li
 										key={shortcut.description}
-										className="flex items-center justify-between gap-4 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-white/[0.04]"
+										className="flex items-center justify-between gap-4 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-foreground/[0.04]"
 									>
-										<span className="text-white/75">
+										<span className="text-foreground/75">
 											{shortcut.description}
 										</span>
 										<span className="flex shrink-0 items-center gap-1">
 											{shortcut.keys.map((key, i) => (
 												<span key={`${key}-${i}`} className="flex items-center gap-1">
 													{i > 0 && (
-														<span className="text-[10px] text-white/30">+</span>
+														<span className="text-[10px] text-foreground/30">+</span>
 													)}
 													<Kbd>{key}</Kbd>
 												</span>

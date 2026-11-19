@@ -53,7 +53,7 @@ export default function RecentlyViewedSection() {
 	if (!isConnected || keys.length === 0) return null;
 
 	return (
-		<section className="bg-white px-6 py-16 md:py-20">
+		<section className="bg-foreground px-6 py-16 md:py-20">
 			<div className="mx-auto max-w-5xl">
 				{/* Header */}
 				<div ref={headingRef} className="scroll-reveal">

@@ -37,15 +37,15 @@ export const PriceImpactWarning: React.FC<PriceImpactWarningProps> = ({
 			className={cn(
 				'flex items-start gap-2.5 rounded-xl border p-3 text-xs transition-colors',
 				isVeryHigh
-					? 'border-red-500/40 bg-red-500/10 text-red-200'
-					: 'border-amber-500/40 bg-amber-500/10 text-amber-200',
+					? 'border-red-500/40 bg-red-500/10 text-red-700 dark:text-red-200'
+					: 'border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-200',
 				className
 			)}
 		>
 			<AlertTriangle
 				className={cn(
 					'h-4 w-4 shrink-0 mt-0.5',
-					isVeryHigh ? 'text-red-400' : 'text-amber-400'
+					isVeryHigh ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'
 				)}
 				aria-hidden="true"
 			/>
@@ -61,7 +61,7 @@ export const PriceImpactWarning: React.FC<PriceImpactWarningProps> = ({
 							: ''}
 					</span>
 				</p>
-				<p className="text-white/70">
+				<p className="text-foreground/70">
 					This trade has a price impact exceeding {threshold}%. Your
 					estimated execution price differs from the current spot price by
 					the amount shown above.

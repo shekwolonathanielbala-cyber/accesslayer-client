@@ -46,7 +46,7 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 
 	if (ranked.length === 0 && !isFetchingNextPage) {
 		return (
-			<p className="py-8 text-center text-sm text-white/50" data-testid="key-holder-list-empty">
+			<p className="py-8 text-center text-sm text-foreground/50" data-testid="key-holder-list-empty">
 				No holders yet.
 			</p>
 		);
@@ -55,7 +55,7 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 	return (
 		<>
 			<div
-				className="flex items-center justify-between gap-3 border-b border-white/10 pb-2 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/40"
+				className="flex items-center justify-between gap-3 border-b border-foreground/10 pb-2 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-foreground/40"
 				data-testid="key-holder-list-header"
 			>
 				<span>Holder</span>
@@ -66,7 +66,7 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 					<span className="w-16">Share</span>
 				</div>
 			</div>
-			<ol className="divide-y divide-white/5" data-testid="key-holder-list">
+			<ol className="divide-y divide-foreground/5" data-testid="key-holder-list">
 				{ranked.map(holder => (
 					<li
 						key={holder.id}
@@ -75,7 +75,7 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 					>
 						<div className="flex items-center gap-3 min-w-0">
 							<span
-								className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-xs font-bold text-white/70"
+								className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.06] text-xs font-bold text-foreground/70"
 								data-testid="key-holder-rank"
 								aria-label={`Rank ${holder.rank}`}
 							>
@@ -83,20 +83,20 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 							</span>
 							{holder.walletAddress ? (
 								<span
-									className="text-sm font-medium text-white truncate font-mono"
+									className="text-sm font-medium text-foreground truncate font-mono"
 									title={holder.walletAddress}
 									data-testid="key-holder-wallet"
 								>
 									{truncateAddress(holder.walletAddress)}
 								</span>
 							) : (
-								<span className="text-sm font-medium text-white">
+								<span className="text-sm font-medium text-foreground">
 									{holder.displayName}
 								</span>
 							)}
 							{holder.stakedQuantity > 0 && (
 								<span
-									className="inline-flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/10 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-amber-300"
+									className="inline-flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/10 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-300"
 									data-testid="key-holder-staking-badge"
 									title={`${formatHolderCount(holder.stakedQuantity)} keys staked`}
 									aria-label={`${formatHolderCount(holder.stakedQuantity)} keys staked`}
@@ -108,25 +108,25 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 						</div>
 						<div className="flex items-center gap-3 text-right shrink-0 tabular-nums">
 							<span
-								className="w-16 shrink-0 text-sm text-amber-300/90"
+								className="w-16 shrink-0 text-sm text-amber-700/90 dark:text-amber-300/90"
 								data-testid="key-holder-staked"
 							>
 								{formatHolderCount(holder.stakedQuantity)}
 							</span>
 							<span
-								className="w-16 shrink-0 text-sm text-white/70"
+								className="w-16 shrink-0 text-sm text-foreground/70"
 								data-testid="key-holder-liquid"
 							>
 								{formatHolderCount(holder.liquidQuantity)}
 							</span>
 							<span
-								className="w-16 shrink-0 text-sm text-white/70"
+								className="w-16 shrink-0 text-sm text-foreground/70"
 								data-testid="key-holder-key-count"
 							>
 								{formatHolderCount(holder.keyCount)}
 							</span>
 							<span
-								className="w-16 shrink-0 text-sm font-semibold text-amber-300/90"
+								className="w-16 shrink-0 text-sm font-semibold text-amber-700/90 dark:text-amber-300/90"
 								data-testid="key-holder-share"
 							>
 								{formatPercent(holder.sharePercent, { maximumFractionDigits: 1 })}
@@ -144,7 +144,7 @@ const KeyHolderList: React.FC<KeyHolderListProps> = ({
 
 			{!hasNextPage && ranked.length > 0 && (
 				<p
-					className="py-4 text-center text-xs text-white/40"
+					className="py-4 text-center text-xs text-foreground/40"
 					data-testid="key-holders-all-loaded"
 				>
 					All holders loaded

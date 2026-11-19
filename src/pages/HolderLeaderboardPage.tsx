@@ -21,17 +21,17 @@ function truncateAddress(address: string): string {
 }
 
 function getRankColor(rank: number): string {
-	if (rank === 1) return 'text-amber-400';
+	if (rank === 1) return 'text-amber-600 dark:text-amber-400';
 	if (rank === 2) return 'text-slate-300';
 	if (rank === 3) return 'text-amber-600';
-	return 'text-white/60';
+	return 'text-foreground/60';
 }
 
 function getRankBackground(rank: number): string {
 	if (rank === 1) return 'bg-amber-400/10 border-amber-400/30';
 	if (rank === 2) return 'bg-slate-300/10 border-slate-300/30';
 	if (rank === 3) return 'bg-amber-600/10 border-amber-600/30';
-	return 'bg-white/5 border-white/10';
+	return 'bg-foreground/5 border-foreground/10';
 }
 
 interface HolderLeaderboardRowProps {
@@ -44,7 +44,7 @@ function HolderLeaderboardRow({ holder, rank, isConnectedWallet }: HolderLeaderb
 	return (
 		<li
 			className={cn(
-				'flex items-center justify-between gap-4 border-b border-white/5 py-3 transition-colors',
+				'flex items-center justify-between gap-4 border-b border-foreground/5 py-3 transition-colors',
 				isConnectedWallet && 'bg-amber-400/5 border-amber-400/20'
 			)}
 			data-testid="holder-leaderboard-row"
@@ -65,7 +65,7 @@ function HolderLeaderboardRow({ holder, rank, isConnectedWallet }: HolderLeaderb
 					<span
 						className={cn(
 							'text-sm font-medium truncate font-mono',
-							isConnectedWallet ? 'text-amber-300' : 'text-white'
+							isConnectedWallet ? 'text-amber-700 dark:text-amber-300' : 'text-foreground'
 						)}
 						title={holder.walletAddress}
 						data-testid="holder-wallet"
@@ -74,7 +74,7 @@ function HolderLeaderboardRow({ holder, rank, isConnectedWallet }: HolderLeaderb
 					</span>
 					{isConnectedWallet && (
 						<span
-							className="inline-flex items-center gap-1 rounded-full bg-amber-400/20 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-amber-300 ml-2"
+							className="inline-flex items-center gap-1 rounded-full bg-amber-400/20 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-300 ml-2"
 							data-testid="connected-wallet-badge"
 						>
 							You
@@ -86,7 +86,7 @@ function HolderLeaderboardRow({ holder, rank, isConnectedWallet }: HolderLeaderb
 				<div
 					className={cn(
 						'w-20 text-right text-sm font-semibold',
-						isConnectedWallet ? 'text-amber-300' : 'text-white'
+						isConnectedWallet ? 'text-amber-700 dark:text-amber-300' : 'text-foreground'
 					)}
 					data-testid="holder-balance"
 				>
@@ -95,7 +95,7 @@ function HolderLeaderboardRow({ holder, rank, isConnectedWallet }: HolderLeaderb
 				<div
 					className={cn(
 						'w-16 text-right text-sm font-semibold',
-						isConnectedWallet ? 'text-amber-300' : 'text-amber-300/90'
+						isConnectedWallet ? 'text-amber-700 dark:text-amber-300' : 'text-amber-700/90 dark:text-amber-300/90'
 					)}
 					data-testid="holder-share"
 				>
@@ -112,15 +112,15 @@ function HolderLeaderboardSkeleton() {
 			{Array.from({ length: 10 }).map((_, index) => (
 				<li
 					key={index}
-					className="flex items-center justify-between gap-4 border-b border-white/5 py-3"
+					className="flex items-center justify-between gap-4 border-b border-foreground/5 py-3"
 				>
 					<div className="flex items-center gap-3 min-w-0">
-						<div className="size-8 shrink-0 rounded-full bg-white/10 animate-pulse" />
-						<div className="h-4 w-32 bg-white/10 rounded animate-pulse" />
+						<div className="size-8 shrink-0 rounded-full bg-foreground/10 animate-pulse" />
+						<div className="h-4 w-32 bg-foreground/10 rounded animate-pulse" />
 					</div>
 					<div className="flex items-center gap-4">
-						<div className="h-4 w-20 bg-white/10 rounded animate-pulse" />
-						<div className="h-4 w-16 bg-white/10 rounded animate-pulse" />
+						<div className="h-4 w-20 bg-foreground/10 rounded animate-pulse" />
+						<div className="h-4 w-16 bg-foreground/10 rounded animate-pulse" />
 					</div>
 				</li>
 			))}
@@ -180,20 +180,20 @@ export default function HolderLeaderboardPage() {
 
 	if (isCreatorLoading || isHoldersLoading) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-4xl">
 					<Link
 						to={`/creator/${id}`}
-						className="mb-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-white/50 transition-colors hover:text-white"
+						className="mb-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-foreground/50 transition-colors hover:text-foreground"
 					>
 						<ArrowLeft className="size-3.5" />
 						Back to creator
 					</Link>
 					<div className="mb-6">
-						<div className="h-8 w-64 bg-white/10 rounded animate-pulse mb-2" />
-						<div className="h-4 w-96 bg-white/10 rounded animate-pulse" />
+						<div className="h-8 w-64 bg-foreground/10 rounded animate-pulse mb-2" />
+						<div className="h-4 w-96 bg-foreground/10 rounded animate-pulse" />
 					</div>
-					<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+					<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6">
 						<HolderLeaderboardSkeleton />
 					</div>
 				</div>
@@ -203,11 +203,11 @@ export default function HolderLeaderboardPage() {
 
 	if (creatorError || !creator) {
 		return (
-			<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+			<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 				<div className="mx-auto max-w-4xl text-center">
 					<Link
 						to={`/creator/${id}`}
-						className="mb-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-white/50 transition-colors hover:text-white"
+						className="mb-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-foreground/50 transition-colors hover:text-foreground"
 					>
 						<ArrowLeft className="size-3.5" />
 						Back to creator
@@ -215,7 +215,7 @@ export default function HolderLeaderboardPage() {
 					<h1 className="font-grotesque text-2xl font-black mb-4">
 						Holder Leaderboard
 					</h1>
-					<p className="text-white/50">
+					<p className="text-foreground/50">
 						Unable to load holder leaderboard. Please try again later.
 					</p>
 				</div>
@@ -224,11 +224,11 @@ export default function HolderLeaderboardPage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+		<main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
 			<div className="mx-auto max-w-4xl space-y-6">
 				<Link
 					to={`/creator/${id}`}
-					className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-white/50 transition-colors hover:text-white"
+					className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-foreground/50 transition-colors hover:text-foreground"
 				>
 					<ArrowLeft className="size-3.5" />
 					Back to creator
@@ -236,15 +236,15 @@ export default function HolderLeaderboardPage() {
 
 				<div className="flex items-start justify-between gap-4">
 					<div>
-						<h1 className="font-grotesque text-2xl font-black tracking-tight text-white mb-2">
+						<h1 className="font-grotesque text-2xl font-black tracking-tight text-foreground mb-2">
 							{creator.title} Holder Leaderboard
 						</h1>
-						<p className="text-sm text-white/60">
+						<p className="text-sm text-foreground/60">
 							Top {TOP_HOLDERS_LIMIT} holders ranked by balance
 						</p>
 					</div>
 					<div
-						className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/50"
+						className="flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/50"
 						data-testid="refresh-status"
 					>
 						{isAutoRefreshing ? (
@@ -256,8 +256,8 @@ export default function HolderLeaderboardPage() {
 					</div>
 				</div>
 
-				<div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md">
-					<div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/40 mb-2">
+				<div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md">
+					<div className="flex items-center justify-between gap-3 border-b border-foreground/10 pb-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-foreground/40 mb-2">
 						<span className="flex-1">Holder</span>
 						<div className="flex items-center gap-4 text-right shrink-0">
 							<span className="w-20">Balance</span>
@@ -265,9 +265,9 @@ export default function HolderLeaderboardPage() {
 						</div>
 					</div>
 
-					<ol className="divide-y divide-white/5" data-testid="holder-leaderboard-list">
+					<ol className="divide-y divide-foreground/5" data-testid="holder-leaderboard-list">
 						{rankedHolders.length === 0 ? (
-							<li className="py-12 text-center text-sm text-white/50" data-testid="empty-state">
+							<li className="py-12 text-center text-sm text-foreground/50" data-testid="empty-state">
 								No holders yet.
 							</li>
 						) : (
@@ -290,7 +290,7 @@ export default function HolderLeaderboardPage() {
 
 					{!hasNextPage && rankedHolders.length > 0 && (
 						<p
-							className="py-4 text-center text-xs text-white/40"
+							className="py-4 text-center text-xs text-foreground/40"
 							data-testid="all-holders-loaded"
 						>
 							Showing top {rankedHolders.length} holders
@@ -303,7 +303,7 @@ export default function HolderLeaderboardPage() {
 							onClick={() => {
 								void fetchNextPage();
 							}}
-							className="w-full py-3 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
+							className="w-full py-3 text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 transition-colors"
 							data-testid="load-more-button"
 						>
 							Load more holders
@@ -313,7 +313,7 @@ export default function HolderLeaderboardPage() {
 
 				{connectedWalletRank >= TOP_HOLDERS_LIMIT && userAddress && (
 					<div className="rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-center">
-						<p className="text-sm text-amber-200">
+						<p className="text-sm text-amber-700 dark:text-amber-200">
 							Your wallet is not in the top {TOP_HOLDERS_LIMIT} holders
 						</p>
 					</div>

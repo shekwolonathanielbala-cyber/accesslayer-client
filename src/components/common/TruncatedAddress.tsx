@@ -16,7 +16,7 @@ const TruncatedAddress: React.FC<TruncatedAddressProps> = ({
 		return (
 			<span
 				className={cn(
-					'inline-flex items-center gap-1 font-mono text-sm text-white/70',
+					'inline-flex items-center gap-1 font-mono text-sm text-foreground/70',
 					className
 				)}
 				title={address}

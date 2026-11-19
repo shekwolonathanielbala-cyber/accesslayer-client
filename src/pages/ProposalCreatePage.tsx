@@ -32,12 +32,12 @@ export default function ProposalCreatePage() {
 
   if (!isConnected) {
     return (
-      <main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+      <main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
         <div className="mx-auto max-w-2xl text-center space-y-6 py-20">
-          <AlertCircle className="mx-auto h-12 w-12 text-amber-400" />
+          <AlertCircle className="mx-auto h-12 w-12 text-amber-600 dark:text-amber-400" />
           <div className="space-y-1">
             <h1 className="text-2xl font-bold tracking-tight">Connect your wallet</h1>
-            <p className="text-white/50">
+            <p className="text-foreground/50">
               Connect a Stellar wallet to create governance proposals.
             </p>
           </div>
@@ -48,18 +48,18 @@ export default function ProposalCreatePage() {
 
   if (!isEligible) {
     return (
-      <main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+      <main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
         <div className="mx-auto max-w-2xl text-center space-y-6 py-20">
-          <AlertCircle className="mx-auto h-12 w-12 text-red-400" />
+          <AlertCircle className="mx-auto h-12 w-12 text-red-600 dark:text-red-400" />
           <div className="space-y-1">
             <h1 className="text-2xl font-bold tracking-tight">Not eligible</h1>
-            <p className="text-white/50">
+            <p className="text-foreground/50">
               You need at least 100 governance tokens to create proposals.
             </p>
           </div>
           <Link
             to="/governance"
-            className="text-amber-400 hover:underline"
+            className="text-amber-600 dark:text-amber-400 hover:underline"
           >
             Back to governance
           </Link>
@@ -70,13 +70,13 @@ export default function ProposalCreatePage() {
 
   if (isSubmitted && proposalId) {
     return (
-      <main className="min-h-screen bg-[#06111f] px-6 py-16 text-white md:px-12">
+      <main className="min-h-screen bg-surface px-6 py-16 text-foreground md:px-12">
         <div className="mx-auto max-w-2xl text-center space-y-6 py-20">
-          <CheckCircle className="mx-auto h-12 w-12 text-emerald-400" />
+          <CheckCircle className="mx-auto h-12 w-12 text-emerald-600 dark:text-emerald-400" />
           <div className="space-y-1">
             <h1 className="text-2xl font-bold tracking-tight">Proposal submitted</h1>
-            <p className="text-white/50">
-              Your proposal has been submitted with ID: <span className="font-mono text-white/70">{proposalId}</span>
+            <p className="text-foreground/50">
+              Your proposal has been submitted with ID: <span className="font-mono text-foreground/70">{proposalId}</span>
             </p>
           </div>
           <Button
@@ -111,12 +111,12 @@ export default function ProposalCreatePage() {
   const isFormValid = title.trim() && description.trim() && parameterTarget && proposedValue.trim();
 
   return (
-    <main className="min-h-screen bg-[#06111f] px-4 py-8 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-surface px-4 py-8 text-foreground sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl">
         {/* Back nav */}
         <Link
           to="/governance"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white/70"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-foreground/40 transition-colors hover:text-foreground/70"
         >
           <ArrowLeft className="size-4" aria-hidden="true" />
           Back to governance
@@ -124,23 +124,23 @@ export default function ProposalCreatePage() {
 
         {/* Header */}
         <div className="mb-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-400/80">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-600/80 dark:text-amber-400/80">
             Governance
           </p>
           <h1 className="mt-1 font-jakarta text-3xl font-black tracking-tight sm:text-4xl">
             Create Proposal
           </h1>
-          <p className="mt-2 max-w-lg text-sm text-white/50">
+          <p className="mt-2 max-w-lg text-sm text-foreground/50">
             Submit a parameter change proposal for on-chain voting.
           </p>
         </div>
 
         {/* Proposal Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 space-y-6">
+          <div className="rounded-[2rem] border border-foreground/10 bg-foreground/[0.02] p-6 shadow-2xl backdrop-blur-md md:p-8 space-y-6">
             {/* Title */}
             <div className="space-y-2">
-              <label htmlFor="title" className="text-sm font-semibold text-white/70">
+              <label htmlFor="title" className="text-sm font-semibold text-foreground/70">
                 Title *
               </label>
               <input
@@ -149,14 +149,14 @@ export default function ProposalCreatePage() {
                 value={title}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
                 placeholder="e.g., Increase quorum threshold to 60%"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                 required
               />
             </div>
 
             {/* Description */}
             <div className="space-y-2">
-              <label htmlFor="description" className="text-sm font-semibold text-white/70">
+              <label htmlFor="description" className="text-sm font-semibold text-foreground/70">
                 Description *
               </label>
               <textarea
@@ -165,21 +165,21 @@ export default function ProposalCreatePage() {
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
                 placeholder="Explain the rationale for this change..."
                 rows={4}
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                 required
               />
             </div>
 
             {/* Parameter Target */}
             <div className="space-y-2">
-              <label htmlFor="parameter" className="text-sm font-semibold text-white/70">
+              <label htmlFor="parameter" className="text-sm font-semibold text-foreground/70">
                 Parameter to Change *
               </label>
               <select
                 id="parameter"
                 value={parameterTarget}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setParameterTarget(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                 required
               >
                 <option value="">Select a parameter</option>
@@ -193,7 +193,7 @@ export default function ProposalCreatePage() {
 
             {/* Proposed Value */}
             <div className="space-y-2">
-              <label htmlFor="value" className="text-sm font-semibold text-white/70">
+              <label htmlFor="value" className="text-sm font-semibold text-foreground/70">
                 Proposed Value *
               </label>
               <input
@@ -202,14 +202,14 @@ export default function ProposalCreatePage() {
                 value={proposedValue}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProposedValue(e.target.value)}
                 placeholder="e.g., 60"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                 required
               />
             </div>
 
             {/* Discussion Link */}
             <div className="space-y-2">
-              <label htmlFor="discussion" className="text-sm font-semibold text-white/70">
+              <label htmlFor="discussion" className="text-sm font-semibold text-foreground/70">
                 Discussion Link
               </label>
               <input
@@ -218,7 +218,7 @@ export default function ProposalCreatePage() {
                 value={discussionLink}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDiscussionLink(e.target.value)}
                 placeholder="https://forum.example.com/proposal-123"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder-foreground/30 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
               />
             </div>
           </div>

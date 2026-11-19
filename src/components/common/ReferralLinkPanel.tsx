@@ -40,14 +40,14 @@ export default function ReferralLinkPanel({ initialKeyId, keys = [] }: Props) {
   };
 
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.01] p-4">
-      <h3 className="font-grotesque text-sm font-bold text-white mb-2">My Referral Link</h3>
+    <div className="rounded-lg border border-foreground/10 bg-foreground/[0.01] p-4">
+      <h3 className="font-grotesque text-sm font-bold text-foreground mb-2">My Referral Link</h3>
       <div className="flex gap-2">
         <select
           aria-label="Select key"
           value={String(selectedKey)}
           onChange={e => setSelectedKey(e.target.value)}
-          className="rounded-xl bg-white/[0.04] px-3 py-2 text-white"
+          className="rounded-xl bg-foreground/[0.04] px-3 py-2 text-foreground"
         >
           {keys.length === 0 ? (
             <option value="">No keys</option>

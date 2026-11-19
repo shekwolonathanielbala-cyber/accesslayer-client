@@ -179,7 +179,7 @@ export const CreatorOnboardingForm: React.FC<
 			</div>
 
 			{isDirty && (
-				<div className="rounded-lg bg-amber-500/10 border border-amber-500/30 px-4 py-3 text-sm text-amber-100">
+				<div className="rounded-lg bg-amber-500/10 border border-amber-500/30 px-4 py-3 text-sm text-amber-700 dark:text-amber-100">
 					You have unsaved changes. They will be lost if you leave this page.
 				</div>
 			)}

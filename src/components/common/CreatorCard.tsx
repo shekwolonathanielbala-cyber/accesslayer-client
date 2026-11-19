@@ -259,7 +259,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 			ref={cardRef}
 			tabIndex={0}
 			className={cn(
-				'marketplace-card-surface marketplace-card-surface-hover group relative overflow-hidden rounded-2xl border p-4 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none motion-safe:md:hover:-translate-y-0.5 motion-safe:md:hover:border-amber-500/25 motion-safe:md:hover:shadow-[0_12px_32px_-20px_rgba(251,191,36,0.5)] motion-reduce:md:hover:translate-y-0 motion-reduce:md:hover:border-amber-500/35 motion-reduce:md:hover:bg-white/[0.05] motion-reduce:md:hover:shadow-[0_0_0_1px_rgba(251,191,36,0.12)]',
+				'marketplace-card-surface marketplace-card-surface-hover group relative overflow-hidden rounded-2xl border p-4 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none motion-safe:md:hover:-translate-y-0.5 motion-safe:md:hover:border-amber-500/25 motion-safe:md:hover:shadow-[0_12px_32px_-20px_rgba(251,191,36,0.5)] motion-reduce:md:hover:translate-y-0 motion-reduce:md:hover:border-amber-500/35 motion-reduce:md:hover:bg-foreground/[0.05] motion-reduce:md:hover:shadow-[0_0_0_1px_rgba(251,191,36,0.12)]',
 				className
 			)}
 		>
@@ -273,28 +273,28 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 				<DropdownMenu>
 					<DropdownMenuTrigger
 						aria-label={`More actions for ${displayCreatorName}`}
-						className="flex size-8 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+						className="flex size-8 items-center justify-center rounded-full text-foreground/40 transition-colors hover:bg-foreground/10 hover:text-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 					>
 						<MoreVertical className="size-4" aria-hidden="true" />
 					</DropdownMenuTrigger>
 					<DropdownMenuContent
 						align="end"
-						className="w-48 border-white/10 bg-slate-900/95 backdrop-blur-xl"
+						className="w-48 border-foreground/10 bg-surface-raised backdrop-blur-xl"
 					>
-						<DropdownMenuLabel className="text-xs text-white/50">
+						<DropdownMenuLabel className="text-xs text-foreground/50">
 							{displayCreatorName}
 						</DropdownMenuLabel>
-						<DropdownMenuSeparator className="bg-white/10" />
+						<DropdownMenuSeparator className="bg-foreground/10" />
 						<DropdownMenuItem
 							onSelect={handleCopyLink}
-							className="cursor-pointer gap-2 text-white/70 focus:bg-white/10 focus:text-white"
+							className="cursor-pointer gap-2 text-foreground/70 focus:bg-foreground/10 focus:text-foreground"
 						>
 							<Copy className="size-3.5" aria-hidden="true" />
 							Copy profile link
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							onSelect={handleShare}
-							className="cursor-pointer gap-2 text-white/70 focus:bg-white/10 focus:text-white"
+							className="cursor-pointer gap-2 text-foreground/70 focus:bg-foreground/10 focus:text-foreground"
 						>
 							<Share2 className="size-3.5" aria-hidden="true" />
 							Share creator
@@ -302,7 +302,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 						<DropdownMenuItem asChild>
 							<Link
 								to={`/creator/${creator.id}`}
-								className="cursor-pointer gap-2 text-white/70 focus:bg-white/10 focus:text-white flex items-center w-full"
+								className="cursor-pointer gap-2 text-foreground/70 focus:bg-foreground/10 focus:text-foreground flex items-center w-full"
 							>
 								<ExternalLink className="size-3.5" aria-hidden="true" />
 								View profile
@@ -338,9 +338,9 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 					// pill to system high-contrast tokens (Canvas / CanvasText
 					// / ButtonBorder) when forced-colors mode is active so
 					// the text stays legible over the image overlay.
-					<div className="creator-card-overlay-text absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full bg-slate-950/75 border border-white/10 px-2.5 py-1 backdrop-blur-md">
-						<TrendingUp className="creator-action-icon text-emerald-400" />
-						<span className="text-xs font-bold text-white/90">
+					<div className="creator-card-overlay-text absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full bg-surface-raised border border-foreground/10 px-2.5 py-1 backdrop-blur-md">
+						<TrendingUp className="creator-action-icon text-emerald-600 dark:text-emerald-400" />
+						<span className="text-xs font-bold text-foreground/90">
 							{creator.volume24h > 0
 								? `${formatCompactNumber(creator.volume24h)} ETH`
 								: 'New'}
@@ -353,7 +353,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 				<div className="flex items-center gap-2 flex-wrap">
 					<h3
 						id={`creator-name-${creator.id}`}
-						className="font-jakarta text-lg font-bold text-white"
+						className="font-jakarta text-lg font-bold text-foreground"
 					>
 						<Link
 							to={`/creator/${creator.id}`}
@@ -411,7 +411,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 					<div
 						className={cn(
 							creatorBadgeRowClass,
-							'text-xs text-white/30 italic'
+							'text-xs text-foreground/30 italic'
 						)}
 					>
 						<LinkIcon className="creator-action-icon opacity-50" />
@@ -497,7 +497,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 										</p>
 									}
 								>
-									<span className="text-white/75 cursor-default truncate">
+									<span className="text-foreground/75 cursor-default truncate">
 										{formatJoinDate(creator.joinedAt)}
 									</span>
 								</Tooltip>
@@ -521,8 +521,8 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 						}
 						valueClassName={
 							creator.socialHandle
-								? 'text-white/75'
-								: 'italic text-white/35'
+								? 'text-foreground/75'
+								: 'italic text-foreground/35'
 						}
 					/>
 					<CardMetaRow
@@ -556,7 +556,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 							</span>
 						}
 						truncateValue={false}
-						valueClassName="font-grotesque text-base font-black text-amber-400"
+						valueClassName="font-grotesque text-base font-black text-amber-600 dark:text-amber-400"
 					/>
 					{resolvedHolderCount != null && (
 						<CardMetaRow
@@ -566,7 +566,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 									{`${resolvedHolderCount} holders`}
 								</span>
 							}
-							valueClassName="text-white/75"
+							valueClassName="text-foreground/75"
 						/>
 					)}
 				</div>
@@ -592,9 +592,9 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 				</span>
 				<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 					<NetworkFeeHint className="shrink-0" />
-					<span className="hidden sm:inline text-xs text-white/40">
+					<span className="hidden sm:inline text-xs text-foreground/40">
 						Press{' '}
-						<kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white/60 font-mono">
+						<kbd className="px-1.5 py-0.5 rounded bg-foreground/10 text-foreground/60 font-mono">
 							B
 						</kbd>{' '}
 						to quick buy
@@ -609,7 +609,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 					disabled={isNetworkMismatch || isKeyDeprecated(creator)}
 					className={cn(
 						'rounded-xl font-bold',
-						!isConnected && 'border-white/10  hover:bg-white/5'
+						!isConnected && 'border-foreground/10  hover:bg-foreground/5'
 					)}
 				>
 					{transactionState === 'success' && (

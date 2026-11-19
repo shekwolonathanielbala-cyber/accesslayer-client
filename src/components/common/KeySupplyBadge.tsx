@@ -45,8 +45,8 @@ const KeySupplyBadge: React.FC<KeySupplyBadgeProps> = ({
                         className={cn(
                                 'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold backdrop-blur-sm',
                                 hasData
-                                        ? 'border-amber-500/30 bg-amber-500/10 text-amber-400'
-                                        : 'border-white/10 bg-white/[0.06] text-white/40',
+                                        ? 'border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400'
+                                        : 'border-foreground/10 bg-foreground/[0.06] text-foreground/40',
                                 className
                         )}
                         title={

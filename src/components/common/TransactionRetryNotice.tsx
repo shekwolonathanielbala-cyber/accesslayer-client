@@ -32,10 +32,10 @@ const TransactionRetryNotice: React.FC<TransactionRetryNoticeProps> = ({
 			<div className="flex items-start gap-3">
 				<TransactionStatusIcon status="failed" className="mt-0.5" />
 				<div className="min-w-0 flex-1">
-					<p className="font-jakarta text-sm font-bold text-white">
+					<p className="font-jakarta text-sm font-bold text-foreground">
 						{title}
 					</p>
-					<p className="mt-1 font-jakarta text-sm leading-relaxed text-white/70">
+					<p className="mt-1 font-jakarta text-sm leading-relaxed text-foreground/70">
 						{message}
 					</p>
 					<Button
@@ -44,7 +44,7 @@ const TransactionRetryNotice: React.FC<TransactionRetryNoticeProps> = ({
 						variant="outline"
 						onClick={onRetry}
 						disabled={disabled}
-						className="mt-3 border-red-400/30 bg-transparent text-white hover:bg-red-500/10"
+						className="mt-3 border-red-400/30 bg-transparent text-foreground hover:bg-red-500/10"
 					>
 						<RotateCcw className="size-4" />
 						{retryLabel}

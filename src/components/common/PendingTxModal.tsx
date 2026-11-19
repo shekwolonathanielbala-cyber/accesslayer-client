@@ -19,8 +19,8 @@ import { Tooltip } from '@/components/ui/tooltip';
 
 const confirmationToneClasses = {
 	neutral: 'border-slate-500/30 bg-slate-500/20 text-slate-400',
-	warning: 'border-amber-500/30 bg-amber-500/20 text-amber-300',
-	success: 'border-emerald-500/30 bg-emerald-500/20 text-emerald-400',
+	warning: 'border-amber-500/30 bg-amber-500/20 text-amber-700 dark:text-amber-300',
+	success: 'border-emerald-500/30 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400',
 } as const;
 
 export interface PendingTxModalProps {
@@ -90,7 +90,7 @@ const PendingTxModal: React.FC<PendingTxModalProps> = ({
 							className={cn(
 								'inline-flex rounded-full p-3',
 								isLoading
-									? 'bg-amber-500/15 text-amber-300 ring-1 ring-amber-300/35'
+									? 'bg-amber-500/15 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300/35'
 									: 'bg-muted text-muted-foreground'
 							)}
 						>
@@ -127,7 +127,7 @@ const PendingTxModal: React.FC<PendingTxModalProps> = ({
 									{confirmationStatus}
 								</span>
 							</Tooltip>
-							<p className="text-[10px] font-medium uppercase tracking-widest text-white/40">
+							<p className="text-[10px] font-medium uppercase tracking-widest text-foreground/40">
 								{confirmations} confirmations
 							</p>
 						</div>
@@ -135,11 +135,11 @@ const PendingTxModal: React.FC<PendingTxModalProps> = ({
 				</DialogHeader>
 
 				{txHash && (
-					<div className="mt-2 border-t border-white/5 pt-4">
+					<div className="mt-2 border-t border-foreground/5 pt-4">
 						<TransactionHashRow
 							hash={txHash}
 							explorerUrl={explorerUrl}
-							className="bg-white/5 rounded-lg px-3 py-2"
+							className="bg-foreground/5 rounded-lg px-3 py-2"
 						/>
 					</div>
 				)}

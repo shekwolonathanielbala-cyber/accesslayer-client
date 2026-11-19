@@ -53,10 +53,10 @@ const AirdropPanel: React.FC = () => {
 
 	return (
 		<div className="space-y-4">
-			<h3 className="font-grotesque text-xl font-black text-white">
+			<h3 className="font-grotesque text-xl font-black text-foreground">
 				Airdrop Keys
 			</h3>
-			<p className="text-sm text-white/60">
+			<p className="text-sm text-foreground/60">
 				Paste wallet:quantity pairs (one per line) or upload a CSV. Up to{' '}
 				{MAX_RECIPIENTS} recipients.
 			</p>
@@ -69,11 +69,11 @@ const AirdropPanel: React.FC = () => {
 				}}
 				placeholder={'GABC...:5\nGDEF...:10'}
 				rows={6}
-				className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-sm text-white outline-none focus:border-amber-500/50"
+				className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-amber-500/50"
 				aria-label="Airdrop recipient list"
 			/>
 
-			<label className="inline-block cursor-pointer text-xs font-semibold text-amber-400 underline">
+			<label className="inline-block cursor-pointer text-xs font-semibold text-amber-600 dark:text-amber-400 underline">
 				Upload CSV
 				<input
 					type="file"
@@ -84,7 +84,7 @@ const AirdropPanel: React.FC = () => {
 			</label>
 
 			{hasLimitError && (
-				<p role="alert" className="text-sm font-bold text-red-400">
+				<p role="alert" className="text-sm font-bold text-red-600 dark:text-red-400">
 					Maximum 50 recipients per airdrop
 				</p>
 			)}
@@ -93,7 +93,7 @@ const AirdropPanel: React.FC = () => {
 				<div className="overflow-x-auto">
 					<table className="w-full text-left text-sm">
 						<thead>
-							<tr className="border-b border-white/10 text-xs text-white/50">
+							<tr className="border-b border-foreground/10 text-xs text-foreground/50">
 								<th className="pb-2 pr-4">#</th>
 								<th className="pb-2 pr-4">Address</th>
 								<th className="pb-2 pr-4">Qty</th>
@@ -102,20 +102,20 @@ const AirdropPanel: React.FC = () => {
 						</thead>
 						<tbody>
 							{recipients.map((r, i) => (
-								<tr key={i} className="border-b border-white/5">
-									<td className="py-2 pr-4 text-white/40">{i + 1}</td>
-									<td className="py-2 pr-4 font-mono text-white/80 truncate max-w-[200px]">
+								<tr key={i} className="border-b border-foreground/5">
+									<td className="py-2 pr-4 text-foreground/40">{i + 1}</td>
+									<td className="py-2 pr-4 font-mono text-foreground/80 truncate max-w-[200px]">
 										{r.address}
 									</td>
-									<td className="py-2 pr-4 text-white/80">{r.quantity}</td>
-									<td className="py-2 text-red-400 text-xs">
+									<td className="py-2 pr-4 text-foreground/80">{r.quantity}</td>
+									<td className="py-2 text-red-600 dark:text-red-400 text-xs">
 										{rowErrorMap.get(i) ?? '—'}
 									</td>
 								</tr>
 							))}
 						</tbody>
 					</table>
-					<div className="mt-3 text-sm font-bold text-white/70">
+					<div className="mt-3 text-sm font-bold text-foreground/70">
 						Total: {totalKeys} keys → {recipients.length} recipients
 					</div>
 				</div>

@@ -66,9 +66,9 @@ const SlippageToleranceSelector: React.FC<SlippageToleranceSelectorProps> = ({
 			data-testid="slippage-tolerance-selector"
 		>
 			<div className="flex items-center justify-between">
-				<span className="text-sm text-white/70">Slippage tolerance</span>
+				<span className="text-sm text-foreground/70">Slippage tolerance</span>
 				<span
-					className="font-mono text-xs font-semibold text-amber-300/90 tabular-nums"
+					className="font-mono text-xs font-semibold text-amber-700/90 dark:text-amber-300/90 tabular-nums"
 					data-testid="slippage-tolerance-current-value"
 				>
 					{value}%
@@ -88,8 +88,8 @@ const SlippageToleranceSelector: React.FC<SlippageToleranceSelectorProps> = ({
 							className={cn(
 								'rounded-lg border px-3 py-1.5 text-xs font-semibold transition-colors',
 								selected
-									? 'border-amber-500/60 bg-amber-500/15 text-amber-300'
-									: 'border-white/10 bg-white/[0.04] text-white/60 hover:border-white/20 hover:text-white/80',
+									? 'border-amber-500/60 bg-amber-500/15 text-amber-700 dark:text-amber-300'
+									: 'border-foreground/10 bg-foreground/[0.04] text-foreground/60 hover:border-foreground/20 hover:text-foreground/80',
 								disabled && 'cursor-not-allowed opacity-50'
 							)}
 						>
@@ -109,26 +109,26 @@ const SlippageToleranceSelector: React.FC<SlippageToleranceSelectorProps> = ({
 						aria-invalid={customError != null || undefined}
 						data-testid="slippage-custom-input"
 						className={cn(
-							'w-20 rounded-lg border bg-white/[0.04] px-2 py-1.5 text-xs text-white outline-none transition-colors',
+							'w-20 rounded-lg border bg-foreground/[0.04] px-2 py-1.5 text-xs text-foreground outline-none transition-colors',
 							customActive
 								? 'border-amber-500/60 ring-2 ring-amber-500/15'
-								: 'border-white/10',
+								: 'border-foreground/10',
 							customError ? 'border-red-500/60' : ''
 						)}
 					/>
-					<span className="text-xs text-white/45">%</span>
+					<span className="text-xs text-foreground/45">%</span>
 				</div>
 			</div>
 			{customError && (
 				<p
 					role="alert"
-					className="text-xs text-red-300"
+					className="text-xs text-red-700 dark:text-red-300"
 					data-testid="slippage-custom-error"
 				>
 					{customError}
 				</p>
 			)}
-			<p className="text-[0.65rem] text-white/40">
+			<p className="text-[0.65rem] text-foreground/40">
 				Between {SLIPPAGE_TOLERANCE_BOUNDS.MIN_PERCENT}% and{' '}
 				{SLIPPAGE_TOLERANCE_BOUNDS.MAX_PERCENT}%. The trade will revert if
 				the price moves beyond your tolerance before it executes.

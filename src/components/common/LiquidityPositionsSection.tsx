@@ -44,16 +44,16 @@ function PositionSkeleton() {
 	return (
 		<div
 			aria-hidden="true"
-			className="flex flex-col gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 lg:flex-row lg:items-center lg:justify-between"
+			className="flex flex-col gap-3 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4 lg:flex-row lg:items-center lg:justify-between"
 		>
 			<div className="space-y-2">
-				<div className="h-4 w-36 animate-pulse rounded bg-white/10" />
-				<div className="h-3 w-24 animate-pulse rounded bg-white/10" />
+				<div className="h-4 w-36 animate-pulse rounded bg-foreground/10" />
+				<div className="h-3 w-24 animate-pulse rounded bg-foreground/10" />
 			</div>
 			<div className="flex gap-6">
-				<div className="h-4 w-24 animate-pulse rounded bg-white/10" />
-				<div className="h-4 w-16 animate-pulse rounded bg-white/10" />
-				<div className="h-4 w-24 animate-pulse rounded bg-white/10" />
+				<div className="h-4 w-24 animate-pulse rounded bg-foreground/10" />
+				<div className="h-4 w-16 animate-pulse rounded bg-foreground/10" />
+				<div className="h-4 w-24 animate-pulse rounded bg-foreground/10" />
 			</div>
 		</div>
 	);
@@ -120,10 +120,10 @@ const LiquidityPositionsSection: React.FC<LiquidityPositionsSectionProps> = ({
 
 	const header = (
 		<div>
-			<h2 className="font-grotesque text-xl font-bold text-white">
+			<h2 className="font-grotesque text-xl font-bold text-foreground">
 				Liquidity
 			</h2>
-			<p className="mt-1 text-sm text-white/60">
+			<p className="mt-1 text-sm text-foreground/60">
 				Your liquidity positions, their share of each key pool, and the
 				trading-fee rewards they have earned.
 			</p>
@@ -179,7 +179,7 @@ const LiquidityPositionsSection: React.FC<LiquidityPositionsSectionProps> = ({
 					<div
 						role="alert"
 						data-testid="lp-positions-stale"
-						className="flex flex-col gap-2 rounded-xl border border-amber-300/30 bg-amber-300/5 px-4 py-3 text-sm text-amber-200 sm:flex-row sm:items-center sm:justify-between"
+						className="flex flex-col gap-2 rounded-xl border border-amber-300/30 bg-amber-300/5 px-4 py-3 text-sm text-amber-700 dark:text-amber-200 sm:flex-row sm:items-center sm:justify-between"
 					>
 						<span>
 							Couldn't refresh positions. Showing data from{' '}
@@ -297,16 +297,16 @@ const LiquidityPositionsSection: React.FC<LiquidityPositionsSectionProps> = ({
 						</DialogDescription>
 					</DialogHeader>
 					{removeTarget && (
-						<dl className="space-y-1 rounded-xl border border-white/10 bg-slate-950/30 p-3 text-xs text-white/60">
+						<dl className="space-y-1 rounded-xl border border-foreground/10 bg-surface-raised p-3 text-xs text-foreground/60">
 							<div className="flex justify-between gap-3">
 								<dt>Contribution</dt>
-								<dd className="break-all text-right font-mono text-white/85">
+								<dd className="break-all text-right font-mono text-foreground/85">
 									{formatLpAmount(removeTarget.contributionStroops)}
 								</dd>
 							</div>
 							<div className="flex justify-between gap-3">
 								<dt>Unclaimed rewards</dt>
-								<dd className="break-all text-right font-mono text-emerald-300">
+								<dd className="break-all text-right font-mono text-emerald-700 dark:text-emerald-300">
 									{removeTarget.pendingRewardsStroops == null
 										? 'Unavailable'
 										: formatLpAmount(
@@ -320,7 +320,7 @@ const LiquidityPositionsSection: React.FC<LiquidityPositionsSectionProps> = ({
 						<p
 							role="alert"
 							data-testid="lp-remove-error"
-							className="text-sm text-rose-300"
+							className="text-sm text-rose-700 dark:text-rose-300"
 						>
 							{describeLpTransactionError(removeMutation.error)}
 						</p>

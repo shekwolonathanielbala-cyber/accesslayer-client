@@ -47,11 +47,11 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<
 	const supplyDisplay = formatCompactNumber(data.supply);
 
 	return (
-		<div className="rounded-lg bg-slate-900/95 border border-white/10 p-3 shadow-xl backdrop-blur-sm">
-			<p className="text-xs text-white/60 mb-1">Supply: {supplyDisplay} keys</p>
-			<p className="text-sm font-bold text-amber-400">{priceDisplay}</p>
+		<div className="rounded-lg bg-surface-raised border border-foreground/10 p-3 shadow-xl backdrop-blur-sm">
+			<p className="text-xs text-foreground/60 mb-1">Supply: {supplyDisplay} keys</p>
+			<p className="text-sm font-bold text-amber-600 dark:text-amber-400">{priceDisplay}</p>
 			{data.label && (
-				<p className="text-xs text-amber-400/60 mt-1">{data.label}</p>
+				<p className="text-xs text-amber-600/60 dark:text-amber-400/60 mt-1">{data.label}</p>
 			)}
 		</div>
 	);
@@ -238,13 +238,13 @@ const BondingCurveChart: React.FC<BondingCurveChartProps> = ({
 			{/* Legend and current position info - only for graduated curve */}
 			{!data && effectiveCurrentSupply !== undefined && effectiveCurrentPriceStroops !== undefined && (
 				<div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-					<div className="bg-white/5 rounded-lg p-3 border border-white/10">
-						<p className="text-xs text-white/60 mb-1">Current Supply</p>
-						<p className="text-lg font-bold text-white">
+					<div className="bg-foreground/5 rounded-lg p-3 border border-foreground/10">
+						<p className="text-xs text-foreground/60 mb-1">Current Supply</p>
+						<p className="text-lg font-bold text-foreground">
 							{formatCompactNumber(effectiveCurrentSupply)} keys
 						</p>
 						{currentMilestoneRange && (
-							<p className="text-xs text-white/40 mt-1">
+							<p className="text-xs text-foreground/40 mt-1">
 								{currentMilestoneRange.next
 									? `Next: ${currentMilestoneRange.next.label}`
 									: 'At final milestone'}
@@ -252,20 +252,20 @@ const BondingCurveChart: React.FC<BondingCurveChartProps> = ({
 						)}
 					</div>
 
-					<div className="bg-white/5 rounded-lg p-3 border border-white/10">
-						<p className="text-xs text-white/60 mb-1">Current Price</p>
-						<p className="text-lg font-bold text-amber-400">
+					<div className="bg-foreground/5 rounded-lg p-3 border border-foreground/10">
+						<p className="text-xs text-foreground/60 mb-1">Current Price</p>
+						<p className="text-lg font-bold text-amber-600 dark:text-amber-400">
 							{formatDisplayKeyPrice(effectiveCurrentPriceStroops)}
 						</p>
 					</div>
 
 					{priceImpactData && (
 						<div className="bg-amber-500/10 rounded-lg p-3 border border-amber-500/30">
-							<p className="text-xs text-amber-400/80 mb-1">Price Impact</p>
-							<p className="text-lg font-bold text-amber-400">
+							<p className="text-xs text-amber-600/80 dark:text-amber-400/80 mb-1">Price Impact</p>
+							<p className="text-lg font-bold text-amber-600 dark:text-amber-400">
 								{formatDisplayKeyPrice(priceImpactData.newPrice)}
 							</p>
-							<p className="text-xs text-amber-400/60 mt-1">
+							<p className="text-xs text-amber-600/60 dark:text-amber-400/60 mt-1">
 								+{priceImpactData.priceIncreasePercent.toFixed(1)}%
 							</p>
 						</div>

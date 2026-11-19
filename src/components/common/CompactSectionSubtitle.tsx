@@ -13,7 +13,7 @@ const CompactSectionSubtitle: React.FC<CompactSectionSubtitleProps> = ({
 	return (
 		<p
 			className={cn(
-				'mt-2 max-w-2xl text-sm leading-6 text-white/62 md:text-[0.95rem]',
+				'mt-2 max-w-2xl text-sm leading-6 text-foreground/62 md:text-[0.95rem]',
 				className
 			)}
 		>

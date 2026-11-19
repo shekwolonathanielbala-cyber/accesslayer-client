@@ -41,19 +41,19 @@ class AppErrorBoundary extends Component<Props, State> {
 		if (this.state.hasError) {
 			return (
 				<main
-					className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#06111f] px-6 py-16 text-center text-white"
+					className="flex min-h-screen flex-col items-center justify-center gap-6 bg-surface px-6 py-16 text-center text-foreground"
 					role="alert"
 					aria-live="assertive"
 				>
 					<div className="flex flex-col items-center gap-3">
 						<AlertCircle
-							className="size-10 text-amber-400"
+							className="size-10 text-amber-600 dark:text-amber-400"
 							aria-hidden="true"
 						/>
 						<h1 className="font-grotesque text-3xl font-black tracking-tight sm:text-4xl">
 							Something went wrong
 						</h1>
-						<p className="max-w-md font-jakarta text-base leading-7 text-white/70">
+						<p className="max-w-md font-jakarta text-base leading-7 text-foreground/70">
 							The app hit an unexpected error and couldn't continue.
 							Reloading the page usually fixes this.
 						</p>

@@ -114,25 +114,25 @@ export const PortfolioHoldingRow: React.FC<PortfolioHoldingRowProps> = ({
 		<>
 		<div
 			className={cn(
-				'flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-opacity sm:flex-row sm:items-center sm:justify-between',
+				'flex flex-col gap-3 rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-4 transition-opacity sm:flex-row sm:items-center sm:justify-between',
 				position.pending && 'opacity-60'
 			)}
 			data-testid="portfolio-holding-row"
 		>
 			<div className="min-w-0 flex-1">
 				<button type="button" className="flex items-center gap-2 text-left" onClick={() => setIsExpanded(value => !value)} aria-expanded={isExpanded} data-testid="holding-expand-button">
-					<span className="truncate text-sm font-bold text-white">
+					<span className="truncate text-sm font-bold text-foreground">
 						{creator?.title ?? 'Unknown creator'}
 					</span>
 					{deprecated && <DeprecationNotice reason={creator?.deprecationReason} />}
 					{position.pending && (
-						<span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-400">
+						<span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-400">
 							<span className="size-2.5 animate-spin rounded-full border-2 border-amber-400/30 border-t-amber-400" />
 							Pending
 						</span>
 					)}
 				</button>
-				<div className="mt-1 text-xs text-white/55">
+				<div className="mt-1 text-xs text-foreground/55">
 					{formatNumber(position.quantity)} keys ·{' '}
 					{position.isPriceLoading
 						? 'Refreshing price'
@@ -144,17 +144,17 @@ export const PortfolioHoldingRow: React.FC<PortfolioHoldingRowProps> = ({
 					className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs"
 					data-testid="holding-pnl"
 				>
-					<span className="text-white/45">
+					<span className="text-foreground/45">
 						Avg buy{' '}
-						<span className="font-semibold text-white/80">
+						<span className="font-semibold text-foreground/80">
 							{positionPnL.averagePurchasePriceStroops == null
 								? '—'
 								: formatDisplayKeyPrice(positionPnL.averagePurchasePriceStroops)}
 						</span>
 					</span>
-					<span className="text-white/45">
+					<span className="text-foreground/45">
 						Current{' '}
-						<span className="font-semibold text-white/80">
+						<span className="font-semibold text-foreground/80">
 							{positionPnL.currentValueStroops == null
 								? '—'
 								: formatDisplayKeyPrice(positionPnL.currentValueStroops)}
@@ -176,7 +176,7 @@ export const PortfolioHoldingRow: React.FC<PortfolioHoldingRowProps> = ({
 				</div>
 				{hasDividends && (
 					<span
-						className="mt-2 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[0.65rem] font-semibold text-emerald-400"
+						className="mt-2 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[0.65rem] font-semibold text-emerald-600 dark:text-emerald-400"
 						title="Unclaimed dividend balance available to reinvest"
 						data-testid="unclaimed-dividend-badge"
 					>
@@ -269,13 +269,13 @@ export const PortfolioHoldingRow: React.FC<PortfolioHoldingRowProps> = ({
 				</div>
 			</div>
 			{isExpanded && (
-				<div className="basis-full border-t border-white/10 pt-4" data-testid="self-freeze-section">
+				<div className="basis-full border-t border-foreground/10 pt-4" data-testid="self-freeze-section">
 					<div className="flex flex-wrap items-end justify-between gap-4">
 						<div>
-							<h3 className="text-sm font-bold text-white">Self-freeze</h3>
-							<dl className="mt-2 flex gap-5 text-xs text-white/55">
-								<div><dt>Frozen</dt><dd className="font-semibold text-white">{formatNumber(frozenQuantity)} keys</dd></div>
-								<div><dt>Liquid</dt><dd className="font-semibold text-white">{formatNumber(liquidQuantity)} keys</dd></div>
+							<h3 className="text-sm font-bold text-foreground">Self-freeze</h3>
+							<dl className="mt-2 flex gap-5 text-xs text-foreground/55">
+								<div><dt>Frozen</dt><dd className="font-semibold text-foreground">{formatNumber(frozenQuantity)} keys</dd></div>
+								<div><dt>Liquid</dt><dd className="font-semibold text-foreground">{formatNumber(liquidQuantity)} keys</dd></div>
 							</dl>
 						</div>
 						<div className="flex flex-wrap gap-2">

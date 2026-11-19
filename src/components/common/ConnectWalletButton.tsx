@@ -129,7 +129,7 @@ function ConnectWalletButton() {
 									<button
 										type="button"
 										onClick={handleCopyAddress}
-										className="flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+										className="flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-200 bg-foreground px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
 									>
 										{copied ? (
 											<Check className="size-4 text-emerald-500" />
@@ -144,7 +144,7 @@ function ConnectWalletButton() {
 											setShowAddressPopover(false);
 											setShowDisconnectDialog(true);
 										}}
-										className="flex-1 rounded-md border border-red-200 bg-white px-3 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
+										className="flex-1 rounded-md border border-red-200 bg-foreground px-3 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
 									>
 										Disconnect
 									</button>

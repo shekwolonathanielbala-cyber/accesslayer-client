@@ -70,7 +70,7 @@ const CreatorProfileStaleIndicator: React.FC<
 				>
 					<span
 						className={cn(
-							'text-xs font-semibold tracking-wide text-amber-200',
+							'text-xs font-semibold tracking-wide text-amber-700 dark:text-amber-200',
 							isRefetching ? 'opacity-75' : 'opacity-100'
 						)}
 					>
@@ -88,7 +88,7 @@ const CreatorProfileStaleIndicator: React.FC<
 						<RefreshCw
 							size={14}
 							className={cn(
-								'text-amber-200 transition-colors',
+								'text-amber-700 dark:text-amber-200 transition-colors',
 								isRefetching ? 'opacity-100' : 'opacity-75'
 							)}
 						/>

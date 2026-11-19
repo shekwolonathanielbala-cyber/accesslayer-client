@@ -68,23 +68,23 @@ export const HoldingCapIndicator: React.FC<HoldingCapIndicatorProps> = ({
 				'rounded-xl border p-3 transition-colors',
 				isWarningActive
 					? 'border-amber-500/40 bg-amber-500/5'
-					: 'border-white/10 bg-white/[0.03]',
+					: 'border-foreground/10 bg-foreground/[0.03]',
 				className
 			)}
 		>
 			{/* Header: Label, Tooltip, and Current / Max Cap text */}
 			<div className="flex items-center justify-between text-xs mb-1.5">
-				<div className="flex items-center gap-1.5 font-medium text-white/80">
+				<div className="flex items-center gap-1.5 font-medium text-foreground/80">
 					<span>Holding Cap</span>
 					<AccessibleInfoTrigger
 						explanation={policyExplanation}
 						label="Holding cap policy"
-						className="text-white/60 hover:text-white"
+						className="text-foreground/60 hover:text-foreground"
 					/>
 				</div>
 				<span
 					data-testid="holding-cap-ratio"
-					className="font-mono text-white/70 tabular-nums"
+					className="font-mono text-foreground/70 tabular-nums"
 					aria-label={`Holding cap: ${formatNumber(safeCurrentHoldings)} of ${formatNumber(holdingCap)} keys`}
 				>
 					{formatNumber(safeCurrentHoldings)} / {formatNumber(holdingCap)} keys
@@ -99,7 +99,7 @@ export const HoldingCapIndicator: React.FC<HoldingCapIndicatorProps> = ({
 				aria-valuemax={holdingCap}
 				aria-valuetext={`${formatNumber(safeCurrentHoldings)} of ${formatNumber(holdingCap)} keys (${currentPercent}%)`}
 				data-testid="holding-cap-progress-bar"
-				className="h-2 w-full overflow-hidden rounded-full bg-white/10"
+				className="h-2 w-full overflow-hidden rounded-full bg-foreground/10"
 			>
 				<div
 					className={cn(
@@ -119,10 +119,10 @@ export const HoldingCapIndicator: React.FC<HoldingCapIndicatorProps> = ({
 				<div
 					role="alert"
 					data-testid="holding-cap-warning"
-					className="mt-2 flex items-start gap-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1.5 text-xs text-amber-200"
+					className="mt-2 flex items-start gap-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1.5 text-xs text-amber-700 dark:text-amber-200"
 				>
 					<AlertTriangle
-						className="size-3.5 shrink-0 mt-0.5 text-amber-400"
+						className="size-3.5 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400"
 						aria-hidden="true"
 					/>
 					<div>

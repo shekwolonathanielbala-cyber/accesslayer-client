@@ -129,7 +129,7 @@ export default function TrendingCreators() {
 
 	return (
 		<section
-			className="bg-white px-6 py-20"
+			className="bg-foreground px-6 py-20"
 			style={{
 				backgroundImage:
 					'radial-gradient(circle, #d1d5db 0.75px, transparent 0.75px)',

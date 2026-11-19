@@ -72,7 +72,7 @@ function WalletConnectionPopover({ className }: WalletConnectionPopoverProps) {
 					type="button"
 					data-testid="wallet-address-trigger"
 					className={cn(
-						'rounded-lg border border-white/10 bg-white/5 px-3 py-2 font-mono text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white',
+						'rounded-lg border border-foreground/10 bg-foreground/5 px-3 py-2 font-mono text-sm text-foreground/80 transition-colors hover:bg-foreground/10 hover:text-foreground',
 						className
 					)}
 					aria-label={`Wallet options for ${truncated}`}
@@ -83,7 +83,7 @@ function WalletConnectionPopover({ className }: WalletConnectionPopoverProps) {
 			<PopoverContent align="end" className="w-80 p-4">
 				<div className="flex flex-col gap-4">
 					<div>
-						<p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">
+						<p className="mb-1 text-xs font-semibold uppercase tracking-wider text-foreground/40">
 							Connected wallet
 						</p>
 						<CopyField
@@ -96,7 +96,7 @@ function WalletConnectionPopover({ className }: WalletConnectionPopoverProps) {
 						type="button"
 						data-testid="disconnect-wallet-button"
 						onClick={() => disconnect()}
-						className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm font-medium text-red-300 transition-colors hover:border-red-500/50 hover:bg-red-500/20 hover:text-red-200"
+						className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm font-medium text-red-700 dark:text-red-300 transition-colors hover:border-red-500/50 hover:bg-red-500/20 hover:text-red-700 dark:hover:text-red-200"
 					>
 						<LogOut className="size-4" aria-hidden="true" />
 						Disconnect

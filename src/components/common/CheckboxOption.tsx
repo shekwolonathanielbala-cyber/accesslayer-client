@@ -37,7 +37,7 @@ const CheckboxOption: React.FC<CheckboxOptionProps> = ({
 						: 'cursor-pointer hover:opacity-80'
 				)}
 			>
-				{checked && <Check className="w-4 h-4 text-white stroke-[3]" />}
+				{checked && <Check className="w-4 h-4 text-foreground stroke-[3]" />}
 			</button>
 
 			<p

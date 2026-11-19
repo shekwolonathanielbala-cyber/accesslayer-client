@@ -25,9 +25,9 @@ export interface ReferredWalletsTableProps {
 }
 
 const STATUS_BADGE_CLASS: Record<string, string> = {
-	joined: 'border-white/10 bg-white/[0.06] text-white/60',
-	traded: 'border-sky-400/30 bg-sky-400/15 text-sky-200',
-	rewarded: 'border-emerald-400/30 bg-emerald-400/15 text-emerald-200',
+	joined: 'border-foreground/10 bg-foreground/[0.06] text-foreground/60',
+	traded: 'border-sky-400/30 bg-sky-400/15 text-sky-700 dark:text-sky-200',
+	rewarded: 'border-emerald-400/30 bg-emerald-400/15 text-emerald-700 dark:text-emerald-200',
 };
 
 function buildAccountExplorerUrl(address: string): string {
@@ -66,7 +66,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 	if (isError) {
 		return (
 			<section className={className} data-testid="referred-wallets-error">
-				<p role="alert" className="text-sm text-amber-300">
+				<p role="alert" className="text-sm text-amber-700 dark:text-amber-300">
 					We couldn&apos;t load your referred wallets. Please refresh and
 					try again.
 				</p>
@@ -76,13 +76,13 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 
 	return (
 		<section className={className} data-testid="referred-wallets-panel">
-			<h2 className="font-grotesque text-xl font-black tracking-tight text-white">
+			<h2 className="font-grotesque text-xl font-black tracking-tight text-foreground">
 				Referred wallets
 			</h2>
 
 			{wallets.length === 0 ? (
 				<p
-					className="mt-2 text-sm text-white/55"
+					className="mt-2 text-sm text-foreground/55"
 					data-testid="referred-wallets-empty"
 				>
 					No referred wallets yet. Share your referral link to get
@@ -96,7 +96,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 					>
 						<table className="w-full min-w-[40rem] text-left text-sm">
 							<thead>
-								<tr className="border-b border-white/10 text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
+								<tr className="border-b border-foreground/10 text-[0.65rem] uppercase tracking-[0.18em] text-foreground/40">
 									<th scope="col" className="py-2 pr-4 font-bold">
 										Wallet
 									</th>
@@ -118,7 +118,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 								{wallets.map(wallet => (
 									<tr
 										key={wallet.address}
-										className="border-b border-white/5"
+										className="border-b border-foreground/5"
 										data-testid="referred-wallet-row"
 									>
 										<td className="py-2 pr-4">
@@ -126,7 +126,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 												href={buildAccountExplorerUrl(wallet.address)}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="inline-flex items-center gap-1 font-mono text-xs text-white/70 hover:text-white"
+												className="inline-flex items-center gap-1 font-mono text-xs text-foreground/70 hover:text-foreground"
 												data-testid="referred-wallet-address"
 											>
 												{wallet.displayName || wallet.address}
@@ -137,7 +137,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 											</a>
 										</td>
 										<td
-											className="py-2 pr-4 text-xs text-white/60"
+											className="py-2 pr-4 text-xs text-foreground/60"
 											title={
 												formatAbsoluteDateTime(wallet.joinedAt) ??
 												undefined
@@ -147,13 +147,13 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 											{formatAbsoluteDateTime(wallet.joinedAt) ?? '—'}
 										</td>
 										<td
-											className="py-2 pr-4 text-xs text-white/60"
+											className="py-2 pr-4 text-xs text-foreground/60"
 											data-testid="referred-wallet-first-trade"
 										>
 											{wallet.firstTradeAt ? 'Yes' : 'Not yet'}
 										</td>
 										<td
-											className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-400"
+											className="py-2 pr-4 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400"
 											data-testid="referred-wallet-reward"
 										>
 											{formatXlmPrice(wallet.rewardXlm ?? 0)}
@@ -177,7 +177,7 @@ export const ReferredWalletsTable: React.FC<ReferredWalletsTableProps> = ({
 							type="button"
 							onClick={onLoadMore}
 							disabled={isFetchingNextPage}
-							className="mt-4 text-sm font-semibold text-amber-300 hover:text-amber-200 disabled:opacity-50"
+							className="mt-4 text-sm font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 disabled:opacity-50"
 							data-testid="referred-wallets-load-more"
 						>
 							{isFetchingNextPage ? 'Loading…' : 'Load more'}

@@ -24,10 +24,10 @@ const LaunchPenaltyWarning: React.FC<LaunchPenaltyWarningProps> = ({
 		<div
 			role="alert"
 			data-testid="launch-penalty-warning"
-			className="flex items-start gap-2 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-3 text-sm text-yellow-200"
+			className="flex items-start gap-2 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-3 text-sm text-yellow-700 dark:text-yellow-200"
 		>
 			<AlertTriangle
-				className="h-4 w-4 flex-shrink-0 text-yellow-400 mt-0.5"
+				className="h-4 w-4 flex-shrink-0 text-yellow-600 dark:text-yellow-400 mt-0.5"
 				aria-hidden="true"
 			/>
 			<p>

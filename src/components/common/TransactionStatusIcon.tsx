@@ -9,9 +9,9 @@ interface TransactionStatusIconProps {
 }
 
 const statusStyles: Record<TransactionStatus, string> = {
-	success: 'bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-300/35',
-	pending: 'bg-amber-500/15 text-amber-300 ring-1 ring-amber-300/35',
-	failed: 'bg-red-500/15 text-red-300 ring-1 ring-red-300/35',
+	success: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300/35',
+	pending: 'bg-amber-500/15 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300/35',
+	failed: 'bg-red-500/15 text-red-700 dark:text-red-300 ring-1 ring-red-300/35',
 };
 
 const TransactionStatusIcon: React.FC<TransactionStatusIconProps> = ({

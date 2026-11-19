@@ -7,7 +7,7 @@ interface SkeletonProps {
 const Skeleton: React.FC<SkeletonProps> = ({ className }) => {
   return (
     <div
-      className={cn('animate-pulse rounded-md bg-white/[0.08]', className)}
+      className={cn('animate-pulse rounded-md bg-foreground/[0.08]', className)}
     />
   );
 };

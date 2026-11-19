@@ -13,7 +13,7 @@ export interface LaunchPenaltyPanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 /**
  * Launch penalty configuration panel for the creator dashboard settings tab.
@@ -79,7 +79,7 @@ const LaunchPenaltyPanel: React.FC<LaunchPenaltyPanelProps> = ({
 			<div className="space-y-1.5">
 				<label
 					htmlFor="launch-penalty"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Launch penalty (%)
 				</label>
@@ -101,7 +101,7 @@ const LaunchPenaltyPanel: React.FC<LaunchPenaltyPanelProps> = ({
 				/>
 				<p
 					id="launch-penalty-hint"
-					className="text-xs text-white/40"
+					className="text-xs text-foreground/40"
 					data-testid="launch-penalty-hint"
 				>
 					Applied to sells within the first 7 days after key creation
@@ -110,7 +110,7 @@ const LaunchPenaltyPanel: React.FC<LaunchPenaltyPanelProps> = ({
 					<p
 						role="alert"
 						data-testid="launch-penalty-error"
-						className="text-xs text-red-400"
+						className="text-xs text-red-600 dark:text-red-400"
 					>
 						{errorMessage}
 					</p>

@@ -577,15 +577,15 @@ export function getPnLTone(pnl: number | null | undefined): PnLTone {
 }
 
 const PNL_TONE_TEXT_CLASS_NAMES: Record<PnLTone, string> = {
-	positive: 'text-emerald-400',
-	negative: 'text-red-400',
-	neutral: 'text-white',
+	positive: 'text-emerald-600 dark:text-emerald-400',
+	negative: 'text-red-600 dark:text-red-400',
+	neutral: 'text-foreground',
 };
 
 const PNL_TONE_CHIP_CLASS_NAMES: Record<PnLTone, string> = {
-	positive: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
-	negative: 'border-red-500/30 bg-red-500/10 text-red-400',
-	neutral: 'border-white/10 bg-white/5 text-white/70',
+	positive: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+	negative: 'border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400',
+	neutral: 'border-foreground/10 bg-foreground/5 text-foreground/70',
 };
 
 /**

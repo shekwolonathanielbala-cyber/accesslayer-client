@@ -25,12 +25,12 @@ import {
 import { formatCompactNumber } from '@/utils/numberFormat.utils';
 
 const STATUS_CLASSES: Record<ProposalStatus, string> = {
-	active: 'border-amber-500/30 bg-amber-500/10 text-amber-400',
-	closed: 'border-white/15 bg-white/10 text-white/60',
-	passed: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
-	rejected: 'border-red-500/30 bg-red-500/10 text-red-400',
-	executed: 'border-blue-500/30 bg-blue-500/10 text-blue-400',
-	cancelled: 'border-white/10 bg-white/[0.04] text-white/50',
+	active: 'border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400',
+	closed: 'border-foreground/15 bg-foreground/10 text-foreground/60',
+	passed: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+	rejected: 'border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400',
+	executed: 'border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400',
+	cancelled: 'border-foreground/10 bg-foreground/[0.04] text-foreground/50',
 };
 
 function formatDateTime(value: string): string {
@@ -47,7 +47,7 @@ function formatDateTime(value: string): string {
 
 function DetailPageShell({ children }: { children: React.ReactNode }) {
 	return (
-		<main className="min-h-screen bg-[#06111f] px-4 py-8 text-white sm:px-6 lg:px-8">
+		<main className="min-h-screen bg-surface px-4 py-8 text-foreground sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-5xl">{children}</div>
 		</main>
 	);
@@ -59,7 +59,7 @@ function OptionResults({ proposal }: { proposal: Proposal }) {
 
 	return (
 		<section aria-label="Option results" className="mt-8">
-			<h2 className="mb-4 font-jakarta text-xl font-bold text-white">
+			<h2 className="mb-4 font-jakarta text-xl font-bold text-foreground">
 				{isProposalClosed(proposal.status)
 					? 'Final results'
 					: 'Live results'}
@@ -71,13 +71,13 @@ function OptionResults({ proposal }: { proposal: Proposal }) {
 					return (
 						<div key={option.label}>
 							<div className="mb-1.5 flex items-center justify-between gap-3 text-sm">
-								<span className="text-white/70">{option.label}</span>
-								<span className="tabular-nums text-white/50">
+								<span className="text-foreground/70">{option.label}</span>
+								<span className="tabular-nums text-foreground/50">
 									{formatCompactNumber(option.weight)} ·{' '}
 									{percentage.toFixed(1)}%
 								</span>
 							</div>
-							<div className="h-2 overflow-hidden rounded-full bg-white/10">
+							<div className="h-2 overflow-hidden rounded-full bg-foreground/10">
 								<div
 									className={cn(
 										'h-full rounded-full transition-all',
@@ -116,7 +116,7 @@ export default function ProposalDetailPage() {
 		<DetailPageShell>
 			<Link
 				to="/governance"
-				className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white/70"
+				className="inline-flex items-center gap-1.5 text-sm text-foreground/40 transition-colors hover:text-foreground/70"
 			>
 				<ArrowLeft className="size-4" aria-hidden="true" />
 				Back to proposals
@@ -128,18 +128,18 @@ export default function ProposalDetailPage() {
 					aria-label="Loading proposal"
 					aria-busy="true"
 				>
-					<div className="h-10 w-3/4 animate-pulse rounded-lg bg-white/[0.06]" />
-					<div className="h-40 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.03]" />
-					<div className="h-64 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.03]" />
+					<div className="h-10 w-3/4 animate-pulse rounded-lg bg-foreground/[0.06]" />
+					<div className="h-40 animate-pulse rounded-2xl border border-foreground/[0.06] bg-foreground/[0.03]" />
+					<div className="h-64 animate-pulse rounded-2xl border border-foreground/[0.06] bg-foreground/[0.03]" />
 				</div>
 			)}
 
 			{!isLoading && error && (
 				<section className="mt-8 rounded-2xl border border-red-500/25 bg-red-500/[0.07] p-8 text-center">
-					<h1 className="font-jakarta text-xl font-bold text-white">
+					<h1 className="font-jakarta text-xl font-bold text-foreground">
 						{notFound ? 'Proposal not found' : 'Unable to load proposal'}
 					</h1>
-					<p className="mt-2 text-sm text-white/50">
+					<p className="mt-2 text-sm text-foreground/50">
 						{notFound
 							? 'This proposal may have been removed or the link is incorrect.'
 							: 'Something went wrong while loading this proposal.'}
@@ -148,7 +148,7 @@ export default function ProposalDetailPage() {
 						<button
 							type="button"
 							onClick={() => void refetch()}
-							className="mt-5 rounded-xl border border-white/15 bg-white/[0.05] px-5 py-2.5 text-sm font-semibold text-white/75 transition-colors hover:bg-white/[0.09] hover:text-white"
+							className="mt-5 rounded-xl border border-foreground/15 bg-foreground/[0.05] px-5 py-2.5 text-sm font-semibold text-foreground/75 transition-colors hover:bg-foreground/[0.09] hover:text-foreground"
 						>
 							Try again
 						</button>
@@ -158,7 +158,7 @@ export default function ProposalDetailPage() {
 
 			{!isLoading && !error && proposal && (
 				<article className="mt-8">
-					<header className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-7">
+					<header className="rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03] p-5 sm:p-7">
 						<div className="flex flex-wrap items-center gap-3">
 							<span
 								className={cn(
@@ -168,19 +168,19 @@ export default function ProposalDetailPage() {
 							>
 								{proposal.status}
 							</span>
-							<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/30">
+							<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
 								Proposal {proposal.id}
 							</span>
 							{proposal.pollId !== undefined && (
-								<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/30">
+								<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/30">
 									Poll #{proposal.pollId}
 								</span>
 							)}
 						</div>
-						<h1 className="mt-4 font-jakarta text-3xl font-black tracking-tight text-white sm:text-4xl">
+						<h1 className="mt-4 font-jakarta text-3xl font-black tracking-tight text-foreground sm:text-4xl">
 							{proposal.title}
 						</h1>
-						<div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-xs text-white/45">
+						<div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-xs text-foreground/45">
 							<span
 								className="inline-flex items-center gap-1.5"
 								title={proposal.creatorAddress ?? proposal.creatorId}
@@ -201,18 +201,18 @@ export default function ProposalDetailPage() {
 
 					<section
 						aria-label="Proposal description"
-						className="mt-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-7"
+						className="mt-5 rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03] p-5 sm:p-7"
 					>
-						<h2 className="font-jakarta text-sm font-bold uppercase tracking-[0.16em] text-white/40">
+						<h2 className="font-jakarta text-sm font-bold uppercase tracking-[0.16em] text-foreground/40">
 							Description
 						</h2>
-						<p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-white/70">
+						<p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-foreground/70">
 							{proposal.description}
 						</p>
 					</section>
 
 					<section className="mt-8" aria-label="Proposal result">
-						<h2 className="mb-4 font-jakarta text-xl font-bold text-white">
+						<h2 className="mb-4 font-jakarta text-xl font-bold text-foreground">
 							Result and participation
 						</h2>
 						<ProposalOutcomeSummary proposal={proposal} />
@@ -221,7 +221,7 @@ export default function ProposalDetailPage() {
 					<OptionResults proposal={proposal} />
 
 					<section className="mt-8" aria-label="Quorum progress">
-						<h2 className="mb-4 font-jakarta text-xl font-bold text-white">
+						<h2 className="mb-4 font-jakarta text-xl font-bold text-foreground">
 							Quorum progress
 						</h2>
 						<QuorumIndicator
@@ -235,26 +235,26 @@ export default function ProposalDetailPage() {
 						{proposal.status === 'active' ? (
 							<ProposalVotePanel proposal={proposal} />
 						) : (
-							<div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-7">
+							<div className="rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03] p-5 sm:p-7">
 								<div className="flex items-center gap-3">
-									<div className="rounded-lg bg-white/10 p-2 text-white/60">
+									<div className="rounded-lg bg-foreground/10 p-2 text-foreground/60">
 										<CheckCircle2
 											className="size-4"
 											aria-hidden="true"
 										/>
 									</div>
 									<div>
-										<p className="text-sm font-semibold text-white">
+										<p className="text-sm font-semibold text-foreground">
 											Voting is closed
 										</p>
-										<p className="mt-1 text-xs text-white/45">
+										<p className="mt-1 text-xs text-foreground/45">
 											This proposal is read-only and no longer
 											accepts votes.
 										</p>
 									</div>
 								</div>
 								{proposal.closedAt && (
-									<p className="mt-5 flex items-center gap-2 text-xs text-white/45">
+									<p className="mt-5 flex items-center gap-2 text-xs text-foreground/45">
 										<Clock3 className="size-3.5" aria-hidden="true" />
 										Closed {formatDateTime(proposal.closedAt)}
 									</p>
@@ -269,12 +269,12 @@ export default function ProposalDetailPage() {
 					>
 						<div className="mb-4 flex items-end justify-between gap-4">
 							<div>
-								<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber-400/80">
+								<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber-600/80 dark:text-amber-400/80">
 									Governance
 								</p>
 								<h2
 									id="vote-history-heading"
-									className="mt-1 font-jakarta text-xl font-bold text-white"
+									className="mt-1 font-jakarta text-xl font-bold text-foreground"
 								>
 									Vote history
 								</h2>

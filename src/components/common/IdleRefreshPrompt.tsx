@@ -33,15 +33,15 @@ const IdleRefreshPrompt: React.FC<IdleRefreshPromptProps> = ({
 			data-testid="idle-refresh-prompt"
 			className={[
 				'fixed bottom-6 left-1/2 z-50 -translate-x-1/2',
-				'flex items-center gap-3 rounded-2xl border border-white/10',
+				'flex items-center gap-3 rounded-2xl border border-foreground/10',
 				'bg-zinc-900/90 px-4 py-3 shadow-xl backdrop-blur-md',
-				'text-sm text-white/80 transition-all duration-300',
+				'text-sm text-foreground/80 transition-all duration-300',
 				visible
 					? 'translate-y-0 opacity-100 pointer-events-auto'
 					: 'translate-y-4 opacity-0 pointer-events-none',
 			].join(' ')}
 		>
-			<span className="shrink-0 text-white/50">
+			<span className="shrink-0 text-foreground/50">
 				<RefreshCw className="size-4" aria-hidden="true" />
 			</span>
 			<span>The creator list may be out of date.</span>
@@ -50,7 +50,7 @@ const IdleRefreshPrompt: React.FC<IdleRefreshPromptProps> = ({
 				size="sm"
 				variant="ghost"
 				onClick={onRefresh}
-				className="h-7 rounded-lg px-3 text-amber-300 hover:bg-amber-500/10 hover:text-amber-200"
+				className="h-7 rounded-lg px-3 text-amber-700 dark:text-amber-300 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-200"
 				data-testid="idle-refresh-prompt-confirm"
 			>
 				Refresh
@@ -59,7 +59,7 @@ const IdleRefreshPrompt: React.FC<IdleRefreshPromptProps> = ({
 				type="button"
 				onClick={onDismiss}
 				aria-label="Dismiss refresh prompt"
-				className="ml-1 text-white/30 transition-colors hover:text-white/60"
+				className="ml-1 text-foreground/30 transition-colors hover:text-foreground/60"
 				data-testid="idle-refresh-prompt-dismiss"
 			>
 				✕

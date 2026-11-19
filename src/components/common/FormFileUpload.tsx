@@ -179,7 +179,7 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 		switch (status) {
 			case 'initial':
 				return (
-					<div className="relative bg-white hover:bg-zinc-50">
+					<div className="relative bg-foreground hover:bg-zinc-50">
 						<input
 							type="file"
 							accept={acceptedFormats}
@@ -216,7 +216,7 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 
 			case 'uploading':
 				return (
-					<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-white">
+					<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-foreground">
 						<div className="flex items-center justify-between space-x-3">
 							<div className="  rounded-full flex items-center justify-center ">
 								<img
@@ -255,12 +255,12 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 			case 'success':
 				return (
 					<Fragment>
-						<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-white ">
+						<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-foreground ">
 							<div className="flex items-center justify-between">
 								<div className="flex items-center space-x-3">
 									<div className="p-3 bg-green-100 rounded-full flex items-center justify-center ">
 										<div className="p-1 bg-green-500 rounded-full flex items-center justify-center">
-											<Check className="w-3 h-3 text-white stroke-3   " />
+											<Check className="w-3 h-3 text-foreground stroke-3   " />
 										</div>
 									</div>
 									<div>
@@ -294,14 +294,14 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 				return (
 					<Fragment>
 						<div
-							className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-white hover:bg-gray-50 cursor-pointer"
+							className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-foreground hover:bg-gray-50 cursor-pointer"
 							onClick={handleRemove}
 						>
 							<div className="flex items-center justify-between">
 								<div className="flex items-center space-x-3">
 									<div className="p-3 bg-yellow-100 rounded-full flex items-center justify-center ">
 										<div className="p-1 bg-yellow-400 rounded-full flex items-center justify-center">
-											<Alert className="w-3 h-3 text-white stroke-3  " />
+											<Alert className="w-3 h-3 text-foreground stroke-3  " />
 										</div>
 									</div>
 									<div>
@@ -325,7 +325,7 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 			case 'unsupported-format':
 				return (
 					<Fragment>
-						<div className="relative bg-white">
+						<div className="relative bg-foreground">
 							<input
 								type="file"
 								accept={acceptedFormats}
@@ -338,7 +338,7 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 									<div className="flex items-center space-x-3">
 										<div className="p-3 bg-yellow-100 rounded-full flex items-center justify-center">
 											<div className="p-1 bg-yellow-400 rounded-full flex items-center justify-center">
-												<Alert className="w-3 h-3 text-white stroke-3" />
+												<Alert className="w-3 h-3 text-foreground stroke-3" />
 											</div>
 										</div>
 										<div>
@@ -373,12 +373,12 @@ const FormFileUpload: React.FC<FileUploadProps> = ({
 			case 'error':
 				return (
 					<Fragment>
-						<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-white hover:bg-gray-50 cursor-pointer">
+						<div className="border-2 border-dashed border-gray-200 rounded-lg p-5  transition-colors bg-foreground hover:bg-gray-50 cursor-pointer">
 							<div className="flex items-center justify-between">
 								<div className="flex items-center space-x-3">
 									<div className="p-3 bg-red-100 rounded-full flex items-center justify-center ">
 										<div className="p-1 bg-red-500 rounded-full flex items-center justify-center">
-											<Alert className="w-3 h-3 text-white stroke-3  " />
+											<Alert className="w-3 h-3 text-foreground stroke-3  " />
 										</div>
 									</div>
 									<div>

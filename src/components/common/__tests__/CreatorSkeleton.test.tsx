@@ -15,7 +15,7 @@ describe('CreatorSkeleton', () => {
 		const shimmerBlocks = container.querySelectorAll('.skeleton-shimmer');
 
 		expect(shimmerBlocks).toHaveLength(0);
-		expect(container.querySelectorAll('.ring-white\\/15')).toHaveLength(6);
+		expect(container.querySelectorAll('.ring-foreground\\/15')).toHaveLength(6);
 	});
 
 	it('renders the requested number of cards in grid skeleton', () => {
@@ -32,6 +32,6 @@ describe('CreatorSkeleton', () => {
 		const shimmerBlocks = container.querySelectorAll('.skeleton-shimmer');
 
 		expect(shimmerBlocks).toHaveLength(0);
-		expect(container.querySelectorAll('.ring-white\\/15')).toHaveLength(12);
+		expect(container.querySelectorAll('.ring-foreground\\/15')).toHaveLength(12);
 	});
 });

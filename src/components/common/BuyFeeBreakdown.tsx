@@ -39,15 +39,15 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 				role="alert"
 				data-testid="buy-fee-breakdown-error"
 			>
-				<AlertCircle className="h-4 w-4 flex-shrink-0 text-red-400 mt-0.5" />
+				<AlertCircle className="h-4 w-4 flex-shrink-0 text-red-600 dark:text-red-400 mt-0.5" />
 				<div className="flex-1 min-w-0">
-					<p className="text-xs text-red-300 mb-2">{error}</p>
+					<p className="text-xs text-red-700 dark:text-red-300 mb-2">{error}</p>
 					<Button
 						type="button"
 						variant="ghost"
 						size="sm"
 						onClick={onRetry}
-						className="text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10 p-1 h-auto"
+						className="text-xs text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-500/10 p-1 h-auto"
 						data-testid="buy-fee-breakdown-retry"
 					>
 						<RotateCcw className="h-3 w-3 mr-1" />
@@ -67,12 +67,12 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 				data-testid="buy-fee-breakdown-loading"
 			>
 				<div className="flex justify-between items-center">
-					<span className="text-xs text-white/60">Calculating fees…</span>
-					<span className="h-3 w-16 bg-white/10 rounded animate-pulse" />
+					<span className="text-xs text-foreground/60">Calculating fees…</span>
+					<span className="h-3 w-16 bg-foreground/10 rounded animate-pulse" />
 				</div>
 				<div className="flex justify-between items-center">
-					<span className="text-xs text-white/60">Protocol fee</span>
-					<span className="h-3 w-12 bg-white/10 rounded animate-pulse" />
+					<span className="text-xs text-foreground/60">Protocol fee</span>
+					<span className="h-3 w-12 bg-foreground/10 rounded animate-pulse" />
 				</div>
 			</div>
 		);
@@ -87,7 +87,7 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 
 	return (
 		<div
-			className="space-y-2 rounded-lg border border-white/10 bg-white/[0.02] p-3"
+			className="space-y-2 rounded-lg border border-foreground/10 bg-foreground/[0.02] p-3"
 			data-testid="buy-fee-breakdown"
 		>
 			{/* Base Price row */}
@@ -95,8 +95,8 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 				className="flex justify-between items-center text-xs"
 				data-testid="buy-fee-breakdown-gross"
 			>
-				<span className="text-white/70">Base Price</span>
-				<span className="font-mono text-white/90">
+				<span className="text-foreground/70">Base Price</span>
+				<span className="font-mono text-foreground/90">
 					{formatDisplayKeyPrice(breakdown.grossCostStroops)}
 				</span>
 			</div>
@@ -107,11 +107,11 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 					className="flex justify-between items-center text-xs"
 					data-testid="buy-fee-breakdown-protocol"
 				>
-					<span className="text-white/70 flex items-center gap-1">
+					<span className="text-foreground/70 flex items-center gap-1">
 						<span>Protocol Fee ({protocolFeePercentage}%)</span>
 						<Tooltip content="Protocol fees fund platform maintenance, network operations, and ecosystem development.">
 							<span
-								className="inline-flex cursor-help text-white/50 hover:text-white/80"
+								className="inline-flex cursor-help text-foreground/50 hover:text-foreground/80"
 								data-testid="protocol-fee-tooltip"
 								aria-label="Protocol Fee info"
 							>
@@ -119,7 +119,7 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 							</span>
 						</Tooltip>
 					</span>
-					<span className="font-mono text-white/90">
+					<span className="font-mono text-foreground/90">
 						{formatDisplayKeyPrice(breakdown.protocolFeeStroops)}
 					</span>
 				</div>
@@ -131,10 +131,10 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 					className="flex justify-between items-center text-xs"
 					data-testid="buy-fee-breakdown-creator"
 				>
-					<span className="text-white/70">
+					<span className="text-foreground/70">
 						Creator Royalty ({creatorFeePercentage}%)
 					</span>
-					<span className="font-mono text-white/90">
+					<span className="font-mono text-foreground/90">
 						{formatDisplayKeyPrice(breakdown.creatorFeeStroops)}
 					</span>
 				</div>
@@ -142,11 +142,11 @@ const BuyFeeBreakdown: React.FC<BuyFeeBreakdownProps> = ({
 
 			{/* Total row */}
 			<div
-				className="flex justify-between items-center text-xs pt-2 border-t border-white/10"
+				className="flex justify-between items-center text-xs pt-2 border-t border-foreground/10"
 				data-testid="buy-fee-breakdown-total"
 			>
-				<span className="font-semibold text-white">Total</span>
-				<span className="font-mono font-semibold text-amber-300/90">
+				<span className="font-semibold text-foreground">Total</span>
+				<span className="font-mono font-semibold text-amber-700/90 dark:text-amber-300/90">
 					{formatDisplayKeyPrice(breakdown.totalCostStroops)}
 				</span>
 			</div>

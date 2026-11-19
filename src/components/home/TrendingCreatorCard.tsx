@@ -16,7 +16,7 @@ export default function TrendingCreatorCard({ creator }: Props) {
 		: creator.price.toFixed(2);
 
 	return (
-		<article className="group relative overflow-hidden rounded-2xl border border-black/8 bg-white transition-all duration-300 hover:-translate-y-0.5">
+		<article className="group relative overflow-hidden rounded-2xl border border-black/8 bg-foreground transition-all duration-300 hover:-translate-y-0.5">
 			{/* Avatar */}
 			<div className="relative h-48 overflow-hidden bg-gray-50">
 				<img
@@ -66,7 +66,7 @@ export default function TrendingCreatorCard({ creator }: Props) {
 				{/* CTA */}
 				<Link
 					to={`/creator/${creator.id}`}
-					className="mt-4 flex w-full items-center justify-center gap-2 rounded-sm border border-gray-200 bg-gray-50 py-2.5 font-mono text-[9px] uppercase tracking-wider text-gray-600 transition-all hover:border-gray-900 hover:bg-gray-900 hover:text-white"
+					className="mt-4 flex w-full items-center justify-center gap-2 rounded-sm border border-gray-200 bg-gray-50 py-2.5 font-mono text-[9px] uppercase tracking-wider text-gray-600 transition-all hover:border-gray-900 hover:bg-gray-900 hover:text-foreground"
 				>
 					Buy Keys
 					<ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

@@ -26,9 +26,9 @@ export interface BundleCreateFormProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
-const labelClass = 'text-xs font-bold uppercase tracking-[0.18em] text-white/50';
+const labelClass = 'text-xs font-bold uppercase tracking-[0.18em] text-foreground/50';
 
 /**
  * Create-bundle form for the creator bundle management page.
@@ -176,11 +176,11 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 						{lines.map(line => (
 							<li
 								key={line.keyId}
-								className="flex flex-wrap items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2"
+								className="flex flex-wrap items-center gap-3 rounded-lg border border-foreground/10 bg-foreground/[0.03] px-3 py-2"
 								data-testid={`bundle-line-${line.keyId}`}
 							>
 								<span
-									className="min-w-0 flex-1 truncate text-sm text-white/80"
+									className="min-w-0 flex-1 truncate text-sm text-foreground/80"
 									data-testid="bundle-line-title"
 								>
 									{keyTitleById[line.keyId] ?? line.keyId}
@@ -188,7 +188,7 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 
 								<label
 									htmlFor={`bundle-quantity-${line.keyId}`}
-									className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+									className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 								>
 									Qty
 								</label>
@@ -224,7 +224,7 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 					<p
 						role="alert"
 						data-testid="bundle-items-error"
-						className="text-xs text-red-400"
+						className="text-xs text-red-600 dark:text-red-400"
 					>
 						{itemsError}
 					</p>
@@ -235,13 +235,13 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 				<div className="space-y-1.5">
 					<span className={labelClass}>List price</span>
 					<p
-						className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-sm text-white/70"
+						className="rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 font-mono text-sm text-foreground/70"
 						data-testid="bundle-list-price"
 					>
 						{formatXlmPrice(listPriceXlm)}
 					</p>
 					<p
-						className="text-xs text-white/45"
+						className="text-xs text-foreground/45"
 						data-testid="bundle-price-floor"
 					>
 						Minimum bundle price {formatXlmPrice(floorXlm)}
@@ -267,7 +267,7 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 						<p
 							role="alert"
 							data-testid="bundle-price-error"
-							className="text-xs text-red-400"
+							className="text-xs text-red-600 dark:text-red-400"
 						>
 							{priceError}
 						</p>
@@ -293,7 +293,7 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 						<p
 							role="alert"
 							data-testid="bundle-expiry-error"
-							className="text-xs text-red-400"
+							className="text-xs text-red-600 dark:text-red-400"
 						>
 							{expiryError}
 						</p>
@@ -303,7 +303,7 @@ const BundleCreateForm: React.FC<BundleCreateFormProps> = ({
 				<div className="space-y-1.5">
 					<span className={labelClass}>Buyer savings</span>
 					<p
-						className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-sm text-emerald-400"
+						className="rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 font-mono text-sm text-emerald-600 dark:text-emerald-400"
 						data-testid="bundle-savings"
 					>
 						{discountBps > 0

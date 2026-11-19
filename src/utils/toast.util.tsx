@@ -35,16 +35,16 @@ const showToast = {
 					aria-live="polite"
 					className={`${
 						t.visible ? 'animate-enter' : 'animate-leave'
-					} pointer-events-auto flex w-full max-w-sm rounded-xl border border-amber-500/20 bg-slate-900 shadow-xl shadow-amber-500/10`}
+					} pointer-events-auto flex w-full max-w-sm rounded-xl border border-amber-500/20 bg-surface-raised shadow-xl shadow-amber-500/10`}
 				>
 					<div className="flex w-full p-4 flex-col gap-3">
 						<div className="flex items-start">
 							<div className="flex-1">
-								<p className="font-jakarta text-sm font-bold text-white">
+								<p className="font-jakarta text-sm font-bold text-foreground">
 									{title}
 								</p>
 								{message && (
-									<p className="mt-1 font-jakarta text-sm text-white/60">
+									<p className="mt-1 font-jakarta text-sm text-foreground/60">
 										{message}
 									</p>
 								)}
@@ -54,7 +54,7 @@ const showToast = {
 							<TransactionHashRow
 								hash={txHash}
 								explorerUrl={explorerUrl}
-								className="mt-1 bg-white/5 rounded-lg px-2.5 py-1.5"
+								className="mt-1 bg-foreground/5 rounded-lg px-2.5 py-1.5"
 							/>
 						)}
 						{explorerUrl && (
@@ -62,7 +62,7 @@ const showToast = {
 								href={explorerUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-amber-400/80 underline-offset-2 hover:text-amber-300 hover:underline transition-colors"
+								className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-amber-600/80 dark:text-amber-400/80 underline-offset-2 hover:text-amber-700 dark:hover:text-amber-300 hover:underline transition-colors"
 							>
 								View on Stellar Expert
 							</a>

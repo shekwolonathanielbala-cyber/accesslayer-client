@@ -9,7 +9,7 @@ describe('Change24hBadge', () => {
 
 			const badge = screen.getByText('+5.25%');
 			expect(badge).toBeInTheDocument();
-			expect(badge.closest('div')).toHaveClass('text-emerald-400');
+			expect(badge.closest('div')).toHaveClass('text-emerald-600 dark:text-emerald-400');
 		});
 
 		it('formats positive value to two decimal places with sign', () => {
@@ -31,7 +31,7 @@ describe('Change24hBadge', () => {
 
 			const badge = screen.getByText('-2.1%');
 			expect(badge).toBeInTheDocument();
-			expect(badge.closest('div')).toHaveClass('text-red-400');
+			expect(badge.closest('div')).toHaveClass('text-red-600 dark:text-red-400');
 		});
 
 		it('formats negative value to two decimal places', () => {
@@ -53,7 +53,7 @@ describe('Change24hBadge', () => {
 
 			const badge = screen.getByText('0%');
 			expect(badge).toBeInTheDocument();
-			expect(badge.closest('div')).toHaveClass('text-white/40');
+			expect(badge.closest('div')).toHaveClass('text-foreground/40');
 		});
 
 		it('shows Minus icon for zero change', () => {

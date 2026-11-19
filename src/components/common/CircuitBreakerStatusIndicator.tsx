@@ -71,10 +71,10 @@ export const CircuitBreakerStatusIndicator: React.FC<
 	// Tone styling based on status level
 	const impactToneClass =
 		status.level === 'breached'
-			? 'text-rose-400 font-bold'
+			? 'text-rose-600 dark:text-rose-400 font-bold'
 			: status.level === 'approaching'
-				? 'text-amber-300 font-semibold'
-				: 'text-emerald-400 font-medium';
+				? 'text-amber-700 dark:text-amber-300 font-semibold'
+				: 'text-emerald-600 dark:text-emerald-400 font-medium';
 
 	return (
 		<div
@@ -87,7 +87,7 @@ export const CircuitBreakerStatusIndicator: React.FC<
 				className="flex items-center justify-between text-xs"
 				data-testid="circuit-breaker-impact-row"
 			>
-				<div className="flex items-center gap-1.5 text-white/60">
+				<div className="flex items-center gap-1.5 text-foreground/60">
 					<span>Price impact</span>
 					{/* Circuit Breaker Protection Info Tooltip */}
 					<span className="relative inline-flex items-center">
@@ -103,7 +103,7 @@ export const CircuitBreakerStatusIndicator: React.FC<
 							onClick={toggleTooltip}
 							onKeyDown={handleKeyDown}
 							data-testid="circuit-breaker-tooltip-trigger"
-							className="inline-flex size-4 items-center justify-center rounded-full text-white/50 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+							className="inline-flex size-4 items-center justify-center rounded-full text-foreground/50 transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
 						>
 							<Info className="size-3" aria-hidden="true" />
 						</button>
@@ -112,7 +112,7 @@ export const CircuitBreakerStatusIndicator: React.FC<
 								id={tooltipId}
 								role="tooltip"
 								data-testid="circuit-breaker-tooltip-content"
-								className="absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-lg border border-white/10 bg-slate-950/95 px-3 py-2 text-[0.7rem] font-normal leading-relaxed text-white/90 shadow-xl backdrop-blur-md"
+								className="absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-lg border border-foreground/10 bg-surface-raised px-3 py-2 text-[0.7rem] font-normal leading-relaxed text-foreground/90 shadow-xl backdrop-blur-md"
 							>
 								{CIRCUIT_BREAKER_TOOLTIP_EXPLANATION}
 							</span>
@@ -122,7 +122,7 @@ export const CircuitBreakerStatusIndicator: React.FC<
 
 				<div className="flex items-center gap-1 font-mono">
 					{status.level === 'normal' && (
-						<ShieldCheck className="size-3 text-emerald-400/80" aria-hidden="true" />
+						<ShieldCheck className="size-3 text-emerald-600/80 dark:text-emerald-400/80" aria-hidden="true" />
 					)}
 					<span
 						className={cn('tabular-nums', impactToneClass)}
@@ -138,19 +138,19 @@ export const CircuitBreakerStatusIndicator: React.FC<
 				<div
 					role="alert"
 					data-testid="circuit-breaker-warning-banner"
-					className="flex items-start gap-2.5 rounded-xl border border-amber-500/40 bg-amber-500/10 p-2.5 text-xs text-amber-200"
+					className="flex items-start gap-2.5 rounded-xl border border-amber-500/40 bg-amber-500/10 p-2.5 text-xs text-amber-700 dark:text-amber-200"
 				>
 					<AlertTriangle
-						className="size-4 shrink-0 text-amber-400 mt-0.5"
+						className="size-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5"
 						aria-hidden="true"
 					/>
 					<div className="space-y-0.5">
-						<p className="font-semibold text-amber-300">
+						<p className="font-semibold text-amber-700 dark:text-amber-300">
 							Approaching Circuit Breaker Limit ({status.thresholdPercent}%)
 						</p>
-						<p className="text-white/70 leading-relaxed">
+						<p className="text-foreground/70 leading-relaxed">
 							This trade has an estimated price impact of{' '}
-							<strong className="text-amber-200">{formattedImpact}</strong>. Orders
+							<strong className="text-amber-700 dark:text-amber-200">{formattedImpact}</strong>. Orders
 							reaching or exceeding {status.thresholdPercent}% will be halted to
 							protect against excessive price slippage.
 						</p>
@@ -163,19 +163,19 @@ export const CircuitBreakerStatusIndicator: React.FC<
 				<div
 					role="alert"
 					data-testid="circuit-breaker-breach-banner"
-					className="flex items-start gap-2.5 rounded-xl border border-rose-500/50 bg-rose-500/15 p-2.5 text-xs text-rose-200"
+					className="flex items-start gap-2.5 rounded-xl border border-rose-500/50 bg-rose-500/15 p-2.5 text-xs text-rose-700 dark:text-rose-200"
 				>
 					<AlertOctagon
-						className="size-4 shrink-0 text-rose-400 mt-0.5"
+						className="size-4 shrink-0 text-rose-600 dark:text-rose-400 mt-0.5"
 						aria-hidden="true"
 					/>
 					<div className="space-y-0.5">
-						<p className="font-bold text-rose-300">
+						<p className="font-bold text-rose-700 dark:text-rose-300">
 							Circuit Breaker Triggered ({status.thresholdPercent}%)
 						</p>
-						<p className="text-white/75 leading-relaxed">
+						<p className="text-foreground/75 leading-relaxed">
 							The current order causes a price impact of{' '}
-							<strong className="text-rose-200">{formattedImpact}</strong>, which
+							<strong className="text-rose-700 dark:text-rose-200">{formattedImpact}</strong>, which
 							exceeds the key&apos;s configured threshold of{' '}
 							{status.thresholdPercent}%. Purchases are blocked to protect buyers
 							from extreme slippage.

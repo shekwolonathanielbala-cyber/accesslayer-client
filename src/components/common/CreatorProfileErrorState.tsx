@@ -36,13 +36,13 @@ export const CreatorProfileErrorState: React.FC<CreatorProfileErrorStateProps> =
 			aria-live="polite"
 			className="marketplace-card-surface flex min-h-[18rem] flex-col items-center justify-center rounded-[2rem] border border-red-500/20 bg-red-500/5 p-6 text-center shadow-[0_24px_80px_-60px_rgba(8,17,31,0.95)] md:p-8"
 		>
-			<div className="mb-4 rounded-full border border-red-400/25 bg-red-500/10 p-3 text-red-200">
+			<div className="mb-4 rounded-full border border-red-400/25 bg-red-500/10 p-3 text-red-700 dark:text-red-200">
 				<AlertCircle className="size-6" aria-hidden="true" />
 			</div>
-			<h2 className="font-grotesque text-2xl font-black tracking-tight text-white">
+			<h2 className="font-grotesque text-2xl font-black tracking-tight text-foreground">
 				{title}
 			</h2>
-			<p className="mt-2 max-w-md font-jakarta text-sm leading-relaxed text-white/60">
+			<p className="mt-2 max-w-md font-jakarta text-sm leading-relaxed text-foreground/60">
 				{errorMessage}
 			</p>
 			{onRetry && (
@@ -51,7 +51,7 @@ export const CreatorProfileErrorState: React.FC<CreatorProfileErrorStateProps> =
 					variant="outline"
 					onClick={onRetry}
 					disabled={isRetrying}
-					className="mt-5 rounded-xl border-white/10 bg-white/5 px-5 font-bold text-white transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
+					className="mt-5 rounded-xl border-foreground/10 bg-foreground/5 px-5 font-bold text-foreground transition-all hover:border-amber-500/30 hover:bg-amber-500/10"
 				>
 					<RefreshCw
 						className={isRetrying ? 'size-4 animate-spin' : 'size-4'}

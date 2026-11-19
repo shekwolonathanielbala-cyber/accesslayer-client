@@ -23,7 +23,7 @@ export interface GraduatedCurvePanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 function getMilestoneError(milestones: MilestoneInput[]): string | null {
 	let previousSupply = 0;
@@ -127,7 +127,7 @@ const GraduatedCurvePanel: React.FC<GraduatedCurvePanelProps> = ({
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6" noValidate data-testid="graduated-curve-panel">
 			<div className="space-y-3">
-				<div className="grid grid-cols-[1fr_1fr_auto] gap-3 text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+				<div className="grid grid-cols-[1fr_1fr_auto] gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/50">
 					<span>Supply threshold</span>
 					<span>Exponent</span>
 					<span className="sr-only">Milestone actions</span>
@@ -193,7 +193,7 @@ const GraduatedCurvePanel: React.FC<GraduatedCurvePanelProps> = ({
 
 			{(showError || errorMessage === 'Supply thresholds must be in ascending order') &&
 				errorMessage && (
-				<p role="alert" data-testid="graduated-curve-error" className="text-xs text-red-400">
+				<p role="alert" data-testid="graduated-curve-error" className="text-xs text-red-600 dark:text-red-400">
 					{errorMessage}
 				</p>
 			)}
@@ -201,7 +201,7 @@ const GraduatedCurvePanel: React.FC<GraduatedCurvePanelProps> = ({
 			<div className="space-y-2" data-testid="graduated-curve-preview">
 				<div>
 					<h3 className="font-grotesque text-base font-black">Price preview</h3>
-					<p className="text-xs text-white/40">Estimated price steps across the configured supply tiers.</p>
+					<p className="text-xs text-foreground/40">Estimated price steps across the configured supply tiers.</p>
 				</div>
 				<BondingCurveChart data={previewData} height={260} />
 			</div>

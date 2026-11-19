@@ -29,10 +29,10 @@ function NotFoundPage() {
 	};
 
 	return (
-		<main className="min-h-screen overflow-hidden bg-[#06111f] text-white">
+		<main className="min-h-screen overflow-hidden bg-surface text-foreground">
 			<section className="relative flex min-h-screen items-center px-6 py-16">
 				<div
-					className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.2),transparent_30%),linear-gradient(135deg,rgba(6,17,31,0.98),rgba(12,33,58,0.95))]"
+					className="absolute inset-0 bg-[image:var(--page-scrim)]"
 					aria-hidden="true"
 				/>
 				<div
@@ -41,18 +41,18 @@ function NotFoundPage() {
 				/>
 
 				<div className="relative mx-auto w-full max-w-4xl">
-					<div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 font-jakarta text-sm font-bold text-amber-100">
+					<div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 font-jakarta text-sm font-bold text-amber-700 dark:text-amber-100">
 						<Compass className="size-4" aria-hidden="true" />
 						Page not found
 					</div>
 
-					<p className="font-jakarta text-sm font-black uppercase tracking-[0.28em] text-amber-200/80">
+					<p className="font-jakarta text-sm font-black uppercase tracking-[0.28em] text-amber-700/80 dark:text-amber-200/80">
 						Access Layer
 					</p>
 					<h1 className="mt-4 max-w-3xl font-grotesque text-5xl font-black leading-none tracking-tight sm:text-6xl md:text-7xl">
 						Page not found
 					</h1>
-					<p className="mt-6 max-w-2xl font-jakarta text-base leading-8 text-white/70 sm:text-lg">
+					<p className="mt-6 max-w-2xl font-jakarta text-base leading-8 text-foreground/70 sm:text-lg">
 						The page you are looking for doesn't exist or has been moved.
 						Return to the marketplace or search for creators below.
 					</p>
@@ -66,12 +66,12 @@ function NotFoundPage() {
 					>
 						<div className="relative">
 							<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-								<Search className="size-5 text-white/50" aria-hidden="true" />
+								<Search className="size-5 text-foreground/50" aria-hidden="true" />
 							</div>
 							<input
 								type="text"
 								aria-label="Search keys"
-								className="block w-full rounded-xl border border-white/10 bg-white/5 py-3 pl-10 pr-10 text-sm text-white placeholder:text-white/40 focus:border-amber-500/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+								className="block w-full rounded-xl border border-foreground/10 bg-foreground/5 py-3 pl-10 pr-10 text-sm text-foreground placeholder:text-foreground/40 focus:border-amber-500/50 focus:bg-foreground/10 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
 								placeholder="Search keys by creator name..."
 								value={searchQuery}
 								onChange={e => setSearchQuery(e.target.value)}
@@ -80,7 +80,7 @@ function NotFoundPage() {
 						<Button
 							type="submit"
 							variant="outline"
-							className="mt-3 h-10 rounded-xl border-white/15 bg-white/5 px-5 font-jakarta text-sm font-bold text-white/80 hover:border-white/30 hover:bg-white/10 hover:text-white"
+							className="mt-3 h-10 rounded-xl border-foreground/15 bg-foreground/5 px-5 font-jakarta text-sm font-bold text-foreground/80 hover:border-foreground/30 hover:bg-foreground/10 hover:text-foreground"
 						>
 							Search
 						</Button>

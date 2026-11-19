@@ -37,7 +37,7 @@ const CreatorHandleHoverCard: React.FC<CreatorHandleHoverCardProps> = ({
 			<HoverCardTrigger asChild>
 				<span
 					className={cn(
-						'cursor-pointer border-b border-dotted border-white/20 transition-colors hover:border-amber-400/50',
+						'cursor-pointer border-b border-dotted border-foreground/20 transition-colors hover:border-amber-400/50',
 						className
 					)}
 				>
@@ -47,11 +47,11 @@ const CreatorHandleHoverCard: React.FC<CreatorHandleHoverCardProps> = ({
 			<HoverCardContent
 				side="top"
 				align="center"
-				className="w-56 border-white/10 bg-slate-900/95 backdrop-blur-xl"
+				className="w-56 border-foreground/10 bg-surface-raised backdrop-blur-xl"
 			>
 				<div className="space-y-3">
 					<div className="flex items-center gap-2">
-						<span className="font-jakarta text-sm font-semibold text-white">
+						<span className="font-jakarta text-sm font-semibold text-foreground">
 							{handle}
 						</span>
 						{isVerified && <VerifiedBadge verified className="shrink-0" />}
@@ -60,26 +60,26 @@ const CreatorHandleHoverCard: React.FC<CreatorHandleHoverCardProps> = ({
 					{hasStats && (
 						<div className="grid grid-cols-2 gap-2">
 							{volume24h !== undefined && (
-								<div className="rounded-lg bg-white/[0.06] px-2.5 py-1.5">
-									<p className="text-[10px] uppercase tracking-[0.12em] text-white/42">
+								<div className="rounded-lg bg-foreground/[0.06] px-2.5 py-1.5">
+									<p className="text-[10px] uppercase tracking-[0.12em] text-foreground/42">
 										Volume 24h
 									</p>
-									<p className="font-jakarta text-sm font-semibold text-white">
+									<p className="font-jakarta text-sm font-semibold text-foreground">
 										{formatCompactNumber(volume24h)} ETH
 									</p>
 								</div>
 							)}
 							{change24h !== undefined && (
-								<div className="rounded-lg bg-white/[0.06] px-2.5 py-1.5">
-									<p className="text-[10px] uppercase tracking-[0.12em] text-white/42">
+								<div className="rounded-lg bg-foreground/[0.06] px-2.5 py-1.5">
+									<p className="text-[10px] uppercase tracking-[0.12em] text-foreground/42">
 										24h Change
 									</p>
 									<p
 										className={cn(
 											'font-jakarta text-sm font-semibold',
-											change24h > 0 && 'text-emerald-400',
-											change24h < 0 && 'text-red-400',
-											change24h === 0 && 'text-white'
+											change24h > 0 && 'text-emerald-600 dark:text-emerald-400',
+											change24h < 0 && 'text-red-600 dark:text-red-400',
+											change24h === 0 && 'text-foreground'
 										)}
 									>
 										{formatPercent(change24h, { signed: true })}
@@ -87,11 +87,11 @@ const CreatorHandleHoverCard: React.FC<CreatorHandleHoverCardProps> = ({
 								</div>
 							)}
 							{creatorShareSupply !== undefined && (
-								<div className="rounded-lg bg-white/[0.06] px-2.5 py-1.5">
-									<p className="text-[10px] uppercase tracking-[0.12em] text-white/42">
+								<div className="rounded-lg bg-foreground/[0.06] px-2.5 py-1.5">
+									<p className="text-[10px] uppercase tracking-[0.12em] text-foreground/42">
 										Supply
 									</p>
-									<p className="font-jakarta text-sm font-semibold text-white">
+									<p className="font-jakarta text-sm font-semibold text-foreground">
 										{formatCompactNumber(creatorShareSupply)}
 									</p>
 								</div>

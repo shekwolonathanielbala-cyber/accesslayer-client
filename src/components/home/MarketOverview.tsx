@@ -18,7 +18,7 @@ export default function MarketOverview() {
 	return (
 		<section
 			aria-labelledby="market-overview-heading"
-			className="relative w-full border-y border-white/10 bg-[#060c14] py-12 px-6"
+			className="relative w-full border-y border-foreground/10 bg-surface-raised py-12 px-6"
 		>
 			<div className="mx-auto max-w-5xl">
 				{/* Section Header */}
@@ -26,18 +26,18 @@ export default function MarketOverview() {
 					<div>
 						<div className="flex items-center gap-2">
 							<span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-							<span className="font-mono text-xs uppercase tracking-widest text-white/50">
+							<span className="font-mono text-xs uppercase tracking-widest text-foreground/50">
 								Protocol Metrics
 							</span>
 						</div>
 						<h2
 							id="market-overview-heading"
-							className="mt-2 font-pt-serif text-2xl font-normal text-white md:text-3xl"
+							className="mt-2 font-pt-serif text-2xl font-normal text-foreground md:text-3xl"
 						>
 							Market Overview
 						</h2>
 					</div>
-					<p className="font-jakarta text-xs text-white/40 max-w-xs sm:text-right">
+					<p className="font-jakarta text-xs text-foreground/40 max-w-xs sm:text-right">
 						Live protocol stats updated automatically every 5 minutes.
 					</p>
 				</div>
@@ -51,14 +51,14 @@ export default function MarketOverview() {
 						{Array.from({ length: 4 }).map((_, i) => (
 							<div
 								key={i}
-								className="flex h-[130px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md"
+								className="flex h-[130px] flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md"
 							>
 								<div className="flex items-center justify-between">
-									<Skeleton className="h-4 w-24 bg-white/10" />
-									<Skeleton className="size-8 rounded-full bg-white/10" />
+									<Skeleton className="h-4 w-24 bg-foreground/10" />
+									<Skeleton className="size-8 rounded-full bg-foreground/10" />
 								</div>
-								<Skeleton className="h-8 w-32 bg-white/10" />
-								<Skeleton className="h-4 w-16 bg-white/10" />
+								<Skeleton className="h-8 w-32 bg-foreground/10" />
+								<Skeleton className="h-4 w-16 bg-foreground/10" />
 							</div>
 						))}
 					</div>
@@ -68,12 +68,12 @@ export default function MarketOverview() {
 						data-testid="market-overview-error"
 						className="flex w-full flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-red-500/30 bg-red-500/5 p-8 text-center"
 					>
-						<AlertCircle className="size-8 text-red-400" />
+						<AlertCircle className="size-8 text-red-600 dark:text-red-400" />
 						<div>
-							<h3 className="font-semibold text-white">
+							<h3 className="font-semibold text-foreground">
 								Unable to load market overview
 							</h3>
-							<p className="mt-1 text-xs text-white/60">
+							<p className="mt-1 text-xs text-foreground/60">
 								{error?.message ||
 									'Failed to fetch protocol statistics.'}
 							</p>
@@ -82,7 +82,7 @@ export default function MarketOverview() {
 							variant="outline"
 							size="sm"
 							onClick={() => refetch()}
-							className="mt-2 gap-2 border-white/20 bg-white/5 text-white hover:bg-white/10"
+							className="mt-2 gap-2 border-foreground/20 bg-foreground/5 text-foreground hover:bg-foreground/10"
 						>
 							<RefreshCw className="size-3.5" />
 							Try Again
@@ -96,18 +96,18 @@ export default function MarketOverview() {
 						{/* Stat 1: Total Volume */}
 						<div
 							data-testid="stat-card-total-volume"
-							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.05]"
+							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md transition-all hover:border-foreground/20 hover:bg-foreground/[0.05]"
 						>
 							<div className="flex items-center justify-between">
-								<span className="font-jakarta text-xs font-medium text-white/50">
+								<span className="font-jakarta text-xs font-medium text-foreground/50">
 									Total Volume
 								</span>
-								<div className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-emerald-400">
+								<div className="flex size-8 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-emerald-600 dark:text-emerald-400">
 									<Coins className="size-4" />
 								</div>
 							</div>
 							<div className="flex items-baseline justify-between gap-2">
-								<span className="font-mono text-2xl font-bold tracking-tight text-white">
+								<span className="font-mono text-2xl font-bold tracking-tight text-foreground">
 									{formatCompactNumber(data.totalVolume)} XLM
 								</span>
 								{data.volumeChange24h !== undefined && (
@@ -119,17 +119,17 @@ export default function MarketOverview() {
 						{/* Stat 2: Active Keys */}
 						<div
 							data-testid="stat-card-active-keys"
-							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.05]"
+							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md transition-all hover:border-foreground/20 hover:bg-foreground/[0.05]"
 						>
 							<div className="flex items-center justify-between">
-								<span className="font-jakarta text-xs font-medium text-white/50">
+								<span className="font-jakarta text-xs font-medium text-foreground/50">
 									Active Keys
 								</span>
-								<div className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400">
+								<div className="flex size-8 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-amber-600 dark:text-amber-400">
 									<KeyRound className="size-4" />
 								</div>
 							</div>
-							<span className="font-mono text-2xl font-bold tracking-tight text-white">
+							<span className="font-mono text-2xl font-bold tracking-tight text-foreground">
 								{formatNumber(data.activeKeys)}
 							</span>
 						</div>
@@ -137,17 +137,17 @@ export default function MarketOverview() {
 						{/* Stat 3: Total Holders */}
 						<div
 							data-testid="stat-card-total-holders"
-							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.05]"
+							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md transition-all hover:border-foreground/20 hover:bg-foreground/[0.05]"
 						>
 							<div className="flex items-center justify-between">
-								<span className="font-jakarta text-xs font-medium text-white/50">
+								<span className="font-jakarta text-xs font-medium text-foreground/50">
 									Total Holders
 								</span>
-								<div className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-indigo-400">
+								<div className="flex size-8 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-indigo-600 dark:text-indigo-400">
 									<Users className="size-4" />
 								</div>
 							</div>
-							<span className="font-mono text-2xl font-bold tracking-tight text-white">
+							<span className="font-mono text-2xl font-bold tracking-tight text-foreground">
 								{formatNumber(data.totalHolders)}
 							</span>
 						</div>
@@ -155,18 +155,18 @@ export default function MarketOverview() {
 						{/* Stat 4: 24h Trades */}
 						<div
 							data-testid="stat-card-24h-trades"
-							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.05]"
+							className="group flex h-[130px] flex-col justify-between rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 backdrop-blur-md transition-all hover:border-foreground/20 hover:bg-foreground/[0.05]"
 						>
 							<div className="flex items-center justify-between">
-								<span className="font-jakarta text-xs font-medium text-white/50">
+								<span className="font-jakarta text-xs font-medium text-foreground/50">
 									24h Trades
 								</span>
-								<div className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sky-400">
+								<div className="flex size-8 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-sky-600 dark:text-sky-400">
 									<Activity className="size-4" />
 								</div>
 							</div>
 							<div className="flex items-baseline justify-between gap-2">
-								<span className="font-mono text-2xl font-bold tracking-tight text-white">
+								<span className="font-mono text-2xl font-bold tracking-tight text-foreground">
 									{formatNumber(data.trades24h)}
 								</span>
 								{data.tradesChange24h !== undefined && (

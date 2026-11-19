@@ -79,7 +79,7 @@ export default function AtomicSwapCreatePage() {
   }, [hasHoldings]);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(160deg,#08111f_0%,#10213b_45%,#f0b14d_160%)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
+    <div className="relative min-h-screen overflow-x-hidden bg-[image:var(--page-gradient)] px-6 pt-12 pb-28 md:px-12 md:pb-12">
       <div className="absolute left-[-4rem] top-[10%] size-72 rounded-full bg-amber-300/20 blur-[100px]" />
       <div className="absolute bottom-[8%] right-[-3rem] size-72 rounded-full bg-emerald-300/15 blur-[100px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,186,73,0.1),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(74,222,128,0.08),transparent_35%)]" />
@@ -92,11 +92,11 @@ export default function AtomicSwapCreatePage() {
             </Button>
             <div />
           </div>
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-400/80">Direct Key Exchange</p>
-          <h1 className="mb-4 font-grotesque text-[clamp(2rem,6vw,3.5rem)] font-extrabold leading-[1.1] tracking-tight text-white">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-amber-600/80 dark:text-amber-400/80">Direct Key Exchange</p>
+          <h1 className="mb-4 font-grotesque text-[clamp(2rem,6vw,3.5rem)] font-extrabold leading-[1.1] tracking-tight text-foreground">
             Atomic Swap Proposals
           </h1>
-          <p className="max-w-2xl mx-auto text-white/60">
+          <p className="max-w-2xl mx-auto text-foreground/60">
             Create trustless, atomic key exchange proposals. Both sides of the swap execute simultaneously —
             or neither does. Share a link with your counterparty to complete the exchange.
           </p>
@@ -107,11 +107,11 @@ export default function AtomicSwapCreatePage() {
           <MarketplaceSection spacing="default" className="marketplace-card-surface rounded-[2rem] border p-6 md:p-8">
             <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-300/80">Portfolio value</p>
-                <div className="flex items-center gap-2 font-grotesque text-2xl font-black text-white md:text-3xl">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-700/80 dark:text-amber-300/80">Portfolio value</p>
+                <div className="flex items-center gap-2 font-grotesque text-2xl font-black text-foreground md:text-3xl">
                   {portfolioValueDisplay}
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-white/55">{portfolioValueHelperText}</p>
+                <p className="mt-2 text-xs leading-relaxed text-foreground/55">{portfolioValueHelperText}</p>
               </div>
             </div>
 
@@ -149,13 +149,13 @@ export default function AtomicSwapCreatePage() {
             {!hasHoldings ? (
               <div className="text-center py-12">
                 <div className="mx-auto mb-4 size-16 rounded-full bg-amber-400/10 flex items-center justify-center">
-                  <svg className="size-8 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg className="size-8 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                     <path d="M12 6v6l4 2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">No keys to swap</h3>
-                <p className="text-white/60 max-w-xs mx-auto">You need to own at least one creator key before you can create an atomic swap proposal.</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">No keys to swap</h3>
+                <p className="text-foreground/60 max-w-xs mx-auto">You need to own at least one creator key before you can create an atomic swap proposal.</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -177,7 +177,7 @@ export default function AtomicSwapCreatePage() {
                   </svg>
                   Create Swap Proposal
                 </Button>
-                <p className="text-xs text-white/50 text-center sm:text-left">
+                <p className="text-xs text-foreground/50 text-center sm:text-left">
                   The counterparty will need to connect their wallet and accept the proposal to execute the atomic swap.
                 </p>
               </div>

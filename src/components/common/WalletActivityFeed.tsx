@@ -35,17 +35,17 @@ const FILTER_TABS: FilterTab[] = [
 function SkeletonItem() {
 	return (
 		<div
-			className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 pl-5"
+			className="flex items-center gap-3 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] p-4 pl-5"
 			aria-hidden="true"
 		>
-			<div className="size-9 shrink-0 animate-pulse rounded-full bg-white/10" />
+			<div className="size-9 shrink-0 animate-pulse rounded-full bg-foreground/10" />
 			<div className="flex-1 space-y-2">
-				<div className="h-4 w-1/3 animate-pulse rounded bg-white/10" />
-				<div className="h-3 w-1/2 animate-pulse rounded bg-white/10" />
+				<div className="h-4 w-1/3 animate-pulse rounded bg-foreground/10" />
+				<div className="h-3 w-1/2 animate-pulse rounded bg-foreground/10" />
 			</div>
 			<div className="space-y-1 text-right">
-				<div className="h-3 w-16 animate-pulse rounded bg-white/10" />
-				<div className="h-3 w-20 animate-pulse rounded bg-white/10" />
+				<div className="h-3 w-16 animate-pulse rounded bg-foreground/10" />
+				<div className="h-3 w-20 animate-pulse rounded bg-foreground/10" />
 			</div>
 		</div>
 	);
@@ -152,12 +152,12 @@ const WalletActivityFeed: React.FC<WalletActivityFeedProps> = ({ address }) => {
 		return (
 			<div
 				data-testid="activity-feed-empty"
-				className="flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.02] py-14 text-center"
+				className="flex flex-col items-center gap-3 rounded-2xl border border-foreground/10 bg-foreground/[0.02] py-14 text-center"
 			>
-				<div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/30">
+				<div className="flex size-12 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-foreground/30">
 					<History className="size-6" aria-hidden="true" />
 				</div>
-				<p className="text-sm text-white/50">
+				<p className="text-sm text-foreground/50">
 					No activity yet — buy, stake, or vote to get started
 				</p>
 			</div>
@@ -175,9 +175,9 @@ const WalletActivityFeed: React.FC<WalletActivityFeedProps> = ({ address }) => {
 				{showFilteredEmpty ? (
 					<div
 						data-testid="activity-feed-filter-empty"
-						className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.02] py-10 text-center"
+						className="flex flex-col items-center gap-2 rounded-2xl border border-foreground/10 bg-foreground/[0.02] py-10 text-center"
 					>
-						<p className="text-sm text-white/50">
+						<p className="text-sm text-foreground/50">
 							No{' '}
 							{FILTER_TABS.find(
 								t => t.value === activeFilter
@@ -259,8 +259,8 @@ function FilterBar({ active, onChange, disabled = false }: FilterBarProps) {
 						'focus-visible:ring-2 focus-visible:ring-amber-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06111f]',
 						'disabled:cursor-not-allowed disabled:opacity-40',
 						active === tab.value
-							? 'border-amber-400/30 bg-amber-400/15 text-white'
-							: 'border-white/10 bg-white/[0.06] text-white/60 hover:border-white/20 hover:bg-white/10 hover:text-white/80'
+							? 'border-amber-400/30 bg-amber-400/15 text-foreground'
+							: 'border-foreground/10 bg-foreground/[0.06] text-foreground/60 hover:border-foreground/20 hover:bg-foreground/10 hover:text-foreground/80'
 					)}
 				>
 					{tab.label}

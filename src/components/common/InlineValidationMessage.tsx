@@ -13,12 +13,12 @@ const InlineValidationMessage: React.FC<InlineValidationMessageProps> = ({
 	return (
 		<p
 			className={cn(
-				'mt-2 inline-flex items-start gap-1.5 text-xs font-medium text-amber-200/90',
+				'mt-2 inline-flex items-start gap-1.5 text-xs font-medium text-amber-700/90 dark:text-amber-200/90',
 				className
 			)}
 			role="status"
 		>
-			<AlertCircle className="mt-0.5 size-3.5 shrink-0 text-amber-300" />
+			<AlertCircle className="mt-0.5 size-3.5 shrink-0 text-amber-700 dark:text-amber-300" />
 			<span>{message}</span>
 		</p>
 	);

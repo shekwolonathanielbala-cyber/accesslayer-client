@@ -21,7 +21,7 @@ export interface DeprecateKeyPanelProps {
 }
 
 const fieldClass =
-	'w-full rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
+	'w-full rounded-md border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-foreground/30 outline-none transition-colors focus:border-amber-400/40 focus:ring-[3px] focus:ring-amber-400/20 disabled:opacity-50';
 
 /**
  * Key deprecation management panel for the creator dashboard settings tab.
@@ -69,16 +69,16 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 	if (isDeprecated) {
 		return (
 			<div
-				className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-6 text-white"
+				className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-6 text-foreground"
 				data-testid="key-deprecated-banner"
 			>
 				<div className="flex items-center gap-3">
-					<AlertTriangle className="size-6 shrink-0 text-amber-400" />
+					<AlertTriangle className="size-6 shrink-0 text-amber-600 dark:text-amber-400" />
 					<div>
-						<h3 className="font-grotesque text-lg font-bold text-amber-300">
+						<h3 className="font-grotesque text-lg font-bold text-amber-700 dark:text-amber-300">
 							Key deprecated
 						</h3>
-						<p className="mt-1 text-sm text-white/70">
+						<p className="mt-1 text-sm text-foreground/70">
 							This key has been deprecated. All new buys are disabled and
 							holders can redeem their keys for escrowed buyback value.
 						</p>
@@ -97,10 +97,10 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 		>
 			{/* Prominent warning box */}
 			<div
-				className="flex items-start gap-3 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-rose-200"
+				className="flex items-start gap-3 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-rose-700 dark:text-rose-200"
 				data-testid="deprecate-warning-box"
 			>
-				<AlertTriangle className="mt-0.5 size-5 shrink-0 text-rose-400" />
+				<AlertTriangle className="mt-0.5 size-5 shrink-0 text-rose-600 dark:text-rose-400" />
 				<div className="text-sm font-semibold">
 					Deprecating a key is irreversible. All new buys will be disabled.
 				</div>
@@ -111,7 +111,7 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 				<div className="space-y-1.5">
 					<label
 						htmlFor="buyback-price"
-						className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+						className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 					>
 						Buyback price (XLM per key)
 					</label>
@@ -130,12 +130,12 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 					/>
 				</div>
 
-				<div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-					<p className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">
+				<div className="rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3">
+					<p className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50">
 						Circulating Key Supply
 					</p>
 					<p
-						className="mt-1 font-jakarta text-sm font-bold text-white"
+						className="mt-1 font-jakarta text-sm font-bold text-foreground"
 						data-testid="circulating-supply-display"
 					>
 						{formatNumber(circulatingSupply)} keys
@@ -146,11 +146,11 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 			{/* Total Escrow Calculation Display */}
 			<div className="rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4">
 				<div className="flex items-center justify-between">
-					<span className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+					<span className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/60">
 						Total XLM Escrow Required
 					</span>
 					<span
-						className="font-mono text-base font-bold text-amber-300"
+						className="font-mono text-base font-bold text-amber-700 dark:text-amber-300"
 						data-testid="total-escrow-amount"
 					>
 						{totalEscrowRequired.toLocaleString(undefined, {
@@ -160,7 +160,7 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 						XLM
 					</span>
 				</div>
-				<p className="mt-1 text-xs text-white/40">
+				<p className="mt-1 text-xs text-foreground/40">
 					Calculation: {parsedBuybackPrice} XLM × {circulatingSupply}{' '}
 					circulating keys
 				</p>
@@ -169,7 +169,7 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 			{/* Insufficient Creator Balance Error */}
 			{isBalanceInsufficient && (
 				<div
-					className="flex items-center gap-2 text-xs font-semibold text-rose-400"
+					className="flex items-center gap-2 text-xs font-semibold text-rose-600 dark:text-rose-400"
 					role="alert"
 					data-testid="insufficient-balance-error"
 				>
@@ -186,7 +186,7 @@ const DeprecateKeyPanel: React.FC<DeprecateKeyPanelProps> = ({
 			<div className="space-y-1.5">
 				<label
 					htmlFor="deprecate-confirm"
-					className="text-xs font-bold uppercase tracking-[0.18em] text-white/50"
+					className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/50"
 				>
 					Confirmation: Type &quot;DEPRECATE&quot; to submit
 				</label>

@@ -60,8 +60,8 @@ const WatchlistButton: React.FC<WatchlistButtonProps> = ({
 			className={cn(
 				'inline-flex items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950',
 				bookmarked
-					? 'border-amber-400/60 bg-amber-400/15 text-amber-300 hover:bg-amber-400/25'
-					: 'border-white/10 bg-slate-950/70 text-white/40 hover:bg-white/10 hover:text-white/70',
+					? 'border-amber-400/60 bg-amber-400/15 text-amber-700 dark:text-amber-300 hover:bg-amber-400/25'
+					: 'border-foreground/10 bg-surface-raised text-foreground/40 hover:bg-foreground/10 hover:text-foreground/70',
 				sizeClasses,
 				className
 			)}
