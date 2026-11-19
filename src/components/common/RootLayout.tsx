@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router';
 import MobileBottomNav from '@/components/common/MobileBottomNav';
+import { useRouteChangeLogging } from '@/hooks/useRouteChangeLogging';
 
 /**
  * Root layout shared by all routes.
@@ -9,6 +10,9 @@ import MobileBottomNav from '@/components/common/MobileBottomNav';
  * without each page having to include it individually.
  */
 export default function RootLayout() {
+	// Must run inside the router: `useRouteChangeLogging` reads `useLocation`.
+	useRouteChangeLogging();
+
 	return (
 		<>
 			<Outlet />
